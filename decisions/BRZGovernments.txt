@@ -1,0 +1,1206 @@
+country_decisions = {
+
+	restore_the_brazilian_monarchy = {
+	    major = yes
+		potential = {
+		    tag = BRZ
+			faction_in_power = partido_conservador_monarquista
+			NOT = { government = monarchy }
+			government = coronelist_republic
+			has_ruler_modifier = monarchist_president
+		}
+		
+		allow = {
+		    is_subject = no
+			is_at_war = no
+			NOT = { republican_tradition = 50 }
+			faction_influence = {
+			    faction = partido_conservador_monarquista
+				influence = 70
+			}
+			stability = 1
+		}
+		
+		effect = {
+		    custom_tooltip = "imperialfamilycomeback"
+		    country_event = { id = republicavelha.7 }
+			add_stability = -1
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+		
+		ai_importance = 0
+	}
+	
+	ban_the_pcb = {
+	    potential = {
+		    tag = BRZ
+			has_faction = partido_comunista_brasileiro
+			NOT = { has_country_modifier = pcb_banned }
+			NOT = { has_ruler_modifier = comunista_president }
+			NOT = { government = communist_dictatorship }
+			NOT = { government = socialist_republic }
+			OR = {
+    			NOT = { is_year = 1985 }
+				government = regime_militar
+		}
+		
+		allow = {
+			NOT = {
+			    faction_influence = {
+				    faction = partido_comunista_brasileiro
+					influence = 50
+				}
+			}
+		}
+		
+		effect = {
+		    add_country_modifier = {
+			    name = "pcb_banned"
+				duration = -1
+			}
+			add_stability = -1
+		}
+		
+		ai_will_do = {
+		    factor = 1
+		}
+		
+		ai_importance = 400
+	}
+	
+	legalize_pcb = {
+	    potential = {
+		    tag = BRZ
+			has_faction = partido_comunista_brasileiro
+			has_country_modifier = pcb_banned
+			NOT = { government = regime_militar }
+		}
+		
+		allow = {
+		    stability = 1
+		}
+		
+		effect = {
+		    remove_country_modifier = pcb_banned
+			add_stability = -1
+		}
+		
+		ai_will_do = {
+		    factor = 1
+			
+			modifier = {
+			    factor = 0
+				
+				NOT = { is_year = 1985 }
+			}
+		}
+		
+		ai_importance = 0
+	}
+	
+	brazilian_communist_regime = {
+	    potential = {
+		    tag = BRZ
+			has_faction = partido_comunista_brasileiro
+			NOT = { has_country_modifier = pcb_banned }
+			has_ruler_modifier = comunista_president
+			faction_in_power = partido_comunista_brasileiro
+			NOT = { government = communist_dictatorship }
+			NOT = { government = socialist_republic }
+			adm_tech = 83
+		}
+		
+		allow = {
+		    stability = 1
+			is_subject = no
+			is_at_war = no
+			faction_influence = {
+			    faction = partido_comunista_brasileiro
+				influence = 70
+			}
+			NOT = { republican_tradition = 50 }
+		}
+		
+		effect = {
+		    change_government = communist_dictatorship
+		    add_stability = -2
+			hidden_effect = {
+			    if = {
+				    limit = {
+				        has_faction = integralistas
+					}
+				    remove_faction = integralistas
+				}
+				if = {
+				    limit = {
+					    has_faction = partido_democratico_nacional
+					}
+					remove_faction = partido_democratico_nacional
+				}
+				if = {
+				    limit = {
+					    has_faction = partido_comunista_brasileiro
+					}
+					remove_faction = partido_comunista_brasileiro
+				}
+				if = {
+				    limit = {
+					    has_faction = partido_conservador_republicano
+					}
+					remove_faction = partido_conservador_republicano
+				}
+			}
+		}
+		
+		ai_will_do = {
+		    factor = 1
+		}
+		ai_importance = 400
+	}
+	
+	a_new_constitution = {
+	    potential = {
+		    tag = BRZ
+			has_faction = partido_democratico_nacional
+			has_ruler_modifier = democratic_president
+			NOT = { government = constitutional_republic }
+			faction_in_power = partido_democratico_nacional
+		}
+		
+		allow = {
+		    stability = 1
+			is_subject = no
+			is_at_war = no
+			faction_influence = {
+			    faction = partido_democratico_nacional
+				influence = 70
+			}
+			add_republican_tradition = 0.5
+		}
+		
+		effect = {
+		    if = {
+			    limit = {
+				    NOT = { adm_tech = 86 }
+				}
+		        change_government = constitutional_republic
+			}
+			if = {
+			    limit = {
+				    adm_tech = 86
+				}
+				change_government = presidental_republic
+			}
+			add_stability = -2
+			add_republican_tradition = 0.2
+		}
+		ai_will_do = {
+		    factor = 1
+		}
+		ai_importance = 400
+	}
+	
+	integral_state = {
+	    potential = {
+		    tag = BRZ
+			has_faction = integralistas
+			has_ruler_modifier = integralist_president
+			NOT = { government = integralist_state }
+			faction_in_power = integralistas
+			adm_tech = 84
+		}
+		
+		allow = {
+		    stability = 1
+			is_subject = no
+			is_at_war = no
+			faction_influence = {
+			    faction = integralistas
+				influence = 70
+			}
+
+		}
+		
+		effect = {
+		    change_government = integralist_state
+		    add_stability = -2
+			hidden_effect = {
+			    if = {
+				    limit = {
+				        has_faction = integralistas
+					}
+				    remove_faction = integralistas
+				}
+				if = {
+				    limit = {
+					    has_faction = partido_democratico_nacional
+					}
+					remove_faction = partido_democratico_nacional
+				}
+				if = {
+				    limit = {
+					    has_faction = partido_comunista_brasileiro
+					}
+					remove_faction = partido_comunista_brasileiro
+				}
+				if = {
+				    limit = {
+					    has_faction = partido_conservador_republicano
+					}
+					remove_faction = partido_conservador_republicano
+				}
+			}
+		}
+		
+		ai_will_do = {
+		    factor = 1
+		}
+		ai_importance = 400
+	}
+	
+	plano_cohen = {
+	    potential = {
+		    tag = BRZ
+			government = constitutional_republic
+			has_country_flag = vargas_constitutional_mandate
+			is_year = 1937
+		}
+		
+		allow = {
+		    stability = 1
+			is_subject = no
+			is_at_war = no
+			faction_influence = {
+			    faction = integralistas
+				influence = 70
+			}
+		}
+		
+		effect = {
+		    change_government = estado_novo
+			add_stability = -2
+			clr_country_flag = vargas_constitutional_mandate
+			hidden_effect = {
+			    if = {
+				    limit = {
+				        has_faction = integralistas
+					}
+				    remove_faction = integralistas
+				}
+				if = {
+				    limit = {
+					    has_faction = partido_democratico_nacional
+					}
+					remove_faction = partido_democratico_nacional
+				}
+				if = {
+				    limit = {
+					    has_faction = partido_comunista_brasileiro
+					}
+					remove_faction = partido_comunista_brasileiro
+				}
+				if = {
+				    limit = {
+					    has_faction = partido_conservador_republicano
+					}
+					remove_faction = partido_conservador_republicano
+				}
+			}
+		}
+		ai_will_do = {
+		    factor = 1
+		}
+		ai_importance = 400
+	}
+	
+	CLT = {
+	    potential = {
+		    tag = BRZ
+			government = estado_novo
+			NOT = {
+			    has_country_modifier = CLT
+			}
+		}
+		
+		allow = {
+		    stability = 1
+			is_at_war = no
+		}
+		
+		effect = {
+		    add_country_modifier = {
+			    name = "CLT"
+				duration = -1
+			}
+		}
+		ai_will_do = {
+		    factor = 1
+		}
+	}
+	
+	DIP = {
+	    potential = {
+		    tag = BRZ
+			government = estado_novo
+			NOT = {
+			    has_country_flag = DIP
+			}
+		}
+		
+		allow = {
+		    stability = 1
+		}
+		
+		effect = {
+		    add_ruler_modifier = {
+			    name = "DIP"
+				duration = -1
+			}
+			set_country_flag = DIP
+		}
+		
+		ai_will_do = {
+		    factor = 1
+		}
+		
+		ai_importance = 400
+	}
+	
+	CSN = {
+	    potential = {
+		    tag = BRZ
+			NOT = {
+			    has_country_flag = CSN
+			}
+			is_year = 1940
+		}
+		
+		allow = {
+		    treasury = 3000
+		}
+		
+		effect = {
+		    custom_tooltip = csn_created
+			add_treasury = -3000
+			hidden_effect = {
+			    set_country_flag = CSN
+			    764 = {
+				    change_trade_goods = iron
+				}
+				769 = {
+				    change_trade_goods = iron
+				}
+			}
+			every_owned_province = {
+			    limit = {
+				    trade_goods = iron
+				}
+				add_province_modifier = {
+				    name = "CSN"
+					duration = 3650
+				}
+			}
+		}
+		
+		ai_will_do = {
+		    factor = 1
+		}
+		
+		ai_importance = 400
+	}
+	
+	petrobras = {
+	    major = yes
+		potential = {
+		    tag = BRZ
+			owns = 751
+			owns = 753
+			owns = 754
+			owns = 755
+			owns = 756
+			owns = 2810
+			owns = 2811
+			owns = 2812
+			owns = 2813
+			756 = {
+			    trade_goods = oil
+			}
+			NOT = { has_country_flag = Petrobras }
+		}
+		
+		allow = {
+		    treasury = 5000
+		}
+	
+	    effect = {
+		    add_treasury = -5000
+			custom_tooltip = petrobras_created
+			hidden_effect = {
+			    set_country_flag = Petrobras
+				2811 = {
+				    change_trade_goods = oil
+				}
+				2813 = {
+				    change_trade_goods = oil
+				}
+				751 = {
+				    change_trade_goods = oil
+				}
+				2812 = {
+				    change_trade_goods = oil
+				}
+				753 = {
+				    change_trade_goods = oil
+				}
+				754 = {
+				    change_trade_goods = oil
+				}
+				2810 = {
+				    change_trade_goods = oil
+				}
+				755 = {
+				    change_trade_goods = oil
+				}
+				country_event = { id = eravargas.9 }
+			}
+		}
+		
+		ai_will_do = {
+		    factor = 1
+		}
+		
+		ai_importance = 400
+	}
+	
+	grande_sao_paulo = {
+	    major = yes
+		potential = {
+		    tag = BRZ
+			owns = 766
+			NOT = { has_country_flag = grande_sao_paulo }
+			is_year = 1930
+		}
+		
+		allow = {
+		    treasury = 10000
+		}
+		
+		effect = {
+		    add_treasury = -10000
+			766 = {
+			    add_base_tax = 10
+				add_base_manpower = 10
+				add_base_production = 10
+			}
+			set_country_flag = grande_sao_paulo
+		}
+		
+		ai_will_do = {
+		    factor = 1
+		}
+		
+		ai_importance = 400
+	}
+	
+	vale_do_rio_doce = {
+	    potential = {
+		    tag = BRZ
+			owns = 759
+			owns = 765
+			owns = 2794
+			owns = 2795
+			owns = 2796
+			has_country_flag = CSN
+			NOT = { has_country_flag = created_vale }
+			is_year = 1930
+		}
+
+        allow = {
+		    treasury = 5000
+		}
+        
+        effect = {
+		    add_treasury = -5000
+			custom_tooltip = vale_created
+			hidden_effect = {
+			    759 = {
+				    change_trade_goods = iron
+				}
+				765 = {
+				    change_trade_goods = iron
+				}
+				2794 = {
+				    change_trade_goods = iron
+				}
+				2795 = {
+				    change_trade_goods = iron
+				}
+				2796 = {
+				    change_trade_goods = iron
+				}
+				add_province_modifier = {
+				    name = "ValedoRioDoce"
+					duration = -1
+				}
+				set_country_flag = created_vale
+			}
+		}
+        
+		ai_will_do = {
+		    factor = 1
+		}
+		
+        ai_importance = 400		
+	}
+	
+	brasilia = {
+	    major = yes
+	    potential = {
+		    tag = BRZ
+			government = populist_republic
+			NOT = { has_country_flag = brasilia_criada }
+			NOT = { capital = 2801 }
+			owns = 2801
+			2801 = {
+			    NOT = {
+				    has_estate = yes
+				}
+			}
+		}
+		
+		allow = {
+		    custom_trigger_tooltip = {
+			    tooltip = has_15000
+				OR = {
+		            treasury = 15000
+	     			ai = yes
+     			}
+			}
+			stability = 1
+			is_at_war = no
+		}
+		
+		effect = {
+		    add_treasury = -15000
+			custom_tooltip = brasilia_project_start
+			hidden_effect = {
+			    set_country_flag = brasilia_criada
+				set_country_flag = brasilia_being_built
+				country_event = { id = republicade46.1 }
+			}
+		}
+		
+		ai_will_do = {
+		    factor = 1
+			
+			modifier = {
+			    factor = 0
+				NOT = { is_year = 1956 }
+			}
+		}
+		
+		ai_importance = 400
+	}
+	
+	populism = {
+	    potential = {
+		    tag = BRZ
+			government = estado_novo
+			is_year = 1945
+		}
+		
+		allow = {
+		    stability = 1
+		}
+		
+		effect = {
+		    change_government = populist_republic
+			add_stability = -2
+		}
+	}
+	
+	limit_the_president_power = {
+	    potential = {
+		    government = populist_republic
+			OR = {
+			    has_ruler_flag = left_wing_populism
+				has_ruler_modifier = left_wing_populism
+			}
+			has_country_modifier = pcb_banned
+			NOT = { has_country_flag = limited_the_president_power }
+		}
+		
+		allow = {
+			is_at_war = no
+			is_subject = no
+		}
+		
+		effect = {
+		    change_government = parliamentary_republic
+		    hidden_effect = {
+				exile_ruler_as = "Jango"
+				define_ruler = {
+            	    name = "Tancredo Neves"
+					age = 51
+            		adm = 2
+             		mil = 3
+             		dip = 4
+            	}
+				set_country_flag = limited_the_president_power
+				country_event = { id = republicade46.8 }
+			}
+		}
+		ai_will_do = {
+		    factor = 1
+		}
+		
+		ai_importance = 400
+	}
+	
+	plebiscite_of_form_of_government = {
+	    potential = {
+		    tag = BRZ
+			NOT = { government = populist_republic }
+			government = parliamentary_republic
+			NOT = { is_year = 1975 }
+			has_ruler_flag = limited_president_power
+			NOT = { has_country_flag = plebiscite }
+		}
+		
+		allow = {
+		    is_at_war = no
+			is_subject = no
+		}
+		
+		effect = {
+		    change_government = populist_republic
+			hidden_effect = {
+			    set_ruler = "Jango"
+				set_ruler_flag = left_wing_populism
+				set_country_flag = plebiscite
+			}
+		}
+		ai_will_do = {
+		    factor = 1
+			
+			modifier = {
+			    factor = 0
+				NOT = { had_country_flag = { flag = limited_president_power days = 730 } }
+			}
+		}
+		ai_importance = 400
+	}
+	
+	AI-1 = {
+	    potential = {
+		    tag = BRZ
+			government = populist_republic
+			has_ruler_flag = military_president
+			NOT = { has_country_flag = ai-1 }
+			NOT = { has_country_flag = revoke_ais }
+		}
+		
+		allow = {
+		    is_at_war = no
+			is_subject = no
+			mil_power = 10
+		}
+		
+		effect = {
+		    custom_tooltip = ai_1_enacted
+		    hidden_effect = {
+			    set_country_flag = ai-1
+			}
+			add_mil_power = -10
+		}
+		ai_will_do = {
+		    factor = 1
+		}
+		ai_importance = 400
+	}
+	
+	AI-2 = {
+	    potential = {
+		    tag = BRZ
+			had_country_flag = { flag = ai-1 days = 90 }
+			has_ruler_flag = military_president
+			NOT = { has_country_flag = ai-2 }
+			NOT = { has_country_flag = revoke_ais }
+		}
+		
+		allow = {
+		    is_at_war = no
+			is_subject = no
+			mil_power = 10
+		}
+		
+		effect = {
+		    custom_tooltip = ai_2_enacted
+			add_mil_power = -10
+		    hidden_effect = {
+			    set_country_flag = ai-2
+				remove_faction = partido_trabalhista_brasileiro
+				remove_faction = partido_democratico_nacional
+             	remove_faction = partido_social_democratico
+             	remove_faction = integralistas   
+            	remove_faction = partido_comunista_brasileiro
+                remove_faction = partido_conservador_monarquista
+        	    remove_faction = partido_conservador_republicano
+				add_faction = ARENA
+				add_faction = MDB
+			}
+		}
+	}
+	
+	AI-3 = {
+	    potential = {
+		    tag = BRZ
+			had_country_flag = { flag = ai-2 days = 90 }
+			has_ruler_flag = military_president
+			NOT = { has_country_flag = ai-3 }
+			NOT = { has_country_flag = revoke_ais }
+		}
+		
+		allow = {
+		    is_at_war = no
+			is_subject = no
+			mil_power = 10
+			faction_in_power = ARENA
+		}
+		
+		effect = {
+		    add_country_modifier = {
+			    name = AI-3
+				duration = -1
+			}
+			add_mil_power = -10
+			add_faction_influence = {
+			    faction = ARENA
+				influence = 5
+			}
+			hidden_effect = {
+			    set_country_flag = ai-3
+			}
+		}
+	}
+	
+	AI-4 = {
+	    potential = {
+		    tag = BRZ
+		    had_country_flag = { flag = ai-3 days = 90 }
+			has_ruler_flag = military_president
+			NOT = { government = regime_militar }
+			NOT = { had_country_flag = ai-4 }
+			NOT = { has_country_flag = revoke_ais }
+		}
+		
+		allow = {
+		    is_at_war = no
+			is_subject = no
+			stability = 1
+			mil_power = 10
+			faction_in_power = ARENA
+		}
+		
+		effect = {
+		    change_government = regime_militar
+			add_mil_power = -10
+			add_faction_influence = {
+			    faction = ARENA
+				influence = 10
+			}
+			hidden_effect = {
+			    set_country_flag = ai-4
+			}
+		}
+	}
+	
+	AI-5 = {
+	    potential = {
+		    tag = BRZ
+			had_country_flag = { flag = ai-4 days = 90 }
+			has_ruler_flag = military_president
+			government = regime_militar
+			NOT = { has_country_flag = ai-5 }
+			NOT = { has_country_flag = revoke_ais }
+		}
+		
+		allow = {
+		    is_at_war = no
+			is_subject = no
+			stability = 1
+			mil = 50
+			faction_in_power = ARENA
+		}
+		
+		effect = {
+		    add_mil_power = -50
+			add_faction_influence = {
+			    faction = ARENA
+				influence = 25
+			}
+			add_country_modifier = {
+			    name = AI-5
+				duration = -1
+			}
+			add_stability = -1
+			add_militarised_society = 20
+			hidden_effect = {
+			    set_country_flag = ai-5
+			}
+		}
+	}
+	
+	iniciar_abertura = {
+	    potential = {
+		    tag = BRZ
+			government = regime_militar
+			NOT = { has_country_modifier = abertura }
+		}
+		
+		allow = {
+		    stability = 1
+			is_at_war = no
+			is_subject = no
+			NOT = { militarised_society = 50 }
+		}
+		
+		effect = {
+		    add_stability = -1
+			add_country_modifier = {
+			    name = abertura
+				duration = -1
+			}
+		}
+		
+		ai_will_do = {
+		    factor = 1
+			
+			modifier = {
+			    factor = 0
+				NOT = { had_country_flag = { flag = ai-5 days = 3650 } }
+			}
+		}
+	}
+	
+	revoke_ais = {
+	    potential = {
+		    tag = BRZ
+			has_country_flag = ai-5
+			NOT = { has_country_flag = revoked_ais }
+			had_country_modifier = { flag = abertura days = 1460 }
+		}
+		
+		allow = {
+		    stability = 2
+			mil_power = 150
+		}
+		
+		effect = {
+		    add_mil_power = -150
+			custom_tooltip = ais_revoked
+			add_stability = -2
+			hidden_effect = {
+			    clr_country_flag = ai-1
+				clr_country_flag = ai-2
+				clr_country_flag = ai-3
+				clr_country_flag = ai-4
+				clr_country_flag = ai-5
+				remove_country_modifier = AI-3
+				remove_country_modifier = AI-5
+				add_militarised_society = -20
+				add_faction_influence = {
+				    faction = ARENA
+					influence = -40
+				}
+				set_country_flag = revoke_ais
+			}
+		}
+		
+		ai_will_do = {
+		    factor = 1
+		}
+		
+		ai_importance = 400
+	}
+	
+	encourage_patriotism = {
+	    potential = {
+		    tag = BRZ
+			government = regime_militar
+			NOT = { has_country_modifier = encouraged_patriotism }
+			has_country_modifier = brazilian_economic_miracle
+		}
+		
+		allow = {
+		    stability = 2
+			is_at_war = no
+		    is_subject = no
+		}
+		
+		effect = {
+		    add_country_modifier = {
+			    name = encouraged_patriotism
+				duration = 1825
+			}
+		}
+		
+		ai_will_do = {
+		    factor = 1
+		}
+		
+		ai_importance = 400
+	}
+	
+	DOPS = {
+	    potential = {
+		    tag = BRZ
+			is_year = 1924
+			NOT = {
+			    OR = {
+				    government = constitutional_republic
+					government = constitutional_monarchy
+					government = parliamentary_republic
+					government = parliamentary_monarchy
+					government = presidental_republic
+				}
+			}
+			NOT = { has_country_flag = DOPS }
+		}
+		
+		allow = {
+		    custom_trigger_tooltip = {
+			    tooltip = dont_have_dops
+				NOT = { has_country_flag = DOPS }
+			}
+		}
+		
+		effect = {
+		    add_stability = 1
+		    custom_tooltip = DOPS_created
+			set_country_flag = DOPS
+		}
+		
+		ai_will_do = {
+		    factor = 1
+		}
+		
+		ai_importance = 400
+	}
+	
+	DOI-CODI = {
+	    potential = {
+		    tag = BRZ
+			has_country_flag = ai-1
+			NOT = { has_country_flag = DOI-CODI }
+			NOT = { has_country_flag = abertura }
+			NOT = { has_country_flag = DOI-CODI_closed }
+		}
+		
+		allow = {
+		    custom_trigger_tooltip = {
+			    tooltip = dont_have_doi-codi
+				NOT = { has_country_flag = DOI-CODI }
+			}
+		}
+		
+		effect = {
+		    add_stability = 1
+			custom_tooltip = DOI-CODI_created
+			set_country_flag = DOI-CODI
+			hidden_effect = {
+    			add_country_modifier = {
+    			    name = DOI-CODI
+	     			duration = -1
+		     	}
+			}
+		}
+		
+		ai_will_do = {
+		    factor = 1
+		}
+		
+		ai_importance = 400
+		
+	}
+	
+	end_the_DOI-CODI = {
+	    potential = {
+		    tag = BRZ
+			has_country_flag = DOI-CODI
+			had_country_flag = { flag = abertura days = 2555 }
+            NOT = { has_country_flag = DOI-CODI_closed }
+		}
+		
+		allow = {
+		    custom_trigger_tooltip = {
+			    tooltip = have_doi-codi
+				has_country_flag = DOI-CODI
+			}
+		}
+		
+		effect = {
+		    custom_tooltip = DOI-CODI_will_be_extinguished
+			hidden_effect = {
+			    clr_country_flag = DOI-CODI
+				set_country_flag = DOI_CODI_closed
+				remove_country_modifier = DOI-CODI
+			}
+		}
+		
+		ai_will_do = {
+		    factor = 1
+			
+			modifier = {
+			    factor = 0
+				NOT = { has_country_flag = revoked_ais }
+			}
+		}
+		
+		ai_importance = 400
+	}
+	
+	abolish_bipartidarism = {
+	    potential = {
+		    tag = BRZ
+		    government = regime_militar
+			OR = {
+			    has_country_flag = ai-2
+				has_country_flag = revoked_ais
+			}
+			had_country_flag = { flag = abertura days = 1460 }
+			has_faction = ARENA
+			has_faction = MDB
+			NOT = { had_country_flag = abolished_bipartidarism }
+		}
+		
+		allow = {
+		    stability = 2
+			is_at_war = no
+		}
+		
+		effect = {
+		    stability = -2
+			custom_tooltip = abolished_bipartidarism
+			custom_tooltip = ARENA_becomes_PDS
+			custom_tooltip = MDB_becomes_PMDB
+			hidden_effect = {
+			    set_country_flag = abolished_bipartidarism
+				add_faction = PDS
+				add_faction = PMDB
+				remove_faction = ARENA
+				remove_faction = MDB
+			}
+		}
+		
+		ai_will_do = {
+		    factor = 1
+		}
+		
+		ai_importance = 400
+	}
+	
+	lei_de_imprensa = {
+	    potential = {
+		    tag = BRZ
+			government = regime_militar
+			NOT = { has_country_flag = lei_de_imprensa }
+			NOT = { has_country_flag = revoked_lei_de_imprensa }
+		}
+		
+		allow = {
+		    stability = 1
+		}
+		
+		effect = {
+		    custom_tooltip = imprensa_censurada
+			hidden_effect = {
+			    set_country_flag = lei_de_imprensa
+			}
+		}
+	}
+	
+	revoke_lei_de_imprensa = {
+	    potential = {
+		    tag = BRZ
+			government = regime_militar
+			has_country_flag = abertura
+			has_country_flag = lei_de_imprensa 
+			NOT = { has_country_flag = revoked_lei_de_imprensa }
+		}
+		
+		allow = {
+		    stability = 1
+		}
+		
+		effect = {
+		    custom_tooltip = revoked_imprensa_censurada
+			hidden_effect = {
+			    clr_country_flag = lei_de_imprensa
+				set_country_flag = revoked_lei_de_imprensa
+			}
+		}
+		
+		ai_will_do = {
+		    factor = 1
+			
+			modifier = {
+			    factor = 0
+				OR = {
+				    NOT = { has_country_flag = revoked_ais }
+					NOT = { has_country_flag = DOI-CODI_closed }
+					NOT = { has_country_flag = abolished_bipartidarism }
+				} 
+			}
+		}
+	}
+	
+	allow_reelection = {
+	    potential = {
+		    tag = BRZ
+			is_year = 1990
+			NOT = { has_country_flag = reelections_allowed }
+		}
+		
+		allow = {
+		    stability = 1
+		}
+		
+		effect = {
+		    custom_tooltip = reelections_will_be_allowed
+			hidden_effect = {
+			    set_country_flag = reelections_allowed
+			}
+		}
+	}
+	
+	end_military_regime = {
+	    potential = {
+		    tag = BRZ
+			government = regime_militar
+			NOT = { has_ruler_flag = military_president }
+			has_country_flag = abertura
+			has_country_flag = DOI-CODI_closed
+			has_country_flag = abolish_bipartidarism
+			has_country_flag = revoked_ais
+			NOT = { has_country_flag = lei_de_imprensa }
+		}
+		
+		allow = {
+		    stability = 1
+			is_at_war = no
+			is_subject = no
+		}
+		
+		effect = {
+		    custom_tooltip = the_regime_will_end
+			add_stability = -2
+			hidden_effect = {
+			    country_event = { id = militarybrazil.24 }
+			}
+		}
+	}
+}

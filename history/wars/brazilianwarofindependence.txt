@@ -1,0 +1,16 @@
+name = "Brazilian War of Independence"
+
+war_goal = {
+	type = defend_capital_independence
+	casus_belli = cb_independence_war
+}
+
+1822.9.7 = {
+	add_attacker = BRZ
+	add_defender = POR
+}
+
+1825.5.13 = {
+	rem_attacker = BRZ
+	rem_defender = POR
+}

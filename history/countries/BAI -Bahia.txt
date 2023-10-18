@@ -1,0 +1,22 @@
+government = constitutional_republic 
+mercantilism = 0.1
+technology_group = western
+religion = catholic
+primary_culture = iberian_northeast_brazilian
+capital = 754	# Recife
+
+1837.11.6 = {
+    change_government = constitutional_republic
+	primary_culture = iberian_northeast_brazilian
+	monarch = {
+	    name = "Francisco Sabino"
+		adm = 3
+		mil = 2
+		dip = 4
+		attach_leader = "Francisco Sabino"
+		leader = {	name = "Francisco Sabino"	type = general	rank = 2	fire = 2	shock = 2	manuever = 3	siege = 3 death_date = 1846.1.1 }
+	}  
+}
+ 
+
+

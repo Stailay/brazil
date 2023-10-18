@@ -1,0 +1,9 @@
+﻿l_english:
+ estate_militares:0 "Nobreza"
+ estate_burguesia:0 "Burguesia"
+ estate_igreja:0 "Clero"
+ estate_bandeirantes:0 "Bandeirantes"
+ estate_bandeirantes_desc:0 "This estate represents the fortune hunters of colonial Brazil that led expeditions called bandeiras, which penetrated the interior of the American continent to find gold and silver and, eventually, capture and enslave natives. Also, with government support they can make expeditions called entradas to explore the interior of our colony."
+ DEMAND_SUPPORT_BANDEIRANTES:0 "Encourage the Bandeiras"
+ DEMAND_SUPPORT_ENTRADAS:0 "Call for an Entrada"
+ EST_VAL_SUCCESFUL_BANDEIRANTES:0 "Successful Bandeirantes"

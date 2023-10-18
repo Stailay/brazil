@@ -1,0 +1,11 @@
+﻿l_english:
+ coronelist_republic:0 "Coronelist Republic"
+ coronelist_republic_desc:0 "A Republic that uses the open ballot system, allowing the Coronels to force citizens to vote for their candidates. When the indicated candidate doesn't win, the elections are rigged." 
+ estado_novo:0 "Estado Novo"
+ estado_novo_desc: "A governmental form marked by centralization of power, authoritarism, interventionism, nationalism and cult of personality."
+ integralist_state:0 "Integralist Republic"
+ integralist_state_desc:0 "A form of radical authoritarian nationalism where the leader embodies the state and claimes undisputable power. Integralism is an ideology similar to the Fascism. It is against communism and promotes the appreciation of the national culture."
+ populist_republic:0 "Populist Republic"
+ populist_republic_desc:0 "A governamental form where all the politicians are populists and leaders such as the president are seen as 'fathers of the population'."
+ regime_militar:0 "Military Regime"
+ regime_militar_desc:0 "A governmental form marked by anti-communism, authoritarism, patriotism and repression. There are indirect elections for the Executive power, which sometimes act."

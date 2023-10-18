@@ -1,0 +1,298 @@
+namespace = dis_1930
+
+# Revolution
+country_event = {
+	id = dis_1930.1
+	title = "19301NAME"
+	desc = "19301DESC"
+	picture = REVOLUTION_eventPicture
+	
+	major = yes
+	is_triggered_only = yes
+
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+
+	immediate = {
+	    hidden_effect = {
+	    	random_owned_province = { 
+    			limit = {
+	    			base_tax = 4
+		    		area = rio_grande_do_sol_area
+			    }
+    			spawn_rebels = {
+	    			type = varguist_rebels
+		    		size = 3		
+			    	win = yes
+				    unrest = 10
+    				leader = "Getulio Vargas"
+	    		}
+		    	
+    		}
+	    	random_owned_province = { 
+		    	limit = {
+	    		    base_tax = 4
+		            area = minas_gerais_area
+    			}
+	    		spawn_rebels = {
+		    		type = varguist_rebels
+			    	size = 3		
+				    win = yes
+    				unrest = 10
+	    		}
+
+		    }
+    		random_owned_province = { 
+	    		limit = {
+	        		base_tax = 4
+		            area = pernambuco_area
+    			}   
+	    		spawn_rebels = {
+		    		type = varguist_rebels
+			    	size = 3		
+    				win = yes
+				    unrest = 10
+	    		}
+		    }
+		}
+		add_stability = -3
+	
+	
+		set_country_flag = had_1930_revolution
+		set_country_flag = 1930_revolution
+	}
+	
+	option = {
+		name = "19301OPT1"			# Dire times are ahead of us
+		add_prestige = -10
+	}
+}
+
+# Tenetes
+country_event = {
+	id = dis_1930.2
+	title = "19302NAME"
+	desc = "19302DESC"
+	picture = REVOLUTION_eventPicture
+	
+	trigger = {
+		NOT = { has_country_flag = tenentes_helping }
+	}
+	
+	is_triggered_only = yes
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	immediate = {
+		set_country_flag = tenentes_helping
+	}	
+	
+	option = {
+		name = "19302OPT1"		# Things only get worse
+		random_owned_province = { tenente_rebels = 3 }
+	}
+}
+
+# Surrender to the coup
+country_event = {
+	id = dis_1930.3
+	title = "19303NAME"
+	desc = "19303DESC"
+	picture = REFORM_eventPicture
+	
+	trigger = {
+		NOT = { has_country_flag = first_peace_demand }
+	}
+	
+	is_triggered_only = yes
+
+	mean_time_to_happen = {
+		days = 1
+	}
+	immediate = { 
+		set_country_flag = first_peace_demand
+	}
+	
+	option = {
+		name = "19303OPT1"			# We won't surrender!
+		ai_chance = { factor = 40 }
+		random_owned_province = { varguist_rebels = 3 }
+		random_owned_province = { varguist_rebels = 3 }
+		random_owned_province = { varguist_rebels = 3 }
+	}
+	
+	option = {
+	    name = "19303OPT2"
+		ai_chance = { factor = 60 }
+		define_ruler = {
+		    name = "Getulio"
+			dynasty = "Vargas"
+			age = 48
+			claim = 75
+			adm = 4
+			dip = 3
+			mil = 5
+		}
+		country_event = { id = dis_1930.7 }
+		add_stability = 2
+	}
+}
+
+# Surrender to the coup 2
+country_event = {
+	id = dis_1930.4
+	title = "19303NAME"
+	desc = "19303DESC"
+	picture = REFORM_eventPicture
+	
+	trigger = {
+	    has_country_flag = first_peace_demand
+		NOT = { has_country_flag = second_peace_demand }
+	}
+	
+	is_triggered_only = yes
+
+	mean_time_to_happen = {
+		days = 1
+	}
+	immediate = { 
+		set_country_flag = second_peace_demand
+	}
+	
+	option = {
+		name = "19303OPT1"			# They hardly pose a threat
+		ai_chance = { factor = 30 }
+		random_owned_province = { varguist_rebels = 3 }
+		random_owned_province = { varguist_rebels = 3 }
+		random_owned_province = { varguist_rebels = 3 }
+		random_owned_province = { varguist_rebels = 3 }
+		random_owned_province = { varguist_rebels = 3 }
+	}
+	
+	option = {
+	    name = "19303OPT2"
+		ai_chance = { factor = 70 }
+		define_ruler = {
+		    name = "Getulio"
+			dynasty = "Vargas"
+			age = 48
+			claim = 75
+			adm = 4
+			dip = 3
+			mil = 5
+		}
+		country_event = { id = dis_1930.7 }
+		add_stability = 2
+	}
+}
+
+# Surrender to the coup 3
+country_event = {
+	id = dis_1930.5
+	title = "19303NAME"
+	desc = "19303DESC"
+	picture = REFORM_eventPicture
+	
+	trigger = {
+	    has_country_flag = first_peace_demand
+		has_country_flag = second_peace_demand
+	}
+	
+	is_triggered_only = yes
+
+	mean_time_to_happen = {
+		days = 30
+	}
+	
+	option = {
+		name = "19303OPT1"			# They hardly pose a threat
+		ai_chance = { factor = 10 }
+		random_owned_province = { varguist_rebels = 3 }
+		random_owned_province = { varguist_rebels = 3 }
+		random_owned_province = { varguist_rebels = 3 }
+		random_owned_province = { varguist_rebels = 3 }
+		random_owned_province = { varguist_rebels = 3 }
+		random_owned_province = { varguist_rebels = 3 }
+		random_owned_province = { varguist_rebels = 3 }
+	}
+	
+	option = {
+	    name = "19303OPT2"
+		ai_chance = { factor = 90 }
+		define_ruler = {
+		    name = "Getulio"
+			dynasty = "Vargas"
+			age = 48
+			claim = 75
+			adm = 4
+			dip = 3
+			mil = 5
+		}
+		country_event = { id = dis_1930.7 }
+		add_stability = 2
+	}
+}
+
+# Stability returns
+country_event = {
+	id = dis_1930.6
+	title = "EVTNAME3019"
+	desc = "EVTDESC3019"
+	picture = REVOLUTION_eventPicture
+	
+	major = yes	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_country_flag = 1930_revolution
+		had_country_flag = { flag = 1930_revolution days = 1000 }
+	
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = "EVTOPTA3019"			# Restore order
+		country_event = { id = dis_1930.7 }
+		add_stability = 2
+	}
+}
+
+country_event = {
+	id = dis_1930.7
+	title = revolution.20.t
+	desc = revolution.20.d
+	picture = REVOLUTION_eventPicture
+
+	is_triggered_only = yes
+	
+	immediate = {
+	    disband_rebels = varguist_rebels
+		disband_rebels = tenente_rebels
+	}
+
+	option = {
+		name = revolution.20.a
+		end_disaster = 1930_revolution
+		clr_country_flag = 1930_revolution
+
+		set_country_flag = 1930_provisory_government
+		clr_country_flag = 1930_revolution
+		clr_country_flag = tenentes_helping
+		clr_country_flag = first_peace_demand
+		clr_country_flag = second_peace_demand
+		clr_country_flag = road_to_bankruptcy
+		clr_country_flag = financial_crisis
+		remove_country_modifier = mint_money
+		remove_country_modifier = fight_inflation
+		remove_country_modifier = disarmament
+		remove_country_modifier = financial_disaster
+	}
+}
+

@@ -1,0 +1,310 @@
+bandeirantes_expeditions = {
+    native_uprising_chance = -0.25
+}
+
+aleijadinho_modifier = {
+    prestige = 1
+}
+
+quilombo_dos_palmares = {
+    local_unrest = 5
+	local_production_efficiency = -0.75
+}
+
+ciclo_do_ouro = {
+    production_efficiency = 0.5
+}
+
+paulista_president = {
+    partido_paulista_influence = 0.2
+}
+
+mineiro_president = {
+    partido_mineiro_influence = 0.2
+}
+
+fluminense_president = {
+    partido_fluminense_influence = 0.2
+}
+
+riograndense_president = {
+    partido_riograndense_influence = 0.2
+}
+
+monarchist_president = {
+    partido_conservador_monarquista_influence = 0.2
+	partido_conservador_republicano_influence = -0.2
+}
+
+republican_president = {
+    partido_conservador_republicano_influence = 0.2
+	partido_conservador_monarquista_influence = -0.2
+}
+
+comunista_president = {
+    partido_comunista_brasileiro_influence = 0.2
+	integralistas = -0.2
+	partido_democratico_nacional_influence = -0.2
+}
+
+integralist_president = {
+    integralistas_influence = 0.2
+	partido_comunista_brasileiro_influence = -0.2
+	partido_democratico_nacional_influence = -0.2
+}
+
+democratic_president = {
+    partido_democratico_nacional_influence = 0.2
+	integralistas_influence = -0.2
+	partido_comunista_brasileiro_influence = -0.2
+}
+
+ptb_president = {
+    partido_trabalhista_brasileiro_influence = 0.2
+}
+
+social_democratic_president = {
+    partido_social_democratico_influence = 0.2
+}
+
+PT_president = {
+    partido_dos_trabalhadores_influence = 0.2
+}
+
+PSDB_president = {
+    PSDB_influence = 0.2
+}
+
+PMDB_president = {
+    PMDB_influence = 0.2
+}
+
+PDT_president = {
+    PDT_influence = 0.2
+}
+
+PRONA_president = {
+    PRONA_influence = 0.2
+}
+
+PR_president = {
+    partido_da_republica_influence = 0.2
+}
+
+PSOL_president = {
+    PSOL_influence = 0.2
+}
+
+PSC_president = {
+    PSC_influence = 0.2
+}
+
+PRTB_president = {
+    PRTB_influence = 0.2
+}
+
+verde_president = {
+    partido_verde_influence = 0.2
+}
+
+corruption_ptb = {
+    partido_trabalhista_brasileiro_influence = -0.7
+}
+
+pcb_banned = {
+    partido_comunista_brasileiro_influence = -1000
+}
+
+academia_de_letras = {
+    prestige = 1
+}
+
+semana_de_arte_moderna = {
+    prestige = 1
+}
+
+christ_redeemer = {
+    prestige = 0.25
+	trade_goods_size_modifier = 0.25
+	local_tax_modifier = 0.25
+}
+
+eusebio_de_queiros = {
+    local_production_efficiency = -0.15
+	local_unrest = -1
+}
+
+lei_do_ventre_livre = {
+    local_production_efficiency = -0.1
+	local_unrest = -1
+}
+
+lei_do_sexagenario = {
+    local_production_efficiency = -0.05
+	local_unrest = -0.5
+}
+
+farroupilha_revolution = {
+    land_moral = 0.15
+	republican_tradition = 1
+	global_regiment_cost = -0.15
+	global_regiment_recruit_speed = -0.15
+	land_forcelimit_modifier = 3
+	army_tradition = 0.2
+    discipline = 0.1	
+}
+
+hated = {
+    global_unrest = 2
+	global_tax_modifier = -0.15
+	land_morale = -0.15
+	naval_morale = -0.15
+	global_manpower_modifier = -0.2
+	global_tax_income = -0.15
+	legitimacy = -1
+}
+
+unrecognized = {
+	diplomatic_reputation = -5
+}
+
+maria_quiteria = {
+    land_morale = 0.2
+	manpower_recovery_speed = 0.25
+}
+
+CLT = {
+    global_unrest = -1
+	production_efficiency = -0.10
+}
+
+DIP = {
+    global_unrest = -2
+}
+
+CSN = {
+    production_efficiency = 0.15
+}
+
+Petrobras = {
+    production_efficiency = 0.25
+}
+
+ValedoRioDoce = {
+    production_efficiency = 0.25
+}
+
+right_wing_populism = {
+    global_unrest = -1
+	land_morale = 0.2
+	army_tradition = 0.2
+	partido_trabalhista_brasileiro_influence = 0.1
+	integralistas_influence = 0.1
+	partido_conservador_republicano_influence = 0.1
+	partido_democratico_nacional_influence = 0.1
+}
+
+centrist_populism = {
+    global_unrest = -1
+	naval_morale = 0.2
+	stability_cost_modifier = -0.5
+	partido_trabalhista_brasileiro_influence = 0.1
+	partido_social_democratico_influence = 0.1
+}
+
+left_wing_populism = {
+    global_unrest = -1
+	global_tax_income = 0.25
+	production_efficiency = 0.25
+	partido_trabalhista_brasileiro_influence = 0.1
+	partido_comunista_brasileiro_influence = 0.1
+	partido_social_democratico_influence = 0.1
+}
+
+ideological_struggle = {
+    global_unrest = 1
+}
+
+supress_integralist_thinkers = {
+    global_unrest = 1
+}
+
+AI-3 = {
+    global_unrest = -1
+	ARENA_influence = 0.1
+}
+
+AI-5 = {
+    global_unrest = -1
+	ARENA_influence = 0.5
+}
+
+abertura = {
+    global_unrest = -3
+	MDB_influence = 1
+}
+
+brazilian_economic_miracle = {
+    production_efficiency = 0.35
+	inflation_reduction = -0.25
+	build_cost = -0.25
+	global_unrest = -1
+	global_trade_goods_size_modifier = 0.25
+}
+
+lost_decade = {
+    production_efficiency = -0.25
+	inflation_reduction = -0.25
+	global_unrest = 1
+	global_trade_goods_size_modifier = -0.25
+}
+
+encouraged_patriotism = {
+    global_unrest = -1
+	ARENA_influence = 0.1
+	manpower_recovery_speed = 0.15 
+}
+
+DOI-CODI = {
+    global_unrest = -1
+	discipline = 0.15
+}
+
+MASP = {
+    prestige = 1
+}
+
+marighella_lives = {
+    ARENA_influence = -0.4
+	global_unrest = 2
+}
+
+tropicalia = {
+    ARENA_influence = -0.2
+	global_unrest = 2
+}
+
+herzogs_death = {
+    ARENA_influence = -0.25
+	global_unrest = 3
+}
+
+generic_corruption_scandal = {
+    global_unrest = 3
+	yearly_corruption = 0.1
+}
+
+corrupt_president = {
+    global_unrest = 2
+	yearly_corruption = 0.05
+}
+
+petrobras_scandal = {
+    local_production_efficiency = -0.5
+	global_unrest = 4
+	yearly_corruption = 0.01
+}
+
+petrobras_scandal_country = {
+						   
+}

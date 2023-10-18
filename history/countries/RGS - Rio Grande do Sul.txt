@@ -1,0 +1,61 @@
+government = constitutional_republic 
+mercantilism = 0.1
+technology_group = western
+religion = catholic
+primary_culture = iberian_south_brazilian
+historical_friend = URU
+historical_friend = JUL
+capital = 771	# Rio Grande do Sul
+
+1836.9.11 = {
+    change_government = constitutional_republic
+	primary_culture = iberian_south_brazilian
+	monarch = {
+	    name = "Bento Gonzalves"
+		birth_date = 1788.9.23
+		adm = 3
+		mil = 4
+		dip = 2
+		attach_leader = "Bento Gonzalves"
+		leader = {	name = "Bento Gonzalves"	type = general	rank = 2	fire = 3	shock = 2	manuever = 2	siege = 1 death_date = 1847.7.18 }
+		leader = {	name = "Antonio de Souza Netto"	type = general	rank = 2	fire = 2	shock = 2	manuever = 3	siege = 2 death_date = 1866.6.2 }
+	}  
+}
+
+1836.11.6 = {
+    monarch = {
+	    name = "Jose Gomes de Vasconcelos Jardim"
+		birth_date = 1773.1.1
+		adm = 3
+		mil = 3
+		dip = 2
+	}
+}
+
+1837.12.16 = {
+    monarch = {
+	    name = "Bento Gonzalves"
+		birth_date = 1788.9.23
+		adm = 3
+		mil = 4
+		dip = 2
+		attach_leader = "Bento Gonzalves"
+	}
+}
+
+1838.9.1 = { leader = {	name = "Giuseppe Garibaldi" type = admiral	rank = 2	fire = 2	shock = 4	manuever = 5	siege = 0	death_date = 1889.6.2 } }
+
+1838.9.1 = { set_country_flag = garibaldi }
+
+1841.9.11 = {
+    monarch = {
+	    name = "Jose Gomes de Vasconcelos Jardim"
+		birth_date = 1773.1.1
+		adm = 3
+		mil = 3
+		dip = 2
+	}
+}
+ 
+
+

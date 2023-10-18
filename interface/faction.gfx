@@ -1,0 +1,351 @@
+spriteTypes = {
+
+	spriteType = {
+		name = "GFX_faction_window_bg"	
+		texturefile = "gfx//interface//china_bg.tga"
+		transparencecheck = yes
+	}
+	spriteType = {
+		name = "GFX_faction_arrow"	
+		texturefile = "gfx//interface//china_arrow.tga"
+		noOfFrames = 3
+	}
+	spriteType = {
+		name = "GFX_faction_circle_bg"	
+		texturefile = "gfx//interface//china_circle_bg.tga"
+		noOfFrames = 2
+	}
+
+
+
+
+	# Celestial Empire
+	spriteType = {
+		name = "GFX_faction_bg_temples"	
+		texturefile = "gfx//interface//faction_blue_frame.tga"
+		transparencecheck = yes
+	}	
+	spriteType = {
+		name = "GFX_faction_temples"	
+		texturefile = "gfx//interface//china_temple.tga"
+	}
+	spriteType = {
+		name = "GFX_faction_bg_enuchs"	
+		texturefile = "gfx//interface//faction_purple_frame.tga"
+		transparencecheck = yes
+	}	
+	spriteType = {
+		name = "GFX_faction_enuchs"	
+		texturefile = "gfx//interface//china_eunuch.tga"
+	}
+	spriteType = {
+		name = "GFX_faction_bg_bureaucrats"	
+		texturefile = "gfx//interface//faction_red_frame.tga"
+		transparencecheck = yes
+	}		
+	spriteType = {
+		name = "GFX_faction_bureaucrats"	
+		texturefile = "gfx//interface//china_bureaucrat.tga"
+	}
+	spriteType = {
+		name = "GFX_faction_enuchs"	
+		texturefile = "gfx//interface//china_eunuch.tga"
+	}
+	
+	# Merchant Republics
+	
+	spriteType = {
+		name = "GFX_faction_bg_mr_guilds"	
+		texturefile = "gfx//interface//faction_blue_frame.tga"
+		transparencecheck = yes
+	}	
+	spriteType = {
+		name = "GFX_faction_mr_guilds"	
+		texturefile = "gfx//interface//guilds_icon.tga"
+	}
+	spriteType = {
+		name = "GFX_faction_bg_mr_traders"	
+		texturefile = "gfx//interface//faction_blue_frame.tga"
+		transparencecheck = yes
+	}	
+	spriteType = {
+		name = "GFX_faction_mr_traders"	
+		texturefile = "gfx//interface//traders_icon.tga"
+	}
+	spriteType = {
+		name = "GFX_faction_bg_mr_aristocrats"	
+		texturefile = "gfx//interface//faction_blue_frame.tga"
+		transparencecheck = yes
+	}	
+	spriteType = {
+		name = "GFX_faction_mr_aristocrats"	
+		texturefile = "gfx//interface//aristocrats_icon.tga"
+	}
+	
+	# Revolutionary Republics
+	
+	spriteType = {
+		name = "GFX_faction_bg_rr_jacobins"	
+		texturefile = "gfx//interface//faction_blue_frame.tga"
+		transparencecheck = yes
+	}	
+	spriteType = {
+		name = "GFX_faction_rr_jacobins"	
+		texturefile = "gfx//interface//jacobins_icon.dds"
+	}
+	spriteType = {
+		name = "GFX_faction_bg_rr_royalists"
+		texturefile = "gfx//interface//faction_purple_frame.tga"
+		transparencecheck = yes
+	}	
+	spriteType = {
+		name = "GFX_faction_rr_royalists"	
+		texturefile = "gfx//interface//imperials_icon.dds"
+	}
+	spriteType = {
+		name = "GFX_faction_bg_rr_girondists"	
+		texturefile = "gfx//interface//faction_red_frame.tga"
+		transparencecheck = yes
+	}	
+	spriteType = {
+		name = "GFX_faction_rr_girondists"	
+		texturefile = "gfx//interface//girondists_icon.tga"
+	}
+
+    # Brazilian Republic
+ 
+    spriteType = {
+		name = "GFX_faction_bg_partido_paulista"	
+		texturefile = "gfx//interface//faction_blue_frame.tga"
+		transparencecheck = yes
+	}	
+	spriteType = {
+		name = "GFX_faction_partido_paulista"	
+		texturefile = "gfx//interface//partido_paulista_icon.dds"
+	}
+    spriteType = {
+		name = "GFX_faction_bg_partido_mineiro"	
+		texturefile = "gfx//interface//faction_blue_frame.tga"
+		transparencecheck = yes
+	}	
+	spriteType = {
+		name = "GFX_faction_partido_mineiro"	
+		texturefile = "gfx//interface//partido_mineiro_icon.dds"
+	}
+	spriteType = {
+		name = "GFX_faction_bg_partido_fluminense"	
+		texturefile = "gfx//interface//faction_purple_frame.tga"
+		transparencecheck = yes
+	}	
+	spriteType = {
+		name = "GFX_faction_partido_fluminense"	
+		texturefile = "gfx//interface//partido_fluminense_icon.dds"
+	}
+	spriteType = {
+		name = "GFX_faction_bg_partido_riograndense"	
+		texturefile = "gfx//interface//faction_purple_frame.tga"
+		transparencecheck = yes
+	}	
+	spriteType = {
+		name = "GFX_faction_partido_riograndense"	
+		texturefile = "gfx//interface//partido_riograndense_icon.dds"
+	}
+    spriteType = {
+		name = "GFX_faction_bg_partido_conservador_monarquista"	
+		texturefile = "gfx//interface//faction_red_frame.tga"
+		transparencecheck = yes
+	}	
+	spriteType = {
+		name = "GFX_faction_partido_conservador_monarquista"	
+		texturefile = "gfx//interface//partido_conservador_monarquista_icon.dds"
+	}
+    spriteType = {
+		name = "GFX_faction_bg_partido_conservador_republicano"	
+		texturefile = "gfx//interface//faction_red_frame.tga"
+		transparencecheck = yes
+	}	
+	spriteType = {
+		name = "GFX_faction_partido_conservador_republicano"	
+		texturefile = "gfx//interface//partido_conservador_republicano_icon.dds"
+	}
+    spriteType = {
+		name = "GFX_faction_bg_partido_comunista_brasileiro"	
+		texturefile = "gfx//interface//faction_red_frame.tga"
+		transparencecheck = yes
+	}	
+	spriteType = {
+		name = "GFX_faction_partido_comunista_brasileiro"	
+		texturefile = "gfx//interface//partido_comunista_brasileiro_icon.dds"
+	}   	
+	spriteType = {
+		name = "GFX_faction_bg_integralistas"	
+		texturefile = "gfx//interface//faction_blue_frame.tga"
+		transparencecheck = yes
+	}	
+	spriteType = {
+		name = "GFX_faction_integralistas"	
+		texturefile = "gfx//interface//integralistas_icon.dds"
+	}
+	spriteType = {
+		name = "GFX_faction_bg_partido_democratico_nacional"	
+		texturefile = "gfx//interface//faction_blue_frame.tga"
+		transparencecheck = yes
+	}	
+	spriteType = {
+		name = "GFX_faction_partido_democratico_nacional"	
+		texturefile = "gfx//interface//partido_democratico_nacional_icon.dds"
+	}
+	spriteType = {
+		name = "GFX_faction_bg_partido_social_democratico"	
+		texturefile = "gfx//interface//faction_blue_frame.tga"
+		transparencecheck = yes
+	}	
+	spriteType = {
+		name = "GFX_faction_partido_social_democratico"	
+		texturefile = "gfx//interface//partido_social_democratico_icon.dds"
+	}
+	spriteType = {
+		name = "GFX_faction_bg_partido_trabalhista_brasileiro"	
+		texturefile = "gfx//interface//faction_red_frame.tga"
+		transparencecheck = yes
+	}	
+	spriteType = {
+		name = "GFX_faction_partido_trabalhista_brasileiro"	
+		texturefile = "gfx//interface//partido_trabalhista_brasileiro_icon.dds"
+	}
+	spriteType = {
+		name = "GFX_faction_bg_ARENA"	
+		texturefile = "gfx//interface//faction_blue_frame.tga"
+		transparencecheck = yes
+	}	
+	spriteType = {
+		name = "GFX_faction_ARENA"	
+		texturefile = "gfx//interface//ARENA_icon.dds"
+	}
+	spriteType = {
+		name = "GFX_faction_bg_PDS"	
+		texturefile = "gfx//interface//faction_blue_frame.tga"
+		transparencecheck = yes
+	}	
+	spriteType = {
+		name = "GFX_faction_PDS"	
+		texturefile = "gfx//interface//PDS_icon.dds"
+	}
+	spriteType = {
+		name = "GFX_faction_bg_MDB"	
+		texturefile = "gfx//interface//faction_red_frame.tga"
+		transparencecheck = yes
+	}	
+	spriteType = {
+		name = "GFX_faction_MDB"	
+		texturefile = "gfx//interface//MDB_icon.dds"
+	}
+	spriteType = {
+		name = "GFX_faction_bg_PMDB"	
+		texturefile = "gfx//interface//faction_red_frame.tga"
+		transparencecheck = yes
+	}	
+	spriteType = {
+		name = "GFX_faction_PMDB"	
+		texturefile = "gfx//interface//PMDB_icon.dds"
+	}
+	spriteType = {
+		name = "GFX_faction_bg_partido_dos_trabalhadores"	
+		texturefile = "gfx//interface//faction_red_frame.tga"
+		transparencecheck = yes
+	}	
+	spriteType = {
+		name = "GFX_faction_partido_dos_trabalhadores"	
+		texturefile = "gfx//interface//partido_dos_trabalhadores_icon.dds"
+	}
+	spriteType = {
+		name = "GFX_faction_bg_PRONA"	
+		texturefile = "gfx//interface//faction_blue_frame.tga"
+		transparencecheck = yes
+	}	
+	spriteType = {
+		name = "GFX_faction_PRONA"	
+		texturefile = "gfx//interface//PRONA_icon.dds"
+	}
+	spriteType = {
+		name = "GFX_faction_bg_DEM"	
+		texturefile = "gfx//interface//faction_blue_frame.tga"
+		transparencecheck = yes
+	}	
+	spriteType = {
+		name = "GFX_faction_DEM"	
+		texturefile = "gfx//interface//DEM_icon.dds"
+	}
+	spriteType = {
+		name = "GFX_faction_bg_PSDB"	
+		texturefile = "gfx//interface//faction_blue_frame.tga"
+		transparencecheck = yes
+	}
+	spriteType = {
+		name = "GFX_faction_PSDB"	
+		texturefile = "gfx//interface//PSDB_icon.dds"
+	}
+	spriteType = {
+		name = "GFX_faction_bg_PSOL"	
+		texturefile = "gfx//interface//faction_red_frame.tga"
+		transparencecheck = yes
+	}	
+	spriteType = {
+		name = "GFX_faction_PSOL"	
+		texturefile = "gfx//interface//PSOL_icon.dds"
+	}
+	spriteType = {
+		name = "GFX_faction_bg_REDE"	
+		texturefile = "gfx//interface//faction_purple_frame.tga"
+		transparencecheck = yes
+	}	
+	spriteType = {
+		name = "GFX_faction_REDE"	
+		texturefile = "gfx//interface//REDE_icon.dds"
+	}
+	spriteType = {
+		name = "GFX_faction_bg_partido_verde"	
+		texturefile = "gfx//interface//faction_purple_frame.tga"
+		transparencecheck = yes
+	}	
+	spriteType = {
+		name = "GFX_faction_partido_verde"	
+		texturefile = "gfx//interface//partido_verde_icon.dds"
+	}
+	spriteType = {
+		name = "GFX_faction_bg_PSC"	
+		texturefile = "gfx//interface//faction_blue_frame.tga"
+		transparencecheck = yes
+	}
+	spriteType = {
+		name = "GFX_faction_PSC"	
+		texturefile = "gfx//interface//PSC_icon.dds"
+	}
+	spriteType = {
+		name = "GFX_faction_bg_partido_da_republica"	
+		texturefile = "gfx//interface//faction_purple_frame.tga"
+		transparencecheck = yes
+	}
+	spriteType = {
+		name = "GFX_faction_partido_da_republica"	
+		texturefile = "gfx//interface//partido_da_republica_icon.dds"
+	}
+	spriteType = {
+		name = "GFX_faction_bg_PRTB"	
+		texturefile = "gfx//interface//faction_blue_frame.tga"
+		transparencecheck = yes
+	}
+	spriteType = {
+		name = "GFX_faction_PRTB"	
+		texturefile = "gfx//interface//PRTB_icon.dds"
+	}
+	spriteType = {
+		name = "GFX_faction_bg_PDT"	
+		texturefile = "gfx//interface//faction_red_frame.tga"
+		transparencecheck = yes
+	}	
+	spriteType = {
+		name = "GFX_faction_PDT"	
+		texturefile = "gfx//interface//PDT_icon.dds"
+	}
+}

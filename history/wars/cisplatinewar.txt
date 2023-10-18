@@ -1,0 +1,16 @@
+name = "Cisplatine War"
+
+war_goal = {
+	type = take_core
+	casus_belli = cb_core
+}
+
+1825.12.10 = {
+	add_attacker = BRZ
+	add_defender = LAP
+}
+
+1828.8.27 = {
+	rem_attacker = BRZ
+	rem_defender = LAP
+}

@@ -1,0 +1,24 @@
+name = "War of the Farrapos"
+
+war_goal = {
+	type = defend_capital_independence
+	casus_belli = cb_independence_war
+}
+
+1836.9.11 = {
+	add_attacker = RGS
+	add_defender = BRZ
+}
+
+1839.6.24 = {
+    add_attacker = JUL
+}
+
+1839.11.15 = {
+    rem_attacker = JUL
+}
+
+1845.3.1 = {
+	rem_attacker = RGS
+	rem_defender = BRZ
+}

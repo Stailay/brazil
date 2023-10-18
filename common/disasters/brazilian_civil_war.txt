@@ -1,0 +1,97 @@
+brazilian_civil_war = {
+	potential = {
+		tag = BRZ
+		government = monarchy
+		NOT = { is_year = 1910 }
+		is_year = 1810
+		NOT = { has_country_flag = had_republican_coup }
+	}
+
+
+	can_start = {
+		has_any_disaster = no
+		custom_trigger_tooltip = {
+		    tooltip = military_issue
+			has_country_flag = militaryupsetbyemperor
+		}
+		NOT = { stability = 3 }
+	}
+	
+	can_stop = {
+		stability = 3
+		OR = {
+    		legitimacy = 100
+			government = republic
+		}
+	}
+	
+	down_progress = {
+		factor = 1
+	}
+	
+	progress = {
+		modifier = {
+			factor = 1
+			NOT = { stability = 0 }
+			stability = -1
+		}
+		modifier = {
+			factor = 2
+			NOT = { stability = -1 }
+			stability = -2
+		}
+		modifier = {
+		    factor = 3
+			NOT = { stability = -2 }
+			stability = -3
+		}
+		modifier = {
+		    factor = 2
+    		custom_trigger_tooltip = {
+	            tooltip = religious_issue
+	    	   	has_country_flag = church_displeased
+    	    }
+		}
+		modifier = {
+		    factor = 5
+			custom_trigger_tooltip = {
+		        tooltip = military_issue
+	    		has_country_flag = militaryupsetbyemperor
+    		}
+		}
+		modifier = {
+		    factor = 5
+			custom_trigger_tooltip = {
+    	  	    tooltip = abolitionist_issue
+				has_country_flag = lei_aurea
+   		    }
+		}
+	}
+	
+	can_end = {
+		stability = 3
+		NOT = { num_of_revolts = 1 }
+	}
+	
+	modifier = {
+	    global_unrest = 10
+		stability_cost_modifier = 0.3
+		legitimacy = -2
+	}
+
+	on_start = dis_br_republican_coup.1
+	on_end = dis_br_republican_coup.10
+	
+	on_monthly = {
+	    1000 = 0
+		100 = dis_br_republican_coup.2
+		100 = dis_br_republican_coup.3
+		100 = dis_br_republican_coup.4
+		100 = dis_br_republican_coup.5
+		100 = dis_br_republican_coup.6
+		100 = dis_br_republican_coup.7
+		100 = dis_br_republican_coup.8
+		
+	}
+}
+

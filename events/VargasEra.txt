@@ -1,0 +1,460 @@
+namespace = eravargas
+
+# Revolução Constitucionalista
+country_event = {
+    id = eravargas.1
+	title = "VARGAS1NAME"
+	desc = "VARGAS1DESC"
+	picture = MMDC_eventPicture
+	
+	trigger = {
+	    tag = BRZ
+		government = coronelist_republic
+	    had_country_flag = { flag = 1930_provisory_government days = 365 }
+		NOT = { has_country_flag = revolution_of_1932 }
+		is_year = 1932
+		NOT = { is_year = 1934 }
+		owns = 766
+		owns = 2782
+		owns = 2783
+	}
+	
+	mean_time_to_happen = {
+	    months = 1
+	}	
+	
+	immediate = {
+	    set_country_flag = revolution_of_1932
+	}
+		
+	option = {
+	    name = "19301OPT1"      # Dire times ahead of us
+		766 = {
+		    spawn_rebels = {
+			    type = revolutionary_rebels
+				size = 1
+				unrest = 10
+			}
+		}
+		2782 = {
+		    spawn_rebels = {
+			    type = revolutionary_rebels
+				size = 4
+				unrest = 10
+			}
+		}
+		2783 = {
+		    spawn_rebels = {
+			    type = revolutionary_rebels
+				size = 4 
+				unrest = 10
+			}
+		}
+	}
+}
+
+# New Constitution
+country_event = {
+    id = eravargas.2
+	title = "VARGAS2NAME"
+	desc = "VARGAS2DESC"
+	picture = DEBATE_REPUBLICAN_eventPicture
+	
+	trigger = {
+	    tag = BRZ
+		is_year = 1934
+		NOT = { has_country_flag = vargas_constitutional_mandate }
+		has_country_flag = 1930_provisory_government
+		has_country_flag = revolution_of_1932
+		NOT = { is_year = 1937 }
+		government = coronelist_republic
+	}
+	
+	mean_time_to_happen = {
+	    months = 12
+	}
+	
+	option = {
+	    name = "VARGAS2OPT1"
+		change_government = constitutional_republic
+		set_country_flag = vargas_constitutional_mandate
+		clr_country_flag = 1930_provisory_government
+	}
+}
+
+# Reformation of the parties
+country_event = {
+    id = eravargas.3
+	title = "VARGAS3NAME"
+	desc = "VARGAS3DESC"
+	picture = DEBATE_REPUBLICAN_eventPicture
+	
+	trigger = {
+	    tag = BRZ
+		is_year = 1930
+		NOT = { is_year = 1945 }
+		has_country_flag = vargas_constitutional_mandate
+        government = constitutional_republic
+		OR = {
+		    NOT = { has_faction = partido_comunista_brasileiro }
+			NOT = { has_faction = integralistas }
+			NOT = { has_faction = partido_democratico_nacional }
+		}
+	}
+	
+	mean_time_to_happen = {
+	    days = 1
+    }
+	
+	immediate = {
+	    set_country_flag = reformed_parties
+	}
+	
+	option = {
+	    name = "VARGAS3OPT1"
+		hidden_effect = {
+		    if = {
+			    limit = {
+				    NOT = { has_faction = integralistas }
+				}
+				add_faction = integralistas
+			}
+			if = {
+			    limit = {
+				    NOT = { has_faction = partido_comunista_brasileiro }
+				}
+				add_faction = partido_comunista_brasileiro
+			}
+			if = {
+			    limit = {
+				    NOT = { has_faction = partido_democratico_nacional }
+				}
+				add_faction = partido_democratico_nacional
+			}
+			if = {
+			    limit = {
+				    has_faction = partido_riograndense
+				}
+				remove_faction = partido_riograndense
+			}
+			if = {
+			    limit = {
+				    has_faction = partido_fluminense
+				}
+				remove_faction = partido_fluminense
+			}
+			if = {
+			    limit = {
+				    has_faction = partido_conservador_monarquista
+				}
+				remove_faction = partido_conservador_monarquista
+			}
+			if = {
+			    limit = {
+				    NOT = { has_faction = partido_conservador_republicano }
+				}
+				add_faction = partido_conservador_republicano
+			}
+		}
+	}
+}
+
+# Cristo Redentor
+country_event = {
+    id = eravargas.4
+	title = "VARGAS4NAME"
+	desc = "VARGAS4DESC"
+    picture = CRISTO_REDENTOR
+	
+	trigger = {
+	    tag = BRZ
+	    is_year = 1930
+		dominant_religion = catholic
+		owns = 763
+		763 = {
+		    religion_group = christian
+			NOT = { has_province_modifier = christ_redeemer }
+		}
+	}
+	
+	mean_time_to_happen = {
+	    months = 10
+	}
+	
+	option = {
+	    name = "VARGAS4OPT1"
+		763 = {
+		    add_permanent_province_modifier = {
+         		name = christ_redeemer
+        		duration = -1
+	        }
+		}
+	}
+}
+
+# USP
+country_event = {
+    id = eravargas.5
+	title = "VARGAS5NAME"
+	desc = "VARGAS5DESC"
+    picture = UNIVERSITY_eventPicture
+	
+	trigger = {
+	    tag = BRZ
+		is_year = 1934
+		owns = 766
+		owns = 2782
+		owns = 2783
+		NOT = { has_country_flag = USP }
+		OR = {
+		    766 = {
+			    can_build = university
+			}
+			2782 = {
+			    can_build = university
+			}
+			2783 = {
+			    can_build = university
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+	    months = 12
+	}
+	
+	immediate = {
+	    set_country_flag = USP
+	}
+	
+	option = {
+	    name = "VARGAS5OPT1"
+		if = {
+		    limit = {
+			    owns = 766
+				766 = {
+				    can_build = university
+				}
+			}
+			766 = { 
+	          	add_building_construction = {
+		            building = university
+		  	        speed = 2
+	          		cost = 0.25
+           		}
+		    }
+		}
+		if = {
+		    limit = {
+			    2782 = {
+				    can_build = university
+				}
+				owns = 2782
+		    }
+		    2782 = { 
+	           	add_building_construction = {
+		            building = university
+		            speed = 2
+	           		cost = 0.25
+            	}
+		    }
+		}
+		if = {
+		    limit = {
+			    2783 = {
+				    can_build = university
+				}
+				owns = 2783
+			}
+			2783 = { 
+	           	add_building_construction = {
+		            building = university
+		            speed = 2
+	           		cost = 0.25
+            	}
+		    }
+		}
+	}
+	
+	option = {
+	    name = "VARGAS5OPT2"
+	}
+}
+
+# Intentona Comunista
+country_event = {
+    id = eravargas.6
+	title = "VARGAS6NAME"
+	desc = "VARGAS6DESC"
+	picture = COMMUNISM_eventPicture
+	
+	trigger = {
+	    tag = BRZ
+		is_year = 1935
+		NOT = { is_year = 1937 }
+		NOT = { government = communist_dictatorship }
+		NOT = { government = socialist_republic }
+		NOT = { has_country_flag = had_intentona_comunista }
+		has_country_modifier = pcb_banned
+	}
+	
+	mean_time_to_happen = {
+	    months = 1
+	}
+	
+	option = {
+	    name = "VARGAS6OPT1"
+	    753 = {
+     		spawn_rebels = {
+			    type = communist_rebels
+				size = 3
+				unrest = 10
+			}
+        }
+		754 = {
+		    spawn_rebels = {
+			    type = communist_rebels
+				size = 1
+				unrest = 10
+			}
+		}
+		763 = {
+		    spawn_rebels = {
+			    type = communist_rebels
+				size = 2
+				leader = "Luiz Carlos Prestes"
+				unrest = 10
+			}
+		}
+		set_country_flag = had_intentona_comunista
+	}	
+}
+
+# Lobato
+country_event = {
+    id = eravargas.7
+	title = "VARGAS7NAME"
+	desc = "VARGAS7DESC"
+	picture = TRADEGOODS_eventPicture
+	
+	trigger = {
+		tag = BRZ
+		owns = 756
+		dip_tech = 81
+		756 = {
+    		NOT = { trade_goods = oil }
+		}
+		is_year = 1940
+	}
+	
+	mean_time_to_happen = {
+	    months = 24
+		modifier = {
+		    factor = 0.5
+			government = estado_novo
+		}
+	}
+	
+	option = {
+	    name = "VARGAS7OPT1"
+		756 = {
+		    change_trade_goods = oil
+		}
+	}
+}
+
+# End of Estado Novo
+country_event = {
+    id = eravargas.8
+	title = "VARGAS8NAME"
+	desc = "VARGAS8DESC"
+	picture = REVOLUTION_eventPicture
+	
+	trigger = {
+	    tag = BRZ
+		government = estado_novo
+		is_year = 1945
+		NOT = { is_year = 1950 }
+	}
+	
+	mean_time_to_happen = {
+	    months = 12
+	}
+	
+	option = {
+	    name = "VARGAS8OPT1"
+		custom_tooltip = populist_constitution
+		hidden_effect = {
+		    if = {
+			    has_ruler_flag = vargas
+			}
+			exile_ruler_as = "vargas"
+			set_country_flag = vargas_deposed
+		}
+		define_ruler = {
+		    name = "Eurico Gaspar Dutra"
+			age = 62
+			adm = 2
+			dip = 4
+			mil = 4
+		}
+		change_government = populist_republic
+	}
+	
+	option = {
+	    name = "VARGAS8OPT2"
+		random_owned_province = {
+		    limit = {
+			    base_tax = 4
+			}
+			spawn_rebels = {
+			    type = revolutionary_rebels
+				size = 3
+				unrest = 10
+			}
+		}
+		random_owned_province = {
+		    limit = {
+			    base_tax = 4
+			}
+			spawn_rebels = {
+			    type = revolutionary_rebels
+				size = 3
+				unrest = 10
+			}
+		}
+		random_owned_province = {
+		    limit = {
+			    base_tax = 4
+			}
+			spawn_rebels = {
+			    type = revolutionary_rebels
+				size = 3
+				unrest = 10
+			}
+		}
+	}
+}
+
+# Petrobrás
+country_event = {
+    id = eravargas.9
+	title = "VARGAS9NAME"
+	desc = "VARGAS9DESC"
+	picture = TRADEGOODS_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+	    name = "VARGAS9OPT1"
+		every_owned_province = {
+		    limit = {
+			    trade_goods = oil
+			}
+			add_province_modifier = {
+		        name = "Petrobras"
+		    	duration = -1
+		   	}
+	    }
+	}
+}

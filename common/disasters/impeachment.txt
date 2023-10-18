@@ -1,0 +1,81 @@
+impeachment = {
+	potential = {
+		tag = BRZ
+		has_country_flag = republicanova
+		OR = {
+		    government = constitutional_republic
+			government = parliamentary_republic
+			government = presidental_republic
+			government = oligarchic_republic
+			government = populist_republic
+		}
+	}
+
+
+	can_start = {
+		has_any_disaster = no
+	    NOT = { stability = -1 }
+	}
+	
+	can_stop = {
+		stability = 3
+		custom_trigger_tooltip = {
+		    tooltip = not_involved_in_scandals
+			NOT = { has_country_modifier = generic_corruption_scandal }
+	    	NOT = { has_ruler_modifier = corrupt_president }
+    		NOT = { has_country_modifier = petrobras_scandal_country }
+		}
+	}
+	
+	down_progress = {
+		factor = 1
+	}
+	
+	progress = {
+		modifier = {
+			factor = 1
+			NOT = { stability = 0 }
+			stability = -1
+		}
+		modifier = {
+			factor = 2
+			NOT = { stability = -1 }
+			stability = -2
+		}
+		modifier = {
+		    factor = 3
+			NOT = { stability = -2 }
+			stability = -3
+		}
+		modifier = {
+		    factor = 5
+			has_country_modifier = generic_corruption_scandal
+		}
+		modifier = {
+		    factor = 5
+			has_ruler_modifier = corrupt_president 
+		}
+		modifier = {
+		    factor = 5
+			custom_trigger_tooltip = {
+			    tooltip = petrobras_scandal_unrest
+				has_country_modifier = petrobras_scandal_country
+			}
+		}
+	}
+	
+	can_end = {
+		stability = 3
+		NOT = { has_ruler_modifier = corrupt_president }
+	}
+	
+	modifier = {
+	}
+
+	on_start = dis_impeachment.1
+	on_end = dis_impeachment.1
+	
+	on_monthly = {
+	}
+}
+

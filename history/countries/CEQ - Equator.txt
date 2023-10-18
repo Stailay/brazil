@@ -1,0 +1,23 @@
+government = constitutional_republic 
+mercantilism = 0.1
+technology_group = western
+religion = catholic
+primary_culture = iberian_northeast_brazilian
+capital = 754	# Recife
+
+1824.7.2 = {
+    change_government = constitutional_republic
+	primary_culture = iberian_northeast_brazilian
+	monarch = {
+	    name = "Manuel Pais de Andrade"
+		birth_date = 1774.12.21
+		adm = 3
+		mil = 2
+		dip = 4
+		attach_leader = "Manuel Pais de Andrade"
+		leader = {	name = "Manuel Pais de Andrade"	type = general	rank = 2	fire = 3	shock = 2	manuever = 3	siege = 2 death_date = 1855.6.18 }
+	}  
+}
+ 
+
+

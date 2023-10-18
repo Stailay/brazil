@@ -1,0 +1,16 @@
+name = "The Cabanagem"
+
+war_goal = {
+	type = defend_capital_independence
+	casus_belli = cb_independence_war
+}
+
+1835.8.23 = {
+	add_attacker = GRP
+	add_defender = BRZ
+}
+
+1840.8.23 = {
+	rem_attacker = GRP
+	rem_defender = BRZ
+}

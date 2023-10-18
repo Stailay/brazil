@@ -1,0 +1,15 @@
+# Brazil separatists
+RJN = "countries/RiodeJaneiro.txt"
+SVC = "countries/SaoVicente.txt"
+MGR = "countries/MinasGerais.txt"
+PMB = "countries/Pernambuco.txt"
+CEQ = "countries/ConfederationoftheEquator.txt"
+MLE = "countries/YorubaBahia.txt"
+GRP = "countries/GraoPara.txt"
+RGS = "countries/RioGrandedoSul.txt"
+JUL = "countries/Juliana.txt"
+BAI = "countries/Bahia.txt"
+SLS = "countries/Sul.txt"
+
+# Bolivia separatists
+ACR = "countries/Acre.txt"

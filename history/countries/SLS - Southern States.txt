@@ -1,0 +1,10 @@
+government = constitutional_republic 
+mercantilism = 0.1
+technology_group = western
+religion = secular
+primary_culture = iberian_south_brazilian
+historical_friend = URU
+capital = 771	# Rio Grande do Sul
+ 
+
+

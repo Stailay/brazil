@@ -1,0 +1,16 @@
+name = "War of the Confederation of the Equator"
+
+war_goal = {
+	type = defend_capital_independence
+	casus_belli = cb_independence_war
+}
+
+1824.7.2 = {
+	add_attacker = CEQ
+	add_defender = BRZ
+}
+
+1824.10.1 = {
+	rem_attacker = CEQ
+	rem_defender = BRZ
+}

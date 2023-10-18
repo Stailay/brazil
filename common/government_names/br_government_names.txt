@@ -1,0 +1,33 @@
+# For specific government types
+# Will pick the first valid one it finds in list
+
+gov_brazilian_republics = {
+    rank = {
+	    1 = REPUBLIC
+		2 = REPUBLIC
+		3 = REPUBLIC
+	}
+	
+	ruler_male = {
+	    1 = PRESIDENT
+		2 = PRESIDENT
+		3 = PRESIDENT
+	}
+	
+	ruler_female = {
+	    1 = PRESIDENT
+		2 = PRESIDENT
+		3 = PRESIDENT
+	}
+	
+	trigger = {
+	    OR = {
+    	    government = coronelist_republic
+			government = estado_novo
+			government = integralist_state
+			government = populist_republic
+			government = regime_militar
+		}
+	}
+}
+

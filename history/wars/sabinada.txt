@@ -1,0 +1,16 @@
+name = "The Sabinada"
+
+war_goal = {
+	type = defend_capital_independence
+	casus_belli = cb_independence_war
+}
+
+1837.11.6 = {
+	add_attacker = BAI
+	add_defender = BRZ
+}
+
+1838.3.16 = {
+	rem_attacker = BAI
+	rem_defender = BRZ
+}

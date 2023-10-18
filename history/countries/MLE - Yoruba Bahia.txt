@@ -1,0 +1,21 @@
+government = absolute_monarchy
+mercantilism = 0.1
+technology_group = western
+religion = sunni
+primary_culture = yorumba
+capital = 756	# Bahia
+
+1835.1.24 = {
+    change_government = absolute_monarchy
+	primary_culture = yorumba
+	monarch = {
+	    name = "The Males Rebels"
+		adm = 3
+		mil = 1
+		dip = 2
+        regent = yes
+	}  
+}
+ 
+
+

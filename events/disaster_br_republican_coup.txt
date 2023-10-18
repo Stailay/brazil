@@ -1,0 +1,470 @@
+namespace = dis_br_republican_coup
+
+# Revolution
+country_event = {
+    id = dis_br_republican_coup.1
+	title = "EMPIRE41NAME"
+	desc = "EMPIRE41DESC"
+	picture = PROCLAMATION_OF_THE_REPUBLIC_eventPicture
+	
+	is_triggered_only = yes
+	
+	mean_time_to_happen = {
+	    days = 1
+	}
+	
+	option = {
+	    name = "EMPIRE41OPT2"			# I won't surrender
+		add_prestige = -10
+		hidden_effect = {
+		    random_owned_province = {
+			    limit = {
+				    base_tax = 4
+				}
+				spawn_rebels = {
+				    type = brazilian_coronelist_rebels
+					size = 4
+					unrest = 10
+					leader = "Deodoro da Fonseca"
+				}
+			}
+			random_owned_province = {
+			    limit = {
+				    base_tax = 4
+				}
+				spawn_rebels = {
+				    type = brazilian_coronelist_rebels
+					size = 4
+					unrest = 10
+				}
+			}
+			random_owned_province = {
+			    limit = {
+				    base_tax = 4
+				}
+				spawn_rebels = {
+				    type = brazilian_coronelist_rebels
+					size = 4
+					unrest = 10
+				}
+			}
+			random_owned_province = {
+			    limit = {
+				    base_tax = 4
+					area = pernambuco_area
+				}
+				spawn_rebels = {
+				    type = brazilian_coronelist_rebels
+					size = 3
+					unrest = 10
+				}
+			}
+			random_owned_province = {
+			    limit = {
+				    base_tax = 4
+					area = pernambuco_area
+				}
+				spawn_rebels = {
+				    type = brazilian_coronelist_rebels
+					size = 3
+					unrest = 10
+				}
+			}
+		}
+		add_stability = -3
+		set_country_flag = had_republican_revolution
+		set_country_flag = republican_revolution
+		ai_chance = { factor = 0 }
+	}
+	
+	option = {
+	    name = "EMPIRE41OPT1"			# I will surrender
+		custom_tooltip = "republicaproclamada"
+		add_prestige = -25
+		if = {
+		    limit = {
+		        has_heir = "Isabel"
+				has_ruler = "Pedro II"
+			}
+			set_country_flag = deposed_imperial_family
+			exile_ruler_as = "Pedro II"
+			exile_heir_as = "Isabel"
+		}
+		hidden_effect = {
+		    set_government_rank = 2
+			change_government = coronelist_republic
+			define_ruler = {
+			    name = "Manuel Deodoro"
+				dynasty = "da Fonseca"
+				age = 62
+				adm = 3
+				mil = 5
+				dip = 3
+			}
+			country_event = { id = dis_br_republican_coup.10 }
+		}
+		ai_chance = { factor = 1 }
+	}
+}
+
+# Militaries gain support
+country_event = {
+	id = dis_br_republican_coup.2
+	title = "BRZCVLWR2NAME"
+	desc = "BRZCVLWR2DESC"
+	picture = REVOLUTION_eventPicture
+	
+	trigger = {
+	    has_country_flag = republican_revolution
+		had_country_flag = { flag = republican_revolution days = 100 }
+	}
+	
+
+	mean_time_to_happen = {
+		days = 30
+		
+		modifier = {
+		    factor = 10
+			has_country_flag = military_supported
+		}
+	}
+
+	immediate = {
+		set_country_flag = military_supported
+	}	
+	
+	option = {
+		name = "19302OPT1"		# Things only get worse
+		random_owned_province = { brazilian_coronelist_rebels = 4 }
+		random_owned_province = { brazilian_coronelist_rebels = 4 }
+		random_owned_province = { brazilian_coronelist_rebels = 4 }
+		random_owned_province = { brazilian_coronelist_rebels = 4 }
+		random_owned_province = { brazilian_coronelist_rebels = 4 }
+		random_owned_province = { brazilian_coronelist_rebels = 4 }
+		random_owned_province = { brazilian_coronelist_rebels = 4 }
+		random_owned_province = { brazilian_coronelist_rebels = 4 }
+	}
+}
+
+# The Movement Splits (Constitutional Rebels)
+country_event = {
+	id = dis_br_republican_coup.3
+	title = "BRZCVLWR3NAME"
+	desc = "BRZCVLWR3DESC"
+	picture = BATTLE_eventPicture
+	
+	trigger = {
+	    has_country_flag = republican_revolution
+		NOT = { has_country_flag = constitutional_rebels_splitted }
+	}
+
+	mean_time_to_happen = {
+		months = 5
+	}
+	immediate = { 
+		set_country_flag = constitutional_rebels_splitted
+	}
+	
+	option = {
+		name = "BRZCVLWR3OPT1"			# The more divided they are, the better for us
+		random_owned_province = { revolutionary_rebels = 3 }
+		random_owned_province = { revolutionary_rebels = 3 }
+		random_owned_province = { revolutionary_rebels = 3 }
+		random_owned_province = { revolutionary_rebels = 3 }
+		random_owned_province = { revolutionary_rebels = 3 }
+		random_owned_province = { revolutionary_rebels = 3 }
+		random_owned_province = { revolutionary_rebels = 3 }
+	}
+}
+
+# The Movement Splits (Local Elites)
+country_event = {
+	id = dis_br_republican_coup.4
+	title = "BRZCVLWR4NAME"
+	desc = "BRZCVLWR4DESC"
+	picture = BATTLE_eventPicture
+	
+	trigger = {
+	    has_country_flag = republican_revolution
+    	NOT = { has_country_flag = local_elites_splitted }
+	}
+
+	mean_time_to_happen = {
+		months = 7
+	}
+	immediate = { 
+		set_country_flag = local_elites_splitted
+	}
+	
+	option = {
+		name = "BRZCVLWR3OPT1"			# The more divided they are, the better for us
+		random_owned_province = { particularist_rebels = 4 }
+		random_owned_province = { particularist_rebels = 4 }
+		random_owned_province = { particularist_rebels = 4 }
+		random_owned_province = { particularist_rebels = 4 }
+		random_owned_province = { particularist_rebels = 4 }
+		random_owned_province = { particularist_rebels = 4 }
+		random_owned_province = { particularist_rebels = 4 }
+	}
+}
+
+# The Movement Splits (Southern Separatists)
+country_event = {
+	id = dis_br_republican_coup.5
+	title = "BRZCVLWR5NAME"
+	desc = "BRZCVLWR5DESC"
+	picture = BATTLE_eventPicture
+	
+	trigger = {
+	    has_country_flag = republican_revolution
+	    NOT = { has_country_flag = south_splitted }
+		any_owned_province = { is_core = RGS }
+		NOT = { exists = RGS }
+	}
+    
+	immediate = {
+	    set_country_flag = south_splitted
+	}
+	
+	mean_time_to_happen = {
+		months = 6
+	}
+	
+	option = {
+		name = "BRZCVLWR3OPT1"			# The more divided they are, the better for us
+		random_owned_province = {
+		    limit = {
+			    is_core = RGS
+			}
+			spawn_rebels = {
+    		    type = nationalist_rebels
+	    		size = 4
+		    }
+		}
+		random_owned_province = {
+		    limit = {
+			    is_core = RGS
+			}
+			spawn_rebels = {
+    		    type = nationalist_rebels
+	    		size = 4
+		    }
+		}
+	}
+}
+
+# The New Movement (Northern Separatists)
+country_event = {
+	id = dis_br_republican_coup.6
+	title = "BRZCVLWR6NAME"
+	desc = "BRZCVLWR6DESC"
+	picture = BATTLE_eventPicture
+	
+	trigger = {
+	    has_country_flag = republican_revolution
+	    NOT = { has_country_flag = north_seceded }
+		any_owned_province = { is_core = GRP }
+		NOT = { exists = GRP }
+		owns = 748
+	}
+	
+	is_triggered_only = yes
+    
+	immediate = {
+	    set_country_flag = north_splitted
+	}
+	
+	mean_time_to_happen = {
+		months = 6
+	}
+	
+	option = {
+		name = "BRZCVLWR6OPT1"			# The more divided they are, the better for us
+		748 = {
+		    spawn_rebels = {
+			    type = nationalist_rebels
+				size = 5
+				win = yes
+			}
+		}
+		random_owned_province = {
+		    limit = {
+			    is_core = GRP
+			}
+			spawn_rebels = {
+    		    type = nationalist_rebels
+	    		size = 4
+		    }
+		}
+		random_owned_province = {
+		    limit = {
+			    is_core = GRP
+			}
+			spawn_rebels = {
+    		    type = nationalist_rebels
+	    		size = 4
+		    }
+		}
+		random_owned_province = {
+		    limit = {
+			    is_core = GRP
+			}
+			spawn_rebels = {
+    		    type = nationalist_rebels
+	    		size = 4
+		    }
+		}
+		random_owned_province = {
+		    limit = {
+			    is_core = GRP
+			}
+			spawn_rebels = {
+    		    type = nationalist_rebels
+	    		size = 4
+		    }
+		}
+	}
+}
+
+# Imperial Soldiers desert
+country_event = {
+	id = dis_br_republican_coup.7
+	title = "BRZCVLWR7NAME"
+	desc = "BRZCVLWR7DESC"
+	picture = BATTLE_eventPicture
+	
+	trigger = {
+	    had_country_flag = { flag = republican_revolution days = 300 }
+    	NOT = { has_country_flag = imperials_desert }
+		num_of_infantry = 10
+	}
+
+	mean_time_to_happen = {
+		days = 30
+		
+		modifier = {
+		    factor = 12
+			
+			has_country_flag = imperials_desert
+		}
+	}
+	immediate = { 
+		set_country_flag = imperials_desert
+	}
+	
+	option = {
+		name = "BRZCVLWR7OPT1"			# That's treason!
+		kill_units = {
+		    who = ROOT
+			type = infantry
+			amount = 10
+		}
+		random_owned_province = { brazilian_coronelist_rebels = 3 }
+		ai_chance = { factor = 50 }
+	}
+	
+	option = {
+	    name = "BRZCVLWR7OPT2"
+		add_prestige = -15
+		ai_chance = { factor = 50 }
+	}
+}
+
+# The farmers' unrest
+country_event = {
+	id = dis_br_republican_coup.8
+	title = "BRZCVLWR8NAME"
+	desc = "BRZCVLWR8DESC"
+	picture = ANGRY_MOB_eventPicture
+	
+	trigger = {
+	    has_country_flag = republican_revolution
+		NOT = { has_country_flag = farmers_unrest }
+	    has_country_flag = lei_aurea
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+	immediate = { 
+		set_country_flag = farmers_unrest
+	}
+	
+	option = {
+		name = "BRZCVLWR8OPT1"			# Deny them indemnification
+		random_owned_province = { brazilian_coronelist_rebels = 4 }
+		random_owned_province = { brazilian_coronelist_rebels = 4 }
+		random_owned_province = { brazilian_coronelist_rebels = 4 }
+		random_owned_province = { brazilian_coronelist_rebels = 4 }
+		random_owned_province = { brazilian_coronelist_rebels = 4 }
+		ai_chance = { factor = 50 }
+	}
+	
+	option = {
+	    name = "BRZCVLWR8OPT2"
+		prestige = -25
+		add_years_of_income = -0.1
+		ai_chance = { factor = 50 }
+	}
+}
+
+# Stability returns
+country_event = {
+	id = dis_br_republican_coup.9
+	title = "EVTNAME3019"
+	desc = "EVTDESC3019"
+	picture = REVOLUTION_eventPicture
+	
+	major = yes	
+	
+	trigger = {
+		has_country_flag = republican_revolution
+		had_country_flag = { flag = republican_revolution days = 1000 }
+	
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = "EVTOPTA3019"			# Restore order
+		country_event = { id = dis_br_republican_coup.10 }
+		add_stability = 2
+	}
+}
+
+country_event = {
+	id = dis_br_republican_coup.10
+	title = revolution.20.t
+	desc = revolution.20.d
+	picture = REVOLUTION_eventPicture
+
+	is_triggered_only = yes
+	
+	immediate = {
+	    disband_rebels = revolutionary_rebels
+		disband_rebels = brazilian_coronelist_rebels
+	}
+
+	option = {
+		name = revolution.20.a
+		end_disaster = brazilian_civil_war
+		clr_country_flag = republican_revolution
+		
+		clr_country_flag = republican_revolution
+		clr_country_flag = constitutional_rebels_splitted
+		clr_country_flag = local_elites_splitted
+		clr_country_flag = imperials_desert
+		clr_country_flag = farmers_unrest
+		clr_country_flag = south_splitted
+		clr_country_flag = north_seceded
+		clr_country_flag = road_to_bankruptcy
+		clr_country_flag = financial_crisis
+		remove_country_modifier = mint_money
+		remove_country_modifier = fight_inflation
+		remove_country_modifier = disarmament
+		remove_country_modifier = financial_disaster
+	}
+}
+

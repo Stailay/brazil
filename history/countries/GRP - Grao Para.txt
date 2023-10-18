@@ -1,0 +1,23 @@
+government = constitutional_republic 
+mercantilism = 0.1
+technology_group = western
+religion = catholic
+primary_culture = iberian_north_brazilian
+capital = 748	# Belém
+
+1835.1.6 = {
+    change_government = constitutional_republic
+	primary_culture = iberian_north_brazilian
+	monarch = {
+	    name = "Eduardo Angelim"
+		birth_date = 1814.6.6
+		adm = 2
+		mil = 2
+		dip = 2
+		attach_leader = "Eduardo Angelim"
+		leader = {	name = "Eduardo Angelim"	type = general	rank = 2	fire = 2	shock = 2	manuever = 3	siege = 1 death_date = 1882.6.20 }
+	}  
+}
+ 
+
+

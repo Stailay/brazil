@@ -1,0 +1,114 @@
+
+superiority_roman_imperialism = {
+	type = superiority
+	
+	attacker = {
+		badboy_factor = 0.5
+		prestige_factor = 1.5
+		peace_cost_factor = 0.5
+		
+		allowed_provinces = {
+			OR = {
+					region = france_region
+					region = iberia_region
+					region = italy_region
+					region = balkan_region
+					region = low_countries_region
+					region = british_isles_region
+					region = anatolia_region
+					region = mashriq_region
+					region = egypt_region
+					region = maghreb_region
+					region = germany_region
+				}
+		}
+		
+		po_demand_provinces = yes
+		
+		country_desc = ALL_COUNTRIES
+		prov_desc = ALL_PROVS
+	}
+	
+	defender = {
+		badboy_factor = 0.5
+		prestige_factor = 1.5
+		peace_cost_factor = 0.5
+		
+		allowed_provinces = {
+			OR = {
+					region = france_region
+					region = iberia_region
+					region = italy_region
+					region = balkan_region
+					region = low_countries_region
+					region = british_isles_region
+					region = anatolia_region
+					region = mashriq_region
+					region = egypt_region
+					region = maghreb_region
+					region = germany_region
+				}
+		}
+		
+		po_demand_provinces = yes
+		
+		country_desc = ALL_COUNTRIES
+		prov_desc = ALL_PROVS
+	}
+	
+
+	war_name = IMPERIAL_WAR_NAME
+}
+
+superiority_caliphal_subjugation = {
+	type = superiority
+	
+	attacker = {
+		badboy_factor = 0.5
+		prestige_factor = 1.5
+		peace_cost_factor = 0.5		
+	
+		po_become_vassal = yes
+		po_demand_provinces = yes
+		po_revoke_cores = yes
+		po_release_vassals = yes
+		po_release_annexed = yes
+		po_change_religion = yes
+		po_gold = yes
+		po_annul_treaties = yes
+	}
+	
+	defender = {
+		badboy_factor = 0.5
+		prestige_factor = 1.5
+		peace_cost_factor = 0.5		
+	
+		po_become_vassal = yes
+		po_demand_provinces = yes
+		po_revoke_cores = yes
+		po_release_vassals = yes
+		po_release_annexed = yes
+		po_gold = yes
+		po_annul_treaties = yes
+	}
+	
+	war_name = CALIPHAL_WAR_NAME
+}
+
+superiority_sphere = {
+	type = superiority
+	
+	badboy_factor = 1
+	prestige_factor = 2
+	peace_cost_factor = 0.5
+	
+	po_revoke_cores = yes
+	po_gold = yes
+	po_concede_defeat = yes
+	po_trade_power = yes
+	po_become_vassal = yes
+	po_become_protectorate = yes
+	
+	
+	war_name = SPHERE_WAR_NAME
+}

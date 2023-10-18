@@ -1,0 +1,556 @@
+country_decisions = {
+	
+	paulista_candidate = {
+	    potential = {
+		    always = no
+		}
+		
+		allow = {
+		    always = no
+		}
+		
+		effect = {
+		    add_ruler_modifier = {
+			    name = paulista_president
+			}
+		}
+	}
+    
+	mineiro_candidate = {
+	    potential = {
+		    always = no
+		}
+		
+		allow = {
+		    always = no
+		}
+		
+		effect = {
+		    add_ruler_modifier = {
+			    name = mineiro_president
+			}
+		}
+	}
+	
+	fluminense_candidate = {
+	    potential = {
+		    always = no
+		}
+		
+		allow = {
+		    always = no
+		}
+		
+		effect = {
+		    add_ruler_modifier = {
+			    name = fluminense_president
+			}
+		}
+	}
+	
+	republican_candidate = {
+	    potential = {
+		    always = no
+		}
+		
+		allow = {
+		    always = no
+		}
+		
+		effect = {
+		    add_ruler_modifier = {
+			    name = republican_president
+			}
+		}
+	}
+	
+	riograndense_candidate = {
+	    potential = {
+		    always = no
+		}
+		
+		allow = {
+		    always = no
+		}
+		
+		effect = {
+		    add_ruler_modifier = {
+			    name = republican_president
+			}
+		}
+	}
+	
+	ptb_candidate = {
+	    potential = {
+		    always = no
+		}
+		
+		allow = {
+		    always = no
+		}
+		
+		effect = {
+		    add_ruler_modifier = {
+			    name = ptb_president
+			}
+		}
+	}
+	
+	psd_candidate = {
+	    potential = {
+		    always = no
+		}
+		
+		allow = {
+		    always = no
+		}
+		
+		effect = {
+		    add_ruler_modifier = {
+			    name = social_democratic_president
+			}
+		}
+	}
+	
+	udn_candidate = {
+	    potential = {
+		    always = no
+		}
+		
+		allow = {
+		    always = no
+		}
+		
+		effect = {
+		    add_ruler_modifier = {
+			    name = democratic_president
+			}
+		}
+	}
+	
+	centrist_populist = {
+	    potential = {
+		    always = no
+		}
+		
+		allow = {
+		    always = no
+		}
+		
+		effect = {
+		    add_ruler_modifier = {
+			    name = centrist_populism
+			}
+		}
+	}
+	
+	left_wing_populist = {
+	    potential = {
+		    always = no
+		}
+		
+		allow = {
+		    always = no
+		}
+		
+		effect = {
+		    add_ruler_modifier = {
+			    name = left_wing_populism
+			}
+		}
+	}
+	
+	right_wing_populist = {
+	    potential = {
+		    always = no
+		}
+		
+		allow = {
+		    always = no
+		}
+		
+		effect = {
+		    add_ruler_modifier = {
+			    name = right_wing_populism
+			}
+		}
+	}
+	
+	the_miracle_starts = {
+	    potential = {
+		    always = no
+		}
+		
+		allow = {
+		    always = no
+		}
+		
+		effect = {
+		    add_country_modifier = {
+			    name = brazilian_economic_miracle
+				duration = 3650
+			}
+		}
+	}
+	
+	the_lost_decade = {
+	    potential = {
+		    always = no
+		}
+		
+		allow = {
+		    always = no
+		}
+		
+		effect = {
+		    add_country_modifier = {
+			    name = lost_decade
+		    	duration = 3650
+			}
+			remove_country_modifier = brazilian_economic_miracle
+		}
+	}
+	
+	the_lost_decade_end = {
+	    potential = {
+		    always = no
+		}
+		
+		allow = {
+		    always = no
+		}
+		
+		effect = {
+			remove_country_modifier = lost_decade
+		}
+	}
+	
+	end_patriotism = {
+	    potential = {
+		    always = no
+		}
+		
+		allow = {
+		    always = no
+		}
+		
+		effect = {
+			remove_country_modifier = encouraged_patriotism
+		}
+	}
+	
+	jose_bonifacio = {
+	    potential = {
+		    always = no
+		}
+		
+		allow = {
+		    always = no
+		}
+		
+		effect = {
+		    define_advisor = {
+			    type = statesman
+				skill = 3
+				discount = yes
+				name = "Jose Bonifacio"
+			}
+		}
+	}
+	
+	create_pt = {
+	    potential = {
+		    always = no
+		}
+		
+		allow = {
+		    always = no
+		}
+		
+		effect = {
+		    add_faction = partido_dos_trabalhadores
+		}
+	}
+	
+	create_pcb = {
+	    potential = {
+		    always = no
+		}
+		
+		allow = {
+		    always = no
+		}
+		
+		effect = {
+		    add_faction = partido_comunista_brasileiro
+		}
+	}
+	
+	create_integralism = {
+	    potential = {
+		    always = no
+		}
+		
+		allow = {
+		    always = no
+		}
+		
+		effect = {
+		    add_faction = integralistas
+		}
+	}
+	
+	create_udn = {
+	    potential = {
+		    always = no
+		}
+		
+		allow = {
+		    always = no
+		}
+		
+		effect = {
+		    add_faction = partido_democratico_nacional
+		}
+	}
+	
+	create_pdt = {
+	    potential = {
+		    always = no
+		}
+		
+		allow = {
+		    always = no
+		}
+		
+		effect = {
+		    add_faction = PDT
+		}
+	}
+	
+	recreate_ptb = {
+	    potential = {
+		    always = no
+		}
+		
+		allow = {
+		    always = no
+		}
+		
+		effect = {
+		    add_faction = partido_trabalhista_brasileiro
+		}
+	}
+	create_pdt = {
+	    potential = {
+		    always = no
+		}
+		
+		allow = {
+		    always = no
+		}
+		
+		effect = {
+		    add_faction = PDT
+		}
+	}
+	create_dem = {
+	    potential = {
+		    always = no
+		}
+		
+		allow = {
+		    always = no
+		}
+		
+		effect = {
+		    add_faction = DEM
+		}
+	}
+	create_psc = {
+	    potential = {
+		    always = no
+		}
+		
+		allow = {
+		    always = no
+		}
+		
+		effect = {
+		    add_faction = PSC
+		}
+	}
+	create_psdb = {
+	    potential = {
+		    always = no
+		}
+		
+		allow = {
+		    always = no
+		}
+		
+		effect = {
+		    add_faction = PSDB
+		}
+	}
+	create_prtb = {
+	    potential = {
+		    always = no
+		}
+		
+		allow = {
+		    always = no
+		}
+		
+		effect = {
+		    add_faction = PRTB
+		}
+	}
+	create_psol = {
+	    potential = {
+		    always = no
+		}
+		
+		allow = {
+		    always = no
+		}
+		
+		effect = {
+		    add_faction = PSOL
+		}
+	}
+	create_prona = {
+	    potential = {
+		    always = no
+		}
+		
+		allow = {
+		    always = no
+		}
+		
+		effect = {
+		    add_faction = PRONA
+		}
+	}
+	create_pr = {
+	    potential = {
+		    always = no
+		}
+		
+		allow = {
+		    always = no
+		}
+		
+		effect = {
+		    add_faction = PR
+			remove_faction = PRONA
+		}
+	}
+	recreate_psd = {
+	    potential = {
+		    always = no
+		}
+		
+		allow = {
+		    always = no
+		}
+		
+		effect = {
+		    add_faction = partido_social_democratico
+		}
+	}
+	create_rede = {
+	    potential = {
+		    always = no
+		}
+		
+		allow = {
+		    always = no
+		}
+		
+		effect = {
+		    add_faction = REDE
+		}
+	}
+	create_verde = {
+	    potential = {
+		    always = no
+		}
+		
+		allow = {
+		    always = no
+		}
+		
+		effect = {
+		    add_faction = partido_verde
+		}
+	}
+	create_monarchy = {
+	    potential = {
+		    always = no
+		}
+		
+		allow = {
+		    always = no
+		}
+		
+		effect = {
+		    add_faction = partido_conservador_monarquista
+		}
+	}
+	remove_arena = {
+	    potential = {
+		    always = no
+		}
+		
+		allow = {
+		    always = no
+		}
+		
+		effect = {
+		    remove_faction = ARENA
+		} 
+	}
+	
+	remove_mdb = {
+	    potential = {
+		    always = no
+		}
+		
+		allow = {
+		    always = no
+		}
+		
+		effect = {
+		    remove_faction = MDB
+		}
+	}
+	
+	create_pds = {
+	    potential = {
+		    always = no
+		}
+		
+		allow = {
+		    always = no
+		}
+		
+		effect = {
+		    add_faction = PDS
+		}
+	}
+	
+	create_pmdb = {
+	    potential = {
+		    always = no
+		}
+		
+		allow = {
+		    always = no
+		}
+		
+		effect = {
+		    add_faction = PMDB
+		}
+	}
+}

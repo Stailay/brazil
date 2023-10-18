@@ -1,0 +1,79 @@
+namespace = brazil_flavor
+country_event = {
+	id = brazil_flavor.1
+	title = brazil_flavor.1.t
+	picture = BORDER_TENSION_eventPicture
+	desc = brazil_flavor.1.d
+
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = brazil_flavor.1.a
+		
+		if = {
+			limit = {
+				765 = {
+					trade_goods = gold
+				}
+			}
+			765 = {
+				add_base_production = 2
+			}
+		}
+		if = {
+			limit = {
+				765 = {
+					NOT = { trade_goods = gold }
+				}
+			}
+			765 = {
+				change_trade_goods = gold
+			}
+		}
+		random_owned_province = {
+			limit = {
+				OR = {
+					area = minas_gerais_area
+					area = diamantina_area
+				}
+				NOT = { trade_goods = gold }
+			}
+			change_trade_goods = gold
+		}
+	}
+}
+country_event = {
+	id = brazil_flavor.2
+	title = brazil_flavor.2.t
+	picture = BORDER_TENSION_eventPicture
+	desc = brazil_flavor.2.d
+
+	fire_only_once = yes
+	trigger = {
+		OR = {
+			beieras_area = {    
+				NOT = { owned_by = POR }
+				NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			}
+
+			alentejo_area = {
+				NOT = { owned_by = POR }
+				NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			}
+		}
+		has_country_flag = Brazil_Family_Fled
+	}
+			
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = brazil_flavor.2.a
+		
+		set_country_flag = portugal_in_vain
+		swap_non_generic_missions = yes
+	}
+}

@@ -1,0 +1,2260 @@
+namespace = aveimperio
+
+# I'll Stay Day (as colony)
+#country_event = {
+#   id = aveimperio.1
+#	title = "EMPIRE1NAME"
+#	desc = "EMPIRE1DESC"
+#	picture = DIA_DO_FICO_eventPicture
+#	
+#	trigger = {
+#	    NOT = { exists = BRZ }
+#		NOT = { has_country_flag = dia_do_fico }
+#		OR = {
+#			is_colonial_nation = yes
+#		}
+#		capital_scope = {
+#		    colonial_region = colonial_brazil
+#			is_core = ROOT
+#		}
+#		is_year = 1822
+#		is_subject_of = POR
+#		NOT = { government = principality }
+#	}
+#	
+#	mean_time_to_happen = {
+#	    months = 1
+#	}
+#		
+#	immediate = {
+#	    hidden_effect = {
+#		    set_country_flag = dia_do_fico
+#		}
+#	}	
+#		
+#	option = {
+#	    name = "EMPIRE1OPT1"
+#	    custom_tooltip = "independenceiscoming"
+#		hidden_effect = {
+#			add_liberty_desire = 50
+#			POR = {
+#			    add_opinion = {
+#				    who = ROOT
+#					modifier = displeased
+#				}
+#			}
+#		}
+#		ai_chance = { factor = 1 }
+#	}
+#	
+#	option = {
+#	    name = "EMPIRE1OPT2"
+#		add_prestige = -5
+#		ai_chance = { factor = 0 }
+#	}
+#}
+
+# I'll Stay Day (as United Kingdom with Portugal)
+country_event = {
+    id = aveimperio.2
+	title = "EMPIRE1NAME"
+	desc = "EMPIRE1DESC"
+	picture = DIA_DO_FICO_eventPicture
+	
+	trigger = {
+	    NOT = { exists = BRZ }
+		NOT = { has_country_flag = dia_do_fico }
+		OR = {
+			is_colonial_nation = yes
+		}
+		is_year = 1822
+		government = constitutional_monarchy
+	}
+	
+	immediate = {
+	    hidden_effect = {
+		    set_country_flag = dia_do_fico
+		}
+	}
+
+    option = {
+	    name = "EMPIRE1OPT1"
+	    custom_tooltip = "independenceiscoming"
+		hidden_effect = {
+			add_liberty_desire = 50
+			colonial_parent = {
+			    add_opinion = {
+				    who = ROOT
+					modifier = displeased
+				}
+			}
+		}
+		ai_chance = { factor = 1 }
+	}
+	
+	option = {
+	    name = "EMPIRE1OPT2"
+		custom_tooltip = "theprinceregentwillcomehome"
+		hidden_effect = {
+		    change_government = colonial_government
+			kill_ruler = yes
+		}
+		add_prestige = -10
+		ai_chance = { factor = 0 }
+	}	
+}
+
+# Elevation of Brazilian rank
+country_event = {
+    id = aveimperio.3
+	title = "EMPIRE3NAME"
+	desc = "EMPIRE3DESC"
+	picture = PORTUGAL_BRAZIL_ALGARVES_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+	    name = "EMPIRE3OPT1"
+		custom_tooltip = "brazilwillbecomeakingdom"
+		hidden_effect = {
+		    define_ruler = {
+                name = "Pedro I"
+                dynasty = colonial_parent 
+                age = 23
+                claim = 75
+                regency = no
+                female = no
+                adm = 4
+                mil = 2
+                dip = 4
+                attach_leader = "Dom Pedro I"
+				set_ruler_personality = inspiring_leader_personality
+            }
+			define_ruler_to_general = {
+		        name = "Dom Pedro I"
+	    		shock = 3
+    			fire = 3
+			    manuever = 3
+		    	siege = 2
+	    	}
+			define_consort = {
+			    name = "Maria Leopoldina"
+				dynasty = "von Habsburg"
+				age = 24
+				adm = 4
+				dip = 4
+				mil = 2
+			}
+			set_dynasty = colonial_parent
+			change_government = constitutional_monarchy
+		}
+	}
+}
+
+# Provincia Cisplatina
+country_event = {
+    id = aveimperio.4
+	title = "EMPIRE4NAME"
+	desc = "EMPIRE4DESC"
+	picture = CISPLATINA_eventPicture
+	
+	trigger = {
+	    tag = POR
+		is_year = 1817
+		any_subject_country = {
+		    AND = {
+			    is_colonial_nation_of = POR
+				capital_scope = {
+				    colonial_region = colonial_brazil
+				}
+			}
+		}
+		exists = LAP
+    }
+	
+	mean_time_to_happen = {
+	    months = 48
+	}
+	
+	immediate = {
+	    hidden_effect = {
+		    every_subject_country = {
+			    limit = {
+				    AND = {
+					    is_colonial_nation_of = POR
+						capital_scope = {
+						    colonial_region = colonial_brazil
+						}
+					}
+				}
+			    add_core = 2774
+    			add_core = 773
+	    		add_core = 772
+		    	add_core = 2772
+			    add_core = 2773
+			}
+		}
+	}
+	
+	option = {
+	    name = "EMPIRE4OPT1"
+		custom_tooltip = "provinciacisplatinaacquired"
+		hidden_effect = {
+    		every_subject_country = {
+	     	    limit = {
+		    	    AND = {
+			    	    is_colonial_nation_of = POR
+				    	capital_scope = {
+				            colonial_region = colonial_brazil
+				    	}
+			    	}
+		    	}
+       			every_core_province = {
+			        limit = {
+			    	    NOT = { owned_by = PREV }
+		    		}
+	    			cede_province = PREV
+    			}
+		    }
+		}
+	}
+}
+
+# Grito do Ipiranga
+country_event = {
+    id = aveimperio.5
+	title = "EMPIRE5NAME"
+	desc = "EMPIRE5DESC"
+	picture = GRITO_DO_IPIRANGA_eventPicture
+	
+	is_triggered_only = yes
+	
+	immediate = {
+	    set_country_flag = grito_do_ipiranga
+	}
+	
+	option = {
+	    name = "EMPIRE5OPT1"
+		declare_war_with_cb = {
+		    who = POR
+			casus_belli = cb_colonial_independance_war
+		}
+		add_prestige = 25
+	}
+}
+
+# Pierre Labatut
+country_event = {
+    id = aveimperio.6
+	title = "EMPIRE6NAME"
+	desc = "EMPIRE6DESC"
+	picture = LABATUT_eventPicture
+	
+	trigger = {
+	    has_country_flag = grito_do_ipiranga
+		war_with = POR
+		NOT = { has_country_flag = pierre_labatut }
+	}
+	
+	mean_time_to_happen = {
+	    months = 6
+	}
+	
+	immediate = {
+	    set_country_flag = pierre_labatut
+	}
+	
+	option = {
+	    name = "EMPIRE6OPT1"
+		define_general = {
+            name = "Pierre Labatut"
+            shock = 3
+            fire = 3
+            manuever = 4
+            siege = 1
+        }
+		add_years_of_income = -0.03
+		ai_chance = {
+		    factor = 1
+			
+			modifier = {
+			    factor = 0
+				NOT = { years_of_income = 0.03 }
+			}
+		}
+	}
+	
+	option = {
+	    name = "EMPIRE6OPT2"
+		ai_chance = {
+		    factor = 1
+			
+			modifier = {
+			    factor = 0
+				years_of_income = 0.03
+			}
+		}
+	}
+}
+
+# Thomas Cochrane
+country_event = {
+    id = aveimperio.7
+	title = "EMPIRE7NAME"
+	desc = "EMPIRE7DESC"
+	picture = COCHRANE_eventPicture
+	
+	trigger = {
+	    has_country_flag = grito_do_ipiranga
+		war_with = POR
+		NOT = { has_country_flag = thomas_cochrane }
+	}
+	
+	mean_time_to_happen = {
+	    months = 6
+	}
+	
+	immediate = {
+	    set_country_flag = thomas_cochrane
+	}
+	
+	option = {
+	    name = "EMPIRE6OPT1"
+		define_admiral = {
+            name = "Thomas Cochrane"
+            shock = 5
+            fire = 5
+            manuever = 5
+        }
+		add_years_of_income = -0.04
+		ai_chance = {
+		    factor = 1
+			
+			modifier = {
+			    factor = 0
+				NOT = { years_of_income = 0.04 }
+			}
+		}
+	}
+	
+	option = {
+	    name = "EMPIRE6OPT2"
+		ai_chance = {
+		    factor = 1
+			
+			modifier = {
+			    factor = 0
+				years_of_income = 0.04
+			}
+		}
+	}
+}
+
+# Maria Quitéria
+country_event = {
+    id = aveimperio.8
+	title = "EMPIRE8NAME"
+	desc = "EMPIRE8DESC"
+	picture = MARIA_QUITERIA_eventPicture
+	
+	trigger = {
+	    has_country_flag = grito_do_ipiranga
+		war_with = POR
+		NOT = { has_country_flag = maria_quiteria }
+	}
+	
+	mean_time_to_happen = {
+	    months = 4
+	}
+	
+	immediate = {
+	    set_country_flag = maria_quiteria
+	}
+	
+	option = {
+	    name = "EMPIRE8OPT1"
+		add_country_modifier = {
+		    name = "maria_quiteria"
+			duration = 3650
+		}
+		add_prestige = 5
+		ai_chance = { factor = 85 }
+	}
+	
+	option = {
+	    name = "EMPIRE8OPT2"
+		define_general = {
+		    name = "Maria Quiteria"
+			female = yes
+			shock = 3
+            fire = 4
+            manuever = 3
+            siege = 2
+		}
+		ai_chance = { factor = 5 }
+	}
+	
+	option = {
+	    name = "EMPIRE8OPT3"
+		define_advisor = {
+		    type = commandant
+			skill = 3
+			female = yes
+			discount = yes
+			name = "Maria Quiteria"
+		}
+		add_mil_power = 50
+		ai_chance = { factor = 15 }
+	}
+}
+
+# The Birth of Pedro II
+country_event = {
+    id = aveimperio.9
+	title = "EMPIRE9NAME"
+	desc = "EMPIRE9DESC"
+	picture = PEDRO_II_BIRTH_eventPicture
+	
+	trigger = {
+	    tag = BRZ
+		is_year = 1825
+		NOT = { is_year = 1831 }
+		has_heir = no
+		has_ruler = "Pedro I"
+		government = monarchy
+	}
+	
+	mean_time_to_happen = {
+	    months = 11
+	}
+	
+	option = {
+	    name = "EMPIRE9OPT1"
+		define_heir = {
+            male = yes
+    		dynasty = ROOT
+            claim = 75
+            adm = 3
+            mil = 4
+            dip = 3
+        }
+	}
+}
+
+# 1824 constitution
+country_event = {
+    id = aveimperio.10
+	title = "EMPIRE10NAME"
+	desc = "EMPIRE10DESC"
+	picture = DIPLOMACY_eventPicture
+	
+	trigger = {
+	    has_country_flag = grito_do_ipiranga
+		NOT = { is_subject_of = POR }
+		government = monarchy
+		is_year = 1824
+		NOT = { has_country_flag = 1824constitutionevent }
+	}
+    
+	mean_time_to_happen = {
+	    months = 5
+	}
+	
+	immediate = {
+	    set_country_flag = 1824constitutionevent
+	}
+	
+	option = {
+	    name = "EMPIRE10OPT1"
+		custom_tooltip = "aconstitutionwillbemade"
+		hidden_effect = {
+		    change_government = constitutional_monarchy
+		}
+		ai_chance = { factor = 95 }
+	}
+	
+	option = {
+	    name = "EMPIRE10OPT2"
+	}
+	
+	option = {
+	    name = "EMPIRE10OPT3"
+		custom_tooltip = "theemperorwillbeabsolute"
+		hidden_effect = {
+		    change_government = enlightened_despotism
+		}
+		ai_chance = { factor = 5 }
+	}
+}
+
+# Treaty of Rio de Janeiro
+country_event = {
+    id = aveimperio.11
+	title = "EMPIRE11NAME"
+	desc = "EMPIRE11DESC"
+	picture = DIPLOMACY_eventPicture
+	
+	trigger = {
+	    tag = BRZ
+		exists = POR
+		has_country_flag = grito_do_ipiranga
+		NOT = { war_with = POR }
+		had_recent_war = 5
+		NOT = { has_country_flag = treatyofrj }
+	}
+	
+	mean_time_to_happen = {
+	    months = 1
+	}
+	
+	immediate = {
+	    set_country_flag = treatyofrj
+	}
+	
+	option = {
+	    name = "EMPIRE11OPT1"
+		custom_tooltip = "rjtreaty"
+		hidden_effect = {
+		    add_treasury = -2000
+			POR = {
+			    add_treasury = 2000
+			}
+		}
+		ai_chance = { factor = 1 }
+	}
+	
+	option = {
+	    name = "EMPIRE11OPT2"
+		custom_tooltip = "brazilrecognitiondelayed"
+		add_country_modifier = {
+			name = "unrecognized"
+			duration = 3650
+		}
+		ai_chance = { factor = 0 }
+	}
+}
+
+# Cisplatine war (Argentina)
+country_event = {
+    id = aveimperio.12
+	title = "EMPIRE12NAME"
+	desc = "EMPIRE12DESC"
+	picture = CISPLATINA_eventPicture
+	
+	trigger = {
+	    tag = LAP
+		exists = BRZ
+	    is_year = 1825
+		NOT = { is_year = 1831 }
+		NOT = {
+		    owns = 2772
+			owns = 2773
+			owns = 2774
+			owns = 772
+			owns = 773
+		}
+		BRZ = {
+		    owns = 2772
+			owns = 2773
+			owns = 2774
+			owns = 772
+			owns = 773
+			NOT = {
+			    war_with = POR
+			}
+		}
+		NOT = {
+		    has_country_flag = cisplatinaseceded
+		}
+	}
+	
+	mean_time_to_happen = {
+	    months = 7
+	}
+	
+	immediate = {
+	    hidden_effect = {
+    		LAP = {
+		        add_core = 2774
+    	    	add_core = 773
+	        	add_core = 772
+    		    add_core = 2772
+			    add_core = 2773
+		    }
+		}
+		set_country_flag = cisplatinaseceded
+	}
+	
+	option = {
+	    name = "EMPIRE12OPT1"
+		LAP = {
+		    every_core_province = {
+			    limit = {
+				    owned_by = BRZ
+				}
+				cede_province = LAP
+			}
+		}
+		BRZ = {
+		    country_event = { id = aveimperio.13 }
+			add_opinion = {
+			    who = LAP
+				modifier = displeased
+			}
+		}
+		ai_chance = { factor = 1 }
+	}
+	
+	option = {
+	    name = "EMPIRE12OPT2"
+		BRZ = {
+		    country_event = { id = aveimperio.14 }
+			add_opinion = {
+			    who = LAP
+				modifier = opinion_pleased
+			}
+		}
+		remove_core = 2774
+		remove_core = 2773
+		remove_core = 2772
+		remove_core = 773
+		remove_core = 772
+		ai_chance = { factor = 0 }
+	}
+}
+
+# Cisplatine War (Brazil with war)
+country_event = {
+    id = aveimperio.13
+	title = "EMPIRE13NAME"
+	desc = "EMPIRE13DESC"
+	picture = CISPLATINA_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+	    name = "EMPIRE13OPT1"
+		hidden_effect = {
+		    if = {
+			    limit = {
+     			    num_of_loans = 1
+				}
+			 	add_ruler_modifier = {
+		    	    name = "hated"
+	    		}
+			}
+		}
+		ai_chance = { factor = 1 }
+	}
+	
+	option = {
+	    name = "EMPIRE13OPT2"
+		add_prestige = -15
+		LAP = {
+		    add_opinion = {
+			    who = BRZ
+				modifier = opinion_pleased
+			}
+		}
+		remove_core = 2774
+		remove_core = 2773
+		remove_core = 2772
+		remove_core = 773
+		remove_core = 772
+		ai_chance = { factor = 0 }
+	}
+}
+
+# Cisplatine War (Brazil with revolt)
+country_event = {
+    id = aveimperio.14
+	title = "EMPIRE14NAME"
+	desc = "EMPIRE14DESC"
+	picture = CISPLATINA_eventPicture
+	
+	is_triggered_only = yes
+
+	immediate = {
+	    hidden_effect = {
+    		URU = {
+		        add_core = 2774
+		    	add_core = 2773
+	     		add_core = 2772
+    			add_core = 773
+			    add_core = 772
+		    } 
+		}
+	}
+	
+	option = {
+	    name = "EMPIRE14OPT1"
+		random_owned_province = {
+		    limit = {
+			     is_core = URU
+			}
+			spawn_rebels = {
+			    type = nationalist_rebels
+				size = 5
+				leader = "Fructuoso Rivera"
+				win = yes
+			}
+			spawn_rebels = {
+			    type = nationalist_rebels
+				size = 5
+				leader = "Juan Antonio Lavalleja"
+				win = yes
+			}
+		}
+		ai_chance = { factor = 1 }
+	}
+	
+	option = {
+	    name = "EMPIRE13OPT2"
+		release = URU
+		add_prestige = -25
+		ai_chance = { factor = 0 }
+	}
+}
+
+# Northeastern Unrest
+country_event = {
+    id = aveimperio.15
+	title = "EMPIRE15NAME"
+	desc = "EMPIRE15DESC"
+	picture = CONFEDERATION_OF_THE_EQUATOR_eventPicture
+	
+	trigger = {
+	    tag = BRZ
+		NOT = { has_country_flag = had_the_confederate_revolt }
+		is_year = 1824
+		NOT = { is_year = 1830 }
+		has_regency = no
+		NOT = { exists = CEQ }
+		NOT = { stability = 1 }
+		government = monarchy
+		has_country_flag = 1824constitutionevent 
+	}
+	
+	mean_time_to_happen = {
+	    months = 1
+	}
+	
+	immediate = {
+	    set_country_flag = had_the_confederate_revolt
+		hidden_effect = {
+		    CEQ = {
+			    add_core = 754
+				add_core = 755
+				add_core = 753
+                add_core = 2812
+                add_core = 2813
+                add_core = 751
+                add_core = 2810
+                add_core = 2809
+                add_core = 2808
+                add_core = 2811
+                add_core = 2814
+                add_core = 752
+                add_core = 2807
+                add_core = 756
+                add_core = 2806
+                add_core = 2805
+                add_core = 2799
+                add_core = 2803				
+			}
+		}
+	}
+	
+	option = {
+	    name = "EMPIRE15OPT1"
+		hidden_effect = {
+    		every_owned_province = {
+		        limit = {
+	    		    is_core = CEQ
+    			}
+				change_culture = iberian_northeast_brazilian
+		    }
+		}
+		ai_chance = { factor = 1 }
+	}
+	
+    option = {
+	    name = "EMPIRE13OPT2"
+		release = CEQ
+		add_prestige = -25
+		ai_chance = { factor = 0 }
+		hidden_effect = {
+		    CEQ = {
+			    change_government = constitutional_republic
+				change_primary_culture = iberian_northeast_brazilian
+				define_ruler = {
+				    name = "Manuel"
+					dynasty = "Pais de Andrade"
+					age = 44
+					adm = 3
+					mil = 2
+					dip = 4
+				}
+				change_religion = catholic
+			}
+		}
+		ai_chance = { factor = 0 }
+	}
+}
+
+# Confederation of the Equator
+country_event = {
+    id = aveimperio.16
+	title = "EMPIRE16NAME"
+	desc = "EMPIRE16DESC"
+	picture = CONFEDERATION_OF_THE_EQUATOR_eventPicture
+	
+	trigger = {
+	    tag = BRZ
+	    has_country_flag = had_the_confederate_revolt
+		is_year = 1824
+		NOT = { is_year = 1825 }
+		NOT = { exists = CEQ }
+		government = monarchy
+		NOT = { has_country_flag = confederates_declared_independence }
+	}
+	
+	fire_only_once = yes
+	
+	mean_time_to_happen = {
+	    months = 7
+	}
+	
+	immediate = {
+	    hidden_effect = {
+		    random_owned_province = {
+			    limit = {
+				    is_core = CEQ
+				}
+				spawn_rebels = {
+				    type = nationalist_rebels
+					size = 4
+					win = yes
+				}
+			}
+			random_owned_province = {
+			    limit = {
+				    is_core = CEQ
+				}
+				spawn_rebels = {
+				    type = nationalist_rebels
+					size = 4
+					win = yes
+				}
+			}
+			random_owned_province = {
+			    limit = {
+				    is_core = CEQ
+				}
+				spawn_rebels = {
+				    type = nationalist_rebels
+					size = 4
+					win = yes
+				}
+			}
+			random_owned_province = {
+			    limit = {
+				    is_core = CEQ
+				}
+				spawn_rebels = {
+				    type = nationalist_rebels
+					size = 4
+					win = yes
+				}
+			}
+			set_country_flag = confederates_declared_independence
+		}
+	}
+	
+	option = {
+	    name = "EMPIRE14OPT1"
+		ai_chance = { factor = 1 }
+	}
+	
+	option = {
+	    name = "EMPIRE13OPT2"
+		add_prestige = -25
+		release = CEQ
+		hidden_effect = {
+		    CEQ = {
+			    change_government = constitutional_republic
+				change_primary_culture = iberian_northeast_brazilian
+				define_ruler = {
+				    name = "Manuel"
+					dynasty = "Pais de Andrade"
+					age = 44
+					adm = 3
+					mil = 2
+					dip = 4
+				}
+				change_religion = catholic
+			}
+		}
+		ai_chance = { factor = 0 }
+	}
+}
+
+# The British Intervention (Great Britain)
+country_event = {
+    id = aveimperio.17
+	title = "EMPIRE17NAME"
+	desc = "EMPIRE17DESC"
+	picture = CISPLATINA_eventPicture
+	
+	trigger = {
+	    tag = GBR
+		BRZ = {
+	    	war_with = LAP
+		}
+		LAP = {
+		    has_country_flag = cisplatinaseceded
+			owns = 2772
+			owns = 2773
+			owns = 2774
+			owns = 772
+			owns = 773
+		}
+	}
+	
+	mean_time_to_happen = {
+	    months = 40
+	}
+	
+	option = {
+	    name = "EMPIRE17OPT1"
+		BRZ = {
+		    country_event = { id = aveimperio.18 }
+		}
+	}
+	
+	option = {
+	    name = "EMPIRE17OPT2"
+	}
+	
+}
+
+# The British Intervention (Brazil)
+country_event = {
+    id = aveimperio.18
+	title = "EMPIRE18NAME"
+	desc = "EMPIRE18DESC"
+	picture = DIPLOMACY_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+	    name = "EMPIRE18OPT1"
+		custom_tooltip = "willsignapeacetreaty"
+		hidden_effect = {
+		    LAP = {
+			    country_event = { id = aveimperio.19 }
+			}
+			add_prestige = -10
+		}
+	}
+}
+
+# The British Intervention (Argentina)
+country_event = {
+    id = aveimperio.19
+	title = "EMPIRE19NAME"
+	desc = "EMPIRE19DESC"
+	picture = DIPLOMACY_eventPicture
+	
+	is_triggered_only = yes
+	
+	immediate = {
+	    hidden_effect = {
+	    	URU = {
+		        add_core = 772
+		    	add_core = 773
+	    		add_core = 2772
+    		 	add_core = 2773
+	  	    	add_core = 2774
+    		}
+		}
+	}
+	
+	option = {
+	    name = "EMPIRE19OPT1"
+		custom_tooltip = "willsignapeacetreaty"
+		hidden_effect = {
+		    white_peace = BRZ
+			release = URU
+			remove_core = 2774
+		    remove_core = 2773
+	    	remove_core = 2772
+    		remove_core = 773
+		    remove_core = 772
+		}
+		BRZ = {
+		    add_truce_with = URU
+		    remove_core = 2774
+		    remove_core = 2773
+	    	remove_core = 2772
+    		remove_core = 773
+    		remove_core = 772	
+		}
+		URU = {
+		    define_ruler = {
+				name = "Fructuoso"
+				dynasty = "Rivera"
+				age = 46
+				adm = 2
+				mil = 2
+				dip = 4
+			}
+		}
+	}
+}
+
+# Death of Libero Badaró
+country_event = {
+    id = aveimperio.20
+	title = "EMPIRE20NAME"
+	desc = "EMPIRE20DESC"
+	picture = BADARO_eventPicture
+	
+	trigger = {
+	    tag = BRZ
+		is_year = 1830
+		NOT = { is_year = 1831 }
+		has_ruler_modifier = hated
+		NOT = { has_country_flag = badaro_assassinated }
+	}
+	
+	mean_time_to_happen = {
+	    months = 11
+	}
+	
+	immediate = {
+	    set_country_flag = badaro_assassinated
+	}
+	
+	option = {
+	    name = "EMPIRE20OPT1"
+		custom_tooltip = "popswillgetangry"
+		hidden_effect = {
+		    every_owned_province = {
+			    add_unrest = 5
+			}
+			add_stability = -1
+		}
+	}
+}
+
+# Noite das Garrafadas
+country_event = {
+    id = aveimperio.21
+	title = "EMPIRE21NAME"
+	desc = "EMPIRE21DESC"
+	picture = BORDER_TENSION_eventPicture
+	
+	trigger = {
+	    is_year = 1830
+		NOT = { is_year = 1832 }
+		has_ruler_modifier = hated
+	    has_country_flag = badaro_assassinated
+		NOT = { has_country_flag = noite_das_garrafadas }
+	}
+	
+	mean_time_to_happen = {
+	    months = 2
+	}
+	
+	immediate = {
+	    set_country_flag = noite_das_garrafadas
+	}
+	
+	option = {
+	    name = "EMPIRE21OPT1"
+	}
+}
+
+# Leopoldina Dies
+# country_event = {
+#    id = aveimperio.22
+#	title = "EMPIRE22NAME"
+#	desc = "EMPIRE22DESC"
+#	picture = DEATH_OF_HEIR_eventPicture
+#	
+#	trigger = {
+#	    tag = BRZ
+#		is_year = 1826
+#		has_consort = yes
+#	}
+#	
+#	mean_time_to_happen = {
+#	    months = 12
+#	}
+#	
+#	immediate = {
+#	    hidden_effect = {
+#		    remove_consort = yes
+#		}
+#	}
+#	
+#	option = {
+#	    name = "EMPIRE22NAME"
+#		hidden_effect = {
+#		    every_owned_province = {
+#			    add_unrest = 2
+#				add_stability = -1
+#			}
+#		}
+#	}
+# }
+
+# Pedro I abdicates the throne
+country_event = {
+    id = aveimperio.23
+	title = "EMPIRE23NAME"
+	desc = "EMPIRE23DESC"
+	picture = PEDRO_ABDICATES_eventPicture
+	
+	trigger = {
+	    tag = BRZ
+		is_year = 1830
+		NOT = { is_year = 1834 }
+		has_ruler_modifier = hated
+		has_country_flag = badaro_assassinated
+		has_country_flag = noite_das_garrafadas
+		has_regency = no
+	}
+	
+	mean_time_to_happen = {
+	    months = 3
+	}
+	
+	option = {
+	    name = "EMPIRE23OPT1"
+		custom_tooltip = "pedrowillabdicate"
+		hidden_effect = {
+		    remove_consort = yes
+		    kill_ruler = yes
+		}
+	}
+}
+
+# Revolta dos Malês
+country_event = {
+    id = aveimperio.24
+	title = "EMPIRE24NAME"
+	desc = "EMPIRE24DESC"
+	picture = MALES_eventPicture
+	
+	trigger = {
+	    is_year = 1835
+		NOT = { is_year = 1840 }
+		tag = BRZ
+		OR = {
+		    owns = 756
+			owns = 757
+			owns = 2797
+			owns = 2807
+			owns = 2806
+			owns = 2798
+			owns = 2799
+		}
+		NOT = { has_country_modifier = the_abolish_slavery_act }
+		NOT = { exists = MLE }
+		NOT = { has_country_flag = had_the_male_revolt }
+		slaves = 1
+	}
+	
+	mean_time_to_happen = {
+	    months = 1
+	}
+	
+	immediate = {
+		hidden_effect = {
+		    set_country_flag = had_the_male_revolt
+			MLE = {
+	    	    add_core = 756
+    			add_core = 757
+			    add_core = 2797
+		    	add_core = 2798
+	    		add_core = 2799
+    			add_core = 2806
+			    add_core = 2807
+		    }
+	    	756 = {
+    		    change_culture = yorumba
+		    	add_nationalism = 5
+	    	}
+		}
+	}
+	
+	option = {
+	    name = "EMPIRE24OPT1"
+		release = MLE
+		hidden_effect = {
+		    MLE = {
+			    change_government = absolute_monarchy
+				change_primary_culture = yorumba
+				change_religion = sunni
+			}
+		}
+		add_prestige = -25
+		ai_chance = { factor = 0 }
+	}
+	
+	option = {
+	    name = "EMPIRE24OPT2"
+		random_owned_province = {
+		    limit = {
+			    is_core = MLE
+			}
+			spawn_rebels = {
+			    type = nationalist_rebels
+				size = 4
+			}
+		}
+		ai_chance = { factor = 1 }
+	}
+}
+
+# Clemente Malcher
+country_event = {
+    id = aveimperio.25
+	title = "EMPIRE25NAME"
+	desc = "EMPIRE25DESC"
+	picture = GRAO_PARA_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+	    is_year = 1835
+		NOT = { is_year = 1840 }
+        tag = BRZ
+        owns = 748
+        NOT = { has_country_flag = clementemalcher }	
+        NOT = { has_country_flag = nocabanagem }		
+	}
+	
+	mean_time_to_happen = {
+	    months = 1
+	}
+	
+	immediate = {
+	    hidden_effect = { 
+    		GRP = {
+		        add_core = 748
+		    	add_core = 2070
+	    		add_core = 2072
+    			add_core = 2817
+			    add_core = 2818
+		    	add_core = 747
+	    		add_core = 2819
+    			add_core = 2820
+ 			    add_core = 2821
+		    	add_core = 2075
+	    		add_core = 2825
+    			add_core = 1803
+		    }
+		}
+	}
+	
+	option = {
+	    name = "EMPIRE25OPT1"
+		set_country_flag = clementemalcher
+		custom_tooltip = "graoparaunrest"
+		hidden_effect = {
+		    every_owned_province = {
+	    	    limit = {
+    			    is_core = GRP
+			    }
+		    	change_culture = iberian_north_brazilian
+	    		add_unrest = 10
+    		}
+		}
+		ai_chance = { factor = 1 }
+	}
+	
+	option = {
+	    name = "EMPIRE25OPT2"
+		set_country_flag = nocabanagem
+		every_owned_province = {
+		    limit = {
+			    is_core = GRP
+			}
+			add_local_autonomy = 25
+		}
+		ai_chance = { factor = 0 }
+	}
+}
+
+# Cabanagem
+country_event = {
+    id = aveimperio.26
+	title = "EMPIRE26NAME"
+	desc = "EMPIRE26DESC"
+	picture = CABANAGEM_eventPicture
+	
+	trigger = {
+	    has_country_flag = clementemalcher
+		tag = BRZ
+		NOT = { exists = GRP }
+		NOT = { has_country_flag = cabanagem_started }
+	}
+	
+	immediate = {
+	    hidden_effect = {
+		    set_country_flag = cabanagem_started
+		}
+	}
+	
+	mean_time_to_happen = {
+	    months = 1
+	}
+	
+	option = {
+	    name = "EMPIRE26OPT1"
+		random_owned_province = {
+		    limit = {
+			    is_core = GRP
+			}
+			spawn_rebels = {
+    		    type = nationalist_rebels
+	    		size = 4
+		    	win = yes
+		    }
+		}
+		ai_chance = { factor = 1 }
+	}
+	
+	option = {
+	    name = "EMPIRE25OPT2"
+		every_owned_province = {
+		    limit = {
+			    is_core = GRP
+			}
+			add_local_autonomy = 25
+		}
+		ai_chance = { factor = 0 }
+	}
+}
+
+# The prision of Francisco Vinagre
+country_event = {
+    id = aveimperio.27
+	title = "EMPIRE27NAME"
+	desc = "EMPIRE27DESC"
+	picture = GRAO_PARA_eventPicture
+	
+	trigger = {
+	    tag = BRZ
+		NOT = { has_spawned_rebels = nationalist_rebels }
+		has_country_flag = cabanagem_started
+		NOT = { has_country_flag = cabanos_independent }
+	}
+	
+	immediate = {
+	    hidden_effect = {
+		    set_country_flag = cabanos_independent
+		}
+	}
+	
+	mean_time_to_happen = {
+	    months = 5
+	}
+	
+	option = {
+	    name = "EMPIRE14OPT1"
+        custom_tooltip = "cabanagemwar"
+        random_owned_province = {
+		    limit = {
+			    is_core = GRP
+			}
+			spawn_rebels = {
+    		    type = nationalist_rebels
+	    		size = 4
+		    	win = yes
+		    }
+		}
+		random_owned_province = {
+		    limit = {
+			    is_core = GRP
+			}
+			spawn_rebels = {
+    		    type = nationalist_rebels
+	    		size = 4
+		    	win = yes
+		    }
+		}
+		random_owned_province = {
+		    limit = {
+			    is_core = GRP
+			}
+			spawn_rebels = {
+    		    type = nationalist_rebels
+	    		size = 4
+		    	win = yes
+		    }
+		}
+		random_owned_province = {
+		    limit = {
+			    is_core = GRP
+			}
+			spawn_rebels = {
+    		    type = nationalist_rebels
+	    		size = 4
+		    	win = yes
+		    }
+		}
+		random_owned_province = {
+		    limit = {
+			    is_core = GRP
+			}
+			spawn_rebels = {
+    		    type = nationalist_rebels
+	    		size = 4
+		    	win = yes
+		    }
+		}
+		ai_chance = { factor = 1 }
+	}
+	
+	option = {
+	    name = "EMPIRE13OPT2"
+		release = GRP
+		hidden_effect = {
+		    GRP = {
+		        2071 = {
+				    cede_province = GRP
+				}
+			    2074 = {
+				    cede_province = GRP
+				}
+		    	2822 = {
+				    cede_province = GRP
+				}
+	    		2823 = {
+				    cede_province = GRP
+				}
+     			2824 = {
+				    cede_province = GRP
+				}
+			    1802 = {
+				    cede_province = GRP
+				}
+		    	change_government = constitutional_republic
+	    		change_primary_culture = iberian_north_brazilian
+    			define_ruler = {
+			        name = "Eduardo"
+		    		dynasty = "Angelim"
+	    			age = 21
+    				adm = 2
+				    mil = 2
+			    	dip = 2
+		    	}
+	    		change_religion = catholic
+    		}
+		}
+		add_prestige = -25
+		ai_chance = { factor = 0 }
+	}
+}
+
+# The Conquest of Porto Alegre
+country_event = {
+    id = aveimperio.28
+	title = "EMPIRE28NAME"
+	desc = "EMPIRE28DESC"
+	picture = CITY_VIEW_eventPicture
+	
+	trigger = {
+	    tag = BRZ
+		is_year = 1835
+		NOT = { is_year = 1845 }
+		has_regency = yes
+		NOT = { has_country_flag = farrapos_started }
+		owns = 771
+		OR = {
+		    owns = 770
+			owns = 2779
+		}
+	}
+	
+	fire_only_once = yes
+	
+	mean_time_to_happen = {
+	    months = 8
+	}
+	
+	immediate = {
+	    hidden_effect = {
+		    RGS = {
+			    add_core = 771
+				add_core = 770
+				add_core = 2779
+			}
+		}
+	}
+	
+	option = {
+	    name = "EMPIRE26OPT1"
+		771 = {
+			spawn_rebels = {
+			    type = nationalist_rebels
+				size = 5
+				win = yes
+			}
+		}
+		ai_chance = { factor = 1 }
+		set_country_flag = farrapos_started
+	}
+	
+	option = {
+	    name = "EMPIRE25OPT2"
+		every_owned_province = {
+		    limit = {
+			    is_core = RGS
+			}
+		    add_local_autonomy = 25
+		}
+		ai_chance = { factor = 0 }
+	}
+}
+
+# Proclamation of the Republic of Rio Grande do Sul
+country_event = {
+    id = aveimperio.29
+	title = "EMPIRE29NAME"
+	desc = "EMPIRE29DESC"
+	picture = RGS_PROCLAMATION_eventPicture
+	
+	trigger = {
+	    tag = BRZ
+		is_year = 1835
+		NOT = { is_year = 1845 }
+		NOT = { exists = RGS }
+		has_country_flag = farrapos_started
+	}
+	
+	fire_only_once = yes
+	
+	mean_time_to_happen = {
+	    months = 11
+	}
+	
+	option = {
+	    name = "EMPIRE29OPT1"
+		custom_tooltip = "warofthefarrapos"
+		hidden_effect = {
+		    release = RGS
+			RGS = {
+			    declare_war_with_cb = {
+				    who = BRZ
+					casus_belli = cb_independence_war
+				}
+			    change_government = constitutional_republic
+	    		change_primary_culture = iberian_south_brazilian
+    			define_ruler = {
+			        name = "Bento"
+		    		dynasty = "Gonzalves"
+	    			age = 21	
+    				adm = 3
+				    mil = 2
+			    	dip = 4
+					attach_leader = "Bento Gonzalves"
+		    	}
+				define_ruler_to_general = {
+		            name = "Bento Gonzalves"
+    	    		shock = 2
+        			fire = 3
+		    	    manuever = 2
+		        	siege = 2
+	    	    }
+				define_general = {
+                    name = "Antonio de Souza Netto"
+                    shock = 2
+                    fire = 2
+                    manuever = 3
+                    siege = 2
+                }
+	    		change_religion = catholic
+				build_to_forcelimit = {
+				    infantry = 0.5
+					artillery = 0.3
+					cavalry = 0.2
+				}
+				add_country_modifier = {
+		            name = "farroupilha_revolution"
+	    	    	duration = 3650
+		        }
+			}
+		}
+		ai_chance = { factor = 1 }
+	}
+	
+	option = {
+	    name = "EMPIRE29OPT2"
+	    every_owned_province = {
+		    limit = {
+			    is_core = RGS
+			}
+		    add_local_autonomy = 25
+		}
+		ai_chance = { factor = 0 }
+	}
+}
+
+# Giuseppe Garibaldi
+country_event = {
+    id = aveimperio.30
+	title = "EMPIRE30NAME"
+	desc = "EMPIRE30DESC"
+	picture = GARIBALDI_eventPicture
+	
+	trigger = {
+	    tag = RGS
+		is_year = 1838
+		NOT = { is_year = 1845 }
+		NOT = { has_country_flag = garibaldi }
+		war_with = BRZ
+	}
+	
+	immediate = {
+	    set_country_flag = garibaldi
+	}
+	
+    mean_time_to_happen = {
+	    months = 5
+	}
+	
+	option = {
+	    name = "EMPIRE30OPT1"
+		define_admiral = {
+            name = "Giuseppe Garibaldi"
+            shock = 2
+            fire = 4
+            manuever = 5
+        }
+		ai_chance = { factor = 1 }
+	}
+	
+	option = {
+	    name = "EMPIRE30OPT2"
+		ai_chance = { factor = 0 }
+	}
+}
+
+# The Farroupilha Revolution
+country_event = {
+    id = aveimperio.31
+	title = "EMPIRE31NAME"
+	desc = "EMPIRE31DESC"
+	picture = RGS_PROCLAMATION_eventPicture
+	
+	trigger = {
+	    OR = {
+		    tag = RGS
+			tag = JUL
+		}
+		NOT = { has_country_modifier = farroupilha_revolution }
+		war_with = BRZ
+		is_year = 1835
+		NOT = { is_year = 1845 }
+	}
+	
+	mean_time_to_happen = {
+	    days = 1
+	}
+	
+	option = {
+	    name = "EMPIRE31OPT1"
+		add_country_modifier = {
+		    name = "farroupilha_revolution"
+	       	duration = 3650
+		}
+	}
+}
+
+# The Juliana Republic
+country_event = {
+    id = aveimperio.32
+	title = "EMPIRE32NAME"
+	desc = "EMPIRE32DESC"
+	picture = JULIANA_eventPicture
+	
+	trigger = {
+	    tag = BRZ
+		war_with = RGS
+		is_year = 1839
+		NOT =  { is_year = 1845 }
+		NOT = { exists = JUL }
+		NOT = { has_country_flag = julianaexisted }
+	}
+	
+	immediate = {
+	    hidden_effect = {
+	        set_country_flag = julianaexisted
+			JUL = {
+			    add_core = 2780
+			}
+	    }
+	}
+	
+	mean_time_to_happen = {
+	    months = 6
+	}
+	
+	option = {
+	    name = "EMPIRE32OPT1"
+		custom_tooltip = "julianarepublic"
+		hidden_effect = {
+		    release = JUL
+			JUL = {
+			    declare_war_with_cb = {
+				    who = BRZ
+					casus_belli = cb_independence_war
+				}
+			    change_government = constitutional_republic
+	    		change_primary_culture = iberian_south_brazilian
+    			define_ruler = {
+			        name = "David"
+		    		dynasty = "Canabarro"
+	    			age = 21	
+    				adm = 3
+				    mil = 2
+			    	dip = 4
+					attach_leader = "David Canabarro"
+		    	}
+				define_ruler_to_general = {
+		            name = "David Canabarro"
+    	    		shock = 2
+        			fire = 2
+		    	    manuever = 4
+		        	siege = 1
+	    	    }
+	    		change_religion = catholic
+				build_to_forcelimit = {
+				    infantry = 0.5
+					artillery = 0.3
+					cavalry = 0.2
+				}
+				add_country_modifier = {
+		            name = "farroupilha_revolution"
+	    	    	duration = 3650
+		        }
+			}
+		}
+	}
+}
+
+# Sabinada
+country_event = {
+    id = aveimperio.33
+	title = "EMPIRE33NAME"
+	desc = "EMPIRE33DESC"
+	picture = SABINADA_eventPicture
+	
+	trigger = {
+	    tag = BRZ
+		is_year = 1837
+		NOT = { is_year = 1839 }
+		NOT = { exists = BAI }
+		NOT = { has_country_flag = sabinada_started }
+		has_regency = yes
+		is_at_war = yes
+	}
+	
+	immediate = {
+	    hidden_effect = {
+		    MLE = {
+	    	    remove_core = 756
+    			remove_core = 757
+			    remove_core = 2797
+		    	remove_core = 2798
+	    		remove_core = 2799
+    			remove_core = 2806
+			    remove_core = 2807
+		    }
+			BAI = {
+	    	    add_core = 756
+    			add_core = 757
+			    add_core = 2797
+		    	add_core = 2798
+	    		add_core = 2799
+    			add_core = 2806
+			    add_core = 2807
+		    }
+	    }
+	}
+	
+	mean_time_to_happen = {
+	    months = 11
+	}
+	
+	option = {
+	    name = "EMPIRE33OPT1"
+		custom_tooltip = "sabinadastarts"
+		random_owned_province = {
+		    limit = {
+			    is_core = BAI
+			}
+			spawn_rebels = {
+			    type = nationalist_rebels
+				size = 4
+			}
+		}
+		random_owned_province = {
+		    limit = {
+			    is_core = BAI
+			}
+			spawn_rebels = {
+			    type = nationalist_rebels
+				size = 4
+			}
+		}
+		random_owned_province = {
+		    limit = {
+			    is_core = BAI
+			}
+			spawn_rebels = {
+			    type = nationalist_rebels
+				size = 4
+			}
+		}
+		random_owned_province = {
+		    limit = {
+			    is_core = BAI
+			}
+			spawn_rebels = {
+			    type = nationalist_rebels
+				size = 4
+			}
+		}
+		hidden_effect = {
+		    set_country_flag = sabinada_started
+		}
+		ai_chance = { factor = 1 }
+	}
+	option = {
+	    name = "EMPIRE33OPT2"
+		add_prestige = -25
+		hidden_effect = {
+		    set_country_flag = sabinada_started
+			BAI = {
+			    change_government = constitutional_republic
+	    		change_primary_culture = iberian_northeast_brazilian
+    			define_ruler = {
+			        name = "Franscisco"
+		    		dynasty = "Sabino"
+	    			age = 21	
+    				adm = 3
+				    mil = 2
+			    	dip = 4
+					attach_leader = "Francisco Sabino"
+		    	}
+				define_ruler_to_general = {
+		            name = "Francisco Sabino"
+    	    		shock = 2
+        			fire = 2
+		    	    manuever = 3
+		        	siege = 3
+	    	    }
+			}
+		}
+		release = BAI
+		ai_chance = { factor = 0 }
+	}
+}
+
+# Balaiada
+country_event = {
+    id = aveimperio.34
+	title = "EMPIRE34NAME"
+	desc = "EMPIRE34DESC"
+	picture = CITY_VIEW_eventPicture
+	
+	trigger = {
+	    tag = BRZ
+		is_year = 1838
+		NOT = { is_year = 1841 }
+		owns = 749
+		owns = 2816
+		has_regency = yes
+		NOT = { has_country_flag = balaiada_started }
+	}
+	
+	mean_time_to_happen = {
+	    months = 12
+	}
+	
+	option = {
+	    name = "EMPIRE34OPT1"
+		set_country_flag = balaiada_started
+		749 = {
+		    spawn_rebels = {
+			    type = particularist_rebels
+				size = 5
+				leader = "Manuel Balaio"
+				win = yes
+			}
+		}
+		2816 = {
+		    spawn_rebels = {
+			    type = particularist_rebels
+				size = 5
+				leader = "Raimundo Gomes"
+				win = yes
+			}
+		}
+	}
+}
+
+# Lei Eusébio de Queirós
+country_event = {
+    id = aveimperio.35
+	title = "EMPIRE35NAME"
+    desc = "EMPIRE35DESC"
+    picture = ECONOMY_eventPicture
+	
+	trigger = {
+	    tag = BRZ
+		is_year = 1850
+		NOT = { has_country_flag = lei_eusebio_de_queiros }
+		NOT = { has_country_flag = refuse_to_sign_eusebio_de_queiros }
+		exists = GBR
+	}
+	
+	mean_time_to_happen = {
+	    months = 9
+	}
+	
+	immediate = {
+	    set_country_flag = slavery_question
+	}
+	
+	option = {
+	    name = "EMPIRE35OPT1"
+		set_country_flag = lei_eusebio_de_queiros
+		custom_tooltip = "eusebiodequeirossigned"
+		hidden_effect = {
+		    every_owned_province = {
+			    limit = {
+				    slaves = 1
+				}
+				add_province_modifier = {
+				    name = eusebio_de_queiros
+					duration = -1
+				}
+			}
+		}
+        ai_chance = { factor = 1 }
+	}
+	
+	option = {
+	    name = "EMPIRE35OPT2"
+		set_country_flag = refuse_to_sign_eusebio_de_queiros
+		custom_tooltip = "ukdispleased"
+		hidden_effect = {
+		    every_owned_province = {
+			    limit = {
+				    slaves = 1
+				}
+				add_unrest = 15
+			}
+			GBR = {
+			    add_opinion = {
+				    who = ROOT
+					modifier = displeased
+				}
+			}
+		}
+		ai_chance = { factor = 0 }
+	}
+}
+
+# Lei do Ventre Livre
+country_event = {
+    id = aveimperio.36
+	title = "EMPIRE36NAME"
+	desc = "EMPIRE36DESC"
+	picture = ECONOMY_eventPicture
+	
+	trigger = {
+	    tag = BRZ
+		is_year = 1871
+		NOT = { has_country_flag = lei_do_ventre_livre }
+		has_country_flag = lei_eusebio_de_queiros
+	}
+	
+	mean_time_to_happen = {
+	    months = 9
+	}
+	
+	option = {
+	    name = "EMPIRE36OPT1"
+		set_country_flag = lei_do_ventre_livre
+		custom_tooltip = "ventrelivresigned"
+		hidden_effect = {
+		    every_owned_province = {
+			    limit = {
+				    slaves = 1
+				}
+				add_province_modifier = {
+				    name = lei_do_ventre_livre
+					duration = -1
+				}
+			}
+		}
+	}
+}
+
+# Lei dos Sexagenários
+country_event = {
+    id = aveimperio.37
+	title = "EMPIRE37NAME"
+	desc = "EMPIRE37DESC"
+	picture = ECONOMY_eventPicture
+	
+	trigger = {
+	    tag = BRZ
+		is_year = 1885
+		NOT = { has_country_flag = lei_dos_sexagenarios }
+		has_country_flag = lei_do_ventre_livre
+	}
+	
+	mean_time_to_happen = {
+	    months = 9
+	}
+	
+	option = {
+	    name = "EMPIRE37OPT1"
+		set_country_flag = lei_dos_sexagenarios
+		custom_tooltip = "sexagenariossigned"
+		hidden_effect = {
+		    every_owned_province = {
+			    limit = {
+				    slaves = 1
+				}
+				add_province_modifier = {
+				    name = lei_do_sexagenario
+					duration = -1
+				}
+			}
+		}
+	}
+}
+
+# Lei Áurea
+country_event = {
+    id = aveimperio.38
+	title = "EMPIRE38NAME"
+	desc = "EMPIRE38DESC"
+	picture = ECONOMY_eventPicture
+	
+	trigger = {
+	    tag = BRZ
+		is_year = 1888
+		NOT = { has_country_flag = lei_aurea }
+		has_country_flag = lei_dos_sexagenarios
+		government = monarchy 
+	}
+	
+	mean_time_to_happen = {
+	    months = 5
+	}
+	
+	option = {
+	    name = "EMPIRE38OPT1"
+		set_country_flag = lei_aurea
+		custom_tooltip = "aureasigned"
+		hidden_effect = {
+		    every_owned_province = {
+			    limit = {
+				    OR = {
+					    has_province_modifier = eusebio_de_queiros
+						has_province_modifier = lei_do_ventre_livre
+						has_province_modifier = lei_do_sexagenario
+					}
+				}
+				remove_province_modifier = eusebio_de_queiros
+				remove_province_modifier = lei_do_ventre_livre
+				remove_province_modifier = lei_do_sexagenario
+			}
+		}
+		add_prestige = 5
+		add_country_modifier = {
+			name = innovative_modifier
+			duration = 3650
+		}
+		add_country_modifier = {
+			name = "the_abolish_slavery_act"
+			duration = -1
+		}
+		custom_tooltip = abolished_slavery_act_tooltip
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					trade_goods = slaves
+				}
+				change_trade_goods = unknown
+				remove_building = tradecompany
+				if = {
+					limit = { has_province_modifier = slave_entrepot }
+					remove_province_modifier = slave_entrepot
+				}
+			}
+		}
+		add_estate_loyalty = {
+		    estate = estate_burghers
+			loyalty = -50
+		}
+	}
+}
+
+# A Questão Militar
+country_event = {
+    id = aveimperio.39
+	title = "EMPIRE39NAME"
+	desc = "EMPIRE39DESC"
+	picture = MILITARY_QUESTION_eventPicture
+	
+	trigger = {
+	    tag = BRZ
+		OR = {
+		    is_at_war = yes
+			had_recent_war = 20
+		}
+		is_year = 1884
+		NOT = { is_year = 1887 }
+		NOT = { has_country_flag = militaryquestion }
+		NOT = { has_country_flag = militaryupsetbyemperor }
+		government = monarchy
+	}
+	
+	mean_time_to_happen = {
+	    months = 12
+	}
+	
+	immediate = {
+	    set_country_flag = militaryquestion
+	}
+	
+	option = {
+	    name = "EMPIRE39OPT1"
+		custom_tooltip = "militaryupset"
+		hidden_effect = {
+		    add_estate_loyalty = {
+      		    estate = estate_nobles
+			    loyalty = -50
+		    }
+		}
+		set_country_flag = militaryupsetbyemperor
+		ai_chance = { factor = 1 }
+	}
+	
+	option = {
+	    name = "EMPIRE39OPT2"
+		custom_tooltip = "militaryinfluence"
+		hidden_effect = {
+		    set_ruler_flag = military_influence_the_emperor
+		}
+		add_prestige = -50
+		add_legitimacy = -20
+		add_corruption = 4
+		ai_chance = { factor = 0 }
+	}
+}
+
+# A Questão Religiosa
+country_event = {
+    id = aveimperio.40
+	title = "EMPIRE40NAME"
+	desc = "EMPIRE40DESC"
+	picture = RELIGIOUS_QUESTION_eventPicture
+	
+	trigger = {
+	    tag = BRZ
+	    is_year = 1872
+		NOT = { is_year = 1875 }
+		government = monarchy
+		NOT = { has_country_flag = had_the_religious_issue }
+		NOT = { has_country_flag = church_displeased }
+	}
+	
+	mean_time_to_happen = {
+	    months = 8
+	}
+	
+	immediate = {
+	    set_country_flag = had_the_religious_issue
+	}
+	
+	option = {
+	    name = "EMPIRE40OPT1"
+		custom_tooltip = "churchdispleased"
+		hidden_effect = {
+		    add_estate_loyalty = {
+			    estate = estate_church
+				loyalty = -50
+			}
+			set_country_flag = church_displeased
+		}
+		ai_chance = { factor = 1 }
+	}
+	
+	option = {
+	    name = "EMPIRE40OPT2"
+		add_prestige = -25
+	}
+}
+
+# The Proclamation of the Republic
+#country_event = {
+#   id = aveimperio.41
+#	title = "EMPIRE41NAME"
+#	desc = "EMPIRE41DESC"
+#	picture = PROCLAMATION_OF_THE_REPUBLIC_eventPicture
+#	
+#	trigger = {
+#	    tag = BRZ
+#		government = monarchy
+#		is_year = 1889
+#		NOT = { is_year = 1900 }
+#		has_country_flag = church_displeased
+#		has_country_flag = militaryupsetbyemperor 
+#		has_country_flag = lei_aurea
+#		NOT = { has_country_flag = proclamation_of_the_republic }
+#	}
+#	
+#	mean_time_to_happen = {
+#	    months = 11
+#	}
+#	
+#	option = {
+#	    name = "EMPIRE41OPT1"
+#		custom_tooltip = "republicaproclamada"
+#		if = {
+#			limit = {
+#			    has_heir = "Isabel"
+# 			    has_ruler = "Pedro II"
+#		    }
+#			set_country_flag = deposed_imperial_family
+#			exile_ruler_as = "Pedro II"
+#			exile_heir_as = "Isabel"
+#		}
+#		hidden_effect = {
+#		    set_government_rank = 2
+#		    change_government = coronelist_republic
+#   		define_ruler = {
+#			    name = "Manuel Deodoro"
+#		    	dynasty = "da Fonseca"
+#	    		age = 62	
+#    			adm = 3
+#			    mil = 5
+#   		   	dip = 3
+#		    }
+#			kill_heir = yes
+#		}
+#	}
+#}

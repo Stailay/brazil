@@ -1,0 +1,112 @@
+military_coup_disaster = {
+	potential = {
+		is_year = 1945
+		NOT = { is_year = 1991 }
+		tag = BRZ
+		OR = {
+		    has_ruler_flag = left_wing_populism
+			has_ruler_modifier = left_wing_populism
+		}
+		government = populist_republic
+		any_known_country = {
+		    OR = {
+			    government = communist_dictatorship
+				government = socialist_republic
+			}
+		}
+	}
+
+
+	can_start = {
+		has_any_disaster = no
+	    custom_trigger_tooltip = {
+	        tooltip = leftist_ruler
+    		OR = {
+		        has_ruler_modifier = left_wing_populism
+                has_ruler_flag = left_wing_populism			
+    		}
+		}
+	}
+	
+	can_stop = {
+		OR = {
+			custom_trigger_tooltip = {
+			    tooltip = not_leftist_ruler
+				NOT = { has_ruler_flag = left_wing_populism }
+				NOT = { has_ruler_modifier = left_wing_populism }
+			}
+		}
+	}
+	
+	down_progress = {
+		factor = 1
+	}
+	
+	progress = {
+		modifier = {
+			factor = 3
+			custom_trigger_tooltip = {
+	            tooltip = leftist_ruler
+        		OR = {
+		            has_ruler_modifier = left_wing_populism
+                    has_ruler_flag = left_wing_populism			
+        		}
+    		}
+		}
+		modifier = {
+			factor = 2
+			custom_trigger_tooltip = {
+			    tooltip = pcb_not_banned
+				NOT = { has_country_modifier = pcb_banned }
+			}
+		}
+		modifier = {
+		    factor = 0.5
+			custom_trigger_tooltip = {
+			    tooltip = visited_a_communist_country
+				has_country_flag = jango_in_china
+			}
+		}
+		modifier = {
+		    factor = 0.5
+			custom_trigger_tooltip = {
+			    tooltip = corruption_scandal
+				has_country_modifier = corruption_ptb
+			}
+		}
+		modifier = {
+		    factor = 0.5
+			custom_trigger_tooltip = {
+			    tooltip = marches_of_the_family
+				has_country_flag = marcha_da_familia
+			}
+		}
+		modifier = {
+		    factor = 1
+			custom_trigger_tooltip = {
+			    tooltip = lack_of_discipline
+				has_ruler_flag = lack_of_discipline
+			}
+		}
+	}
+	
+	can_end = {
+		custom_trigger_tooltip = {
+			tooltip = no_leftist_ruler
+			NOT = {
+				has_ruler_flag = left_wing_populism
+				has_ruler_modifier = left_wing_populism
+			}
+		}
+	}
+	
+	modifier = {
+	}
+
+	on_start = dis_mil_coup.1
+	on_end = dis_mil_coup.2
+	
+	on_monthly = {
+	}
+}
+

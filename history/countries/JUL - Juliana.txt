@@ -1,0 +1,25 @@
+government = constitutional_republic 
+mercantilism = 0.1
+technology_group = western
+religion = catholic
+primary_culture = iberian_south_brazilian
+historical_friend = RGS
+capital = 2780	# Santa Catarina
+
+1839.6.24 = {
+    change_government = constitutional_republic
+	primary_culture = iberian_south_brazilian
+	monarch = {
+	    name = "David Canabarro"
+		birth_date = 1796.8.22
+		adm = 2
+		mil = 3
+		dip = 2
+		attach_leader = "David Canabarro"
+		leader = {	name = "David Canabarro"	type = general	rank = 2	fire = 2	shock = 2	manuever = 4	siege = 1 death_date = 1867.4.12 }
+	}  
+}
+
+ 
+
+

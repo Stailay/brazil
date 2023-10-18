@@ -1,0 +1,636 @@
+namespace = republicanova
+
+# Generic Corruption Scandal
+country_event = {
+    id = republicanova.1
+	title = "DISGRACE1NAME"
+	desc = "DISGRACE1DESC"
+	picture = BANKRUPTCY_eventPicture
+	
+	trigger = {
+	    tag = BRZ
+		government = republic
+		has_country_flag = republicanova
+	}
+	
+	mean_time_to_happen = {
+	    months = 180
+		
+		modifier = {
+		    factor = 2
+			has_country_flag = generic_corruption_scandal
+		}
+	}
+		
+	option = {
+	    name = "DISGRACE1OPT1"      
+		add_country_modifier = {
+		    name = generic_corruption_scandal
+			duration = 1825
+		}
+		add_stability = -2
+		add_corruption = 3
+		set_country_flag = generic_corruption_scandal
+	}
+}
+
+# Petrobras Scandal
+country_event = {
+    id = republicanova.2
+	title = "DISGRACE2NAME"
+	desc = "DISGRACE2DESC"
+	picture = BANKRUPTCY_eventPicture
+
+    trigger = {
+	    tag = BRZ
+		government = republic
+		has_country_flag = republicanova
+		NOT = { has_country_modifier = petrobras_scandal }
+		any_owned_province = {
+		    has_province_modifier = Petrobras
+			trade_goods = oil
+		}
+	}
+    
+    mean_time_to_happen = {
+	    months = 360
+	} 	
+	
+	option = {
+	    name = "DISGRACE2OPT1"
+		add_stability = -3
+		every_owned_province = {
+		    limit = {
+			    trade_goods = oil
+			}
+			add_province_modifier = {
+			    name = petrobras_scandal
+				duration = 7300
+			}
+		}
+		add_corruption = 1
+		set_country_flag = petrobras_scandal
+		hidden_effect = {
+		    add_country_modifier = {
+			    name = petrobras_scandal_country
+				duration = 7300
+				hidden = yes
+			}
+		}
+	}
+}
+
+# President is corrupt
+country_event = {
+    id = republicanova.3
+	title = "DISGRACE3NAME"
+	desc = "DISGRACE3DESC"
+	picture = CORRUPTION_eventPicture
+
+    trigger = {
+	    tag = BRZ
+		government = republic
+		has_country_flag = republicanova
+	    NOT = { has_ruler_modifier = corrupt_president }
+	}	
+	
+	mean_time_to_happen = {
+	    months = 200
+    }
+	
+	option = {
+	    name = "DISGRACE3OPT1"
+		add_ruler_modifier = {
+		    name = corrupt_president
+		}
+		add_stability -2
+		add_prestige = -25
+		add_corruption = 2
+	}
+}
+
+# Majority in lower house - PT
+country_event = {
+    id = republicanova.4
+	title = "DISGRACE4NAME"
+	desc = "DISGRACE4DESC"
+	picture = EUROPEAN_DEBATE_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+	    name = "DISGRACE4OPT1"
+		add_country_modifier = {
+		    name = PT_majority_lower_house
+			duration = -1
+		}
+	}
+}
+
+# Majority in upper house - PT
+country_event = {
+    id = republicanova.5
+	title = "DISGRACE5NAME"
+	desc = "DISGRACE5DESC"
+	picture = EUROPEAN_DEBATE_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+	    name = "DISGRACE4OPT1"
+		add_country_modifier = {
+		    name = PT_majority_upper_house
+			duration = -1
+		}
+	}
+}
+
+# Majority in lower house - PSDB
+country_event = {
+    id = republicanova.6
+	title = "DISGRACE6NAME"
+	desc = "DISGRACE6DESC"
+	picture = EUROPEAN_DEBATE_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+	    name = "DISGRACE4OPT1"
+		add_country_modifier = {
+		    name = PSDB_majority_lower_house
+			duration = -1
+		}
+	}
+}
+
+# Majority in upper house - PSDB
+country_event = {
+    id = republicanova.7
+	title = "DISGRACE7NAME"
+	desc = "DISGRACE7DESC"
+	picture = EUROPEAN_DEBATE_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+	    name = "DISGRACE4OPT1"
+		add_country_modifier = {
+		    name = PSDB_majority_upper_house
+			duration = -1
+		}
+	}
+}
+
+# Majority in lower house - PMDB
+country_event = {
+    id = republicanova.8
+	title = "DISGRACE8NAME"
+	desc = "DISGRACE8DESC"
+	picture = EUROPEAN_DEBATE_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+	    name = "DISGRACE4OPT1"
+		add_country_modifier = {
+		    name = PMDB_majority_lower_house
+			duration = -1
+		}
+	}
+}
+
+# Majority in upper house - PMDB
+country_event = {
+    id = republicanova.9
+	title = "DISGRACE9NAME"
+	desc = "DISGRACE9DESC"
+	picture = EUROPEAN_DEBATE_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+	    name = "DISGRACE4OPT1"
+		add_country_modifier = {
+		    name = PMDB_majority_upper_house
+			duration = -1
+		}
+	}
+}
+
+# Majority in lower house - DEM
+country_event = {
+    id = republicanova.10
+	title = "DISGRACE10NAME"
+	desc = "DISGRACE10DESC"
+	picture = EUROPEAN_DEBATE_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+	    name = "DISGRACE4OPT1"
+		add_country_modifier = {
+		    name = DEM_majority_lower_house
+			duration = -1
+		}
+	}
+}
+
+# Majority in upper house - DEM
+country_event = {
+    id = republicanova.11
+	title = "DISGRACE11NAME"
+	desc = "DISGRACE11DESC"
+	picture = EUROPEAN_DEBATE_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+	    name = "DISGRACE4OPT1"
+		add_country_modifier = {
+		    name = DEM_majority_upper_house
+			duration = -1
+		}
+	}
+}
+
+# Majority in lower house - PRONA
+country_event = {
+    id = republicanova.12
+	title = "DISGRACE12NAME"
+	desc = "DISGRACE12DESC"
+	picture = EUROPEAN_DEBATE_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+	    name = "DISGRACE4OPT1"
+		add_country_modifier = {
+		    name = PRONA_majority_lower_house
+			duration = -1
+		}
+	}
+}
+
+# Majority in upper house - PRONA
+country_event = {
+    id = republicanova.13
+	title = "DISGRACE13NAME"
+	desc = "DISGRACE13DESC"
+	picture = EUROPEAN_DEBATE_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+	    name = "DISGRACE4OPT1"
+		add_country_modifier = {
+		    name = PRONA_majority_upper_house
+			duration = -1
+		}
+	}
+}
+
+# Majority in lower house - PR
+country_event = {
+    id = republicanova.14
+	title = "DISGRACE14NAME"
+	desc = "DISGRACE14DESC"
+	picture = EUROPEAN_DEBATE_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+	    name = "DISGRACE4OPT1"
+		add_country_modifier = {
+		    name = PR_majority_lower_house
+			duration = -1
+		}
+	}
+}
+
+# Majority in upper house - PR
+country_event = {
+    id = republicanova.15
+	title = "DISGRACE15NAME"
+	desc = "DISGRACE15DESC"
+	picture = EUROPEAN_DEBATE_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+	    name = "DISGRACE4OPT1"
+		add_country_modifier = {
+		    name = PR_majority_upper_house
+			duration = -1
+		}
+	}
+}
+
+# Majority in lower house - PDT
+country_event = {
+    id = republicanova.16
+	title = "DISGRACE16NAME"
+	desc = "DISGRACE16DESC"
+	picture = EUROPEAN_DEBATE_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+	    name = "DISGRACE4OPT1"
+		add_country_modifier = {
+		    name = PDT_majority_lower_house
+			duration = -1
+		}
+	}
+}
+
+# Majority in upper house - PDT
+country_event = {
+    id = republicanova.17
+	title = "DISGRACE17NAME"
+	desc = "DISGRACE17DESC"
+	picture = EUROPEAN_DEBATE_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+	    name = "DISGRACE4OPT1"
+		add_country_modifier = {
+		    name = PDT_majority_upper_house
+			duration = -1
+		}
+	}
+}
+
+# Majority in lower house - PTB
+country_event = {
+    id = republicanova.18
+	title = "DISGRACE18NAME"
+	desc = "DISGRACE18DESC"
+	picture = EUROPEAN_DEBATE_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+	    name = "DISGRACE4OPT1"
+		add_country_modifier = {
+		    name = PTB_majority_lower_house
+			duration = -1
+		}
+	}
+}
+
+# Majority in upper house - PTB
+country_event = {
+    id = republicanova.19
+	title = "DISGRACE19NAME"
+	desc = "DISGRACE19DESC"
+	picture = EUROPEAN_DEBATE_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+	    name = "DISGRACE4OPT1"
+		add_country_modifier = {
+		    name = PTB_majority_upper_house
+			duration = -1
+		}
+	}
+}
+
+# Majority in lower house - PRTB
+country_event = {
+    id = republicanova.20
+	title = "DISGRACE20NAME"
+	desc = "DISGRACE20DESC"
+	picture = EUROPEAN_DEBATE_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+	    name = "DISGRACE4OPT1"
+		add_country_modifier = {
+		    name = PRTB_majority_lower_house
+			duration = -1
+		}
+	}
+}
+
+# Majority in upper house - PRTB
+country_event = {
+    id = republicanova.21
+	title = "DISGRACE21NAME"
+	desc = "DISGRACE21DESC"
+	picture = EUROPEAN_DEBATE_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+	    name = "DISGRACE4OPT1"
+		add_country_modifier = {
+		    name = PRTB_majority_upper_house
+			duration = -1
+		}
+	}
+}
+
+# Majority in lower house - PSOL
+country_event = {
+    id = republicanova.22
+	title = "DISGRACE22NAME"
+	desc = "DISGRACE22DESC"
+	picture = EUROPEAN_DEBATE_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+	    name = "DISGRACE4OPT1"
+		add_country_modifier = {
+		    name = PSOL_majority_lower_house
+			duration = -1
+		}
+	}
+}
+
+# Majority in upper house - PSOL
+country_event = {
+    id = republicanova.23
+	title = "DISGRACE23NAME"
+	desc = "DISGRACE23DESC"
+	picture = EUROPEAN_DEBATE_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+	    name = "DISGRACE4OPT1"
+		add_country_modifier = {
+		    name = PSOL_majority_upper_house
+			duration = -1
+		}
+	}
+}
+
+# Majority in lower house - PSC
+country_event = {
+    id = republicanova.24
+	title = "DISGRACE24NAME"
+	desc = "DISGRACE24DESC"
+	picture = EUROPEAN_DEBATE_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+	    name = "DISGRACE4OPT1"
+		add_country_modifier = {
+		    name = PSC_majority_lower_house
+			duration = -1
+		}
+	}
+}
+
+# Majority in upper house - PSC
+country_event = {
+    id = republicanova.25
+	title = "DISGRACE25NAME"
+	desc = "DISGRACE25DESC"
+	picture = EUROPEAN_DEBATE_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+	    name = "DISGRACE4OPT1"
+		add_country_modifier = {
+		    name = PSC_majority_upper_house
+			duration = -1
+		}
+	}
+}
+
+# Majority in lower house - REDE
+country_event = {
+    id = republicanova.26
+	title = "DISGRACE26NAME"
+	desc = "DISGRACE26DESC"
+	picture = EUROPEAN_DEBATE_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+	    name = "DISGRACE4OPT1"
+		add_country_modifier = {
+		    name = REDE_majority_lower_house
+			duration = -1
+		}
+	}
+}
+
+# Majority in upper house - REDE
+country_event = {
+    id = republicanova.27
+	title = "DISGRACE27NAME"
+	desc = "DISGRACE27DESC"
+	picture = EUROPEAN_DEBATE_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+	    name = "DISGRACE4OPT1"
+		add_country_modifier = {
+		    name = REDE_majority_upper_house
+			duration = -1
+		}
+	}
+}
+
+# Majority in lower house - PCB
+country_event = {
+    id = republicanova.28
+	title = "DISGRACE28NAME"
+	desc = "DISGRACE28DESC"
+	picture = EUROPEAN_DEBATE_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+	    name = "DISGRACE4OPT1"
+		add_country_modifier = {
+		    name = PCB_majority_lower_house
+			duration = -1
+		}
+	}
+}
+
+# Majority in upper house - PCB
+country_event = {
+    id = republicanova.29
+	title = "DISGRACE29NAME"
+	desc = "DISGRACE29DESC"
+	picture = EUROPEAN_DEBATE_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+	    name = "DISGRACE4OPT1"
+		add_country_modifier = {
+		    name = PCB_majority_upper_house
+			duration = -1
+		}
+	}
+}
+
+# People discovered about investiment
+country_event = {
+    id = republicanova.30
+	title = "DISGRACE30NAME"
+	desc = "DISGRACE30DESC"
+	picture = CORRUPTION_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+	    name = "DISGRACE30OPT1"
+		add_prestige = -10
+		add_corruption = 2
+	}
+}
+
+# O Sul é o meu país
+country_event = {
+    id = republicanova.31
+	title = "DSGRACE31NAME"
+	desc = "DISGRACE31DESC"
+	picture = SUL_MEU_PAIS_eventPicture
+	
+	trigger = {
+	    is_year = 1990
+		tag = BRZ
+		rio_grande_do_sol_area = {
+		    owned_by = BRZ
+		}
+		owns = 768
+		owns = 769
+		owns = 2781
+		NOT = { exists = SLS }
+		NOT = { has_country_flag = sul_meu_pais }
+	}
+
+	mean_time_to_happen = {
+	    years = 2
+	}
+	
+	immediate = {
+	    set_country_flag = sul_meu_pais
+	}
+	
+	option = {
+	    name = "DISGRACE31OPT1"
+		SLS = {
+		    add_core = 768
+			add_core = 769
+			add_core = 770
+			add_core = 771
+			add_core = 2779
+			add_core = 2780
+			add_core = 2781
+		}
+	}
+}

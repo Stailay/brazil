@@ -1,0 +1,11 @@
+﻿l_english:
+ 1930_revolution:0 "Brazilian Liberal Revolution"
+ desc_1930_revolution:0 "After years under the coronelist regime, the Republican Party of São Paulo betrayed the Mineiros, ending the café-com-leite policy. The Mineiros decided to support the Riograndense candidate. Now they revolted and, since they couldn't make a revolution through the rigged elections, they will make it through violence."
+ integralist_revolution:0 "Integralist Revolution"
+ desc_integralist_revolution:0 "The nationalism took over the minds of the population. The wish of a better society not as corrupt as the failed democracy is greater than ever. People are now awaken and fighting for the estabilishment of the Integral State."
+ military_coup_disaster:0 "Military Coup"
+ desc_military_coup_disaster:0 "Due to the fact that the current ruler of our nation is a communist, the military decided to save our nation from the red scare by deposing him."
+ impeachment:0 "Impeachment"
+ desc_impeachment:0 "After a mandate of instability, the [Root.GetAdjective] population grown tired of the current $MONARCHTITLE$ and pressured the government to start the impeachment process."
+ brazilian_civil_war:0 "Republican Coup"
+ desc_brazilian_civil_war:0 "After years of discontent and disagreement with the $MONARCHTITLE$ on several issues, elites and the military of Brazil decided to overthrow the monarchy and create their own government."

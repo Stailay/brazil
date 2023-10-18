@@ -1,0 +1,247 @@
+# Brazilian Oligarchic Republic
+coronelist_republic = {
+	republic = yes
+	
+	valid_for_new_country = no
+	valid_for_nation_designer = yes
+	nation_designer_cost = 0	
+	
+	color = { 10 170 0 }
+	
+	unique_government = yes
+	
+	duration = 4
+	
+	min_autonomy = 25
+
+	republican_name = yes
+	royal_marriage = no
+	
+	has_parliament = yes
+	
+	ai_will_do = {
+		factor = 0
+	}
+	ai_importance = 1
+	
+	allow_convert = no
+
+	#bonus
+	max_states = 5
+	
+	rank = {
+		1 = {
+			global_tax_modifier = 0.05
+			stability_cost_modifier = -0.05
+		}
+		2 = {
+			global_tax_modifier = 0.05
+			stability_cost_modifier = -0.05	
+			global_autonomy = -0.025
+		}
+		3 = {
+			global_tax_modifier = 0.05
+			stability_cost_modifier = -0.05
+			global_autonomy = -0.05
+		}
+	}
+	
+	faction = partido_paulista
+	faction = partido_mineiro
+	faction = partido_fluminense
+	faction = partido_riograndense
+	faction = partido_conservador_monarquista
+	faction = partido_conservador_republicano
+}
+
+# Brazilian Estado Novo
+estado_novo = {
+	republic = yes
+	
+	valid_for_new_country = no
+	valid_for_nation_designer = yes
+	nation_designer_cost = 0	
+	
+	color = { 10 90 0 }
+	
+	unique_government = yes
+
+	republican_name = yes
+	royal_marriage = no
+	
+	ai_will_do = {
+		factor = 0
+	}
+	ai_importance = 1
+	
+	allow_convert = no
+
+	#bonus
+	max_states = 5
+	
+	rank = {
+		1 = {
+			discipline = 0.05
+			global_unrest = -1
+			global_autonomy = -0.05
+		}
+		2 = {
+			discipline = 0.05
+			global_unrest = -1
+			global_autonomy = -0.075	
+			development_cost = -0.2
+		}
+		3 = {	
+			discipline = 0.05
+			global_unrest = -1
+			global_autonomy = -0.10	
+			development_cost = -0.4
+		}
+	}
+}
+
+# Integralist Republic
+integralist_state = {
+	republic = yes
+	
+	color = { 0 40 150 }
+	
+	republican_name = yes
+	royal_marriage = no
+
+	valid_for_new_country = no
+	allow_convert = yes
+	valid_for_nation_designer = yes
+	nation_designer_cost = 30
+	
+	militarised_society = yes	
+	
+	has_parliament = yes
+
+	ai_will_do = {
+		factor = 0
+	}
+	
+	#bonus
+	rank = {
+		3 = {
+			land_forcelimit_modifier = 1.0
+			global_regiment_cost = -0.25
+			army_tradition = 0.5
+			global_manpower_modifier = 0.25
+			global_unrest = -1
+			culture_conversion_cost = -0.2
+
+			tolerance_heretic = -2
+			tolerance_heathen = -2
+			unjustified_demands = 0.2
+		}
+	}
+	fixed_rank = 3
+}
+
+# Brazilian Populist Republic
+populist_republic = {
+	republic = yes
+	
+	valid_for_new_country = no
+	valid_for_nation_designer = yes
+	nation_designer_cost = 0	
+	
+	color = { 50 200 0 }
+	
+	unique_government = yes
+	
+	duration = 5
+	
+	min_autonomy = 25
+
+	republican_name = yes
+	royal_marriage = no
+	
+	ai_will_do = {
+		factor = 0
+	}
+	ai_importance = 1
+	
+	allow_convert = no
+
+	#bonus
+	max_states = 5
+	
+	rank = {
+		1 = {
+			tolerance_heathen = 1
+			stability_cost_modifier = -0.10
+			global_autonomy = -0.10
+		}
+		2 = {
+			tolerance_heathen = 1
+			stability_cost_modifier = -0.10
+			global_autonomy = -0.15
+		}
+		3 = {
+			tolerance_heathen = 1
+			stability_cost_modifier = -0.10
+			global_autonomy = -0.20
+		}
+	}
+	
+	faction = partido_trabalhista_brasileiro
+	faction = partido_social_democratico
+	faction = integralistas
+	faction = partido_comunista_brasileiro
+	faction = partido_conservador_monarquista
+	faction = partido_conservador_republicano
+}
+
+# Regime Militar
+regime_militar = {
+    republic = yes
+	
+	valid_for_new_country = no
+	valid_for_nation_designer = yes
+	nation_designer_cost = 0	
+	
+	color = { 10 40 0 }
+	
+	unique_government = yes
+	
+	duration = 5
+	
+	militarised_society = yes	
+	
+	republican_name = yes
+	royal_marriage = no
+	
+	ai_will_do = {
+		factor = 0
+	}
+	ai_importance = 1
+	
+	allow_convert = no
+
+	#bonus
+	max_states = 5
+	
+	rank = {
+		1 = {
+			discipline = 0.15
+            land_morale = 0.15
+	    	army_tradition = 0.5
+		}
+		2 = {
+			discipline = 0.15
+            land_morale = 0.15
+	    	army_tradition = 0.5
+		}
+		3 = {
+			discipline = 0.15
+            land_morale = 0.15
+	    	army_tradition = 0.5
+		}
+	}
+	
+	faction = ARENA
+	faction = MDB
+}

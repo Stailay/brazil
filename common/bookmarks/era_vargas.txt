@@ -1,0 +1,11 @@
+bookmark =
+{
+	name = "BRZ_VRG_NAME"
+	desc = "BRZ_VRG_DESC"
+	date = 1930.11.3
+	
+	country = BRZ
+	
+	center = 763
+	
+}

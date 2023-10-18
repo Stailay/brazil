@@ -1,0 +1,12 @@
+bookmark =
+{
+	name = "BRZ_IND_NAME"
+	desc = "BRZ_IND_DESC"
+	date = 1822.9.7
+	
+	country = BRZ
+	country = POR
+	
+	center = 763
+	
+}

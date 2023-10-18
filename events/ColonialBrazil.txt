@@ -1,0 +1,992 @@
+namespace = brasilcolonia
+
+# Ciclo do Ouro
+country_event = {
+    id = brasilcolonia.1
+	title = "SANTACRUZ1NAME"
+	desc = "SANTACRUZ1DESC"
+	picture = CICLO_DO_OURO_eventPicture
+	
+	trigger = {
+		NOT = { has_country_flag = ciclo_do_ouro }
+		is_colonial_nation = yes
+		capital_scope = {
+		    colonial_region = colonial_brazil
+		}
+		has_estate = estate_bandeirantes
+		is_year = 1700
+		owns = 765
+		owns = 2795
+		NOT = { is_year = 1750 }
+	}
+	
+	mean_time_to_happen = {
+	    months = 48
+	}
+		
+	immediate = {
+	    hidden_effect = {
+		    set_country_flag = ciclo_do_ouro
+			765 = {
+			    if = {
+				    limit = {
+		     		    NOT = { trade_goods = gold }
+					}
+					change_trade_goods = gold
+				}
+			}
+			2795 = {
+			    if = {
+				    limit = {
+					    NOT = { trade_goods = gold }
+						change_trade_goods = gold
+					}
+				}
+			}
+		}
+	}	
+		
+	option = {
+	    name = "SANTACRUZ1OPT1"
+	    every_owned_province = {
+		    limit = {
+			    trade_goods = gold
+			}
+			add_province_modifier = {
+			    name = ciclo_do_ouro
+				duration = -1
+			}
+		}
+		ai_chance = { factor = 1 }
+	}
+}
+
+# Quinto
+country_event = {
+    id = brasilcolonia.2
+	title = "SANTACRUZ2NAME"
+	desc = "SANTACRUZ2DESC"
+	picture = CICLO_DO_OURO_eventPicture
+	
+	trigger = {
+	    has_country_flag = ciclo_do_ouro
+		is_colonial_nation = yes
+		capital_scope = {
+		    colonial_region = colonial_brazil
+		}
+		has_estate = estate_bandeirantes
+		owns = 765
+		owns = 2795
+	}
+	
+	is_triggered_only = yes
+	
+	option = {
+	    name = "SANTACRUZ2OPT1"
+		add_liberty_desire = 15
+		add_estate_loyalty = {
+		    estate = estate_bandeirantes
+			loyalty = -15
+		}
+		set_country_flag = quinto_dos_infernos
+	}
+}
+
+# War of the Emboabas
+country_event = {
+    id = brasilcolonia.3
+	title = "SANTACRUZ3NAME"
+	desc = "SANTACRUZ3DESC"
+	picture = ANGRY_MOB_eventPicture
+	
+	trigger = {
+	    is_colonial_nation = yes
+		has_country_flag = ciclo_do_ouro
+		capital_scope = {
+		    colonial_region = colonial_brazil
+		}
+		NOT = {
+		    estate_loyalty = {
+			    estate = estate_bandeirantes
+				loyalty = 50
+			}
+		}
+		NOT = { has_country_flag = guerra_dos_emboabas }
+	}
+	
+	mean_time_to_happen = {
+	    months = 4
+	}
+	
+	immediate = {
+	    hidden_effect = {
+		    random_owned_province = {
+			    spawn_rebels = {
+				    type = bandeirante_rebels
+					size = 4
+					unrest = 10
+					leader = "Borba Gato"
+				}
+			}
+			random_owned_province = {
+			    spawn_rebels = {
+				    type = bandeirante_rebels
+					size = 4
+					unrest = 10
+				}
+			}
+			random_owned_province = {
+			    spawn_rebels = {
+				    type = bandeirante_rebels
+					size = 4
+					unrest = 10
+				}
+			}
+			random_owned_province = {
+			    spawn_rebels = {
+				    type = bandeirante_rebels
+					size = 4
+					unrest = 10
+				}
+			}
+			random_owned_province = {
+			    spawn_rebels = {
+				    type = bandeirante_rebels
+					size = 4
+					unrest = 10
+				}
+			}
+			set_country_flag = guerra_dos_emboabas
+		}
+	}
+	
+	option = {
+	    name = "SANTACRUZ3OPT1"
+	    add_prestige = -10
+	}
+}
+
+# Inconfidencia Mineira (failed)
+country_event = {
+    id = brasilcolonia.4
+	title = "SANTACRUZ4NAME"
+	desc = "SANTACRUZ4DESC"
+	picture = INCONFIDENCIA_MINEIRA_eventPicture
+	
+	trigger = {
+	    is_colonial_nation = yes
+		has_country_flag = ciclo_do_ouro
+		has_country_flag = quinto_dos_infernos
+		NOT = { has_country_flag = inconfidencia_mineira }
+		OR = {
+		    any_known_country = {
+			    is_revolution_target = yes
+			}
+			any_known_country = {
+			    limit = {
+				    OR = {
+					    continent = north_america
+						continent = south_america
+					}
+					is_former_colonial_nation = yes
+				}
+				is_subject = no
+			}
+		}
+		NOT = { is_year = 1810 }
+	}
+	
+	mean_time_to_happen = {
+	    months = 24
+	}
+	
+	immediate = {
+	    hidden_effect = {
+		    set_country_flag = inconfidencia_mineira
+			MGR = {
+			    add_core = 765
+				add_core = 759
+				add_core = 2793
+				add_core = 2794
+				add_core = 2795
+				add_core = 2796
+				add_core = 2800
+			}
+		}
+	}
+	
+	option = {
+	    name = "SANTACRUZ4OPT1"
+		custom_tooltip = tiradentes_influence
+		add_liberty_desire = 10
+	}
+}
+
+# Inconfidencia Mineira (succeeded)
+country_event = {
+    id = brasilcolonia.5
+	title = "SANTACRUZ5NAME"
+	desc = "SANTACRUZ5DESC"
+	picture = INCONFIDENCIA_MINEIRA_eventPicture
+	
+	trigger = {
+	    is_colonial_nation = yes
+		has_country_flag = ciclo_do_ouro
+		has_country_flag = quinto_dos_infernos
+		NOT = { has_country_flag = inconfidencia_mineira }
+		OR = {
+		    any_known_country = {
+			    is_revolution_target = yes
+			}
+			any_known_country = {
+			    limit = {
+				    OR = {
+					    continent = north_america
+						continent = south_america
+					}
+					is_former_colonial_nation = yes
+				}
+				is_subject = no
+			}
+		}
+		NOT = { is_year = 1810 }
+	}
+	
+	mean_time_to_happen = {
+	    months = 30
+	}
+	
+	immediate = {
+	    hidden_effect = {
+		    set_country_flag = inconfidencia_mineira
+			MGR = {
+			    add_core = 765
+				add_core = 759
+				add_core = 2793
+				add_core = 2794
+				add_core = 2795
+				add_core = 2796
+				add_core = 2800
+			}
+		}
+	}
+	
+	option = {
+	    name = "SANTACRUZ5OPT1"
+		add_prestige = -10
+		756 = {
+		    spawn_rebels = {
+			    type = nationalist_rebels
+				size = 5
+				leader = "Joaquim Jose da Silva Xavier"
+				unrest = 10
+			}
+		}
+		759 = {
+		    spawn_rebels = {
+			    type = nationalist_rebels
+				size = 5
+				unrest = 10
+			}
+		}
+		2795 = {
+		    spawn_rebels = {
+			    type = nationalist_rebels
+				size = 5
+				unrest = 10
+			}
+		}
+	}
+}
+
+# The end of the Gold Rush
+country_event = {
+    id = brasilcolonia.6
+	title = "SANTACRUZ6NAME"
+	desc = "SANTACRUZ6DESC"
+	picture = TRADEGOODS_eventPicture
+	
+	trigger = {
+	    had_country_flag = { flag = ciclo_do_ouro days = 36500 }
+		is_colonial_nation = yes
+		capital_scope = {
+		    colonial_region = colonial_brazil
+		}
+	}
+	
+	mean_time_to_happen = {
+	    days = 1
+	}
+	
+	option = {
+	    name = "SANTACRUZ6OPT1"
+		every_owned_province = {
+		    limit = {
+			    has_province_modifier = ciclo_do_ouro
+			}
+			remove_province_modifier = ciclo_do_ouro
+		}
+	}
+}
+
+# Aleijadinho (Colonial Brazil)
+country_event = {
+    id = brasilcolonia.7
+	title = "SANTACRUZ7NAME"
+	desc = "SANTACRUZ7DESC"
+	picture = ADVISOR_eventPicture
+	
+	trigger = {
+	    is_year = 1800
+		NOT = { is_year = 1814 }
+		NOT = { has_country_flag = aleijadinho }
+		culture_group = iberian
+		OR = {
+		    AND = {
+			    is_former_colonial_nation = yes
+				is_subject = no
+			}
+			AND = {
+			    is_colonial_nation = yes
+				capital_scope = {
+		            colonial_region = colonial_brazil
+        		}
+				is_subject = yes
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+	    months = 12
+	}
+	
+	immediate = {
+	    hidden_effect = {
+		    set_country_flag = aleijadinho
+		}
+	}
+	
+	option = {
+	    name = "SANTACRUZ7OPT1"
+		add_country_modifier = {
+		    name = aleijadinho_modifier
+			duration = 3650
+		}
+		if = {
+		    limit = {
+			    monthly_income = 25
+			}
+			define_advisor = {
+			    type = artist
+				skill = 3
+				discount = yes
+				name = "Antonio Francisco Lisboa"
+			}
+		}
+		if = {
+		    limit = {
+			   NOT = { monthly_income = 25 }
+			}
+			define_advisor = {
+			    type = artist
+				skill = 2
+				discount = yes
+				name = "Antonio Francisco Lisboa"
+			}
+		}
+		ai_chance = { factor = 1 }
+	}
+	option = {
+	    name = "SANTACRUZ7OPT2"
+		trigger = {
+		    is_colonial_nation = yes
+			is_subject = yes
+		}
+		custom_tooltip = aleijadinho_offer_overlord
+		hidden_effect = {
+		    colonial_parent = {
+    			country_event = { id = brasilcolonia.8 }
+			}
+		ai_chance = { factor = 0 }
+	}
+}
+
+# Aleijadinho (Overlord)
+country_event = {
+    id = brasilcolonia.8
+	title = "SANTACRUZ8NAME"
+	desc = "SANTACRUZ8DESC"
+	picture = ADVISOR_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+	    name = "SANTACRUZ8OPT1"
+		add_country_modifier = {
+		    name = aleijadinho_modifier
+			duration = 3650
+		}
+		if = {
+		    limit = {
+			    monthly_income = 25
+			}
+			define_advisor = {
+			    type = artist
+				skill = 3
+				discount = yes
+				name = "Antonio Francisco Lisboa"
+			}
+		}
+		if = {
+		    limit = {
+			   NOT = { monthly_income = 25 }
+			}
+			define_advisor = {
+			    type = artist
+				skill = 2
+				discount = yes
+				name = "Antonio Francisco Lisboa"
+			}
+		}
+		ai_chance = { factor = 1 }
+	}
+	option = {
+	    name = "SANTACRUZ8OPT2"
+		ai_chance = { factor = 0 }
+	}
+}
+
+# Quilombo dos Palmares
+country_event = {
+    id = brasilcolonia.9
+	title = "SANTACRUZ9NAME"
+	desc = "SANTACRUZ9DESC"
+	picture = NATIVES_eventPicture
+	
+	trigger = {
+	    is_year = 1600
+		NOT = { is_year = 1700 }
+		owns = 755
+		is_colonial_nation = yes
+		capital_scope = {
+		    colonial_region = colonial_brazil
+        }
+		NOT = { has_country_flag = had_palmares }
+	}
+	
+	mean_time_to_happen = {
+	    years = 30
+	}
+	
+	immediate = {
+	    hidden_effect = {
+		    set_country_flag = had_palmares
+		}
+	}
+	
+	option = {
+	    name = "SANTACRUZ9OPT1"
+		add_mil_power = -50	
+		random = {
+		    chance = 25
+			755 = {
+		        add_pemanent_province_modifier = {
+		     	    name = quilombo_dos_palmares
+	     			duration = 18250
+    			}
+		    }
+			set_country_flag = expeditions_against_palmares
+		}
+	}
+	
+	option = {
+	    name = "SANTACRUZ9OPT2"
+		755 = {
+		    add_pemanent_province_modifier = {
+			    name = quilombo_dos_palmares
+				duration = 18250
+			}
+		}
+	}
+}
+
+# The End of Palmares 
+country_event = {
+    id = brasilcolonia.10
+	title = "SANTACRUZ10NAME"
+	desc = "SANTACRUZ10DESC"
+	picture = NATIVES_eventPicture
+	
+	trigger = {
+	    is_colonial_nation = yes
+		capital_scope = {
+		    colonial_region = colonial_brazil
+        }
+		any_owned_province = {
+		    has_province_modifier = quilombo_dos_palmares
+		}
+		has_country_flag = expeditions_against_palmares
+	}
+	
+	mean_time_to_happen = {
+	    years = 10
+	}
+	
+	option = {
+	    name = "SANTACRUZ10OPT1"
+		remove_province_modifier = quilombo_dos_palmares
+		add_prestige = 10
+	}
+}
+
+# Conjuração Baiana (succeeded)
+country_event = {
+    id = brasilcolonia.11
+	title = "SANTACRUZ11NAME"
+	desc = "SANTACRUZ11DESC"
+	picture = ANGRY_MOB_eventPicture
+	
+	trigger = {
+	    is_colonial_nation = yes
+		NOT = { has_country_flag = had_conjuracao_baiana }
+		NOT = {
+		    any_owned_province = {
+			    is_core = BAI
+			}
+		}
+		owns = 756
+		owns = 757
+		owns = 2797
+		owns = 2807
+		OR = {
+		    any_known_country = {
+			    is_revolution_target = yes
+			}
+			any_known_country = {
+			    limit = {
+				    OR = {
+					    continent = north_america
+						continent = south_america
+					}
+					is_former_colonial_nation = yes
+				}
+				is_subject = no
+			}
+		}
+		NOT = { is_year = 1815 }
+	}
+	
+	mean_time_to_happen = {
+	    years = 10
+		
+		modifier = {
+		    factor = 0.5
+			has_country_flag = inconfidencia_mineira
+		}
+	}
+	
+	immediate = {
+	    hidden_effect = {
+		    set_country_flag = had_conjuracao_baiana
+			BAI = {
+			    add_core = 756
+				add_core = 757
+				add_core = 760
+				add_core = 2797
+				add_core = 2798
+				add_core = 2806
+				add_core = 2807
+				add_core = 2808
+			}
+		}
+	}
+	
+	option = {
+        name = "SANTACRUZ11OPT1"
+		random_owned_province = {
+		    limit = {
+			    is_core = BAI
+			}
+			spawn_rebels = {
+			    type = nationalist_rebels
+				size = 5
+				unrest = 10
+			}
+		}
+		random_owned_province = {
+		    limit = {
+			    is_core = BAI
+			}
+			spawn_rebels = {
+			    type = nationalist_rebels
+				size = 5
+				unrest = 10
+			}
+		}
+		random_owned_province = {
+		    limit = {
+			    is_core = BAI
+			}
+			spawn_rebels = {
+			    type = nationalist_rebels
+				size = 5
+				unrest = 10
+			}
+		}
+	}
+}
+
+# Conjuração Baiana (failed)
+country_event = {
+    id = brasilcolonia.12
+	title = "SANTACRUZ12NAME"
+	desc = "SANTACRUZ12DESC"
+	picture = ANGRY_MOB_eventPicture
+	
+	trigger = {
+	    is_colonial_nation = yes
+		NOT = { has_country_flag = had_conjuracao_baiana }
+		owns = 756
+		owns = 757
+		owns = 2797
+		owns = 2807
+		OR = {
+		    any_known_country = {
+			    is_revolution_target = yes
+			}
+			any_known_country = {
+			    limit = {
+				    OR = {
+					    continent = north_america
+						continent = south_america
+					}
+					is_former_colonial_nation = yes
+				}
+				is_subject = no
+			}
+		}
+		NOT = { is_year = 1815 }
+	}
+	
+	mean_time_to_happen = {
+	    years = 7
+	}
+	
+	immediate = {
+	    hidden_effect = {
+		    set_country_flag = had_conjuracao_baiana
+		}
+	}
+	
+	option = {
+        name = "SANTACRUZ12OPT1"
+		add_liberty_desire = 10
+	}
+}
+
+# Revolução Pernambucana (failed)
+country_event = {
+    id = brasilcolonia.13
+	title = "SANTACRUZ13NAME"
+	desc=  "SANTACRUZ13DESC"
+	picture = ANGRY_MOB_eventPicture
+	
+	trigger = {
+	    is_colonial_nation = yes
+		NOT = { has_country_flag = had_revolucao_pernambucana_1817 }
+		NOT = {
+		    any_owned_province = {
+			    is_core = PMB
+			}
+		}
+		owns = 755
+		owns = 754
+		owns = 2810
+		owns = 2806
+		OR = {
+		    any_known_country = {
+			    is_revolution_target = yes
+			}
+			any_known_country = {
+			    limit = {
+				    OR = {
+					    continent = north_america
+						continent = south_america
+					}
+					is_former_colonial_nation = yes
+				}
+				is_subject = no
+			}
+		}
+		NOT = { is_year = 1820 }
+	}
+	
+	mean_time_to_happen = {
+	    years = 20
+	}
+	
+	immediate = {
+	    hidden_effect = {
+		    set_country_flag = had_revolucao_pernambucana_1817
+		}   
+	}
+	
+	option = {
+	    name = "SANTACRUZ13OPT1"
+		add_liberty_desire = 10
+	}
+}
+
+# Revolução Pernambucana (succeeded)
+country_event = {
+    id = brasilcolonia.14
+	title = "SANTACRUZ14NAME"
+	desc=  "SANTACRUZ14DESC"
+	picture = ANGRY_MOB_eventPicture
+	
+	trigger = {
+	    is_colonial_nation = yes
+		NOT = { has_country_flag = had_revolucao_pernambucana_1817 }
+		NOT = {
+		    any_owned_province = {
+			    is_core = PMB
+			}
+		}
+		owns = 755
+		owns = 754
+		owns = 2810
+		owns = 2806
+		OR = {
+		    any_known_country = {
+			    is_revolution_target = yes
+			}
+			any_known_country = {
+			    limit = {
+				    OR = {
+					    continent = north_america
+						continent = south_america
+					}
+					is_former_colonial_nation = yes
+				}
+				is_subject = no
+			}
+		}
+		NOT = { is_year = 1820 }
+	}
+	
+	mean_time_to_happen = {
+	    years = 15
+	}
+	
+	immediate = {
+	    hidden_effect = {
+		    set_country_flag = had_revolucao_pernambucana_1817
+			add_core = 754
+			add_core = 755
+			add_core = 2806
+			add_core = 2810
+		}   
+	}
+	
+	option = {
+	    name = "SANTACRUZ14OPT1"
+		755 = {
+		    spawn_rebels = {
+			    type = nationalist_rebels
+				size = 5
+				unrest = 10
+			}
+		}
+		754 = {
+		    spawn_rebels = {
+			    type = nationalist_rebels
+				size = 5
+				unrest = 10
+			}
+		}
+	}
+}
+
+# José Bonifácio
+country_event = {
+    id = brasilcolonia.15
+	title = "SANTACRUZ15NAME"
+	desc = "SANTACRUZ15DESC"
+	picture = ADVISOR_eventPicture
+	
+	trigger = {
+	    is_year = 1815
+		NOT = { has_country_flag = jose_bonifacio }
+		culture_group = iberian			
+		is_colonial_nation = yes
+		capital_scope = {
+		    colonial_region = colonial_brazil
+        }
+		is_subject = yes
+	    liberty_desire = 50
+	}
+	
+	mean_time_to_happen = {
+	    months = 7
+	}
+	
+	immediate = {
+	    hidden_effect = {
+		    set_country_flag = jose_bonifacio
+		}
+	}
+	
+	option = {
+	    name = "SANTACRUZ15OPT1"
+		if = {
+		    limit = {
+			    monthly_income = 25
+			}
+			define_advisor = {
+			    type = natural_scientist
+				skill = 3
+				discount = yes
+				name = "Jose Bonifacio de Andrada"
+			}
+		}
+		if = {
+		    limit = {
+			   NOT = { monthly_income = 25 }
+			}
+			define_advisor = {
+			    type = natural_scientist
+				skill = 2
+				discount = yes
+				name = "Jose Bonifacio de Andrada"
+			}
+		}
+		add_liberty_desire = 10
+	}
+	option = {
+	    name = "SANTACRUZ15OPT2"
+		if = {
+		    limit = {
+			    monthly_income = 25
+			}
+			define_advisor = {
+			    type = statesman
+				skill = 3
+				discount = yes
+				name = "Jose Bonifacio de Andrada"
+			}
+		}
+		if = {
+		    limit = {
+			   NOT = { monthly_income = 25 }
+			}
+			define_advisor = {
+			    type = diplomat
+				skill = 2
+				discount = yes
+				name = "Jose Bonifacio de Andrada"
+			}
+		}
+		add_liberty_desire = 10
+	}
+	option = {
+	    name = "SANTACRUZ15OPT3"
+		add_liberty_desire = -10
+		add_prestige = -10
+	}
+}
+
+# Revolução do Porto
+country_event = {
+    id = brasilcolonia.16
+	title = "SANTACRUZ16NAME"
+	desc = "SANTACRUZ16DESC"
+	picture = ANGRY_MOB_eventPicture
+	
+	trigger = {
+	    capital_scope = {
+		    colonial_region = colonial_brazil
+		}
+		is_at_war = no
+		any_owned_province = {
+		    has_province_flag = old_portuguese_capital
+		}
+	}
+	
+	mean_time_to_happen = {
+	    days = 1
+	}
+	
+	option = {
+	    name = "SANTACRUZ16OPT1"
+		hidden_effect = {
+		    set_capital = {
+			    every_owned_province = {
+				    limit = {
+					    has_province_flag = old_portuguese_capital
+					}
+				}
+			}
+		}
+	}
+}
+
+# Memories: Aleijadinho
+country_event = {
+    id = brasilcolonia.17
+	title = "SANTACRUZ17NAME"
+	desc = "SANTACRUZ17DESC"
+	picture = ADVISOR_eventPicture
+	
+	trigger = {
+	    tag = BRZ
+		is_year = 1940
+		has_country_flag = aleijadinho
+		NOT = { has_country_flag = memories_aleijadinho }
+	}
+	
+	mean_time_to_happen = {
+	    years = 15
+	}
+	
+	immediate = {
+	    hidden_effect = {
+		    set_country_flag = memories_aleijadinho
+		}
+	}
+	
+	option = {
+	    name = "SANTACRUZ17OPT1"
+		add_prestige = 10
+	}
+}
+
+# Memories: Zumbi dos Palmares
+country_event  = {
+    id = brasilcolonia.18
+	title = "SANTACRUZ18NAME"
+	desc = "SANTACRUZ18DESC"
+	picture = NATIVES_eventPicture
+	
+	
+	trigger = {
+	    tag = BRZ
+		is_year = 1950
+		has_country_flag = had_palmares
+		NOT = { has_country_flag = memories_zumbi }
+	}
+	
+	mean_time_to_happen = {
+	    years = 15
+	}
+	
+	immediate = {
+	    hidden_effect = {
+		    set_country_flag = memories_zumbi
+		}
+	}
+	
+	option = {
+	    name = "SANTACRUZ17OPT1"
+		add_prestige = 10
+	}
+}

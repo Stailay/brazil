@@ -1,0 +1,226 @@
+namespace = dis_impeachment
+
+# Impeachment
+country_event = {
+	id = dis_impeachment.1
+	title = "IMPEACHMENT1NAME"
+	desc = "IMPEACHMENT1DESC"
+	picture = REVOLUTION_eventPicture
+	
+	major = yes
+	is_triggered_only = yes
+
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = "IMPEACHMENT1OPT1"			# Dire times are ahead of us
+		add_prestige = -10
+		custom_tooltip = president_impeached
+		hidden_effect = {
+		    define_ruler = {
+		        adm = 1
+	     	   	dip = 1
+	     	   	mil = 1					
+     	    	fixed = yes
+		    }
+			# Chance to be a great/good/bad administrator
+			random_list = {
+			    10 = { change_adm = -1 }
+				30 = { change_adm = 0 }
+				30 = { change_adm = 1 }
+				20 = { change_adm = 2 }
+				10 = { change_adm = 3 }
+			}
+			# Chance to be a great/good/bad military
+			random_list = {
+			    10 = { change_mil = -1 }
+				30 = { change_mil = 0 }
+				30 = { change_mil = 1 }
+				20 = { change_mil = 2 }
+				10 = { change_mil = 3 }
+			}
+			# Chance to be a great/good/bad diplomat
+			random_list = {
+			    10 = { change_dip = -1 }
+				30 = { change_dip = 0 }
+				30 = { change_dip = 1 }
+				20 = { change_dip = 2 }
+				10 = { change_dip = 3 }
+			}
+			if = {
+			    limit = {
+				    government = coronelist_republic
+					has_faction = partido_paulista
+					has_faction = partido_mineiro
+				}
+				random_list = {
+				    50 = {
+					    add_ruler_modifier = {
+						    name = paulista_president
+						}
+						add_faction_influence = {
+						    faction = partido_paulista
+							influence = 5
+						}
+					}
+					50 = {
+					    add_ruler_modifier = {
+						    name = mineiro_president    
+						}
+						add_faction_influence = {
+						    faction = partido_mineiro
+							influence = 5
+						}
+					}
+				}
+			}
+			if = {
+			    limit = {
+				    government = coronelist_republic
+					OR = {
+					    NOT = { has_faction = partido_paulista }
+						NOT = { has_faction = partido_mineiro }
+					}
+				}
+				add_ruler_modifier = {
+				    name = republican_president
+				}
+				add_faction_influence = {
+				    faction = partido_conservador_republicano
+					influence = 5
+				}
+			}
+			if = {
+			    limit = {
+				    government = populist_republic
+					has_faction = partido_trabalhista_brasileiro
+					has_faction = partido_democratico_nacional
+					has_faction = partido_social_democratico
+				}
+				random_list = {
+		     		40 = {
+				        add_ruler_modifier = {
+			    		    name = ptb_president
+		     			}
+						random_list = {
+						    50 = {
+							    add_ruler_modifier = {
+								    name = left_wing_populism
+								}
+							}
+							30 = {
+							    add_ruler_modifier = {
+								    name = centrist_populism
+								}
+							}
+							20 = {
+							    add_ruler_modifier = {
+								    name = right_wing_populism
+								} 
+							}
+						}
+						add_faction_influence = {
+						    faction = partido_trabalhista_brasileiro
+							influence = 5
+						}
+	    			}
+     				30 = {
+				        add_ruler_modifier = {
+			    		    name = democratic_president
+		     			}
+						add_ruler_modifier = {
+						    name = right_wing_populism
+						}
+						add_faction_influence = {
+						    faction = partido_democratico_nacional
+							influence = 5
+						}
+	     			}
+   			     	30 = {
+			    	    add_ruler_modifier = {
+		     			    name = social_democratic_president
+	     				}
+						random_list = {
+						    20 = {
+							    add_ruler_modifier = {
+								    name = left_wing_populism
+								}
+							}
+							30 = {
+							    add_ruler_modifier = {
+								    name = centrist_populism
+								}
+							}
+							50 = {
+							    add_ruler_modifier = {
+								    name = right_wing_populism
+								} 
+							}
+						}
+						add_faction_influence = {
+						    faction = partido_social_democratico
+							influence = 5
+						}
+    				}
+				}
+			}
+			if = {
+			    limit = {
+				    government = regime_militar
+				}
+		  		define_ruler = {
+         		    adm = 1
+		        	dip = 1
+         			mil = 4
+		        	fixed = yes
+        		}
+         		hidden_effect = {
+         	        # Chance to be great/good/bad administrator
+    	         	random_list = {
+        	    	    10 = { change_adm = -1 }
+			            30 = { change_adm = 0 }
+           		   	    30 = { change_adm = 1 }
+		   		        20 = { change_adm = 2 }
+	             		10 = { change_adm = 3 }
+              		}
+	             	# Chance to be a great military
+             		random_list = {
+		                30 = { change_mil = 0 }
+         		   		50 = { change_mil = 1 }
+	             		20 = { change_mil = 2 }
+             	 	}   
+      	     	    # Chance to be a great/good/bad diplomat
+     		        random_list = {
+	         		    10 = { change_dip = -1 }
+		         		30 = { change_dip = 0 }
+			         	30 = { change_dip = 1 }
+				        20 = { change_dip = 2 }
+		             	10 = { change_dip = 3 }
+         		    }
+		         	set_ruler_flag = military_ruler
+         		}
+		        add_faction_influence = {
+        		    faction = ARENA
+		        	influence = 10
+        		}
+			}
+			set_country_flag = vice_president
+			if = {
+			    limit = {
+				    government = republic
+					has_country_flag = republicanova
+				}
+				add_ruler_modifier = {
+				    PMDB_president
+				}
+				add_faction_influence = {
+				    faction = PMDB
+					influence = 10
+				}
+			}
+		}
+		end_disaster = impeachment
+	}
+}

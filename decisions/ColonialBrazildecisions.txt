@@ -1,0 +1,123 @@
+country_decisions = {
+
+	elevate_brazil_rank = {
+	    major = yes
+		potential = {
+			any_subject_country = {
+			    AND = {
+				    is_colonial_nation_of = ROOT
+					capital_scope = {
+					    colonial_region = colonial_brazil
+					}
+					NOT = { 
+					    government = principality
+					}
+				}
+			}
+			is_year = 1821
+			NOT = { is_year = 1823 }
+		}
+		
+		allow = {
+		    is_subject = no
+			is_at_war = no
+		}
+		
+		effect = {
+		    custom_tooltip = "brazilrankelevated"
+			hidden_effect = {
+		    	every_subject_country = {
+	    		    limit = {
+    				     AND = {
+		    		        is_colonial_nation_of = POR
+				    		capital_scope = {
+			    			    colonial_region = colonial_brazil
+		     				}
+        			    }
+    				}
+                    country_event = { id = aveimperio.3 }			    
+			    }
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		ai_importance = 400
+	}
+	
+	grito_do_ipiranga = {
+	    major = yes
+		potential = {
+		    is_colonial_nation_of = POR
+			capital_scope = {
+			    colonial_region = colonial_brazil
+			}
+			has_ruler = "Pedro I"
+		}
+		
+		allow = {
+		    stability = 1
+			liberty_desire = 50
+		    is_at_war = no
+		}
+		
+		effect = {
+		    country_event = { id = aveimperio.5 }
+		}
+		
+		ai_will_do = {
+		    factor = 1
+			
+			modifier = {
+			    factor = 0
+				NOT = { 
+			    	OR = {
+		     		    army_size = POR
+	   		        	liberty_desire = 75
+    				}
+				}
+			}
+		}
+		
+		ai_importance = 400
+	}
+	
+	derrama = {
+	    potential = {
+		    any_subject_country = {
+			    is_colonial_nation_of = ROOT
+				capital_scope = {
+				    colonial_region = colonial_brazil
+				}
+			    has_country_flag = ciclo_do_ouro
+			}
+			NOT = { has_country_flag = derrama_demanded }
+		}
+		
+		allow = {
+		    adm = 2
+			adm_power = 50
+		}
+		
+		effect = {
+		    add_adm_power = -50
+			every_subject_country = {
+			    limit = {
+				    is_colonial_nation_of = ROOT
+					capital_scope = {
+					    colonial_brazil = colonial_brazil
+					}
+					owns = 765
+					owns = 2795
+				}
+				add_tariff_value = 0.15
+			}
+			hidden_effect = {
+			    set_country_flag = derrama_demanded
+				country_event = { id = brasilcolonia.2 }
+			}
+		}	
+	}
+}

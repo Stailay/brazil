@@ -1,0 +1,18 @@
+country_decisions = {
+	brazil_thingy = {
+		potential = {
+			NOT = { has_country_flag = Brazil_Family_Fled }
+			tag = BRZ
+		}
+		allow = {
+			tag = BRZ
+		}
+		effect = {	
+			set_country_flag = Brazil_Family_Fled
+			swap_non_generic_missions = yes
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}

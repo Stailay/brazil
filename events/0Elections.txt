@@ -1,0 +1,4541 @@
+namespace = elections
+
+# Election!
+country_event = {
+	id = 700
+	title = "EVTNAME700"
+	picture = ELECTION_REPUBLICAN_eventPicture
+	
+	desc = {
+		trigger = { NOT = { has_ruler_flag = leader_has_been_pushed_out } }
+		desc = EVTDESC700
+	}
+	
+	desc = {
+		trigger = { has_ruler_flag = leader_has_been_pushed_out }
+		desc = elections.700.d
+	}
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = { government = dutch_republic }
+		NOT = { government = coronelist_republic }
+		NOT = {
+		    AND = {
+		        tag = BRZ
+	     		is_year = 1930
+			}
+		}
+	}
+
+	option = {
+		name = "EVTOPTA700"	# Current ruler stays
+		trigger = {
+			has_regency = no
+			NOT = { has_ruler_flag = leader_has_been_pushed_out }
+		}
+		ai_chance = { 
+			factor = 60
+			modifier = {
+				factor = 0
+				NOT = { republican_tradition = 25 }
+			}	
+			modifier = {
+				factor = 0.5
+				NOT = { republican_tradition = 50 }
+			}				
+			modifier = {
+				factor = 0.5
+				NOT = { republican_tradition = 75 }
+			}	
+			modifier = {
+				factor = 2.0
+				republican_tradition = 90
+			}		
+		}
+		custom_tooltip = remains_ruler
+		change_adm = 1
+		change_dip = 1
+		change_mil = 1
+		if = {
+			limit = { 
+				is_tribal = yes
+				government = republic
+				NOT = { republican_tradition = 20 }	
+			}	
+			change_government = tribal_despotism
+		}
+		if = {
+			limit = {
+				is_tribal = no 
+				government = republic
+				NOT = { republican_tradition = 20 }				
+				has_dlc = "Res Publica"
+			}
+			change_government = republican_dictatorship	
+		}
+		if = {
+			limit = {
+				is_tribal = no  
+				government = republic
+				NOT = { republican_tradition = 20 }
+				NOT = { has_dlc = "Res Publica" }
+			}
+			change_government = despotic_monarchy
+		}
+		if = {
+			limit = {
+				is_tribal = no  
+				government = socialist_republic
+				has_dlc = "Res Publica"
+			}
+			change_government = communist_dictatorship
+		}		
+		add_scaled_republican_tradition = -10
+		random_list = {
+			10 = {
+				add_adm_power = 50
+			}
+			10 = {
+				add_dip_power = 50
+			}
+			10 = {
+				add_mil_power = 50
+			}
+		}
+		add_karma = -5
+	}
+	option = {
+		name = "EVTOPTB700"	# An administrator type
+		ai_chance = { factor = 20 }
+		define_ruler = {
+			mil = 1
+			adm = 4
+			dip = 1					
+			fixed = yes
+		}
+		if = {
+			limit = { 
+				has_faction = mr_guilds 
+			}
+			add_faction_influence = {
+				faction = mr_guilds
+				influence = 20
+			}				
+		}
+		add_karma = 10
+	}
+	option = {
+		name = "EVTOPTC700"	# A diplomat
+		ai_chance = { factor = 20 }
+		define_ruler = {
+			dip = 4
+			adm = 1
+			mil = 1					
+			fixed = yes
+		}
+		if = {
+			limit = { 
+				has_faction = mr_traders 
+			}
+			add_faction_influence = {
+				faction = mr_traders
+				influence = 20
+			}				
+		}
+		add_karma = 10		
+	}
+	option = {
+		name = "EVTOPTD700"	# A military man
+		ai_chance = { factor = 20 }
+		define_ruler = {
+			mil = 4
+			adm = 1
+			dip = 1					
+			fixed = yes
+		}
+		if = {
+			limit = { 
+				has_faction = mr_aristocrats 
+			}
+			add_faction_influence = {
+				faction = mr_aristocrats
+				influence = 20
+			}				
+		}
+		add_karma = 10
+	}
+}
+
+# Election!
+country_event = {
+	id = 701
+	title = "EVTNAME700"
+	desc = "EVTDESC701"
+	picture = ELECTION_REPUBLICAN_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = { government = dutch_republic }
+		NOT = { government = coronelist_republic }
+		NOT = {
+		    AND = {
+		        tag = BRZ
+	     		is_year = 1930
+			}
+		}
+	}
+	
+	option = {
+		name = "EVTOPTB700"	# An administrator type
+		ai_chance = { factor = 40 }
+		define_ruler = {
+			mil = 1
+			adm = 4
+			dip = 1					
+			fixed = yes
+		}
+		if = {
+			limit = { 
+				has_faction = mr_guilds 
+			}
+			add_faction_influence = {
+				faction = mr_guilds
+				influence = 20
+			}				
+		}
+	}
+	option = {
+		name = "EVTOPTC700"	# A diplomat
+		ai_chance = { factor = 30 }
+		define_ruler = {
+			dip = 4
+			adm = 1
+			mil = 1					
+			fixed = yes
+		}
+		if = {
+			limit = { 
+				has_faction = mr_traders 
+			}
+			add_faction_influence = {
+				faction = mr_traders
+				influence = 20
+			}				
+		}			
+	}
+	option = {
+		name = "EVTOPTD700"	# A military man
+		ai_chance = { factor = 30 }
+		define_ruler = {
+			mil = 4
+			adm = 1
+			dip = 1					
+			fixed = yes
+		}
+		if = {
+			limit = { 
+				has_faction = mr_aristocrats 
+			}
+			add_faction_influence = {
+				faction = mr_aristocrats
+				influence = 20
+			}				
+		}		
+	}
+}
+
+########################################
+# Colonial Nations                     #
+########################################
+
+# Election!
+country_event = {
+	id = elections.707
+	title = "elections.EVTNAME707"
+	desc = "elections.EVTDESC707"
+	picture = ELECTION_REPUBLICAN_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "elections.EVTOPTB707"	# Bureaucrat Candidate
+		ai_chance = { factor = 20 }
+		FROM = {
+			define_ruler = {
+				adm = 4
+				mil = 2
+				dip = 2
+				fixed = yes
+			}
+			set_ruler_flag = appointed_by_overlord
+		}
+	}
+	option = {
+		name = "elections.EVTOPTC707"	# Diplomat Candidate
+		ai_chance = { factor = 20 }
+		FROM = {
+			define_ruler = {
+				adm = 2
+				dip = 4
+				mil = 2
+				fixed = yes
+			}
+			set_ruler_flag = appointed_by_overlord
+		}
+	}
+	option = {
+		name = "elections.EVTOPTD707"	# Military Candidate
+		ai_chance = { factor = 20 }
+		FROM = {
+			define_ruler = {
+				adm = 2
+				dip = 2
+				mil = 4
+				fixed = yes
+			}	
+			set_ruler_flag = appointed_by_overlord
+		}
+	}
+}
+
+# Colonial Assembly
+country_event = {
+	id = elections.711
+	title = "elections.EVTNAME711"
+	desc = "elections.EVTDESC711"
+	picture = ELECTION_REPUBLICAN_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = "elections.EVTOPTB711"	# Suspicious indeed...
+		tooltip = {
+			FROM = {
+				add_liberty_desire = 10
+			}
+		}
+	}
+}
+
+## Winds of Liberty
+#country_event = {
+#	id = elections.712
+#	title = "elections.EVTNAME712"
+#	desc = "elections.EVTDESC712"
+#	picture = ELECTION_REPUBLICAN_eventPicture
+#	
+#	is_triggered_only = yes
+#
+#	option = {
+#		name = "elections.EVTOPTB712"	# Most worrisome...
+#		tooltip = {
+#			FROM = {
+#				add_liberty_desire = -25
+#			}
+#		}
+#	}
+#}
+
+
+
+# Dutch Republic
+country_event = {
+	id = elections.720
+	title = elections.720.t
+	desc = elections.720.d
+	picture = ELECTION_REPUBLICAN_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		government = dutch_republic
+		NOT = { government = coronelist_republic }
+	}
+	
+	option = {
+		name = elections.720.a
+		define_ruler = {
+		}
+		change_statists_vs_orangists = -0.33
+	
+	}
+	option = {
+		name = elections.720.b
+		define_ruler = {
+		}
+		change_statists_vs_orangists = 0.33
+	}
+}
+
+country_event = {
+	id = elections.721
+	title = elections.720.t
+	desc = elections.721.d
+	picture = ELECTION_REPUBLICAN_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		government = dutch_republic
+		NOT = { government = coronelist_republic }
+	}
+	
+	option = {
+		name = elections.720.a
+		define_ruler = {
+		}
+		change_statists_vs_orangists = -0.33
+	
+	}
+	option = {
+		name = elections.720.b
+		define_ruler = {
+		}
+		change_statists_vs_orangists = 0.33
+	}
+}
+
+# Coronelist Election!
+country_event = {
+	id = elections.722
+	title = "EVTNAME700"
+	desc = "CORONELDESC722"
+	picture = ELECTION_REPUBLICAN_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = { government = dutch_republic }
+		NOT = { has_country_flag = 1930_provisory_government }
+		OR = {
+		    government = coronelist_republic
+			AND = {
+			    government = republic
+				has_country_flag = vargas_constitutional_mandate
+			}
+		}
+	}
+	
+	immediate = {
+        hidden_effect = {
+    		if = {
+			    limit = {
+	                has_country_flag = vargas_constitutional_mandate
+				}
+				clr_country_flag = vargas_constitutional_mandate
+        	}
+		}
+	}
+	
+	option = {
+		name = "CORONELOPT1"	# Paulista candidate
+		trigger = {
+		    has_faction = partido_paulista
+			NOT = { has_country_flag = reformed_parties }
+		}
+		ai_chance = { factor = 50 }
+		define_ruler = {
+			adm = 4
+			dip = 1
+			mil = 1					
+			fixed = yes
+		}
+		add_faction_influence = {
+			faction = partido_paulista
+			influence = 10
+		}
+        hidden_effect = {
+		    # Chance to be a great administrator
+			random_list = {
+			    70 = { change_adm = 0 }
+				20 = { change_adm = 1 }
+				10 = { change_adm = 2 }
+			}
+			# Chance to be a great/good/bad military
+			random_list = {
+			    10 = { change_mil = -1 }
+				30 = { change_mil = 0 }
+				30 = { change_mil = 1 }
+				20 = { change_mil = 2 }
+				10 = { change_mil = 3 }
+			}
+			# Chance to be a good/bad diplomat
+			random_list = {
+			    15 = { change_dip = -1 }
+				65 = { change_dip = 0 }
+				10 = { change_dip = 1 }
+				5 = { change_dip = 2 }
+			}
+			add_ruler_modifier = {
+			    name = paulista_president
+			}
+		}	
+	}
+	option = {
+		name = "CORONELOPT2"	# Mineiro candidate
+		trigger = {
+		    has_faction = partido_mineiro
+			NOT = { has_country_flag = reformed_parties }
+		}
+		ai_chance = { factor = 30 }
+		define_ruler = {
+			adm = 4
+			dip = 1
+			mil = 1					
+			fixed = yes
+		}
+		add_faction_influence = {
+			faction = partido_mineiro
+			influence = 10
+		}
+        hidden_effect = {
+		    # Chance to be a great administrator
+			random_list = {
+			    70 = { change_adm = 0 }
+				20 = { change_adm = 1 }
+				10 = { change_adm = 2 }
+			}
+			# Chance to be a great/good/bad diplomat
+			random_list = {
+			    10 = { change_dip = -1 }
+				30 = { change_dip = 0 }
+				30 = { change_dip = 1 }
+				20 = { change_dip = 2 }
+				10 = { change_dip = 3 }
+			}
+			# Chance to be a good/bad military
+			random_list = {
+			    15 = { change_mil = -1 }
+				65 = { change_mil = 0 }
+				10 = { change_mil = 1 }
+				5 = { change_mil = 2 }
+			}
+			add_ruler_modifier = {
+			    name = mineiro_president
+			}
+		}		
+	}
+	option = {
+		name = "CORONELOPT3"	# Fluminense candidate
+		trigger = {
+		    has_faction = partido_fluminense
+		}
+		ai_chance = { factor = 10 }
+		define_ruler = {
+			adm = 1
+			dip = 4
+			mil = 1					
+			fixed = yes
+		}
+		add_faction_influence = {
+			faction = partido_fluminense
+			influence = 10
+		}
+        hidden_effect = {
+		    # Chance to be a great diplomat
+			random_list = {
+			    70 = { change_dip = 0 }
+				20 = { change_dip = 1 }
+				10 = { change_dip = 2 }
+			}
+			# Chance to be a great/good/bad administrator
+			random_list = {
+			    10 = { change_adm = -1 }
+				30 = { change_adm = 0 }
+				30 = { change_adm = 1 }
+				20 = { change_adm = 2 }
+				10 = { change_adm = 3 }
+			}
+			# Chance to be a good/bad military
+			random_list = {
+			    15 = { change_mil = -1 }
+				65 = { change_mil = 0 }
+				10 = { change_mil = 1 }
+				5 = { change_mil = 2 }
+			}
+			add_ruler_modifier = {
+			    name = fluminense_president
+			}
+		}		
+	}
+	option = {
+		name = "CORONELOPT7"	# Riograndense candidate
+		trigger = {
+		    has_faction = partido_riograndense
+		}
+		ai_chance = { factor = 0 }
+		define_ruler = {
+			adm = 1
+			dip = 4
+			mil = 1					
+			fixed = yes
+		}
+		add_faction_influence = {
+			faction = partido_riograndense
+			influence = 10
+		}
+        hidden_effect = {
+		    # Chance to be a great diplomat
+			random_list = {
+			    70 = { change_dip = 0 }
+				20 = { change_dip = 1 }
+				10 = { change_dip = 2 }
+			}
+			# Chance to be a great/good/bad military
+			random_list = {
+			    10 = { change_mil = -1 }
+				30 = { change_mil = 0 }
+				30 = { change_mil = 1 }
+				20 = { change_mil = 2 }
+				10 = { change_mil = 3 }
+			}
+			# Chance to be a good/bad administrator
+			random_list = {
+			    15 = { change_adm = -1 }
+				65 = { change_adm = 0 }
+				10 = { change_adm = 1 }
+				5 = { change_adm = 2 }
+			}
+			add_ruler_modifier = {
+			    name = riograndense_president
+			}
+		}		
+	}
+	option = {
+		name = "CORONELOPT4"	# Monarchist candidate
+		trigger = {
+		    has_faction = partido_conservador_monarquista
+		}
+		ai_chance = { factor = 0 }
+		define_ruler = {
+			adm = 1
+			dip = 1
+			mil = 4					
+			fixed = yes
+		}
+		add_faction_influence = {
+			faction = partido_conservador_monarquista
+			influence = 10
+		}
+        hidden_effect = {
+		    # Chance to be a great military
+			random_list = {
+			    50 = { change_mil = 0 }
+				30 = { change_mil = 1 }
+				20 = { change_mil = 2 }
+			}
+			# Chance to be a great/good/bad administrator
+			random_list = {
+			    10 = { change_adm = -1 }
+				30 = { change_adm = 0 }
+				30 = { change_adm = 1 }
+				20 = { change_adm = 2 }
+				10 = { change_adm = 3 }
+			}
+			# Chance to be a good/bad diplomat
+			random_list = {
+			    15 = { change_dip = -1 }
+				65 = { change_dip = 0 }
+				10 = { change_dip = 1 }
+				5 = { change_dip = 2 }
+			}
+			add_ruler_modifier = {
+			    name = monarchist_president
+			}
+		}
+	}
+	option = {
+		name = "CORONELOPT5"	# Republican candidate
+		trigger = {
+		    has_faction = partido_conservador_republicano
+		}
+		ai_chance = { factor = 10 }
+		define_ruler = {
+			mil = 4
+			dip = 1
+		    adm = 1					
+			fixed = yes
+		}
+		add_faction_influence = {
+			faction = partido_conservador_republicano
+			influence = 10
+		}
+        hidden_effect = {
+		    # Chance to be a great military
+			random_list = {
+			    70 = { change_mil = 0 }
+				20 = { change_mil = 1 }
+				10 = { change_mil = 2 }
+			}
+			# Chance to be a great/good/bad diplomat
+			random_list = {
+			    10 = { change_dip = -1 }
+				30 = { change_dip = 0 }
+				30 = { change_dip = 1 }
+				20 = { change_dip = 2 }
+				10 = { change_dip = 3 }
+			}
+			# Chance to be a good/bad administrator
+			random_list = {
+			    15 = { change_adm = -1 }
+				65 = { change_adm = 0 }
+				10 = { change_adm = 1 }
+				5 = { change_adm = 2 }
+			}
+			add_ruler_modifier = {
+			    name = republican_president
+			}
+		}		
+	}
+	option = {
+		name = "CORONELOPT6"	# Communist candidate
+		trigger = {
+		    has_faction = partido_comunista_brasileiro
+			NOT = { has_country_modifier = pcb_banned }
+		}
+		ai_chance = { factor = 0 }
+		define_ruler = {
+			adm = 4
+			dip = 1
+			mil = 1					
+			fixed = yes
+		}
+		add_faction_influence = {
+			faction = partido_comunista_brasileiro
+			influence = 10
+		}
+        hidden_effect = {
+		    # Chance to be a great administrator
+			random_list = {
+			    70 = { change_adm = 0 }
+				20 = { change_adm = 1 }
+				10 = { change_adm = 2 }
+			}
+			# Chance to be a great/good/bad military
+			random_list = {
+			    10 = { change_mil = -1 }
+				30 = { change_mil = 0 }
+				30 = { change_mil = 1 }
+				20 = { change_mil = 2 }
+				10 = { change_mil = 3 }
+			}
+			# Chance to be a good/bad diplomat
+			random_list = {
+			    15 = { change_dip = -1 }
+				65 = { change_dip = 0 }
+				10 = { change_dip = 1 }
+				5 = { change_dip = 2 }
+			}
+			add_ruler_modifier = {
+			    name = comunista_president
+			}
+		}	
+	}
+	option = {          
+	    name = "CORONELOPT6"	# Luis Carlos Prestes
+		trigger = {
+		    is_year = 1930
+			NOT = { is_year = 1945 }
+	    	has_faction = partido_comunista_brasileiro
+    		NOT = { has_country_modifier = pcb_banned }
+			NOT = { has_country_modifier = comunista_president }
+		}
+		ai_chance = { factor = 0 }
+		define_ruler = {
+		    name = "Luis Carlos"
+			dynasty = "Prestes"
+			age = 32
+			adm = 5
+			dip = 3
+			mil = 5
+		}
+		hidden_effect = {
+		    add_ruler_modifier = {
+			    name = comunista_president
+			}
+		}
+	}
+	option = {
+		name = "CORONELOPT9"	# Integralist candidate
+		trigger = {
+		    has_faction = integralistas
+			OR = {
+			    NOT = { is_year = 1930 }
+				is_year = 1965
+			}
+		}
+		ai_chance = { factor = 0 }
+		define_ruler = {
+			adm = 1
+			dip = 1
+			mil = 4					
+			fixed = yes
+		}
+		add_faction_influence = {
+			faction = integralistas
+			influence = 10
+		}
+        hidden_effect = {
+		    # Chance to be a great military
+			random_list = {
+			    50 = { change_mil = 0 }
+				30 = { change_mil = 1 }
+				20 = { change_mil = 2 }
+			}
+			# Chance to be a great/good/bad administrator
+			random_list = {
+			    10 = { change_adm = -1 }
+				30 = { change_adm = 0 }
+				30 = { change_adm = 1 }
+				20 = { change_adm = 2 }
+				10 = { change_adm = 3 }
+			}
+			# Chance to be a good/bad diplomat
+			random_list = {
+			    15 = { change_dip = -1 }
+				65 = { change_dip = 0 }
+				10 = { change_dip = 1 }
+				5 = { change_dip = 2 }
+			}
+			add_ruler_modifier = {
+			    name = integralist_president
+			}
+		}
+	}
+	option = {
+	    name = "CORONELOPT9"	# Plínio Salgado
+		trigger = {
+		    is_year = 1930
+			NOT = { is_year = 1965 }
+			has_faction = integralistas
+			NOT = { has_country_modifier = integralist_president }
+		}
+		ai_chance = { factor = 0 }
+		define_ruler ={
+	    	name = "Plinio"
+    		dynasty = "Salgado"
+			age = 35
+			adm = 4
+			dip = 3
+			mil = 6
+		}
+		add_faction_influence = {
+			faction = integralistas
+			influence = 10
+		}
+		hidden_effect = {
+		    add_ruler_modifier = {
+			    name = integralist_president
+			}
+		}
+	}
+	option = {
+	    name = "CORONELOPT10"	# Democratic Candidate
+		trigger = {
+		    has_faction = partido_democratico_nacional
+			OR = { 
+			    NOT = { is_year = 1930 }
+				is_year = 1945
+    		}
+		}
+		ai_chance = { factor = 0 }
+		define_ruler = {
+			adm = 4
+			dip = 1
+			mil = 1					
+			fixed = yes
+		}
+		add_faction_influence = {
+			faction = partido_democratico_nacional
+			influence = 10
+		}
+        hidden_effect = {
+		    # Chance to be a great administrator
+			random_list = {
+			    70 = { change_adm = 0 }
+				20 = { change_adm = 1 }
+				10 = { change_adm = 2 }
+			}
+			# Chance to be a great/good/bad diplomat
+			random_list = {
+			    10 = { change_dip = -1 }
+				30 = { change_dip = 0 }
+				30 = { change_dip = 1 }
+				20 = { change_dip = 2 }
+				10 = { change_dip = 3 }
+			}
+			# Chance to be a good/bad military
+			random_list = {
+			    15 = { change_mil = -1 }
+				65 = { change_mil = 0 }
+				10 = { change_mil = 1 }
+				5 = { change_mil = 2 }
+			}
+			add_ruler_modifier = {
+			    name = democratic_president
+			}
+		}
+	}
+	option = {
+	    name = "CORONELOPT10"	# Armando Salles
+		trigger = {
+		    has_faction = partido_democratico_nacional
+			is_year = 1930
+			NOT = { is_year = 1945 }
+			NOT = { has_country_modifier = democratic_president }
+		}
+		ai_chance = { factor = 0 }
+		define_ruler ={
+	    	name = "Armando de Salles"
+    		dynasty = "Oliveira"
+			age = 51
+			adm = 6
+			dip = 3
+			mil = 2
+		}
+		add_faction_influence = {
+			faction = partido_democratico_nacional
+			influence = 10
+		}
+        hidden_effect = {
+			add_ruler_modifier = {
+			    name = democratic_president
+			}
+		}
+	}
+}
+
+# Coronelist Election! (death)
+country_event = {
+	id = elections.723
+	title = "EVTNAME700"
+	desc = "CORONELDESC723"
+	picture = ELECTION_REPUBLICAN_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		government = coronelist_republic
+		NOT = { government = dutch_republic }
+		NOT = { government = populist_republic }
+		NOT = { has_country_flag = 1930_provisory_government }
+		NOT = { has_country_flag = decided_to_restore_monarchy }
+	}
+	
+	immediate = {
+        hidden_effect = {
+    		if = {
+			    limit = {
+	                has_country_flag = vargas_constitutional_mandate
+				}
+				clr_country_flag = vargas_constitutional_mandate
+        	}
+		}
+	}
+	
+	option = {
+		name = "CORONELOPT1"	# Paulista candidate
+		trigger = {
+		    has_faction = partido_paulista
+			NOT = { has_country_flag = reformed_parties }
+		}
+		ai_chance = { factor = 50 }
+		define_ruler = {
+			adm = 4
+			dip = 1
+			mil = 1					
+			fixed = yes
+		}
+		add_faction_influence = {
+			faction = partido_paulista
+			influence = 10
+		}
+        hidden_effect = {
+		    # Chance to be a great administrator
+			random_list = {
+			    70 = { change_adm = 0 }
+				20 = { change_adm = 1 }
+				10 = { change_adm = 2 }
+			}
+			# Chance to be a great/good/bad military
+			random_list = {
+			    10 = { change_mil = -1 }
+				30 = { change_mil = 0 }
+				30 = { change_mil = 1 }
+				20 = { change_mil = 2 }
+				10 = { change_mil = 3 }
+			}
+			# Chance to be a good/bad diplomat
+			random_list = {
+			    15 = { change_dip = -1 }
+				65 = { change_dip = 0 }
+				10 = { change_dip = 1 }
+				5 = { change_dip = 2 }
+			}
+			add_ruler_modifier = {
+			    name = paulista_president
+			}
+		}	
+	}
+	option = {
+		name = "CORONELOPT2"	# Mineiro candidate
+		trigger = {
+		    has_faction = partido_mineiro
+			NOT = { has_country_flag = reformed_parties }
+		}
+		ai_chance = { factor = 30 }
+		define_ruler = {
+			adm = 4
+			dip = 1
+			mil = 1					
+			fixed = yes
+		}
+		add_faction_influence = {
+			faction = partido_mineiro
+			influence = 10
+		}
+        hidden_effect = {
+		    # Chance to be a great administrator
+			random_list = {
+			    70 = { change_adm = 0 }
+				20 = { change_adm = 1 }
+				10 = { change_adm = 2 }
+			}
+			# Chance to be a great/good/bad diplomat
+			random_list = {
+			    10 = { change_dip = -1 }
+				30 = { change_dip = 0 }
+				30 = { change_dip = 1 }
+				20 = { change_dip = 2 }
+				10 = { change_dip = 3 }
+			}
+			# Chance to be a good/bad military
+			random_list = {
+			    15 = { change_mil = -1 }
+				65 = { change_mil = 0 }
+				10 = { change_mil = 1 }
+				5 = { change_mil = 2 }
+			}
+			add_ruler_modifier = {
+			    name = mineiro_president
+			}
+		}		
+	}
+	option = {
+		name = "CORONELOPT3"	# Fluminense candidate
+		trigger = {
+		    has_faction = partido_fluminense
+		}
+		ai_chance = { factor = 10 }
+		define_ruler = {
+			adm = 1
+			dip = 4
+			mil = 1					
+			fixed = yes
+		}
+		add_faction_influence = {
+			faction = partido_fluminense
+			influence = 10
+		}
+        hidden_effect = {
+		    # Chance to be a great diplomat
+			random_list = {
+			    70 = { change_dip = 0 }
+				20 = { change_dip = 1 }
+				10 = { change_dip = 2 }
+			}
+			# Chance to be a great/good/bad administrator
+			random_list = {
+			    10 = { change_adm = -1 }
+				30 = { change_adm = 0 }
+				30 = { change_adm = 1 }
+				20 = { change_adm = 2 }
+				10 = { change_adm = 3 }
+			}
+			# Chance to be a good/bad military
+			random_list = {
+			    15 = { change_mil = -1 }
+				65 = { change_mil = 0 }
+				10 = { change_mil = 1 }
+				5 = { change_mil = 2 }
+			}
+			add_ruler_modifier = {
+			    name = fluminense_president
+			}
+		}		
+	}
+	option = {
+		name = "CORONELOPT7"	# Riograndense candidate
+		trigger = {
+		    has_faction = partido_riograndense
+		}
+		ai_chance = { factor = 0 }
+		define_ruler = {
+			adm = 1
+			dip = 4
+			mil = 1					
+			fixed = yes
+		}
+		add_faction_influence = {
+			faction = partido_riograndense
+			influence = 10
+		}
+        hidden_effect = {
+		    # Chance to be a great diplomat
+			random_list = {
+			    70 = { change_dip = 0 }
+				20 = { change_dip = 1 }
+				10 = { change_dip = 2 }
+			}
+			# Chance to be a great/good/bad military
+			random_list = {
+			    10 = { change_mil = -1 }
+				30 = { change_mil = 0 }
+				30 = { change_mil = 1 }
+				20 = { change_mil = 2 }
+				10 = { change_mil = 3 }
+			}
+			# Chance to be a good/bad administrator
+			random_list = {
+			    15 = { change_adm = -1 }
+				65 = { change_adm = 0 }
+				10 = { change_adm = 1 }
+				5 = { change_adm = 2 }
+			}
+			add_ruler_modifier = {
+			    name = riograndense_president
+			}
+		}		
+	}
+	option = {
+		name = "CORONELOPT4"	# Monarchist candidate
+		trigger = {
+		    has_faction = partido_conservador_monarquista
+		}
+		ai_chance = { factor = 0 }
+		define_ruler = {
+			adm = 1
+			dip = 1
+			mil = 4					
+			fixed = yes
+		}
+		add_faction_influence = {
+			faction = partido_conservador_monarquista
+			influence = 10
+		}
+        hidden_effect = {
+		    # Chance to be a great military
+			random_list = {
+			    50 = { change_mil = 0 }
+				30 = { change_mil = 1 }
+				20 = { change_mil = 2 }
+			}
+			# Chance to be a great/good/bad administrator
+			random_list = {
+			    10 = { change_adm = -1 }
+				30 = { change_adm = 0 }
+				30 = { change_adm = 1 }
+				20 = { change_adm = 2 }
+				10 = { change_adm = 3 }
+			}
+			# Chance to be a good/bad diplomat
+			random_list = {
+			    15 = { change_dip = -1 }
+				65 = { change_dip = 0 }
+				10 = { change_dip = 1 }
+				5 = { change_dip = 2 }
+			}
+			add_ruler_modifier = {
+			    name = monarchist_president
+			}
+		}
+	}
+	option = {
+		name = "CORONELOPT5"	# Republican candidate
+		trigger = {
+		    has_faction = partido_conservador_republicano
+		}
+		ai_chance = { factor = 10 }
+		define_ruler = {
+			mil = 4
+			dip = 1
+		    adm = 1					
+			fixed = yes
+		}
+		add_faction_influence = {
+			faction = partido_conservador_republicano
+			influence = 10
+		}
+        hidden_effect = {
+		    # Chance to be a great military
+			random_list = {
+			    70 = { change_mil = 0 }
+				20 = { change_mil = 1 }
+				10 = { change_mil = 2 }
+			}
+			# Chance to be a great/good/bad diplomat
+			random_list = {
+			    10 = { change_dip = -1 }
+				30 = { change_dip = 0 }
+				30 = { change_dip = 1 }
+				20 = { change_dip = 2 }
+				10 = { change_dip = 3 }
+			}
+			# Chance to be a good/bad administrator
+			random_list = {
+			    15 = { change_adm = -1 }
+				65 = { change_adm = 0 }
+				10 = { change_adm = 1 }
+				5 = { change_adm = 2 }
+			}
+			add_ruler_modifier = {
+			    name = republican_president
+			}
+		}		
+	}
+	option = {
+		name = "CORONELOPT6"	# Communist candidate
+		trigger = {
+		    OR = {
+			    NOT = { is_year = 1930 }
+				is_year = 1945
+			}
+		    has_faction = partido_comunista_brasileiro
+			NOT = { has_country_modifier = pcb_banned }
+		}
+		ai_chance = { factor = 0 }
+		define_ruler = {
+			adm = 4
+			dip = 1
+			mil = 1					
+			fixed = yes
+		}
+		add_faction_influence = {
+			faction = partido_comunista_brasileiro
+			influence = 10
+		}
+        hidden_effect = {
+		    # Chance to be a great administrator
+			random_list = {
+			    70 = { change_adm = 0 }
+				20 = { change_adm = 1 }
+				10 = { change_adm = 2 }
+			}
+			# Chance to be a great/good/bad military
+			random_list = {
+			    10 = { change_mil = -1 }
+				30 = { change_mil = 0 }
+				30 = { change_mil = 1 }
+				20 = { change_mil = 2 }
+				10 = { change_mil = 3 }
+			}
+			# Chance to be a good/bad diplomat
+			random_list = {
+			    15 = { change_dip = -1 }
+				65 = { change_dip = 0 }
+				10 = { change_dip = 1 }
+				5 = { change_dip = 2 }
+			}
+			add_ruler_modifier = {
+			    name = comunista_president
+			}
+		}	
+	}
+	option = {          
+	    name = "CORONELOPT6"	# Luis Carlos Prestes
+		trigger = {
+		    is_year = 1930
+			NOT = { is_year = 1945 }
+	    	has_faction = partido_comunista_brasileiro
+    		NOT = { has_country_modifier = pcb_banned }
+			NOT = { has_country_modifier = comunista_president }
+		}
+		ai_chance = { factor = 0 }
+		define_ruler = {
+		    name = "Luis Carlos"
+			dynasty = "Prestes"
+			age = 32
+			adm = 5
+			dip = 3
+			mil = 5
+		}
+		hidden_effect = {
+		    add_ruler_modifier = {
+			    name = comunista_president
+			}
+		}
+	}
+	option = {
+		name = "CORONELOPT9"	# Integralist candidate
+		trigger = {
+		    has_faction = integralistas
+			OR = {
+			    NOT = { is_year = 1930 }
+				is_year = 1965
+			}
+		}
+		ai_chance = { factor = 0 }
+		define_ruler = {
+			adm = 1
+			dip = 1
+			mil = 4					
+			fixed = yes
+		}
+		add_faction_influence = {
+			faction = integralistas
+			influence = 10
+		}
+        hidden_effect = {
+		    # Chance to be a great military
+			random_list = {
+			    50 = { change_mil = 0 }
+				30 = { change_mil = 1 }
+				20 = { change_mil = 2 }
+			}
+			# Chance to be a great/good/bad administrator
+			random_list = {
+			    10 = { change_adm = -1 }
+				30 = { change_adm = 0 }
+				30 = { change_adm = 1 }
+				20 = { change_adm = 2 }
+				10 = { change_adm = 3 }
+			}
+			# Chance to be a good/bad diplomat
+			random_list = {
+			    15 = { change_dip = -1 }
+				65 = { change_dip = 0 }
+				10 = { change_dip = 1 }
+				5 = { change_dip = 2 }
+			}
+			add_ruler_modifier = {
+			    name = integralist_president
+			}
+		}
+	}
+	option = {
+	    name = "CORONELOPT9"	# Plínio Salgado
+		trigger = {
+		    is_year = 1930
+			NOT = { is_year = 1965 }
+			has_faction = integralistas
+			NOT = { has_country_modifier = integralist_president }
+		}
+		ai_chance = { factor = 0 }
+		define_ruler ={
+	    	name = "Plinio"
+    		dynasty = "Salgado"
+			age = 35
+			adm = 4
+			dip = 3
+			mil = 6
+		}
+		add_faction_influence = {
+			faction = integralistas
+			influence = 10
+		}
+		hidden_effect = {
+		    add_ruler_modifier = {
+			    name = integralist_president
+			}
+		}
+	}
+	option = {
+	    name = "CORONELOPT10"	# Democratic Candidate
+		trigger = {
+		    has_faction = partido_democratico_nacional
+		}
+		ai_chance = { factor = 0 }
+		define_ruler = {
+			adm = 4
+			dip = 1
+			mil = 1					
+			fixed = yes
+		}
+		add_faction_influence = {
+			faction = partido_democratico_nacional
+			influence = 10
+		}
+        hidden_effect = {
+		    # Chance to be a great administrator
+			random_list = {
+			    70 = { change_adm = 0 }
+				20 = { change_adm = 1 }
+				10 = { change_adm = 2 }
+			}
+			# Chance to be a great/good/bad diplomat
+			random_list = {
+			    10 = { change_dip = -1 }
+				30 = { change_dip = 0 }
+				30 = { change_dip = 1 }
+				20 = { change_dip = 2 }
+				10 = { change_dip = 3 }
+			}
+			# Chance to be a good/bad military
+			random_list = {
+			    15 = { change_mil = -1 }
+				65 = { change_mil = 0 }
+				10 = { change_mil = 1 }
+				5 = { change_mil = 2 }
+			}
+			add_ruler_modifier = {
+			    name = democratic_president
+			}
+		}
+	}
+	option = {
+	    name = "CORONELOPT10"	# Armando Salles
+		trigger = {
+		    has_faction = partido_democratico_nacional
+			is_year = 1930
+			NOT = { is_year = 1945 }
+			NOT = { has_country_modifier = democratic_president }
+		}
+		ai_chance = { factor = 0 }
+		define_ruler ={
+	    	name = "Armando de Salles"
+    		dynasty = "Oliveira"
+			age = 51
+			adm = 6
+			dip = 3
+			mil = 2
+		}
+		add_faction_influence = {
+			faction = partido_democratico_nacional
+			influence = 10
+		}
+        hidden_effect = {
+			add_ruler_modifier = {
+			    name = democratic_president
+			}
+		}
+	}
+}
+
+# Provisional Government
+country_event = {
+    id = elections.724
+	title = "EVTNAME700"
+	desc = "CORONELDESC723"
+	picture = ELECTION_REPUBLICAN_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		government = coronelist_republic
+		NOT = { government = dutch_republic }
+		NOT = { government = populist_republic }
+		NOT = { has_country_flag = decided_to_restore_monarchy }
+		has_country_flag = 1930_provisory_government
+	}
+	
+	option = {
+		name = "CORONELOPT8"	# Liberal candidate
+		define_ruler = {
+			adm = 1
+			dip = 1
+			mil = 1					
+			fixed = yes
+		}
+        hidden_effect = {
+		    # Chance to be a great/good/bad administrator
+			random_list = {
+			    10 = { change_adm = -1 }
+				30 = { change_adm = 0 }
+				30 = { change_adm = 1 }
+				20 = { change_adm = 2 }
+				10 = { change_adm = 3 }
+			}
+			# Chance to be a great/good/bad military
+			random_list = {
+			    10 = { change_mil = -1 }
+				30 = { change_mil = 0 }
+				30 = { change_mil = 1 }
+				20 = { change_mil = 2 }
+				10 = { change_mil = 3 }
+			}
+			# Chance to be a great/good/bad diplomat
+			random_list = {
+			    10 = { change_dip = -1 }
+				30 = { change_dip = 0 }
+				30 = { change_dip = 1 }
+				20 = { change_dip = 2 }
+				10 = { change_dip = 3 }
+			}
+		}	
+	}
+}
+
+# Populist Government
+country_event = {
+    id = elections.725
+	title = "EVTNAME700"
+	desc = "CORONELDESC722"
+	picture = ELECTION_REPUBLICAN_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		government = populist_republic
+		NOT = { government = dutch_republic }
+		NOT = { government = coronelist_republic }
+		NOT = { has_country_flag = decided_to_restore_monarchy }
+	}
+	
+	option = {
+		name = "POPULISTOPT1"	# PTB candidate
+		trigger = {
+		    has_faction = partido_trabalhista_brasileiro
+			OR = {
+	    		NOT = { has_country_flag = vargas_deposed }
+				is_year = 1954
+				NOT = { is_year = 1930 }
+			}
+		}
+		ai_chance = { factor = 50 }
+		define_ruler = {
+			adm = 1
+			dip = 1
+			mil = 4					
+			fixed = yes
+		}
+		add_faction_influence = {
+			faction = partido_trabalhista_brasileiro
+			influence = 10
+		}
+        hidden_effect = {
+		    # Chance to be a great military
+			random_list = {
+			    50 = { change_mil = 0 }
+				30 = { change_mil = 1 }
+				20 = { change_mil = 2 }
+			}
+			# Chance to be a great/good/bad administrator
+			random_list = {
+			    10 = { change_adm = -1 }
+				30 = { change_adm = 0 }
+				30 = { change_adm = 1 }
+				20 = { change_adm = 2 }
+				10 = { change_adm = 3 }
+			}
+			# Chance to be a good/bad diplomat
+			random_list = {
+			    15 = { change_dip = -1 }
+				65 = { change_dip = 0 }
+				10 = { change_dip = 1 }
+				5 = { change_dip = 2 }
+			}
+			add_ruler_modifier = {
+			    name = ptb_president
+			}
+			if = {
+			    limit = {
+				    NOT = { is_year = 1960 }
+				}
+				add_ruler_modifier = {
+				    name = centrist_populism
+				}
+			}
+			if = {
+			    limit = {
+				    is_year = 1960
+				}
+				random_list = {
+				    40 = {
+					    add_ruler_modifier = {
+						    name = centrist_populism
+						}
+					}
+					35 = {
+					    add_ruler_modifier = {
+						    name = left_wing_populism
+						}
+					}
+					25 = {
+					    add_ruler_modifier = {
+						    name = right_wing_populism
+						}
+					}
+				}
+			}
+		}
+	}
+	option = {
+	    name = "POPULISTOPT1"
+		trigger = {
+		    has_faction = partido_trabalhista_brasileiro
+			has_country_flag = vargas_deposed
+			is_year = 1930
+			NOT = { is_year = 1954 }
+		}
+		ai_chance = { factor = 100 }
+		set_ruler = "vargas"
+		add_faction_influence = {
+			faction = partido_trabalhista_brasileiro
+			influence = 10
+		}
+		hidden_effect = {
+		    add_ruler_modifier = {
+			    name = ptb_president
+			}
+			add_ruler_modifier = {
+			    name = centrist_populism
+			}
+		}
+	}
+	option = {
+	    name = "POPULISTOPT2"	# Social Democratic Candidate
+		trigger = {
+		    has_faction = partido_social_democratico
+		}
+		ai_chance = { factor = 50 }
+		define_ruler = {
+			adm = 4
+			dip = 1
+			mil = 1					
+			fixed = yes
+		}
+		add_faction_influence = {
+			faction = partido_social_democratico
+			influence = 10
+		}
+        hidden_effect = {
+		    # Chance to be a great administrator
+			random_list = {
+			    70 = { change_adm = 0 }
+				20 = { change_adm = 1 }
+				10 = { change_adm = 2 }
+			}
+			# Chance to be a great/good/bad diplomat
+			random_list = {
+			    10 = { change_dip = -1 }
+				30 = { change_dip = 0 }
+				30 = { change_dip = 1 }
+				20 = { change_dip = 2 }
+				10 = { change_dip = 3 }
+			}
+			# Chance to be a good/bad military
+			random_list = {
+			    15 = { change_mil = -1 }
+				65 = { change_mil = 0 }
+				10 = { change_mil = 1 }
+				5 = { change_mil = 2 }
+			}
+			add_ruler_modifier = {
+			    name = social_democratic_president
+			}
+			if = {
+			    limit = {
+				    NOT = { is_year = 1960 }
+				}
+				add_ruler_modifier = {
+				    name = centrist_populism
+				}
+			}
+			if = {
+			    limit = {
+				    is_year = 1960
+				}
+				random_list = {
+				    40 = {
+					    add_ruler_modifier = {
+						    name = centrist_populism
+						}
+					}
+					40 = {
+					    add_ruler_modifier = {
+						    name = left_wing_populism
+						}
+					}
+					20 = {
+					    add_ruler_modifier = {
+						    name = right_wing_populism
+						}
+					}
+				}
+			}
+		}
+	}
+	option = {
+		name = "CORONELOPT9"	# Integralist candidate
+		trigger = {
+		    has_faction = integralistas
+			OR = {
+			    NOT = { is_year = 1930 }
+				is_year = 1965
+			}
+		}
+		ai_chance = { factor = 0 }
+		define_ruler = {
+			adm = 1
+			dip = 1
+			mil = 4					
+			fixed = yes
+		}
+		add_faction_influence = {
+			faction = integralistas
+			influence = 10
+		}
+        hidden_effect = {
+		    # Chance to be a great military
+			random_list = {
+			    50 = { change_mil = 0 }
+				30 = { change_mil = 1 }
+				20 = { change_mil = 2 }
+			}
+			# Chance to be a great/good/bad administrator
+			random_list = {
+			    10 = { change_adm = -1 }
+				30 = { change_adm = 0 }
+				30 = { change_adm = 1 }
+				20 = { change_adm = 2 }
+				10 = { change_adm = 3 }
+			}
+			# Chance to be a good/bad diplomat
+			random_list = {
+			    15 = { change_dip = -1 }
+				65 = { change_dip = 0 }
+				10 = { change_dip = 1 }
+				5 = { change_dip = 2 }
+			}
+			random_list = {
+			    50 = {
+				    add_ruler_modifier = {
+			            name = integralist_president
+			        }
+				}
+				50 = {
+				    add_ruler_modifier = {
+			            name = integralist_president
+			        }
+					add_ruler_modifier = {
+			            name = right_wing_populism
+			        }
+				}
+			}
+		}
+	}
+	option = {
+	    name = "CORONELOPT9"	# Plínio Salgado
+		trigger = {
+		    is_year = 1930
+			NOT = { is_year = 1965 }
+			has_faction = integralistas
+			NOT = { has_country_modifier = integralist_president }
+		}
+		ai_chance = { factor = 0 }
+		define_ruler ={
+	    	name = "Plinio"
+    		dynasty = "Salgado"
+			age = 35
+			adm = 4
+			dip = 3
+			mil = 6
+		}
+		add_faction_influence = {
+			faction = integralistas
+			influence = 10
+		}
+		hidden_effect = {
+		    add_ruler_modifier = {
+			    name = integralist_president
+			}
+		}
+	}
+	option = {
+		name = "CORONELOPT4"	# Monarchist candidate
+		trigger = {
+		    has_faction = partido_conservador_monarquista
+		}
+		ai_chance = { factor = 0 }
+		define_ruler = {
+			adm = 1
+			dip = 1
+			mil = 4					
+			fixed = yes
+		}
+		add_faction_influence = {
+			faction = partido_conservador_monarquista
+			influence = 10
+		}
+        hidden_effect = {
+		    # Chance to be a great military
+			random_list = {
+			    50 = { change_mil = 0 }
+				30 = { change_mil = 1 }
+				20 = { change_mil = 2 }
+			}
+			# Chance to be a great/good/bad administrator
+			random_list = {
+			    10 = { change_adm = -1 }
+				30 = { change_adm = 0 }
+				30 = { change_adm = 1 }
+				20 = { change_adm = 2 }
+				10 = { change_adm = 3 }
+			}
+			# Chance to be a good/bad diplomat
+			random_list = {
+			    15 = { change_dip = -1 }
+				65 = { change_dip = 0 }
+				10 = { change_dip = 1 }
+				5 = { change_dip = 2 }
+			}
+			add_ruler_modifier = {
+			    name = monarchist_president
+			}
+		}
+	}
+	option = {
+		name = "CORONELOPT5"	# Republican candidate
+		trigger = {
+		    has_faction = partido_conservador_republicano
+		}
+		ai_chance = { factor = 0 }
+		define_ruler = {
+			mil = 4
+			dip = 1
+		    adm = 1					
+			fixed = yes
+		}
+		add_faction_influence = {
+			faction = partido_conservador_republicano
+			influence = 10
+		}
+        hidden_effect = {
+		    # Chance to be a great military
+			random_list = {
+			    70 = { change_mil = 0 }
+				20 = { change_mil = 1 }
+				10 = { change_mil = 2 }
+			}
+			# Chance to be a great/good/bad diplomat
+			random_list = {
+			    10 = { change_dip = -1 }
+				30 = { change_dip = 0 }
+				30 = { change_dip = 1 }
+				20 = { change_dip = 2 }
+				10 = { change_dip = 3 }
+			}
+			# Chance to be a good/bad administrator
+			random_list = {
+			    15 = { change_adm = -1 }
+				65 = { change_adm = 0 }
+				10 = { change_adm = 1 }
+				5 = { change_adm = 2 }
+			}
+			add_ruler_modifier = {
+			    name = republican_president
+			}
+			add_ruler_modifier = {
+			    name = right_wing_populism
+			}
+		}		
+	}
+	option = {
+		name = "CORONELOPT6"	# Communist candidate
+		trigger = {
+		    has_faction = partido_comunista_brasileiro
+			NOT = { has_country_modifier = pcb_banned }
+		}
+		ai_chance = { factor = 0 }
+		define_ruler = {
+			adm = 4
+			dip = 1
+			mil = 1					
+			fixed = yes
+		}
+		add_faction_influence = {
+			faction = partido_comunista_brasileiro
+			influence = 10
+		}
+        hidden_effect = {
+		    # Chance to be a great administrator
+			random_list = {
+			    70 = { change_adm = 0 }
+				20 = { change_adm = 1 }
+				10 = { change_adm = 2 }
+			}
+			# Chance to be a great/good/bad military
+			random_list = {
+			    10 = { change_mil = -1 }
+				30 = { change_mil = 0 }
+				30 = { change_mil = 1 }
+				20 = { change_mil = 2 }
+				10 = { change_mil = 3 }
+			}
+			# Chance to be a good/bad diplomat
+			random_list = {
+			    15 = { change_dip = -1 }
+				65 = { change_dip = 0 }
+				10 = { change_dip = 1 }
+				5 = { change_dip = 2 }
+			}
+			random_list = {
+			    50 = {
+				    add_ruler_modifier = {
+			            name = comunista_president
+			        }
+				}
+				50 = {
+				    add_ruler_modifier = {
+			            name = comunista_president
+			        }
+					add_ruler_modifier = {
+			            name = left_wing_populism
+			        }
+				}
+			}
+		}	
+	}
+}
+
+# Populist Government (death)
+country_event = {
+    id = elections.726
+	title = "EVTNAME700"
+	desc = "CORONELDESC723"
+	picture = ELECTION_REPUBLICAN_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+	    OR = {
+    		government = populist_republic
+			government = regime_militar
+		}
+		NOT = { government = dutch_republic }
+		NOT = { government = coronelist_republic }
+		NOT = { has_country_flag = decided_to_restore_monarchy }
+	}
+	
+	option = {
+		name = "POPULISTOPT1"	# PTB candidate
+		trigger = {
+		    has_faction = partido_trabalhista_brasileiro
+			OR = {
+	    		NOT = { has_country_flag = vargas_deposed }
+				is_year = 1954
+				NOT = { is_year = 1930 }
+			}
+		}
+		ai_chance = { factor = 50 }
+		define_ruler = {
+			adm = 1
+			dip = 1
+			mil = 4					
+			fixed = yes
+		}
+		add_faction_influence = {
+			faction = partido_trabalhista_brasileiro
+			influence = 10
+		}
+        hidden_effect = {
+		    # Chance to be a great military
+			random_list = {
+			    50 = { change_mil = 0 }
+				30 = { change_mil = 1 }
+				20 = { change_mil = 2 }
+			}
+			# Chance to be a great/good/bad administrator
+			random_list = {
+			    10 = { change_adm = -1 }
+				30 = { change_adm = 0 }
+				30 = { change_adm = 1 }
+				20 = { change_adm = 2 }
+				10 = { change_adm = 3 }
+			}
+			# Chance to be a good/bad diplomat
+			random_list = {
+			    15 = { change_dip = -1 }
+				65 = { change_dip = 0 }
+				10 = { change_dip = 1 }
+				5 = { change_dip = 2 }
+			}
+			add_ruler_modifier = {
+			    name = ptb_president
+			}
+			if = {
+			    limit = {
+				    NOT = { is_year = 1960 }
+				}
+				add_ruler_modifier = {
+				    name = centrist_populism
+				}
+			}
+			if = {
+			    limit = {
+				    is_year = 1960
+				}
+				random_list = {
+				    40 = {
+					    add_ruler_modifier = {
+						    name = centrist_populism
+						}
+					}
+					35 = {
+					    add_ruler_modifier = {
+						    name = left_wing_populism
+						}
+					}
+					25 = {
+					    add_ruler_modifier = {
+						    name = right_wing_populism
+						}
+					}
+				}
+			}
+		}
+	}
+	option = {
+	    name = "POPULISTOPT1"
+		trigger = {
+		    has_faction = partido_trabalhista_brasileiro
+			has_country_flag = vargas_deposed
+			is_year = 1930
+			NOT = { is_year = 1954 }
+		}
+		ai_chance = { factor = 100 }
+		set_ruler = Vargas
+		add_faction_influence = {
+			faction = partido_trabalhista_brasileiro
+			influence = 10
+		}
+		hidden_effect = {
+		    add_ruler_modifier = {
+			    name = ptb_president
+			}
+			add_ruler_modifier = {
+			    name = centrist_populism
+			}
+		}
+	}
+	option = {
+	    name = "POPULISTOPT2"	# Social Democratic Candidate
+		trigger = {
+		    has_faction = partido_social_democratico
+		}
+		ai_chance = { factor = 50 }
+		define_ruler = {
+			adm = 4
+			dip = 1
+			mil = 1					
+			fixed = yes
+		}
+		add_faction_influence = {
+			faction = partido_social_democratico
+			influence = 10
+		}
+        hidden_effect = {
+		    # Chance to be a great administrator
+			random_list = {
+			    70 = { change_adm = 0 }
+				20 = { change_adm = 1 }
+				10 = { change_adm = 2 }
+			}
+			# Chance to be a great/good/bad diplomat
+			random_list = {
+			    10 = { change_dip = -1 }
+				30 = { change_dip = 0 }
+				30 = { change_dip = 1 }
+				20 = { change_dip = 2 }
+				10 = { change_dip = 3 }
+			}
+			# Chance to be a good/bad military
+			random_list = {
+			    15 = { change_mil = -1 }
+				65 = { change_mil = 0 }
+				10 = { change_mil = 1 }
+				5 = { change_mil = 2 }
+			}
+			add_ruler_modifier = {
+			    name = social_democratic_president
+			}
+			if = {
+			    limit = {
+				    NOT = { is_year = 1960 }
+				}
+				add_ruler_modifier = {
+				    name = centrist_populism
+				}
+			}
+			if = {
+			    limit = {
+				    is_year = 1960
+				}
+				random_list = {
+				    40 = {
+					    add_ruler_modifier = {
+						    name = centrist_populism
+						}
+					}
+					40 = {
+					    add_ruler_modifier = {
+						    name = left_wing_populism
+						}
+					}
+					20 = {
+					    add_ruler_modifier = {
+						    name = right_wing_populism
+						}
+					}
+				}
+			}
+		}
+	}
+	option = {
+		name = "CORONELOPT9"	# Integralist candidate
+		trigger = {
+		    has_faction = integralistas
+			OR = {
+			    NOT = { is_year = 1930 }
+				is_year = 1965
+			}
+		}
+		ai_chance = { factor = 0 }
+		define_ruler = {
+			adm = 1
+			dip = 1
+			mil = 4					
+			fixed = yes
+		}
+		add_faction_influence = {
+			faction = integralistas
+			influence = 10
+		}
+        hidden_effect = {
+		    # Chance to be a great military
+			random_list = {
+			    50 = { change_mil = 0 }
+				30 = { change_mil = 1 }
+				20 = { change_mil = 2 }
+			}
+			# Chance to be a great/good/bad administrator
+			random_list = {
+			    10 = { change_adm = -1 }
+				30 = { change_adm = 0 }
+				30 = { change_adm = 1 }
+				20 = { change_adm = 2 }
+				10 = { change_adm = 3 }
+			}
+			# Chance to be a good/bad diplomat
+			random_list = {
+			    15 = { change_dip = -1 }
+				65 = { change_dip = 0 }
+				10 = { change_dip = 1 }
+				5 = { change_dip = 2 }
+			}
+			random_list = {
+			    50 = {
+				    add_ruler_modifier = {
+			            name = integralist_president
+			        }
+				}
+				50 = {
+				    add_ruler_modifier = {
+			            name = integralist_president
+			        }
+					add_ruler_modifier = {
+			            name = right_wing_populism
+			        }
+				}
+			}
+		}
+	}
+	option = {
+	    name = "CORONELOPT9"	# Plínio Salgado
+		trigger = {
+		    is_year = 1930
+			NOT = { is_year = 1965 }
+			has_faction = integralistas
+			NOT = { has_country_modifier = integralist_president }
+		}
+		ai_chance = { factor = 0 }
+		define_ruler ={
+	    	name = "Plinio"
+    		dynasty = "Salgado"
+			age = 35
+			adm = 4
+			dip = 3
+			mil = 6
+		}
+		add_faction_influence = {
+			faction = integralistas
+			influence = 10
+		}
+		hidden_effect = {
+		    add_ruler_modifier = {
+			    name = integralist_president
+			}
+		}
+	}
+	option = {
+		name = "CORONELOPT4"	# Monarchist candidate
+		trigger = {
+		    has_faction = partido_conservador_monarquista
+		}
+		ai_chance = { factor = 0 }
+		define_ruler = {
+			adm = 1
+			dip = 1
+			mil = 4					
+			fixed = yes
+		}
+		add_faction_influence = {
+			faction = partido_conservador_monarquista
+			influence = 10
+		}
+        hidden_effect = {
+		    # Chance to be a great military
+			random_list = {
+			    50 = { change_mil = 0 }
+				30 = { change_mil = 1 }
+				20 = { change_mil = 2 }
+			}
+			# Chance to be a great/good/bad administrator
+			random_list = {
+			    10 = { change_adm = -1 }
+				30 = { change_adm = 0 }
+				30 = { change_adm = 1 }
+				20 = { change_adm = 2 }
+				10 = { change_adm = 3 }
+			}
+			# Chance to be a good/bad diplomat
+			random_list = {
+			    15 = { change_dip = -1 }
+				65 = { change_dip = 0 }
+				10 = { change_dip = 1 }
+				5 = { change_dip = 2 }
+			}
+			add_ruler_modifier = {
+			    name = monarchist_president
+			}
+		}
+	}
+	option = {
+		name = "CORONELOPT5"	# Republican candidate
+		trigger = {
+		    has_faction = partido_conservador_republicano
+		}
+		ai_chance = { factor = 0 }
+		define_ruler = {
+			mil = 4
+			dip = 1
+		    adm = 1					
+			fixed = yes
+		}
+		add_faction_influence = {
+			faction = partido_conservador_republicano
+			influence = 10
+		}
+        hidden_effect = {
+		    # Chance to be a great military
+			random_list = {
+			    70 = { change_mil = 0 }
+				20 = { change_mil = 1 }
+				10 = { change_mil = 2 }
+			}
+			# Chance to be a great/good/bad diplomat
+			random_list = {
+			    10 = { change_dip = -1 }
+				30 = { change_dip = 0 }
+				30 = { change_dip = 1 }
+				20 = { change_dip = 2 }
+				10 = { change_dip = 3 }
+			}
+			# Chance to be a good/bad administrator
+			random_list = {
+			    15 = { change_adm = -1 }
+				65 = { change_adm = 0 }
+				10 = { change_adm = 1 }
+				5 = { change_adm = 2 }
+			}
+			add_ruler_modifier = {
+			    name = republican_president
+			}
+			add_ruler_modifier = {
+			    name = right_wing_populism
+			}
+		}		
+	}
+	option = {
+		name = "CORONELOPT6"	# Communist candidate
+		trigger = {
+		    has_faction = partido_comunista_brasileiro
+			NOT = { has_country_modifier = pcb_banned }
+		}
+		ai_chance = { factor = 0 }
+		define_ruler = {
+			adm = 4
+			dip = 1
+			mil = 1					
+			fixed = yes
+		}
+		add_faction_influence = {
+			faction = partido_comunista_brasileiro
+			influence = 10
+		}
+        hidden_effect = {
+		    # Chance to be a great administrator
+			random_list = {
+			    70 = { change_adm = 0 }
+				20 = { change_adm = 1 }
+				10 = { change_adm = 2 }
+			}
+			# Chance to be a great/good/bad military
+			random_list = {
+			    10 = { change_mil = -1 }
+				30 = { change_mil = 0 }
+				30 = { change_mil = 1 }
+				20 = { change_mil = 2 }
+				10 = { change_mil = 3 }
+			}
+			# Chance to be a good/bad diplomat
+			random_list = {
+			    15 = { change_dip = -1 }
+				65 = { change_dip = 0 }
+				10 = { change_dip = 1 }
+				5 = { change_dip = 2 }
+			}
+			random_list = {
+			    50 = {
+				    add_ruler_modifier = {
+			            name = comunista_president
+			        }
+				}
+				50 = {
+				    add_ruler_modifier = {
+			            name = comunista_president
+			        }
+					add_ruler_modifier = {
+			            name = left_wing_populism
+			        }
+				}
+			}
+		}	
+	}
+	
+	option = {
+	    name = "MILDICTOPT1"
+		trigger = {
+		    has_faction = ARENA
+		}
+		ai_chance = {
+     		factor = 100
+		    
+            modifier = {
+			    factor = 50
+				has_country_modifier = abertura
+			}			
+		}
+		define_ruler = {
+		    adm = 1
+			dip = 1
+			mil = 4
+			fixed = yes
+		}
+		hidden_effect = {
+	        # Chance to be great/good/bad administrator
+    		random_list = {
+	    	    10 = { change_adm = -1 }
+			    30 = { change_adm = 0 }
+		   	    30 = { change_adm = 1 }
+		   		20 = { change_adm = 2 }
+	    		10 = { change_adm = 3 }
+     		}
+	    	# Chance to be a great military
+     		random_list = {
+		        30 = { change_mil = 0 }
+		   		50 = { change_mil = 1 }
+	    		20 = { change_mil = 2 }
+    		} 
+		   	# Chance to be a great/good/bad diplomat
+			random_list = {
+			    10 = { change_dip = -1 }
+				30 = { change_dip = 0 }
+				30 = { change_dip = 1 }
+				20 = { change_dip = 2 }
+				10 = { change_dip = 3 }
+			}
+			set_ruler_flag = military_ruler
+		}
+		add_faction_influence = {
+		    faction = ARENA
+			influence = 10
+		}
+	}
+	option = {
+	    name = "MILDICTOPT2"
+		trigger = {
+		    has_faction = MDB
+			has_country_modifier = abertura
+		}
+		ai_chance = {
+     		factor = 50
+		    
+            modifier = {
+			    factor = 0
+			    NOT = { has_country_modifier = abertura }
+			}		
+		}
+		define_ruler = {
+		    adm = 4
+			dip = 1
+			mil = 1
+			fixed = yes
+		}
+		hidden_effect = {
+	        # Chance to be great/good/bad administrator
+    		random_list = {
+	    	    10 = { change_adm = -1 }
+			    30 = { change_adm = 0 }
+		   	    30 = { change_adm = 1 }
+		   		20 = { change_adm = 2 }
+	    		10 = { change_adm = 3 }
+     		}
+	    	# Chance to be a great/good/bad military
+     		random_list = {
+	    	    10 = { change_mil = -1 }
+			    30 = { change_mil = 0 }
+		   	    30 = { change_mil = 1 }
+		   		20 = { change_mil = 2 }
+	    		10 = { change_mil = 3 }
+     		}
+		   	# Chance to be a great/good/bad diplomat
+			random_list = {
+			    10 = { change_dip = -1 }
+				30 = { change_dip = 0 }
+				30 = { change_dip = 1 }
+				20 = { change_dip = 2 }
+				10 = { change_dip = 3 }
+			}
+			set_ruler_flag = mdb_ruler
+		}
+		add_faction_influence = {
+		    faction = MDB
+			influence = 10
+		}
+	}
+}
+
+# Vice President
+#country_event = {
+#    id = elections.727
+#	title = "EVTNAME700"
+#	desc = "CORONELDESC724"
+#	picture = ELECTION_REPUBLICAN_eventPicture
+#	
+#	is_triggered_only = yes
+#	
+#	trigger = {
+#		tag = BRZ
+#		NOT = { government = estado_novo }
+#		NOT = { government = integralist_state }
+#		NOT = { has_country_flag = limited_president_power }
+#		NOT = { has_country_flag = vice_president }
+#		NOT = { government = parliamentary_republic }
+#		NOT = { government = dutch_republic }
+#	}
+#	
+#	immediate = {
+#	    hidden_effect = {
+#		    if = {
+#	            has_country_flag = vargas_constitutional_mandate
+#        	}
+#			clr_country_flag = vargas_constitutional_mandate
+#		}
+#	}
+#	
+#	option = {
+#		name = "POPULISTOPT3"	# Vice President
+#	    custom_tooltip = vice_president_assumes
+#       hidden_effect = {
+#     		define_ruler = {
+#		        adm = 1
+#	     	   	dip = 1
+#	     	   	mil = 1					
+#    	    	fixed = yes
+#		    }
+#			# Chance to be a great/good/bad administrator
+#			random_list = {
+#			    10 = { change_adm = -1 }
+#				30 = { change_adm = 0 }
+#				30 = { change_adm = 1 }
+#				20 = { change_adm = 2 }
+#				10 = { change_adm = 3 }
+#			}
+#			# Chance to be a great/good/bad military
+#			random_list = {
+#			    10 = { change_mil = -1 }
+#				30 = { change_mil = 0 }
+#				30 = { change_mil = 1 }
+#				20 = { change_mil = 2 }
+#				10 = { change_mil = 3 }
+#			}
+#			# Chance to be a great/good/bad diplomat
+#			random_list = {
+#			    10 = { change_dip = -1 }
+#				30 = { change_dip = 0 }
+#				30 = { change_dip = 1 }
+#				20 = { change_dip = 2 }
+#				10 = { change_dip = 3 }
+#			}
+#			if = {
+#			    limit = {
+#				    government = coronelist_republic
+#					has_faction = partido_paulista
+#					has_faction = partido_mineiro
+#				}
+#				random_list = {
+#				    50 = {
+#					    add_ruler_modifier = {
+#						    name = paulista_president
+#						}
+#						add_faction_influence = {
+#						    faction = partido_paulista
+#							influence = 5
+#						}
+#					}
+#					50 = {
+#					    add_ruler_modifier = {
+#						    name = mineiro_president    
+#						}
+#						add_faction_influence = {
+#						    faction = partido_mineiro
+#							influence = 5
+#						}
+#					}
+#				}
+#			}
+#			if = {
+#			    limit = {
+#				    government = coronelist_republic
+#					OR = {
+#					    NOT = { has_faction = partido_paulista }
+#						NOT = { has_faction = partido_mineiro }
+#					}
+#				}
+#				add_ruler_modifier = {
+#				    name = republican_president
+#				}
+#				add_faction_influence = {
+#				    faction = partido_conservador_republicano
+#					influence = 5
+#				}
+#			}
+#			if = {
+#			    limit = {
+#				    government = populist_republic
+#					has_faction = partido_trabalhista_brasileiro
+#					has_faction = partido_democratico_nacional
+#					has_faction = partido_social_democratico
+#				}
+#				random_list = {
+#		     		40 = {
+#				        add_ruler_modifier = {
+#			    		    name = ptb_president
+#		     			}
+#						random_list = {
+#						    50 = {
+#							    add_ruler_modifier = {
+#								    name = left_wing_populism
+#								}
+#							}
+#							30 = {
+#							    add_ruler_modifier = {
+#								    name = centrist_populism
+#								}
+#							}
+#							20 = {
+#							    add_ruler_modifier = {
+#								    name = right_wing_populism
+#								} 
+#							}
+#						}
+#						add_faction_influence = {
+#						    faction = partido_trabalhista_brasileiro
+#							influence = 5
+#						}
+#	    			}
+#     				30 = {
+#				        add_ruler_modifier = {
+#			    		    name = democratic_president
+#		     			}
+#						add_ruler_modifier = {
+#						    name = right_wing_populism
+#						}
+#						add_faction_influence = {
+#						    faction = partido_democratico_nacional
+#							influence = 5
+#						}
+#	     			}
+#  			     	30 = {
+#			    	    add_ruler_modifier = {
+#		     			    name = social_democratic_president
+#	     				}
+#						random_list = {
+#						    20 = {
+#							    add_ruler_modifier = {
+#								    name = left_wing_populism
+#								}
+#							}
+#							30 = {
+#							    add_ruler_modifier = {
+#								    name = centrist_populism
+#								}
+#							}
+#							50 = {
+#							    add_ruler_modifier = {
+#								    name = right_wing_populism
+#								} 
+#							}
+#						}
+#						add_faction_influence = {
+#						    faction = partido_social_democratico
+#							influence = 5
+#						}
+#    				}
+#				}
+#			}
+#			if = {
+#			    limit = {
+#				    government = regime_militar
+#				}
+#		  		define_ruler = {
+#         		    adm = 1
+#		        	dip = 1
+#         			mil = 4
+#		        	fixed = yes
+#        		}
+#         		hidden_effect = {
+#         	        # Chance to be great/good/bad administrator
+#    	         	random_list = {
+#        	    	    10 = { change_adm = -1 }
+#			            30 = { change_adm = 0 }
+#          		   	    30 = { change_adm = 1 }
+#		   		        20 = { change_adm = 2 }
+#	             		10 = { change_adm = 3 }
+#              		}
+#	             	# Chance to be a great military
+#             		random_list = {
+#		                30 = { change_mil = 0 }
+#         		   		50 = { change_mil = 1 }
+#	             		20 = { change_mil = 2 }
+#             	 	}   
+#      	     	    # Chance to be a great/good/bad diplomat
+#     		        random_list = {
+#	         		    10 = { change_dip = -1 }
+#		         		30 = { change_dip = 0 }
+#			         	30 = { change_dip = 1 }
+#				        20 = { change_dip = 2 }
+#		             	10 = { change_dip = 3 }
+#        		    }
+#		         	set_ruler_flag = military_ruler
+#         		}
+#		        add_faction_influence = {
+#        		    faction = ARENA
+#		        	influence = 10
+#        		}
+#			}
+#			if = {
+#			    limit = {
+#				    has_country_flag = republicanova
+#				}
+#				add_ruler_modifier = {
+#				    name = PMDB_president
+#				}
+#				add_faction_influence = {
+#				    faction = PMDB
+#					influence = 10
+#				}
+#			}
+#			set_country_flag = vice_president
+#		}	
+#	}
+#}
+
+# Nova República
+country_event = {
+    id = elections.728
+	title = "EVTNAME700"
+	desc = "CORONELDESC722"
+	picture = ELECTION_REPUBLICAN_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+	    tag = BRZ
+		government = republic
+		has_country_flag = republicanova
+	}
+	
+	option = {
+		name = "EVTOPTA700"	# Current ruler stays
+		trigger = {
+			has_regency = no
+			has_country_flag = reelections_allowed
+			NOT = { has_ruler_flag = leader_has_been_pushed_out }
+		}
+		ai_chance = { 
+			factor = 60
+			modifier = {
+				factor = 0
+				NOT = { republican_tradition = 0.25 }
+			}	
+			modifier = {
+				factor = 0.5
+				NOT = { republican_tradition = 0.5 }
+			}				
+			modifier = {
+				factor = 0.5
+				NOT = { republican_tradition = 0.75 }
+			}	
+			modifier = {
+				factor = 2.0
+				republican_tradition = 0.9
+			}		
+		}
+		custom_tooltip = remains_ruler
+		change_adm = 1
+		change_dip = 1
+		change_mil = 1
+		if = {
+			limit = { 
+				is_tribal = yes
+				government = republic
+				NOT = { republican_tradition = 0.20 }	
+			}	
+			change_government = tribal_despotism
+		}
+		if = {
+			limit = {
+				is_tribal = no 
+				government = republic
+				NOT = { republican_tradition = 0.20 }				
+				has_dlc = "Res Publica"
+			}
+			change_government = republican_dictatorship	
+		}
+		if = {
+			limit = {
+				is_tribal = no  
+				government = republic
+				NOT = { republican_tradition = 0.20 }
+				NOT = { has_dlc = "Res Publica" }
+			}
+			change_government = despotic_monarchy
+		}
+		if = {
+			limit = {
+				is_tribal = no  
+				government = socialist_republic
+				has_dlc = "Res Publica"
+			}
+			change_government = communist_dictatorship
+		}		
+		add_scaled_republican_tradition = -0.10
+		random_list = {
+			10 = {
+				add_adm_power = 50
+			}
+			10 = {
+				add_dip_power = 50
+			}
+			10 = {
+				add_mil_power = 50
+			}
+		}
+		add_karma = -5
+	}
+	option = {
+	    name = "DISGRACEOPT1"
+		trigger = {
+		    has_faction = partido_dos_trabalhadores
+		}
+		ai_chance = {
+     		factor = 50
+			
+			modifier = {
+			    factor = 0
+			    NOT = { is_year = 2000 }
+			}
+		}
+		define_ruler = {
+		    adm = 1
+			dip = 1
+			mil = 1
+			fixed = yes
+		}
+		hidden_effect = {
+	        # Chance to be great/good/bad administrator
+    		random_list = {
+			    10 = { change_adm = -1 }
+				30 = { change_adm = 0 }
+				30 = { change_adm = 1 }
+				20 = { change_adm = 2 }
+				10 = { change_adm = 3 }
+			}
+			# Chance to be a great/good/bad military
+			random_list = {
+			    10 = { change_mil = -1 }
+				30 = { change_mil = 0 }
+				30 = { change_mil = 1 }
+				20 = { change_mil = 2 }
+				10 = { change_mil = 3 }
+			}
+			# Chance to be a great/good/bad diplomat
+			random_list = {
+			    10 = { change_dip = -1 }
+				30 = { change_dip = 0 }
+				30 = { change_dip = 1 }
+				20 = { change_dip = 2 }
+				10 = { change_dip = 3 }
+			}
+			add_ruler_modifier = {
+			    name = PT_president
+			}
+		}
+		add_faction_influence = {
+		    faction = partido_dos_trabalhadores
+			influence = 10
+		}
+	}
+	option = {
+	    name = "DISGRACEOPT2"
+		trigger = {
+		    has_faction = PSDB
+		}
+		ai_chance = {
+     		factor = 50
+		}
+		define_ruler = {
+		    adm = 1
+			dip = 1
+			mil = 1
+			fixed = yes
+		}
+		hidden_effect = {
+	        # Chance to be great/good/bad administrator
+    		random_list = {
+			    10 = { change_adm = -1 }
+				30 = { change_adm = 0 }
+				30 = { change_adm = 1 }
+				20 = { change_adm = 2 }
+				10 = { change_adm = 3 }
+			}
+			# Chance to be a great/good/bad military
+			random_list = {
+			    10 = { change_mil = -1 }
+				30 = { change_mil = 0 }
+				30 = { change_mil = 1 }
+				20 = { change_mil = 2 }
+				10 = { change_mil = 3 }
+			}
+			# Chance to be a great/good/bad diplomat
+			random_list = {
+			    10 = { change_dip = -1 }
+				30 = { change_dip = 0 }
+				30 = { change_dip = 1 }
+				20 = { change_dip = 2 }
+				10 = { change_dip = 3 }
+			}
+			add_ruler_modifier = {
+			    name = PSDB_president
+			}
+		}
+		add_faction_influence = {
+		    faction = PSDB
+			influence = 10
+		}
+	}
+	option = {
+	    name = "DISGRACEOPT3"
+		trigger = {
+		    has_faction = partido_comunista_brasileiro
+		}
+		ai_chance = {
+     		factor = 0
+		}
+		define_ruler = {
+		    adm = 1
+			dip = 1
+			mil = 1
+			fixed = yes
+		}
+		hidden_effect = {
+	        # Chance to be great/good/bad administrator
+    		random_list = {
+			    10 = { change_adm = -1 }
+				30 = { change_adm = 0 }
+				30 = { change_adm = 1 }
+				20 = { change_adm = 2 }
+				10 = { change_adm = 3 }
+			}
+			# Chance to be a great/good/bad military
+			random_list = {
+			    10 = { change_mil = -1 }
+				30 = { change_mil = 0 }
+				30 = { change_mil = 1 }
+				20 = { change_mil = 2 }
+				10 = { change_mil = 3 }
+			}
+			# Chance to be a great/good/bad diplomat
+			random_list = {
+			    10 = { change_dip = -1 }
+				30 = { change_dip = 0 }
+				30 = { change_dip = 1 }
+				20 = { change_dip = 2 }
+				10 = { change_dip = 3 }
+			}
+			add_ruler_modifier = {
+			    name = comunista_president
+			}
+		}
+		add_faction_influence = {
+		    faction = partido_comunista_brasileiro
+			influence = 10
+		}
+	}
+	option = {
+	    name = "DISGRACEOPT4"
+		trigger = {
+		    has_faction = PDT
+		}
+		ai_chance = {
+     		factor = 0
+		}
+		define_ruler = {
+		    adm = 1
+			dip = 1
+			mil = 1
+			fixed = yes
+		}
+		hidden_effect = {
+	        # Chance to be great/good/bad administrator
+    		random_list = {
+			    10 = { change_adm = -1 }
+				30 = { change_adm = 0 }
+				30 = { change_adm = 1 }
+				20 = { change_adm = 2 }
+				10 = { change_adm = 3 }
+			}
+			# Chance to be a great/good/bad military
+			random_list = {
+			    10 = { change_mil = -1 }
+				30 = { change_mil = 0 }
+				30 = { change_mil = 1 }
+				20 = { change_mil = 2 }
+				10 = { change_mil = 3 }
+			}
+			# Chance to be a great/good/bad diplomat
+			random_list = {
+			    10 = { change_dip = -1 }
+				30 = { change_dip = 0 }
+				30 = { change_dip = 1 }
+				20 = { change_dip = 2 }
+				10 = { change_dip = 3 }
+			}
+			add_ruler_modifier = {
+			    name = PDT_president
+			}
+		}
+		add_faction_influence = {
+		    faction = PDT
+			influence = 10
+		}
+	}
+	option = {
+	    name = "DISGRACEOPT5"
+		trigger = {
+		    has_faction = PRONA
+		}
+		ai_chance = {
+     		factor = 10
+		}
+		define_ruler = {
+		    adm = 1
+			dip = 1
+			mil = 1
+			fixed = yes
+		}
+		hidden_effect = {
+	        # Chance to be great/good/bad administrator
+    		random_list = {
+			    10 = { change_adm = -1 }
+				10 = { change_adm = 0 }
+				20 = { change_adm = 1 }
+				30 = { change_adm = 2 }
+				30 = { change_adm = 3 }
+			}
+			# Chance to be a great/good/bad military
+			random_list = {
+			    10 = { change_mil = -1 }
+				10 = { change_mil = 0 }
+				20 = { change_mil = 1 }
+				30 = { change_mil = 2 }
+				30 = { change_mil = 3 }
+			}
+			# Chance to be a great/good/bad diplomat
+			random_list = {
+			    10 = { change_dip = -1 }
+				10 = { change_dip = 0 }
+				20 = { change_dip = 1 }
+				30 = { change_dip = 2 }
+				30 = { change_dip = 3 }
+			}
+			add_ruler_modifier = {
+			    name = PRONA_president
+			}
+		}
+		add_faction_influence = {
+		    faction = PRONA
+			influence = 10
+		}
+	}
+	option = {
+	    name = "DISGRACEOPT6"
+		trigger = {
+		    has_faction = partido_conservador_monarquista
+		}
+		ai_chance = {
+     		factor = 0
+		}
+		define_ruler = {
+		    adm = 1
+			dip = 1
+			mil = 1
+			fixed = yes
+		}
+		hidden_effect = {
+	        # Chance to be great/good/bad administrator
+    		random_list = {
+			    10 = { change_adm = -1 }
+				10 = { change_adm = 0 }
+				20 = { change_adm = 1 }
+				30 = { change_adm = 2 }
+				30 = { change_adm = 3 }
+			}
+			# Chance to be a great/good/bad military
+			random_list = {
+			    10 = { change_mil = -1 }
+				10 = { change_mil = 0 }
+				20 = { change_mil = 1 }
+				30 = { change_mil = 2 }
+				30 = { change_mil = 3 }
+			}
+			# Chance to be a great/good/bad diplomat
+			random_list = {
+			    10 = { change_dip = -1 }
+				30 = { change_dip = 0 }
+				30 = { change_dip = 1 }
+				20 = { change_dip = 2 }
+				10 = { change_dip = 3 }
+			}
+			add_ruler_modifier = {
+			    name = monarchist_president
+			}
+		}
+		add_faction_influence = {
+		    faction = partido_conservador_monarquista
+			influence = 10
+		}
+	}
+	option = {
+	    name = "DISGRACEOPT7"
+		trigger = {
+		    has_faction = partido_da_republica
+		}
+		ai_chance = {
+     		factor = 0
+		}
+		define_ruler = {
+		    adm = 1
+			dip = 1
+			mil = 1
+			fixed = yes
+		}
+		hidden_effect = {
+	        # Chance to be great/good/bad administrator
+    		random_list = {
+			    10 = { change_adm = -1 }
+				30 = { change_adm = 0 }
+				30 = { change_adm = 1 }
+				20 = { change_adm = 2 }
+				10 = { change_adm = 3 }
+			}
+			# Chance to be a great/good/bad military
+			random_list = {
+			    10 = { change_mil = -1 }
+				30 = { change_mil = 0 }
+				30 = { change_mil = 1 }
+				20 = { change_mil = 2 }
+				10 = { change_mil = 3 }
+			}
+			# Chance to be a great/good/bad diplomat
+			random_list = {
+			    10 = { change_dip = -1 }
+				30 = { change_dip = 0 }
+				30 = { change_dip = 1 }
+				20 = { change_dip = 2 }
+				10 = { change_dip = 3 }
+			}
+			add_ruler_modifier = {
+			    name = PR_president
+			}
+		}
+		add_faction_influence = {
+		    faction = partido_da_republica
+			influence = 10
+		}
+	}
+	option = {
+	    name = "DISGRACEOPT8"
+		trigger = {
+		    has_faction = PSOL
+		}
+		ai_chance = {
+     		factor = 10
+		}
+		define_ruler = {
+		    adm = 1
+			dip = 1
+			mil = 1
+			fixed = yes
+		}
+		hidden_effect = {
+	        # Chance to be great/good/bad administrator
+    		random_list = {
+			    10 = { change_adm = -1 }
+				30 = { change_adm = 0 }
+				30 = { change_adm = 1 }
+				20 = { change_adm = 2 }
+				10 = { change_adm = 3 }
+			}
+			# Chance to be a great/good/bad military
+			random_list = {
+			    10 = { change_mil = -1 }
+				30 = { change_mil = 0 }
+				30 = { change_mil = 1 }
+				20 = { change_mil = 2 }
+				10 = { change_mil = 3 }
+			}
+			# Chance to be a great/good/bad diplomat
+			random_list = {
+			    10 = { change_dip = -1 }
+				30 = { change_dip = 0 }
+				30 = { change_dip = 1 }
+				20 = { change_dip = 2 }
+				10 = { change_dip = 3 }
+			}
+			add_ruler_modifier = {
+			    name = PSOL_president
+			}
+		}
+		add_faction_influence = {
+		    faction = PSOL
+			influence = 10
+		}
+	}
+	option = {
+	    name = "DISGRACEOPT9"
+		trigger = {
+		    has_faction = PSC
+		}
+		ai_chance = {
+     		factor = 10
+		}
+		define_ruler = {
+		    adm = 1
+			dip = 1
+			mil = 1
+			fixed = yes
+		}
+		hidden_effect = {
+	        # Chance to be great/good/bad administrator
+    		random_list = {
+			    10 = { change_adm = -1 }
+				30 = { change_adm = 0 }
+				30 = { change_adm = 1 }
+				20 = { change_adm = 2 }
+				10 = { change_adm = 3 }
+			}
+			# Chance to be a great/good/bad military
+			random_list = {
+			    10 = { change_mil = -1 }
+				30 = { change_mil = 0 }
+				30 = { change_mil = 1 }
+				20 = { change_mil = 2 }
+				10 = { change_mil = 3 }
+			}
+			# Chance to be a great/good/bad diplomat
+			random_list = {
+			    10 = { change_dip = -1 }
+				30 = { change_dip = 0 }
+				30 = { change_dip = 1 }
+				20 = { change_dip = 2 }
+				10 = { change_dip = 3 }
+			}
+			add_ruler_modifier = {
+			    name = PSC_president
+			}
+		}
+		add_faction_influence = {
+		    faction = PSC
+			influence = 10
+		}
+	}
+	option = {
+	    name = "DISGRACEOPT10"
+		trigger = {
+		    has_faction = PRTB
+		}
+		ai_chance = {
+     		factor = 10
+		}
+		define_ruler = {
+		    adm = 1
+			dip = 1
+			mil = 1
+			fixed = yes
+		}
+		hidden_effect = {
+	        # Chance to be great/good/bad administrator
+    		random_list = {
+			    10 = { change_adm = -1 }
+				30 = { change_adm = 0 }
+				30 = { change_adm = 1 }
+				20 = { change_adm = 2 }
+				10 = { change_adm = 3 }
+			}
+			# Chance to be a great/good/bad military
+			random_list = {
+			    10 = { change_mil = -1 }
+				30 = { change_mil = 0 }
+				30 = { change_mil = 1 }
+				20 = { change_mil = 2 }
+				10 = { change_mil = 3 }
+			}
+			# Chance to be a great/good/bad diplomat
+			random_list = {
+			    10 = { change_dip = -1 }
+				30 = { change_dip = 0 }
+				30 = { change_dip = 1 }
+				20 = { change_dip = 2 }
+				10 = { change_dip = 3 }
+			}
+			add_ruler_modifier = {
+			    name = PRTB_president
+			}
+		}
+		add_faction_influence = {
+		    faction = PRTB
+			influence = 10
+		}
+	}
+	option = {
+	    name = "DISGRACEOPT11"
+		trigger = {
+		    has_faction = partido_verde
+		}
+		ai_chance = {
+     		factor = 0
+		}
+		define_ruler = {
+		    adm = 1
+			dip = 1
+			mil = 1
+			fixed = yes
+		}
+		hidden_effect = {
+	        # Chance to be great/good/bad administrator
+    		random_list = {
+			    10 = { change_adm = -1 }
+				30 = { change_adm = 0 }
+				30 = { change_adm = 1 }
+				20 = { change_adm = 2 }
+				10 = { change_adm = 3 }
+			}
+			# Chance to be a great/good/bad military
+			random_list = {
+			    10 = { change_mil = -1 }
+				30 = { change_mil = 0 }
+				30 = { change_mil = 1 }
+				20 = { change_mil = 2 }
+				10 = { change_mil = 3 }
+			}
+			# Chance to be a great/good/bad diplomat
+			random_list = {
+			    10 = { change_dip = -1 }
+				30 = { change_dip = 0 }
+				30 = { change_dip = 1 }
+				20 = { change_dip = 2 }
+				10 = { change_dip = 3 }
+			}
+			add_ruler_modifier = {
+			    name = verde_president
+			}
+		}
+		add_faction_influence = {
+		    faction = partido_verde
+			influence = 10
+		}
+	}
+}
+
+# Nova República
+country_event = {
+    id = elections.729
+	title = "EVTNAME700"
+	desc = "CORONELDESC725"
+	picture = ELECTION_REPUBLICAN_eventPicture
+	
+	trigger = {
+	    tag = BRZ
+		government = republic
+		has_country_flag = republicanova
+		OR = {
+    	    had_country_flag = { flag = had_general_election days = 1460 }
+			NOT = { has_country_flag = had_general_election }
+	    }
+		
+	}
+	
+	mean_time_to_happen = {
+	    days = 1
+	}
+	
+	immediate = {
+	    hidden_effect = {
+		    remove_country_modifier = PT_majority_lower_house
+		    remove_country_modifier = PT_majority_upper_house
+			remove_country_modifier = PSDB_majority_lower_house
+			remove_country_modifier = PSDB_majority_upper_house
+			remove_country_modifier = PMDB_majority_lower_house
+			remove_country_modifier = PMDB_majority_upper_house
+			remove_country_modifier = DEM_majority_lower_house
+			remove_country_modifier = DEM_majority_upper_house
+			remove_country_modifier = PRONA_majority_lower_house
+			remove_country_modifier = PRONA_majority_upper_house
+			remove_country_modifier = PR_majority_lower_house
+			remove_country_modifier = PR_majority_upper_house
+			remove_country_modifier = PDT_majority_lower_house
+			remove_country_modifier = PDT_majority_upper_house
+			remove_country_modifier = PTB_majority_lower_house
+			remove_country_modifier = PTB_majority_upper_house
+			remove_country_modifier = PRTB_majority_lower_house
+			remove_country_modifier = PRTB_majority_upper_house
+			remove_country_modifier = PSOL_majority_lower_house
+			remove_country_modifier = PSOL_majority_upper_house
+			remove_country_modifier = PSC_majority_lower_house
+			remove_country_modifier = PSC_majority_upper_house
+			remove_country_modifier = REDE_majority_lower_house
+			remove_country_modifier = REDE_majority_upper_house
+			remove_country_modifier = PCB_majority_lower_house
+			remove_country_modifier = PCB_majority_upper_house
+			remove_country_flag = had_general_election
+		}
+	}
+	
+	option = { # Don't do nothing
+	    name = "DISGRACE4OPT1"
+		hidden_effect = {
+		    set_country_flag = had_general_election
+			random_list = {         # Lower House
+			    20 = { country_event = { id = republicanova.4 } } # PT
+				15 = { country_event = { id = republicanova.6 } } # PSDB
+				20 = { country_event = { id = republicanova.8 } } # PMDB
+				10 = { country_event = { id = republicanova.10 } } # DEM
+				10 = {
+				    if = {
+					    limit = { has_faction = PRONA }
+    					country_event = { id = republicanova.12 }
+					}
+					if = {
+					    limit = { has_faction = PR }
+						country_event = { id = republicanova.14 }
+					}
+				} # PRONA/PR
+				6 = { country_event = { id = republicanova.16 } } # PDT
+				5 = { country_event = { id = republicanova.18 } } # PTB
+				1 = { country_event = { id = republicanova.20 } } # PRTB
+				2 = { country_event = { id = republicanova.22 } } # PSOL
+				4 = { country_event = { id = republicanova.24 } } # PSC
+				1 = { country_event = { id = republicanova.26 } } # REDE
+				2 = { country_event = { id = republicanova.28 } } # PCB
+			}
+			random_list = {         # Upper House
+			    20 = { country_event = { id = republicanova.5 } } # PT
+				15 = { country_event = { id = republicanova.7 } } # PSDB
+				30 = { country_event = { id = republicanova.9 } } # PMDB
+				8 = { country_event = { id = republicanova.11 } } # DEM
+				5 = {
+				    if = {
+					    limit = { has_faction = PRONA }
+    					country_event = { id = republicanova.13 }
+					}
+					if = {
+					    limit = { has_faction = PR }
+						country_event = { id = republicanova.15 }
+					}
+				} # PRONA/PR
+				5 = { country_event = { id = republicanova.17 } } # PDT
+				8 = { country_event = { id = republicanova.19 } } # PTB
+				2 = { country_event = { id = republicanova.21 } } # PRTB
+				2 = { country_event = { id = republicanova.23 } } # PSOL
+				2 = { country_event = { id = republicanova.25 } } # PSC
+				1 = { country_event = { id = republicanova.27 } } # REDE
+				2 = { country_event = { id = republicanova.29 } } # PCB
+			}
+		}
+		ai_chance = {
+		    factor = 1
+			
+			modifier = {
+			    factor = 0
+				years_of_income = 0.05
+			}
+		}
+	}
+	
+	option = { # Support PT
+	    name = "DISGRACEOPT12"
+		trigger = {
+		    has_ruler_modifier = PT_president
+		}
+		add_years_of_income = -0.05
+		hidden_effect = {
+		    set_country_flag = had_general_election
+		    random_list = {         # Lower House
+			    50 = { country_event = { id = republicanova.4 } } # PT
+				10 = { country_event = { id = republicanova.6 } } # PSDB
+				15 = { country_event = { id = republicanova.8 } } # PMDB
+				10 = { country_event = { id = republicanova.10 } } # DEM
+				5 = {
+				    if = {
+					    limit = { has_faction = PRONA }
+    					country_event = { id = republicanova.12 }
+					}
+					if = {
+					    limit = { has_faction = PR }
+						country_event = { id = republicanova.14 }
+					}
+				} # PRONA/PR
+				3 = { country_event = { id = republicanova.16 } } # PDT
+				3 = { country_event = { id = republicanova.18 } } # PTB
+				1 = { country_event = { id = republicanova.20 } } # PRTB
+				1 = { country_event = { id = republicanova.22 } } # PSOL
+				2 = { country_event = { id = republicanova.24 } } # PSC
+				1 = { country_event = { id = republicanova.26 } } # REDE
+				1 = { country_event = { id = republicanova.28 } } # PCB
+			}
+			random_list = {         # Upper House
+			    50 = { country_event = { id = republicanova.5 } } # PT
+				10 = { country_event = { id = republicanova.7 } } # PSDB
+				20 = { country_event = { id = republicanova.9 } } # PMDB
+				4 = { country_event = { id = republicanova.11 } } # DEM
+				4 = {
+				    if = {
+					    limit = { has_faction = PRONA }
+    					country_event = { id = republicanova.13 }
+					}
+					if = {
+					    limit = { has_faction = PR }
+						country_event = { id = republicanova.15 }
+					}
+				} # PRONA/PR
+				3 = { country_event = { id = republicanova.17 } } # PDT
+				4 = { country_event = { id = republicanova.19 } } # PTB
+				1 = { country_event = { id = republicanova.21 } } # PRTB
+				1 = { country_event = { id = republicanova.23 } } # PSOL
+				1 = { country_event = { id = republicanova.25 } } # PSC
+				1 = { country_event = { id = republicanova.27 } } # REDE
+				1 = { country_event = { id = republicanova.29 } } # PCB
+			}
+			random = {
+			    chance = 30
+				country_event = { id = republicanova.30 }
+			}
+		}
+		ai_chance = {
+		    factor = 1
+			
+			modifier = {
+			    factor = 0
+				NOT = { years_of_income = 0.05 }
+			}
+		}
+	}
+	option = { # Support PSDB
+	    name = "DISGRACEOPT12"
+		trigger = {
+		    has_ruler_modifier = PSDB_president 
+		}
+		add_years_of_income = -0.05
+		hidden_effect = {
+		    set_country_flag = had_general_election
+			random_list = {         # Lower House
+			    10 = { country_event = { id = republicanova.4 } } # PT
+				50 = { country_event = { id = republicanova.6 } } # PSDB
+				10 = { country_event = { id = republicanova.8 } } # PMDB
+				5 = { country_event = { id = republicanova.10 } } # DEM
+				5 = {
+				    if = {
+					    limit = { has_faction = PRONA }
+    					country_event = { id = republicanova.12 }
+					}
+					if = {
+					    limit = { has_faction = PR }
+						country_event = { id = republicanova.14 }
+					}
+				} # PRONA/PR
+				4 = { country_event = { id = republicanova.16 } } # PDT
+				3 = { country_event = { id = republicanova.18 } } # PTB
+				1 = { country_event = { id = republicanova.20 } } # PRTB
+				2 = { country_event = { id = republicanova.22 } } # PSOL
+				3 = { country_event = { id = republicanova.24 } } # PSC
+				1 = { country_event = { id = republicanova.26 } } # REDE
+				2 = { country_event = { id = republicanova.28 } } # PCB
+			}
+			random_list = {         # Upper House
+			    10 = { country_event = { id = republicanova.5 } } # PT
+				50 = { country_event = { id = republicanova.7 } } # PSDB
+				20 = { country_event = { id = republicanova.9 } } # PMDB
+				5 = { country_event = { id = republicanova.11 } } # DEM
+				5 = {
+				    if = {
+					    limit = { has_faction = PRONA }
+    					country_event = { id = republicanova.13 }
+					}
+					if = {
+					    limit = { has_faction = PR }
+						country_event = { id = republicanova.15 }
+					}
+				} # PRONA/PR
+				3 = { country_event = { id = republicanova.17 } } # PDT
+				2 = { country_event = { id = republicanova.19 } } # PTB
+				1 = { country_event = { id = republicanova.21 } } # PRTB
+				1 = { country_event = { id = republicanova.23 } } # PSOL
+				1 = { country_event = { id = republicanova.25 } } # PSC
+				1 = { country_event = { id = republicanova.27 } } # REDE
+				1 = { country_event = { id = republicanova.29 } } # PCB
+			}
+		}
+		ai_chance = {
+		    factor = 1
+			
+			modifier = {
+			    factor = 0
+				NOT = { years_of_income = 0.05 }
+			}
+		}
+	}
+	
+	option = { # Support PMDB
+	    name = "DISGRACEOPT12"
+		trigger = {
+		    has_ruler_modifier = PMDB_president
+		}
+		add_years_of_income = -0.05
+		hidden_effect = {
+		    set_country_flag = had_general_election
+			random_list = {         # Lower House
+			    10 = { country_event = { id = republicanova.4 } } # PT
+				5 = { country_event = { id = republicanova.6 } } # PSDB
+				50 = { country_event = { id = republicanova.8 } } # PMDB
+				5 = { country_event = { id = republicanova.10 } } # DEM
+				10 = {
+				    if = {
+					    limit = { has_faction = PRONA }
+    					country_event = { id = republicanova.12 }
+					}
+					if = {
+					    limit = { has_faction = PR }
+						country_event = { id = republicanova.14 }
+					}
+				} # PRONA/PR
+				5 = { country_event = { id = republicanova.16 } } # PDT
+				5 = { country_event = { id = republicanova.18 } } # PTB
+				1 = { country_event = { id = republicanova.20 } } # PRTB
+				1 = { country_event = { id = republicanova.22 } } # PSOL
+				2 = { country_event = { id = republicanova.24 } } # PSC
+				1 = { country_event = { id = republicanova.26 } } # REDE
+				1 = { country_event = { id = republicanova.28 } } # PCB
+			}
+			random_list = {         # Upper House
+			    10 = { country_event = { id = republicanova.5 } } # PT
+				5 = { country_event = { id = republicanova.7 } } # PSDB
+				50 = { country_event = { id = republicanova.9 } } # PMDB
+				8 = { country_event = { id = republicanova.11 } } # DEM
+				5 = {
+				    if = {
+					    limit = { has_faction = PRONA }
+    					country_event = { id = republicanova.13 }
+					}
+					if = {
+					    limit = { has_faction = PR }
+						country_event = { id = republicanova.15 }
+					}
+				} # PRONA/PR
+				5 = { country_event = { id = republicanova.17 } } # PDT
+				8 = { country_event = { id = republicanova.19 } } # PTB
+				2 = { country_event = { id = republicanova.21 } } # PRTB
+				2 = { country_event = { id = republicanova.23 } } # PSOL
+				2 = { country_event = { id = republicanova.25 } } # PSC
+				1 = { country_event = { id = republicanova.27 } } # REDE
+				2 = { country_event = { id = republicanova.29 } } # PCB
+			}
+		}
+		ai_chance = {
+		    factor = 1
+			
+			modifier = {
+			    factor = 0
+				NOT = { years_of_income = 0.05 }
+			}
+		}
+	}
+	
+	option = { # Support PRONA/PR
+	    name = "DISGRACEOPT12"
+		trigger = {
+		    OR = {
+			    has_ruler_modifier = PRONA_president
+				has_ruler_modifier = PR_president
+			}
+		}
+		add_years_of_income = -0.05
+		hidden_effect = {
+		    set_country_flag = had_general_election
+			random_list = {         # Lower House
+			    10 = { country_event = { id = republicanova.4 } } # PT
+				5 = { country_event = { id = republicanova.6 } } # PSDB
+				10 = { country_event = { id = republicanova.8 } } # PMDB
+				10 = { country_event = { id = republicanova.10 } } # DEM
+				50 = {
+				    if = {
+					    limit = { has_faction = PRONA }
+    					country_event = { id = republicanova.12 }
+					}
+					if = {
+					    limit = { has_faction = PR }
+						country_event = { id = republicanova.14 }
+					}
+				} # PRONA/PR
+				3 = { country_event = { id = republicanova.16 } } # PDT
+				3 = { country_event = { id = republicanova.18 } } # PTB
+				1 = { country_event = { id = republicanova.20 } } # PRTB
+				1 = { country_event = { id = republicanova.22 } } # PSOL
+				1 = { country_event = { id = republicanova.24 } } # PSC
+				1 = { country_event = { id = republicanova.26 } } # REDE
+				1 = { country_event = { id = republicanova.28 } } # PCB
+			}
+			random_list = {         # Upper House
+			    10 = { country_event = { id = republicanova.5 } } # PT
+				5 = { country_event = { id = republicanova.7 } } # PSDB
+				20 = { country_event = { id = republicanova.9 } } # PMDB
+				3 = { country_event = { id = republicanova.11 } } # DEM
+				50 = {
+				    if = {
+					    limit = { has_faction = PRONA }
+    					country_event = { id = republicanova.13 }
+					}
+					if = {
+					    limit = { has_faction = PR }
+						country_event = { id = republicanova.15 }
+					}
+				} # PRONA/PR
+				4 = { country_event = { id = republicanova.17 } } # PDT
+				3 = { country_event = { id = republicanova.19 } } # PTB
+				1 = { country_event = { id = republicanova.21 } } # PRTB
+				1 = { country_event = { id = republicanova.23 } } # PSOL
+				1 = { country_event = { id = republicanova.25 } } # PSC
+				1 = { country_event = { id = republicanova.27 } } # REDE
+				1 = { country_event = { id = republicanova.29 } } # PCB
+			}
+		}
+		ai_chance = {
+		    factor = 1
+			
+			modifier = {
+			    factor = 0
+				NOT = { years_of_income = 0.05 }
+			}
+		}
+	}
+	
+	option = { # Support PDT
+	    name = "DISGRACEOPT12"
+		trigger = {
+		    has_ruler_modifier = PDT_president
+		}
+		add_years_of_income = -0.05
+		hidden_effect = {
+		    set_country_flag = had_general_election
+			random_list = {         # Lower House
+			    10 = { country_event = { id = republicanova.4 } } # PT
+				5 = { country_event = { id = republicanova.6 } } # PSDB
+				10 = { country_event = { id = republicanova.8 } } # PMDB
+				5 = { country_event = { id = republicanova.10 } } # DEM
+				5 = {
+				    if = {
+					    limit = { has_faction = PRONA }
+    					country_event = { id = republicanova.12 }
+					}
+					if = {
+					    limit = { has_faction = PR }
+						country_event = { id = republicanova.14 }
+					}
+				} # PRONA/PR
+				50 = { country_event = { id = republicanova.16 } } # PDT
+				3 = { country_event = { id = republicanova.18 } } # PTB
+				1 = { country_event = { id = republicanova.20 } } # PRTB
+				1 = { country_event = { id = republicanova.22 } } # PSOL
+				4 = { country_event = { id = republicanova.24 } } # PSC
+				1 = { country_event = { id = republicanova.26 } } # REDE
+				1 = { country_event = { id = republicanova.28 } } # PCB
+			}
+			random_list = {         # Upper House
+			    15 = { country_event = { id = republicanova.5 } } # PT
+				15 = { country_event = { id = republicanova.7 } } # PSDB
+				15 = { country_event = { id = republicanova.9 } } # PMDB
+				8 = { country_event = { id = republicanova.11 } } # DEM
+				5 = {
+				    if = {
+					    limit = { has_faction = PRONA }
+    					country_event = { id = republicanova.13 }
+					}
+					if = {
+					    limit = { has_faction = PR }
+						country_event = { id = republicanova.15 }
+					}
+				} # PRONA/PR
+				25 = { country_event = { id = republicanova.17 } } # PDT
+				8 = { country_event = { id = republicanova.19 } } # PTB
+				2 = { country_event = { id = republicanova.21 } } # PRTB
+				2 = { country_event = { id = republicanova.23 } } # PSOL
+				2 = { country_event = { id = republicanova.25 } } # PSC
+				1 = { country_event = { id = republicanova.27 } } # REDE
+				2 = { country_event = { id = republicanova.29 } } # PCB
+			}
+		}
+		ai_chance = {
+		    factor = 1
+			
+			modifier = {
+			    factor = 0
+				NOT = { years_of_income = 0.05 }
+			}
+		}
+	}
+	
+	option = { # Support PRTB
+	    name = "DISGRACEOPT12"
+		trigger = {
+		    has_ruler_modifier = PRTB_president
+		}
+		add_years_of_income = -0.05
+		hidden_effect = {
+		    set_country_flag = had_general_election
+			random_list = {         # Lower House
+			    15 = { country_event = { id = republicanova.4 } } # PT
+				20 = { country_event = { id = republicanova.6 } } # PSDB
+				10 = { country_event = { id = republicanova.8 } } # PMDB
+				5 = { country_event = { id = republicanova.10 } } # DEM
+				5 = {
+				    if = {
+					    limit = { has_faction = PRONA }
+    					country_event = { id = republicanova.12 }
+					}
+					if = {
+					    limit = { has_faction = PR }
+						country_event = { id = republicanova.14 }
+					}
+				} # PRONA/PR
+				4 = { country_event = { id = republicanova.16 } } # PDT
+				3 = { country_event = { id = republicanova.18 } } # PTB
+				25 = { country_event = { id = republicanova.20 } } # PRTB
+				2 = { country_event = { id = republicanova.22 } } # PSOL
+				3 = { country_event = { id = republicanova.24 } } # PSC
+				2 = { country_event = { id = republicanova.26 } } # REDE
+				2 = { country_event = { id = republicanova.28 } } # PCB
+			}
+			random_list = {         # Upper House
+			    10 = { country_event = { id = republicanova.5 } } # PT
+				15 = { country_event = { id = republicanova.7 } } # PSDB
+				10 = { country_event = { id = republicanova.9 } } # PMDB
+				5 = { country_event = { id = republicanova.11 } } # DEM
+				5 = {
+				    if = {
+					    limit = { has_faction = PRONA }
+    					country_event = { id = republicanova.13 }
+					}
+					if = {
+					    limit = { has_faction = PR }
+						country_event = { id = republicanova.15 }
+					}
+				} # PRONA/PR
+				5 = { country_event = { id = republicanova.17 } } # PDT
+				8 = { country_event = { id = republicanova.19 } } # PTB
+				25 = { country_event = { id = republicanova.21 } } # PRTB
+				2 = { country_event = { id = republicanova.23 } } # PSOL
+				2 = { country_event = { id = republicanova.25 } } # PSC
+				1 = { country_event = { id = republicanova.27 } } # REDE
+				2 = { country_event = { id = republicanova.29 } } # PCB
+			}
+		}
+		ai_chance = {
+		    factor = 1
+			
+			modifier = {
+			    factor = 0
+				NOT = { years_of_income = 0.05 }
+			}
+		}
+	}
+	
+	option = { # Support PSOL
+	    name = "DISGRACEOPT12"
+		trigger = {
+		    has_ruler_modifier = PSOL_president
+		}
+		add_years_of_income = -0.05
+		hidden_effect = {
+		    set_country_flag = had_general_election
+			random_list = {         # Lower House
+			    10 = { country_event = { id = republicanova.4 } } # PT
+				15 = { country_event = { id = republicanova.6 } } # PSDB
+				10 = { country_event = { id = republicanova.8 } } # PMDB
+				10 = { country_event = { id = republicanova.10 } } # DEM
+				10 = {
+				    if = {
+					    limit = { has_faction = PRONA }
+    					country_event = { id = republicanova.12 }
+					}
+					if = {
+					    limit = { has_faction = PR }
+						country_event = { id = republicanova.14 }
+					}
+				} # PRONA/PR
+				4 = { country_event = { id = republicanova.16 } } # PDT
+				4 = { country_event = { id = republicanova.18 } } # PTB
+				1 = { country_event = { id = republicanova.20 } } # PRTB
+				25 = { country_event = { id = republicanova.22 } } # PSOL
+				4 = { country_event = { id = republicanova.24 } } # PSC
+				1 = { country_event = { id = republicanova.26 } } # REDE
+				2 = { country_event = { id = republicanova.28 } } # PCB
+			}
+			random_list = {         # Upper House
+			    10 = { country_event = { id = republicanova.5 } } # PT
+				15 = { country_event = { id = republicanova.7 } } # PSDB
+				10 = { country_event = { id = republicanova.9 } } # PMDB
+				8 = { country_event = { id = republicanova.11 } } # DEM
+				5 = {
+				    if = {
+					    limit = { has_faction = PRONA }
+    					country_event = { id = republicanova.13 }
+					}
+					if = {
+					    limit = { has_faction = PR }
+						country_event = { id = republicanova.15 }
+					}
+				} # PRONA/PR
+				5 = { country_event = { id = republicanova.17 } } # PDT
+				5 = { country_event = { id = republicanova.19 } } # PTB
+				2 = { country_event = { id = republicanova.21 } } # PRTB
+				25 = { country_event = { id = republicanova.23 } } # PSOL
+				2 = { country_event = { id = republicanova.25 } } # PSC
+				1 = { country_event = { id = republicanova.27 } } # REDE
+				2 = { country_event = { id = republicanova.29 } } # PCB
+			}
+		}
+		ai_chance = {
+		    factor = 1
+			
+			modifier = {
+			    factor = 0
+				NOT = { years_of_income = 0.05 }
+			}
+		}
+	}
+	
+	option = { # Support PSC
+	    name = "DISGRACEOPT12"
+		trigger = {
+		    has_ruler_modifier = PSC_president
+		}
+		add_years_of_income = -0.05
+		hidden_effect = {
+		    set_country_flag = had_general_election
+			random_list = {         # Lower House
+			    10 = { country_event = { id = republicanova.4 } } # PT
+				15 = { country_event = { id = republicanova.6 } } # PSDB
+				10 = { country_event = { id = republicanova.8 } } # PMDB
+				10 = { country_event = { id = republicanova.10 } } # DEM
+				10 = {
+				    if = {
+					    limit = { has_faction = PRONA }
+    					country_event = { id = republicanova.12 }
+					}
+					if = {
+					    limit = { has_faction = PR }
+						country_event = { id = republicanova.14 }
+					}
+				} # PRONA/PR
+				6 = { country_event = { id = republicanova.16 } } # PDT
+				5 = { country_event = { id = republicanova.18 } } # PTB
+				1 = { country_event = { id = republicanova.20 } } # PRTB
+				2 = { country_event = { id = republicanova.22 } } # PSOL
+				25 = { country_event = { id = republicanova.24 } } # PSC
+				1 = { country_event = { id = republicanova.26 } } # REDE
+				1 = { country_event = { id = republicanova.28 } } # PCB
+			}
+			random_list = {         # Upper House
+			    10 = { country_event = { id = republicanova.5 } } # PT
+				15 = { country_event = { id = republicanova.7 } } # PSDB
+				20 = { country_event = { id = republicanova.9 } } # PMDB
+				8 = { country_event = { id = republicanova.11 } } # DEM
+				5 = {
+				    if = {
+					    limit = { has_faction = PRONA }
+    					country_event = { id = republicanova.13 }
+					}
+					if = {
+					    limit = { has_faction = PR }
+						country_event = { id = republicanova.15 }
+					}
+				} # PRONA/PR
+				5 = { country_event = { id = republicanova.17 } } # PDT
+				7 = { country_event = { id = republicanova.19 } } # PTB
+				1 = { country_event = { id = republicanova.21 } } # PRTB
+				1 = { country_event = { id = republicanova.23 } } # PSOL
+				25 = { country_event = { id = republicanova.25 } } # PSC
+				1 = { country_event = { id = republicanova.27 } } # REDE
+				1 = { country_event = { id = republicanova.29 } } # PCB
+			}
+		}
+		ai_chance = {
+		    factor = 1
+			
+			modifier = {
+			    factor = 0
+				NOT = { years_of_income = 0.05 }
+			}
+		}
+	}
+	
+	option = { # Support PCB
+	    name = "DISGRACEOPT12"
+		trigger = {
+		    has_ruler_modifier = comunista_president
+		}
+		add_years_of_income = -0.05
+		hidden_effect = {
+		    set_country_flag = had_general_election
+			random_list = {         # Lower House
+			    10 = { country_event = { id = republicanova.4 } } # PT
+				15 = { country_event = { id = republicanova.6 } } # PSDB
+				10 = { country_event = { id = republicanova.8 } } # PMDB
+				10 = { country_event = { id = republicanova.10 } } # DEM
+				10 = {
+				    if = {
+					    limit = { has_faction = PRONA }
+    					country_event = { id = republicanova.12 }
+					}
+					if = {
+					    limit = { has_faction = PR }
+						country_event = { id = republicanova.14 }
+					}
+				} # PRONA/PR
+				6 = { country_event = { id = republicanova.16 } } # PDT
+				5 = { country_event = { id = republicanova.18 } } # PTB
+				1 = { country_event = { id = republicanova.20 } } # PRTB
+				2 = { country_event = { id = republicanova.22 } } # PSOL
+				1 = { country_event = { id = republicanova.24 } } # PSC
+				1 = { country_event = { id = republicanova.26 } } # REDE
+				25 = { country_event = { id = republicanova.28 } } # PCB
+			}
+			random_list = {         # Upper House
+			    10 = { country_event = { id = republicanova.5 } } # PT
+				15 = { country_event = { id = republicanova.7 } } # PSDB
+				20 = { country_event = { id = republicanova.9 } } # PMDB
+				8 = { country_event = { id = republicanova.11 } } # DEM
+				5 = {
+				    if = {
+					    limit = { has_faction = PRONA }
+    					country_event = { id = republicanova.13 }
+					}
+					if = {
+					    limit = { has_faction = PR }
+						country_event = { id = republicanova.15 }
+					}
+				} # PRONA/PR
+				5 = { country_event = { id = republicanova.17 } } # PDT
+				5 = { country_event = { id = republicanova.19 } } # PTB
+				2 = { country_event = { id = republicanova.21 } } # PRTB
+				2 = { country_event = { id = republicanova.23 } } # PSOL
+				2 = { country_event = { id = republicanova.25 } } # PSC
+				1 = { country_event = { id = republicanova.27 } } # REDE
+				25 = { country_event = { id = republicanova.29 } } # PCB
+			}
+		}
+		ai_chance = {
+		    factor = 1
+			
+			modifier = {
+			    factor = 0
+				NOT = { years_of_income = 0.05 }
+			}
+		}
+	}
+}
+
+# Nova República
+country_event = {
+    id = elections.730
+	title = "EVTNAME700"
+	desc = "CORONELDESC723"
+	picture = ELECTION_REPUBLICAN_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+	    tag = BRZ
+		government = republic
+		has_country_flag = republicanova
+	}
+	
+	option = {
+	    name = "DISGRACEOPT1"
+		trigger = {
+		    has_faction = partido_dos_trabalhadores
+		}
+		ai_chance = {
+     		factor = 50
+			
+			modifier = {
+			    factor = 0
+			    NOT = { is_year = 2000 }
+			}
+		}
+		define_ruler = {
+		    adm = 1
+			dip = 1
+			mil = 1
+			fixed = yes
+		}
+		hidden_effect = {
+	        # Chance to be great/good/bad administrator
+    		random_list = {
+			    10 = { change_adm = -1 }
+				30 = { change_adm = 0 }
+				30 = { change_adm = 1 }
+				20 = { change_adm = 2 }
+				10 = { change_adm = 3 }
+			}
+			# Chance to be a great/good/bad military
+			random_list = {
+			    10 = { change_mil = -1 }
+				30 = { change_mil = 0 }
+				30 = { change_mil = 1 }
+				20 = { change_mil = 2 }
+				10 = { change_mil = 3 }
+			}
+			# Chance to be a great/good/bad diplomat
+			random_list = {
+			    10 = { change_dip = -1 }
+				30 = { change_dip = 0 }
+				30 = { change_dip = 1 }
+				20 = { change_dip = 2 }
+				10 = { change_dip = 3 }
+			}
+			add_ruler_modifier = {
+			    name = PT_president
+			}
+		}
+		add_faction_influence = {
+		    faction = partido_dos_trabalhadores
+			influence = 10
+		}
+	}
+	option = {
+	    name = "DISGRACEOPT2"
+		trigger = {
+		    has_faction = PSDB
+		}
+		ai_chance = {
+     		factor = 50
+		}
+		define_ruler = {
+		    adm = 1
+			dip = 1
+			mil = 1
+			fixed = yes
+		}
+		hidden_effect = {
+	        # Chance to be great/good/bad administrator
+    		random_list = {
+			    10 = { change_adm = -1 }
+				30 = { change_adm = 0 }
+				30 = { change_adm = 1 }
+				20 = { change_adm = 2 }
+				10 = { change_adm = 3 }
+			}
+			# Chance to be a great/good/bad military
+			random_list = {
+			    10 = { change_mil = -1 }
+				30 = { change_mil = 0 }
+				30 = { change_mil = 1 }
+				20 = { change_mil = 2 }
+				10 = { change_mil = 3 }
+			}
+			# Chance to be a great/good/bad diplomat
+			random_list = {
+			    10 = { change_dip = -1 }
+				30 = { change_dip = 0 }
+				30 = { change_dip = 1 }
+				20 = { change_dip = 2 }
+				10 = { change_dip = 3 }
+			}
+			add_ruler_modifier = {
+			    name = PSDB_president
+			}
+		}
+		add_faction_influence = {
+		    faction = PSDB
+			influence = 10
+		}
+	}
+	option = {
+	    name = "DISGRACEOPT3"
+		trigger = {
+		    has_faction = partido_comunista_brasileiro
+		}
+		ai_chance = {
+     		factor = 0
+		}
+		define_ruler = {
+		    adm = 1
+			dip = 1
+			mil = 1
+			fixed = yes
+		}
+		hidden_effect = {
+	        # Chance to be great/good/bad administrator
+    		random_list = {
+			    10 = { change_adm = -1 }
+				30 = { change_adm = 0 }
+				30 = { change_adm = 1 }
+				20 = { change_adm = 2 }
+				10 = { change_adm = 3 }
+			}
+			# Chance to be a great/good/bad military
+			random_list = {
+			    10 = { change_mil = -1 }
+				30 = { change_mil = 0 }
+				30 = { change_mil = 1 }
+				20 = { change_mil = 2 }
+				10 = { change_mil = 3 }
+			}
+			# Chance to be a great/good/bad diplomat
+			random_list = {
+			    10 = { change_dip = -1 }
+				30 = { change_dip = 0 }
+				30 = { change_dip = 1 }
+				20 = { change_dip = 2 }
+				10 = { change_dip = 3 }
+			}
+			add_ruler_modifier = {
+			    name = comunista_president
+			}
+		}
+		add_faction_influence = {
+		    faction = partido_comunista_brasileiro
+			influence = 10
+		}
+	}
+	option = {
+	    name = "DISGRACEOPT4"
+		trigger = {
+		    has_faction = PDT
+		}
+		ai_chance = {
+     		factor = 0
+		}
+		define_ruler = {
+		    adm = 1
+			dip = 1
+			mil = 1
+			fixed = yes
+		}
+		hidden_effect = {
+	        # Chance to be great/good/bad administrator
+    		random_list = {
+			    10 = { change_adm = -1 }
+				30 = { change_adm = 0 }
+				30 = { change_adm = 1 }
+				20 = { change_adm = 2 }
+				10 = { change_adm = 3 }
+			}
+			# Chance to be a great/good/bad military
+			random_list = {
+			    10 = { change_mil = -1 }
+				30 = { change_mil = 0 }
+				30 = { change_mil = 1 }
+				20 = { change_mil = 2 }
+				10 = { change_mil = 3 }
+			}
+			# Chance to be a great/good/bad diplomat
+			random_list = {
+			    10 = { change_dip = -1 }
+				30 = { change_dip = 0 }
+				30 = { change_dip = 1 }
+				20 = { change_dip = 2 }
+				10 = { change_dip = 3 }
+			}
+			add_ruler_modifier = {
+			    name = PDT_president
+			}
+		}
+		add_faction_influence = {
+		    faction = PDT
+			influence = 10
+		}
+	}
+	option = {
+	    name = "DISGRACEOPT5"
+		trigger = {
+		    has_faction = PRONA
+		}
+		ai_chance = {
+     		factor = 10
+		}
+		define_ruler = {
+		    adm = 1
+			dip = 1
+			mil = 1
+			fixed = yes
+		}
+		hidden_effect = {
+	        # Chance to be great/good/bad administrator
+    		random_list = {
+			    10 = { change_adm = -1 }
+				10 = { change_adm = 0 }
+				20 = { change_adm = 1 }
+				30 = { change_adm = 2 }
+				30 = { change_adm = 3 }
+			}
+			# Chance to be a great/good/bad military
+			random_list = {
+			    10 = { change_mil = -1 }
+				10 = { change_mil = 0 }
+				20 = { change_mil = 1 }
+				30 = { change_mil = 2 }
+				30 = { change_mil = 3 }
+			}
+			# Chance to be a great/good/bad diplomat
+			random_list = {
+			    10 = { change_dip = -1 }
+				10 = { change_dip = 0 }
+				20 = { change_dip = 1 }
+				30 = { change_dip = 2 }
+				30 = { change_dip = 3 }
+			}
+			add_ruler_modifier = {
+			    name = PRONA_president
+			}
+		}
+		add_faction_influence = {
+		    faction = PRONA
+			influence = 10
+		}
+	}
+	option = {
+	    name = "DISGRACEOPT6"
+		trigger = {
+		    has_faction = partido_conservador_monarquista
+		}
+		ai_chance = {
+     		factor = 0
+		}
+		define_ruler = {
+		    adm = 1
+			dip = 1
+			mil = 1
+			fixed = yes
+		}
+		hidden_effect = {
+	        # Chance to be great/good/bad administrator
+    		random_list = {
+			    10 = { change_adm = -1 }
+				10 = { change_adm = 0 }
+				20 = { change_adm = 1 }
+				30 = { change_adm = 2 }
+				30 = { change_adm = 3 }
+			}
+			# Chance to be a great/good/bad military
+			random_list = {
+			    10 = { change_mil = -1 }
+				10 = { change_mil = 0 }
+				20 = { change_mil = 1 }
+				30 = { change_mil = 2 }
+				30 = { change_mil = 3 }
+			}
+			# Chance to be a great/good/bad diplomat
+			random_list = {
+			    10 = { change_dip = -1 }
+				30 = { change_dip = 0 }
+				30 = { change_dip = 1 }
+				20 = { change_dip = 2 }
+				10 = { change_dip = 3 }
+			}
+			add_ruler_modifier = {
+			    name = monarchist_president
+			}
+		}
+		add_faction_influence = {
+		    faction = partido_conservador_monarquista
+			influence = 10
+		}
+	}
+	option = {
+	    name = "DISGRACEOPT7"
+		trigger = {
+		    has_faction = partido_da_republica
+		}
+		ai_chance = {
+     		factor = 0
+		}
+		define_ruler = {
+		    adm = 1
+			dip = 1
+			mil = 1
+			fixed = yes
+		}
+		hidden_effect = {
+	        # Chance to be great/good/bad administrator
+    		random_list = {
+			    10 = { change_adm = -1 }
+				30 = { change_adm = 0 }
+				30 = { change_adm = 1 }
+				20 = { change_adm = 2 }
+				10 = { change_adm = 3 }
+			}
+			# Chance to be a great/good/bad military
+			random_list = {
+			    10 = { change_mil = -1 }
+				30 = { change_mil = 0 }
+				30 = { change_mil = 1 }
+				20 = { change_mil = 2 }
+				10 = { change_mil = 3 }
+			}
+			# Chance to be a great/good/bad diplomat
+			random_list = {
+			    10 = { change_dip = -1 }
+				30 = { change_dip = 0 }
+				30 = { change_dip = 1 }
+				20 = { change_dip = 2 }
+				10 = { change_dip = 3 }
+			}
+			add_ruler_modifier = {
+			    name = PR_president
+			}
+		}
+		add_faction_influence = {
+		    faction = partido_da_republica
+			influence = 10
+		}
+	}
+	option = {
+	    name = "DISGRACEOPT8"
+		trigger = {
+		    has_faction = PSOL
+		}
+		ai_chance = {
+     		factor = 10
+		}
+		define_ruler = {
+		    adm = 1
+			dip = 1
+			mil = 1
+			fixed = yes
+		}
+		hidden_effect = {
+	        # Chance to be great/good/bad administrator
+    		random_list = {
+			    10 = { change_adm = -1 }
+				30 = { change_adm = 0 }
+				30 = { change_adm = 1 }
+				20 = { change_adm = 2 }
+				10 = { change_adm = 3 }
+			}
+			# Chance to be a great/good/bad military
+			random_list = {
+			    10 = { change_mil = -1 }
+				30 = { change_mil = 0 }
+				30 = { change_mil = 1 }
+				20 = { change_mil = 2 }
+				10 = { change_mil = 3 }
+			}
+			# Chance to be a great/good/bad diplomat
+			random_list = {
+			    10 = { change_dip = -1 }
+				30 = { change_dip = 0 }
+				30 = { change_dip = 1 }
+				20 = { change_dip = 2 }
+				10 = { change_dip = 3 }
+			}
+			add_ruler_modifier = {
+			    name = PSOL_president
+			}
+		}
+		add_faction_influence = {
+		    faction = PSOL
+			influence = 10
+		}
+	}
+	option = {
+	    name = "DISGRACEOPT9"
+		trigger = {
+		    has_faction = PSC
+		}
+		ai_chance = {
+     		factor = 10
+		}
+		define_ruler = {
+		    adm = 1
+			dip = 1
+			mil = 1
+			fixed = yes
+		}
+		hidden_effect = {
+	        # Chance to be great/good/bad administrator
+    		random_list = {
+			    10 = { change_adm = -1 }
+				30 = { change_adm = 0 }
+				30 = { change_adm = 1 }
+				20 = { change_adm = 2 }
+				10 = { change_adm = 3 }
+			}
+			# Chance to be a great/good/bad military
+			random_list = {
+			    10 = { change_mil = -1 }
+				30 = { change_mil = 0 }
+				30 = { change_mil = 1 }
+				20 = { change_mil = 2 }
+				10 = { change_mil = 3 }
+			}
+			# Chance to be a great/good/bad diplomat
+			random_list = {
+			    10 = { change_dip = -1 }
+				30 = { change_dip = 0 }
+				30 = { change_dip = 1 }
+				20 = { change_dip = 2 }
+				10 = { change_dip = 3 }
+			}
+			add_ruler_modifier = {
+			    name = PSC_president
+			}
+		}
+		add_faction_influence = {
+		    faction = PSC
+			influence = 10
+		}
+	}
+	option = {
+	    name = "DISGRACEOPT10"
+		trigger = {
+		    has_faction = PRTB
+		}
+		ai_chance = {
+     		factor = 10
+		}
+		define_ruler = {
+		    adm = 1
+			dip = 1
+			mil = 1
+			fixed = yes
+		}
+		hidden_effect = {
+	        # Chance to be great/good/bad administrator
+    		random_list = {
+			    10 = { change_adm = -1 }
+				30 = { change_adm = 0 }
+				30 = { change_adm = 1 }
+				20 = { change_adm = 2 }
+				10 = { change_adm = 3 }
+			}
+			# Chance to be a great/good/bad military
+			random_list = {
+			    10 = { change_mil = -1 }
+				30 = { change_mil = 0 }
+				30 = { change_mil = 1 }
+				20 = { change_mil = 2 }
+				10 = { change_mil = 3 }
+			}
+			# Chance to be a great/good/bad diplomat
+			random_list = {
+			    10 = { change_dip = -1 }
+				30 = { change_dip = 0 }
+				30 = { change_dip = 1 }
+				20 = { change_dip = 2 }
+				10 = { change_dip = 3 }
+			}
+			add_ruler_modifier = {
+			    name = PRTB_president
+			}
+		}
+		add_faction_influence = {
+		    faction = PRTB
+			influence = 10
+		}
+	}
+	option = {
+	    name = "DISGRACEOPT11"
+		trigger = {
+		    has_faction = partido_verde
+		}
+		ai_chance = {
+     		factor = 0
+		}
+		define_ruler = {
+		    adm = 1
+			dip = 1
+			mil = 1
+			fixed = yes
+		}
+		hidden_effect = {
+	        # Chance to be great/good/bad administrator
+    		random_list = {
+			    10 = { change_adm = -1 }
+				30 = { change_adm = 0 }
+				30 = { change_adm = 1 }
+				20 = { change_adm = 2 }
+				10 = { change_adm = 3 }
+			}
+			# Chance to be a great/good/bad military
+			random_list = {
+			    10 = { change_mil = -1 }
+				30 = { change_mil = 0 }
+				30 = { change_mil = 1 }
+				20 = { change_mil = 2 }
+				10 = { change_mil = 3 }
+			}
+			# Chance to be a great/good/bad diplomat
+			random_list = {
+			    10 = { change_dip = -1 }
+				30 = { change_dip = 0 }
+				30 = { change_dip = 1 }
+				20 = { change_dip = 2 }
+				10 = { change_dip = 3 }
+			}
+			add_ruler_modifier = {
+			    name = verde_president
+			}
+		}
+		add_faction_influence = {
+		    faction = partido_verde
+			influence = 10
+		}
+	}
+}

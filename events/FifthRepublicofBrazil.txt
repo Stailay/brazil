@@ -1,0 +1,1016 @@
+namespace = militarybrazil
+
+# Economic Miracle
+country_event = {
+    id = militarybrazil.1
+	title = "MILDICT1NAME"
+	desc = "MILDICT1DESC"
+	picture = ECONOMY_eventPicture
+	
+	trigger = {
+	    tag = BRZ
+		government = regime_militar
+	    is_year = 1969
+		NOT = { has_country_modifier = brazilian_economic_miracle }
+		NOT = { has_country_flag = brazilian_economic_miracle }
+	}
+	
+	mean_time_to_happen = {
+	    months = 1
+	}
+		
+	option = {
+	    name = "MILDICT1OPT1"      
+		add_country_modifier = {
+		    name = brazilian_economic_miracle
+			duration = 3650
+		}
+		set_country_flag = brazilian_economic_miracle
+	}
+}
+
+# Marighella (prision)
+country_event = {
+    id = militarybrazil.2
+	title = "MILDICT2NAME"
+	desc = "MILDICT2DESC"
+	picture = MARIGHELLA_eventPicture
+	
+	trigger = {
+	    tag = BRZ
+		government = regime_militar
+		NOT = { has_country_flag = marighella_caught }
+	}
+	
+	mean_time_to_happen = {
+	    months = 36
+	}
+	
+	immediate = {
+	    set_country_flag = marighella_caught
+	}
+	
+	option = {
+	    name = "MILDICT2OPT1"
+		add_adm_power = 50
+		add_prestige = 25
+		
+		ai_chance = { factor = 1 }
+	}
+	
+	option = {
+	    name = "MILDICT2OPT2"
+		add_dip_power = 50
+		add_prestige = 25
+		
+		ai_chance = { factor = 0 }
+	}
+	
+	option = {
+	    name = "MILDICT2OPT3"
+		add_mil_power = 50
+		add_prestige = 25
+		
+		ai_chance = { factor = 0 }
+	}
+}
+
+# Marighella (death)
+country_event = {
+    id = militarybrazil.3
+	title = "MILDICT2NAME"
+	desc = "MILDICT3DESC"
+	picture = MARIGHELLA_eventPicture
+	
+	trigger = {
+	    tag = BRZ
+		government = regime_militar
+		NOT = { has_country_flag = marighella_caught }
+	}
+	
+	mean_time_to_happen = {
+	    months = 36
+	}
+	
+	immediate = {
+	    set_country_flag = marighella_caught
+	}
+	
+	option = {
+	    name = "MILDICT3OPT1"
+		add_prestige = 25
+	}
+}
+
+# Marighella (lives)
+country_event = {
+    id = militarybrazil.4
+	title = "MILDICT2NAME"
+	desc = "MILDICT4DESC"
+	picture = MARIGHELLA_eventPicture
+	
+	trigger = {
+	    tag = BRZ
+		government = regime_militar
+		NOT = { has_country_flag = marighella_caught }
+	}
+	
+	mean_time_to_happen = {
+	    months = 36
+	}
+	
+	immediate = {
+	    set_country_flag = marighella_caught
+	}
+	
+	option = {
+	    name = "MILDICT4OPT1"
+		add_prestige = -25
+		add_country_modifier = {
+		    name = marighella_lives
+			duration = 3650
+		}
+	}
+}
+
+# Tropicália
+country_event = {
+    id = militarybrazil.5
+	title = "MILDICT5NAME"
+	desc = "MILDICT5DESC"
+	picture = TROPICALIA_eventPicture
+	
+	trigger = {
+	    tag = BRZ
+		government = regime_militar
+		NOT = { has_country_flag = tropicalia }
+	}
+	
+	mean_time_to_happen = {
+	    months = 72
+	}
+	
+	immediate = {
+	    set_country_flag = tropicalia
+	}
+	
+	option = {
+	    name = "MILDICT5OPT1"
+		add_prestige = -20
+		add_country_modifier = {
+		    name = tropicalia
+			duration = 7300
+		}
+		
+		ai_chance = { factor = 0 }
+	}
+	
+	option = {
+	    name = "MILDICT5OPT2"
+		add_mil_power = -50
+		add_country_modifier = {
+		    name = tropicalia
+			duration = 3650
+		}
+		
+		ai_chance = { factor = 1 }
+	}
+}
+
+# Assassination Attempt
+country_event = {
+    id = militarybrazil.6
+	title = "MILDICT6NAME"
+	desc = "MILDICT6DESC"
+	picture = ASSASSINATION_eventPicture
+	
+	trigger = {
+	    tag = BRZ
+		government = regime_militar
+	}
+	
+	mean_time_to_happen = {
+	    months = 300
+		
+		modifier = {
+		    factor = 0.5
+			OR = {
+     			has_country_flag = ai-5
+				has_country_flag = DOPS
+				has_country_flag = DOI-CODI
+			}
+		}
+		
+		modifier = {
+		    factor = 3
+			has_country_flag = assassination_attempt_realised
+		}
+	}
+	
+	immediate = {
+	    hidden_effect = {
+		    set_country_flag = assassination_attempt_realised
+		}
+	}
+	
+	option = {
+	    name = "MILDICT6OPT1"
+        custom_tooltip = president_may_die
+        hidden_effect = {
+		    random_list = {
+			    60 = {
+				    country_event = { id = militarybrazil.7 }
+				}
+				40 = {
+				    country_event = { id = militarybrazil.8 }
+				}
+			}
+		}		
+	}
+}
+
+# President is alive
+country_event = {
+    id = militarybrazil.7
+	title = "MILDICT7NAME"
+	desc = "MILDICT7DESC"
+	picture = KING_SICK_IN_BED_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+	    name = "MILDICT7OPT1"
+		add_prestige = 10
+	}
+}
+
+# President is dead
+country_event = {
+    id = militarybrazil.8
+	title = "MILDICT8NAME"
+	desc = "MILDICT8DESC"
+	picture = DEATH_OF_HEIR_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+	    name = "MILDICT8OPT1"
+		hidden_effect = {
+		    kill_ruler = yes
+		}
+		add_stability = -1
+	}
+}
+
+# Kidnapped Ambassador
+country_event = {
+    id = militarybrazil.9
+	title = "MILDICT9NAME"
+	desc = "MILDICT9DESC"
+	picture = DIPLOMACY_eventPicture
+	
+	trigger = {
+	    tag = BRZ
+		government = regime_militar
+	}
+	
+	mean_time_to_happen = {
+	    months = 60
+		
+		modifier = {
+		    factor = 0.5
+			OR = {
+     			has_country_flag = ai-5
+				has_country_flag = DOPS
+				has_country_flag = DOI-CODI
+			}
+		}
+		
+		modifier = {
+		    factor = 3
+			has_country_flag = ambassador_kidnapped_once
+		}
+		
+		modifier = {
+		    factor = 6
+			has_country_flag = abertura
+		}
+		
+		modifier = {
+		    factor = 5
+			OR = { 
+			    has_country_flag = revoke_ais
+			}
+		}
+	}
+	
+	option = {
+	    name = "MILDICT9OPT1"
+		add_prestige = -20
+	}
+	
+	option = {
+	    name = "MILDICT9OPT2"
+	    random_known_country = {
+		    limit = {
+			    NOT = { is_rival = ROOT }
+				OR = {
+			     	has_opinion = {
+		     		    who = ROOT
+	    				value = 30
+    				}
+					alliance_with = ROOT
+				}
+			}
+			add_opinion = {
+			    who = ROOT
+				modifier = displeased
+			}
+		}
+	}
+	
+}
+
+# Lost Decade
+country_event = {
+    id = militarybrazil.10
+	title = "MILDICT10NAME"
+	desc = "MILDICT10DESC"
+	picture = BANKRUPTCY_eventPicture
+	
+	trigger = {
+	    tag = BRZ
+		has_country_flag = brazilian_economic_miracle
+		NOT = { has_country_modifier = brazilian_economic_miracle }
+		NOT = { has_country_flag = had_lost_decade }
+	}
+	
+	mean_time_to_happen = {
+	    days = 1
+	}
+	
+	option = {
+	    name = "MILDICT10OPT1"
+		add_country_modifier = {
+		    name = lost_decade
+			duration = 3650
+		}
+		set_country_flag = had_lost_decade
+	}
+}
+
+# PT created
+country_event = {
+    id = militarybrazil.11
+	title = "MILDICT11NAME"
+	desc = "MILDICT11DESC"
+	picture = DEBATE_REPUBLICAN_eventPicture
+	
+	trigger = {
+	    tag = BRZ
+		OR = {
+    		government = regime_militar
+			has_country_flag = republicanova
+		}
+		has_country_flag = abolished_bipartidarism
+		NOT = { has_faction = partido_dos_trabalhadores }
+	}
+	
+	mean_time_to_happen = {
+	    days = 15
+	}
+	
+	option = {
+	    name = "MILDICT11OPT1"
+		trigger = {
+		    NOT = { has_ruler_flag = mdb_president }
+		}
+		add_faction_influence = {
+		    faction = PMDB
+			influence = -5
+		}
+		add_faction = partido_dos_trabalhadores
+		add_faction_influence = {
+		    faction = partido_dos_trabalhadores
+			influence = 5
+		}
+	}
+	
+	option = {
+	    name = "MILDICT11OPT2"
+		trigger = {
+		    has_ruler_flag = mdb_president
+		}
+		add_faction_influence = {
+		    faction = PMDB
+			influence = -5
+		}
+		add_faction = partido_dos_trabalhadores
+		add_faction_influence = {
+		    faction = partido_dos_trabalhadores
+			influence = 5
+		}
+	}
+}
+
+# Death of Vladimir Herzog
+country_event = {
+    id = militarybrazil.12
+	title = "MILDICT12NAME"
+	desc = "MILDICT12DESC"
+	picture = VLADIMIR_HERZOG_eventPicture
+	
+	trigger = {
+	    tag = BRZ
+		government = regime_militar
+		has_country_flag = lei_de_imprensa
+		NOT = { has_country_flag = herzog_dead }
+	}
+	
+	mean_time_to_happen = {
+	    months = 120
+	}
+	
+	option = {
+	    name = "MILDICT12OPT1"
+		set_country_flag = herzog_dead
+		add_country_modifier = {
+		    name = herzogs_death
+			duration = 3650
+		}
+	}
+}
+
+# Recreation of PTB
+country_event = {
+    id = militarybrazil.13
+	title = "MILDICT13NAME"
+	desc = "MILDICT13DESC"
+	picture = "DEBATE_REPUBLICAN_eventPicture"
+	
+	trigger = {
+	    tag = BRZ
+		OR = {
+    		government = regime_militar
+			has_country_flag = republicanova
+		}
+		has_country_flag = abolished_bipartidarism
+		NOT = { has_faction = partido_trabalhista_brasileiro }
+	}
+	
+	mean_time_to_happen = {
+	    months = 7
+	}
+	
+	option = {
+	    name = "MILDICT11OPT1"
+		trigger = {
+		    NOT = { has_ruler_flag = mdb_president }
+		}
+		add_faction_influence = {
+		    faction = PMDB
+			influence = -5
+		}
+		add_faction = partido_trabalhista_brasileiro
+		add_faction_influence = {
+		    faction = partido_trabalhista_brasileiro
+			influence = 5
+		}
+	}
+	
+	option = {
+	    name = "MILDICT11OPT2"
+		trigger = {
+		    has_ruler_flag = mdb_president
+		}
+		add_faction_influence = {
+		    faction = PMDB
+			influence = -5
+		}
+		add_faction = partido_trabalhista_brasileiro
+		add_faction_influence = {
+		    faction = partido_trabalhista_brasileiro
+			influence = 5
+		}
+	}
+}
+
+# Creation of PDT
+country_event = {
+    id = militarybrazil.14
+	title = "MILDICT14NAME"
+	desc = "MILDICT14DESC"
+	picture = "DEBATE_REPUBLICAN_eventPicture"
+	
+	trigger = {
+	    tag = BRZ
+		OR = {
+    		government = regime_militar
+			has_country_flag = republicanova
+		}
+		has_country_flag = abolished_bipartidarism
+		NOT = { has_faction = PDT }
+	}
+	
+	mean_time_to_happen = {
+	    months = 7
+	}
+	
+	option = {
+	    name = "MILDICT11OPT1"
+		trigger = {
+		    NOT = { has_ruler_flag = mdb_president }
+		}
+		add_faction_influence = {
+		    faction = PMDB
+			influence = -5
+		}
+		add_faction = PDT
+		add_faction_influence = {
+		    faction = PDT
+			influence = 5
+		}
+	}
+	
+	option = {
+	    name = "MILDICT11OPT2"
+		trigger = {
+		    has_ruler_flag = mdb_president
+		}
+		add_faction_influence = {
+		    faction = PMDB
+			influence = -5
+		}
+		add_faction = PDT
+		add_faction_influence = {
+		    faction = PDT
+			influence = 5
+		}
+	}
+}
+
+# Creation of Monarchist Party
+country_event = {
+    id = militarybrazil.15
+	title = "MILDICT15NAME"
+	desc = "MILDICT15DESC"
+	picture = "DEBATE_REPUBLICAN_eventPicture"
+	
+	trigger = {
+	    tag = BRZ
+		OR = {
+    		government = regime_militar
+			has_country_flag = republicanova
+		}
+		has_country_flag = abolished_bipartidarism
+		NOT = { has_faction = partido_conservador_monarquista }
+	}
+	
+	mean_time_to_happen = {
+	    months = 7
+	}
+	
+	option = {
+	    name = "MILDICT11OPT1"
+		add_faction = partido_conservador_monarquista
+	}
+}
+
+# Creation of Democratas
+country_event = {
+    id = militarybrazil.16
+	title = "MILDICT16NAME"
+	desc = "MILDICT16DESC"
+	picture = "DEBATE_REPUBLICAN_eventPicture"
+	
+	trigger = {
+	    tag = BRZ
+		OR = {
+    		government = regime_militar
+			has_country_flag = republicanova
+		}
+		has_country_flag = abolished_bipartidarism
+		NOT = { has_faction = DEM }
+	}
+	
+	mean_time_to_happen = {
+	    months = 7
+	}
+	
+	option = {
+	    name = "MILDICT11OPT1"
+		add_faction = DEM
+	}
+}
+
+# Creation of PSDB
+country_event = {
+    id = militarybrazil.17
+	title = "MILDICT17NAME"
+	desc = "MILDICT17DESC"
+	picture = "DEBATE_REPUBLICAN_eventPicture"
+	
+	trigger = {
+	    tag = BRZ
+		OR = {
+    		government = regime_militar
+			has_country_flag = republicanova
+		}
+		has_country_flag = abolished_bipartidarism
+		NOT = { has_faction = PSDB }
+	}
+	
+	mean_time_to_happen = {
+	    months = 7
+	}
+	
+	option = {
+	    name = "MILDICT11OPT1"
+		trigger = {
+		    NOT = { has_ruler_flag = mdb_president }
+		}
+		add_faction_influence = {
+		    faction = PMDB
+			influence = -5
+		}
+		add_faction = PSDB
+		add_faction_influence = {
+		    faction = PSDB
+			influence = 5
+		}
+	}
+	
+	option = {
+	    name = "MILDICT11OPT2"
+		trigger = {
+		    has_ruler_flag = mdb_president
+		}
+		add_faction_influence = {
+		    faction = PMDB
+			influence = -5
+		}
+		add_faction = PSDB
+		add_faction_influence = {
+		    faction = PSDB
+			influence = 5
+		}
+	}
+}
+
+# Creation of PRONA
+country_event = {
+    id = militarybrazil.18
+	title = "MILDICT18NAME"
+	desc = "MILDICT18DESC"
+	picture = "DEBATE_REPUBLICAN_eventPicture"
+	
+	trigger = {
+	    tag = BRZ
+		OR = {
+    		government = regime_militar
+			has_country_flag = republicanova
+		}
+		has_country_flag = abolished_bipartidarism
+		NOT = { has_faction = PRONA }
+	}
+	
+	mean_time_to_happen = {
+	    months = 7
+	}
+	
+	option = {
+	    name = "MILDICT11OPT1"
+		add_faction = PRONA
+	}
+}
+
+# Creation of PSC
+country_event = {
+    id = militarybrazil.19
+	title = "MILDICT19NAME"
+	desc = "MILDICT19DESC"
+	picture = "DEBATE_REPUBLICAN_eventPicture"
+	
+	trigger = {
+	    tag = BRZ
+		OR = {
+    		government = regime_militar
+			has_country_flag = republicanova
+		}
+		has_country_flag = abolished_bipartidarism
+		NOT = { has_faction = PSC }
+	}
+	
+	mean_time_to_happen = {
+	    months = 7
+	}
+	
+	option = {
+	    name = "MILDICT11OPT1"
+		add_faction = PSC
+	}
+}
+
+# Creation of Partido Verde
+country_event = {
+    id = militarybrazil.20
+	title = "MILDICT20NAME"
+	desc = "MILDICT20DESC"
+	picture = "DEBATE_REPUBLICAN_eventPicture"
+	
+	trigger = {
+	    tag = BRZ
+		has_country_flag = abolished_bipartidarism
+		NOT = { has_faction = partido_verde }
+	}
+	
+	mean_time_to_happen = {
+	    months = 12
+	}
+	
+	option = {
+	    name = "MILDICT11OPT1"
+		add_faction = partido_verde
+	}
+}
+
+# Passeata dos Cem Mil
+country_event = {
+    id = militarybrazil.21
+	title = "MILDICT21NAME"
+	desc = "MILDICT21DESC"
+	picture = CEM_MIL_eventPicture
+	
+	trigger = {
+	    tag = BRZ
+		NOT = { has_country_flag = had_passeata_dos_cem_mil }
+		government = regime_militar
+	}
+	
+	mean_time_to_happen = {
+	    months = 120
+		
+		modifier = {
+		    factor = 0.5
+			OR = {
+			    has_country_flag = lei_de_imprensa
+                has_country_flag = DOI-CODI		
+			}
+		}
+	}
+	
+	immediate = {
+	    hidden_effect = {
+		    set_country_flag = had_passeata_dos_cem_mil
+		}
+	}
+	
+	option = {
+	    name = "MILDICT21OPT1"
+		add_prestige = -30
+	}
+	
+	option = {
+	    name = "MILDICT21OPT2"
+		every_owned_province = {
+		    add_unrest = 5
+		}
+	}
+}
+
+# Carlos Lamarca (death)
+country_event = {
+    id = militarybrazil.22
+	title = "MILDICT22NAME"
+	desc = "MILDICT22DESC"
+	picture = LAMARCA_eventPicture
+	
+	trigger = {
+	    tag = BRZ
+		government = regime_militar
+		NOT = { has_country_flag = lamarca_caught }
+	}
+	
+	mean_time_to_happen = {
+	    months = 36
+	}
+	
+	immediate = {
+	    set_country_flag = lamarca_caught
+	}
+	
+	option = {
+	    name = "MILDICT3OPT1"
+		add_prestige = 25
+	}
+}
+
+# Carlos Lamarca (prision)
+country_event = {
+    id = militarybrazil.23
+	title = "MILDICT22NAME"
+	desc = "MILDICT23DESC"
+	picture = LAMARCA_eventPicture
+	
+	trigger = {
+	    tag = BRZ
+		government = regime_militar
+		NOT = { has_country_flag = lamarca_caught }
+	}
+	
+	mean_time_to_happen = {
+	    months = 36
+	}
+	
+	immediate = {
+	    set_country_flag = lamarca_caught
+	}
+	
+	option = {
+	    name = "MILDICT2OPT1"
+		add_adm_power = 50
+		add_prestige = 25
+		
+		ai_chance = { factor = 1 }
+	}
+	
+	option = {
+	    name = "MILDICT2OPT2"
+		add_dip_power = 50
+		add_prestige = 25
+		
+		ai_chance = { factor = 0 }
+	}
+	
+	option = {
+	    name = "MILDICT2OPT3"
+		add_mil_power = 50
+		add_prestige = 25
+		
+		ai_chance = { factor = 0 }
+	}
+}
+
+# New Government
+country_event = {
+    id = militarybrazil.24
+	title = "MILDICT24NAME"
+	desc = "MILDICT24DESC"
+	picture = REFORM_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+	    name = "MILDICT24OPT1"
+		change_government = constitutional_republic
+		set_country_flag = republicanova
+	}
+	
+	option = {
+	    name = "MILDICT24OPT2"
+		country_event = { id = republicavelha.7 }
+		set_country_flag = monarquianova
+	}
+}
+
+# Creation of PRTB
+country_event = {
+    id = militarybrazil.25
+	title = "MILDICT25NAME"
+	desc = "MILDICT25DESC"
+	picture = REFORM_eventPicture
+	
+	trigger = {
+	    tag = BRZ
+		OR = {
+    		government = regime_militar
+			has_country_flag = republicanova
+		}
+		has_country_flag = abolished_bipartidarism
+		NOT = { has_faction = PRTB }
+	}
+	
+	mean_time_to_happen = {
+	    years = 10
+	}
+	
+	option = {
+	    name = "MILDICT11OPT1"
+		add_faction = PRTB
+	}
+}
+
+# Creation of PSOL
+country_event = {
+    id = militarybrazil.26
+	title = "MILDICT26NAME"
+	desc = "MILDICT26DESC"
+	picture = REFORM_eventPicture
+	
+	trigger = {
+	    tag = BRZ
+		OR = {
+    		government = regime_militar
+			has_country_flag = republicanova
+		}
+		has_country_flag = abolished_bipartidarism
+		NOT = { has_faction = PSOL }
+	}
+	
+	mean_time_to_happen = {
+	    years = 15
+	}
+	
+	option = {
+	    name = "MILDICT11OPT1"
+		add_faction = PSOL
+	}
+}
+
+# Creation of PR
+country_event = {
+    id = militarybrazil.27
+	title = "MILDICT27NAME"
+	desc = "MILDICT27DESC"
+	picture = REFORM_eventPicture
+	
+	trigger = {
+	    tag = BRZ
+		OR = {
+    		government = regime_militar
+			has_country_flag = republicanova
+		}
+		has_faction = PRONA
+		NOT = { faction_in_power = PRONA }
+		NOT = {
+		    faction_influence = {
+			    faction = PRONA
+				influence = 15
+			}
+		}
+		has_country_flag = abolished_bipartidarism
+		NOT = { has_faction = partido_da_republica }
+	}
+	
+	mean_time_to_happen = {
+	    years = 20
+	}
+	
+	option = {
+	    name = "MILDICT11OPT1"
+		add_faction = partido_da_republica
+		remove_faction = PRONA
+	}
+}
+
+# Creation of REDE
+country_event = {
+    id = militarybrazil.28
+	title = "MILDICT28NAME"
+	desc = "MILDICT28DESC"
+	picture = REFORM_eventPicture
+	
+	trigger = {
+	    tag = BRZ
+		OR = {
+    		government = regime_militar
+			has_country_flag = republicanova
+		}
+		has_country_flag = abolished_bipartidarism
+		NOT = { has_faction = REDE }
+	}
+	
+	mean_time_to_happen = {
+	    years = 30
+	}
+	
+	option = {
+	    name = "MILDICT11OPT1"
+		add_faction = REDE
+	}
+}
+
+# The End of the PDS
+country_event = {
+    id = militarybrazil.29
+	title = "MILDICT29NAME"
+	desc = "MILDICT29DESC"
+	picture = REFORM_eventPicture
+	
+	trigger = {
+	    tag = BRZ
+    	NOT = { government = regime_militar }
+		has_country_flag = republicanova
+		has_country_flag = abolished_bipartidarism
+		has_faction = PDS
+	}
+	
+	mean_time_to_happen = {
+	    months = 5
+	}
+	
+	option = {
+	    name = "MILDICT11OPT1"
+		remove_faction = PDS
+	}
+}

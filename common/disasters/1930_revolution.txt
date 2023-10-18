@@ -1,0 +1,132 @@
+1930_revolution = {
+	potential = {
+	    tag = BRZ
+		government = coronelist_republic	
+		NOT = { has_country_flag = 1930_provisory_government }
+		num_of_cities = 30
+		NOT = { has_country_flag = had_1930_revolution }
+		is_subject = no
+		is_year = 1929
+		NOT = { is_year = 1945 }
+		has_faction = partido_paulista
+		has_faction = partido_mineiro
+		has_faction = partido_riograndense
+		faction_in_power = partido_paulista
+	}
+	
+	
+	can_start = {
+		has_any_disaster = no
+		NOT = { stability = 1 }
+		faction_influence = {
+		    faction = partido_paulista
+			influence = 50
+		}
+		custom_trigger_tooltip = {
+        	tooltip = president_is_a_paulista
+			OR = {
+			    has_ruler_modifier = paulista_president
+				has_ruler_flag = paulista_president_flag
+			}
+    	}
+	}
+	
+	can_stop = { 
+		OR = {
+			has_any_disaster = yes
+			AND = {
+		    	NOT = {
+				    stability = 3
+	     		    faction_influence = {
+				        faction = partido_paulista
+			     		influence = 50
+		    		}
+	    			faction_in_power = partido_paulista
+    			}
+			}
+		}
+	}
+	
+	
+	progress = {
+	    modifier = {
+		    factor = 1
+			faction_influence = {
+			    faction = partido_paulista
+				influence = 80
+			}
+		}
+		modifier = {
+		    factor = 0.5
+			NOT = {
+			    faction_influence = {
+				    faction = partido_mineiro
+					influence = 50
+				}
+			}
+		}
+		modifier = {
+			factor = 1
+			NOT = { prestige = 0 }
+		}
+		modifier = {
+			factor = 1
+			war_exhaustion = 5
+		} 
+		modifier = {
+			factor = 0.5
+			num_of_loans = 10
+			NOT = { num_of_loans = 25 }
+		}	
+		modifier = {
+			factor = 1
+			num_of_loans = 25
+		}	
+		modifier = {
+			factor = 2
+			is_bankrupt = yes
+		}		
+		modifier = {
+			factor = 0.5
+			NOT = { stability = -1 }
+		}	
+		modifier = {
+			factor = 1
+			NOT = { stability = -2 }
+		}
+	}
+	
+	can_end = {
+	    stability = 3
+		OR = {
+	    	NOT = { num_of_revolts = 1 }
+    		NOT = { faction_in_power = partido_paulista }
+		}
+	}
+	
+
+	modifier = {
+		global_unrest = 10
+		stability_cost_modifier = 0.1
+	}	
+	
+	
+	on_start = dis_1930.1
+	on_end = dis_1930.4
+	
+	on_monthly = {
+		events = {
+		}
+		random_events = { 
+			1000 = 0
+			100 = dis_1930.2
+			100 = dis_1930.3
+			100 = dis_1930.4
+            100 = dis_1930.5
+			100 = revolution.7
+			100 = revolution.8
+		
+		}
+	}
+}
+

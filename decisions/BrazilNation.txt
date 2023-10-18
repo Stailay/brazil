@@ -1,0 +1,711 @@
+country_decisions = {
+
+	brazil_nation = {
+		major = yes
+		potential = {
+			OR = {
+				is_former_colonial_nation = yes
+				is_colonial_nation = yes
+				tag = BAI
+				tag = RGS
+				tag = MGR
+				tag = MLE
+				tag = SVC
+				tag = PMB
+				tag = CEQ
+				tag = MLE
+				tag = RJN
+			}
+			colonial_brazil = {
+				owned_by = ROOT
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 3	
+				}
+			}
+		}
+		allow = {
+			adm_tech = 10
+			is_subject = no
+			is_at_war = no
+			capital_scope = {
+				colonial_region = colonial_brazil
+				is_core = ROOT
+			}
+			NOT = { exists = BRZ }
+		}
+		effect = {
+			change_tag = BRZ
+			if = {
+				limit = {
+					is_part_of_hre = yes
+					is_elector = no
+					is_emperor = no
+				}
+				every_owned_province = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					set_in_empire = no
+				}
+			}
+			if = {
+				limit = {
+					NOT = { government_rank = 3 }
+					government = monarchy
+				}
+				set_government_rank = 3
+			}
+			if = {
+			    limit = {
+				    NOT = { government_rank = 2 }
+					NOT = { government = monarchy }
+				}
+				set_government_rank = 2
+			}
+			colonial_brazil = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = BRZ
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			add_prestige = 25
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+			set_country_flag = changed_from_colonial_nation
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	bahia_nation = {
+		major = yes
+		potential = {
+			OR = {
+				is_former_colonial_nation = yes
+				is_colonial_nation = yes
+			}
+			NOT = {
+			    OR = {
+				    tag = BRZ
+					tag = BAI
+					tag = RGS
+					tag = MGR
+					tag = MLE
+					tag = SVC
+					tag = GRP
+					tag = PMB
+					tag = CEQ
+					tag = MLE
+					tag = RJN
+				}
+			}
+			capital_scope = {
+				area = bahia_area
+				is_core = ROOT
+			}
+			NOT = { exists = BAI }
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 3	
+				}
+			}
+		}
+		allow = {
+			adm_tech = 10
+			is_former_colonial_nation = yes
+			owns_core_province = 756
+			owns_core_province = 757
+			owns_core_province = 760
+			owns_core_province = 2797
+			owns_core_province = 2798
+			owns_core_province = 2806
+			owns_core_province = 2807
+			owns_core_province = 2808
+			is_subject = no
+			is_at_war = no
+		}
+		effect = {
+			change_tag = BAI
+			if = {
+				limit = {
+					is_part_of_hre = yes
+					is_elector = no
+					is_emperor = no
+				}
+				every_owned_province = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					set_in_empire = no
+				}
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			if = {
+			    limit = {
+				    NOT = { government_rank = 2 }
+				}
+				set_government_rank = 2
+			}
+			add_prestige = 25
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+			set_country_flag = changed_from_colonial_nation
+		}
+		ai_will_do = {
+			factor = 1
+			
+			modifier = {
+			    factor = 0
+		     	NOT = { exists = BRZ }
+			}
+		}
+	}
+	pernambuco_nation = {
+		major = yes
+		potential = {
+			OR = {
+				is_former_colonial_nation = yes
+				is_colonial_nation = yes
+			}
+			NOT = {
+			    OR = {
+				    tag = BRZ
+					tag = BAI
+					tag = RGS
+					tag = MGR
+					tag = MLE
+					tag = SVC
+					tag = GRP
+					tag = PMB
+					tag = CEQ
+					tag = MLE
+					tag = RJN
+				}
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 3	
+				}
+			}
+			capital_scope = {
+				area = pernambuco_area
+				is_core = ROOT
+			}
+			NOT = { exists = PMB }
+		}
+		allow = {
+			adm_tech = 10
+			is_former_colonial_nation = yes
+			owns_core_province = 755
+			is_subject = no
+			is_at_war = no
+		}
+		effect = {
+			change_tag = PMB
+			if = {
+				limit = {
+					is_part_of_hre = yes
+					is_elector = no
+					is_emperor = no
+				}
+				every_owned_province = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					set_in_empire = no
+				}
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			if = {
+			    limit = {
+				    NOT = { government_rank = 2 }
+				}
+				set_government_rank = 2
+			}
+			add_prestige = 25
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+			set_country_flag = changed_from_colonial_nation
+		}
+		ai_will_do = {
+			factor = 1
+			
+			modifier = {
+			    factor = 0
+		     	NOT = { exists = BRZ }
+			}
+		}
+	}
+	rio_grande_do_sul_nation = {
+		major = yes
+		potential = {
+			OR = {
+				is_former_colonial_nation = yes
+				is_colonial_nation = yes
+			}
+			NOT = {
+			    OR = {
+				    tag = BRZ
+					tag = BAI
+					tag = RGS
+					tag = MGR
+					tag = MLE
+					tag = SVC
+					tag = GRP
+					tag = PMB
+					tag = CEQ
+					tag = MLE
+					tag = RJN
+				}
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 3	
+				}
+			}
+			capital_scope = {
+				area = rio_grande_do_sol_area
+				is_core = ROOT
+			}
+			NOT = { exists = RGS }
+		}
+		allow = {
+			adm_tech = 10
+			is_former_colonial_nation = yes
+			owns_core_province = 770
+			owns_core_province = 771
+			owns_core_province = 2779
+			is_subject = no
+			is_at_war = no
+		}
+		effect = {
+			change_tag = RGS
+			if = {
+				limit = {
+					is_part_of_hre = yes
+					is_elector = no
+					is_emperor = no
+				}
+				every_owned_province = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					set_in_empire = no
+				}
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			if = {
+			    limit = {
+				    NOT = { government_rank = 2 }
+				}
+				set_government_rank = 2
+			}
+			add_prestige = 25
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+			set_country_flag = changed_from_colonial_nation
+		}
+		ai_will_do = {
+			factor = 1
+			
+			modifier = {
+			    factor = 0
+		     	NOT = { exists = BRZ }
+			}
+		}
+	}
+	minas_gerais_nation = {
+		major = yes
+		potential = {
+			OR = {
+				is_former_colonial_nation = yes
+				is_colonial_nation = yes
+			}
+			NOT = {
+			    OR = {
+				    tag = BRZ
+					tag = BAI
+					tag = RGS
+					tag = MGR
+					tag = MLE
+					tag = SVC
+					tag = GRP
+					tag = PMB
+					tag = CEQ
+					tag = MLE
+					tag = RJN
+				}
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 3	
+				}
+			}
+			capital_scope = {
+			    OR = {
+				    area = minas_gerais_area
+					area = diamantina_area
+				}
+				is_core = ROOT
+			}
+			NOT = { exists = MGR }
+		}
+		allow = {
+			adm_tech = 10
+			is_former_colonial_nation = yes
+			owns_core_province = 765
+			is_subject = no
+			is_at_war = no
+		}
+		effect = {
+			change_tag = MGR
+			if = {
+				limit = {
+					is_part_of_hre = yes
+					is_elector = no
+					is_emperor = no
+				}
+				every_owned_province = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					set_in_empire = no
+				}
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			if = {
+			    limit = {
+				    NOT = { government_rank = 2 }
+				}
+				set_government_rank = 2
+			}
+			add_prestige = 25
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+			set_country_flag = changed_from_colonial_nation
+		}
+		ai_will_do = {
+			factor = 1
+			
+			modifier = {
+			    factor = 0
+		     	NOT = { exists = BRZ }
+			}
+		}
+	}
+	sao_vicente_nation = {
+		major = yes
+		potential = {
+			OR = {
+				is_former_colonial_nation = yes
+				is_colonial_nation = yes
+			}
+			NOT = {
+			    OR = {
+				    tag = BRZ
+					tag = BAI
+					tag = RGS
+					tag = MGR
+					tag = MLE
+					tag = SVC
+					tag = GRP
+					tag = PMB
+					tag = CEQ
+					tag = MLE
+					tag = RJN
+				}
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 3	
+				}
+			}
+			capital_scope = {
+			    OR = {
+				    area = sao_paolo_area
+					area = west_sao_paolo_area
+				}
+				is_core = ROOT
+			}
+			NOT = { exists = SVC }
+		}
+		allow = {
+			adm_tech = 10
+			is_former_colonial_nation = yes
+			owns_core_province = 766
+			is_subject = no
+			is_at_war = no
+		}
+		effect = {
+			change_tag = SVC
+			if = {
+				limit = {
+					is_part_of_hre = yes
+					is_elector = no
+					is_emperor = no
+				}
+				every_owned_province = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					set_in_empire = no
+				}
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			if = {
+			    limit = {
+				    NOT = { government_rank = 2 }
+				}
+				set_government_rank = 2
+			}
+			add_prestige = 25
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+			set_country_flag = changed_from_colonial_nation
+		}
+		ai_will_do = {
+			factor = 1
+			
+			modifier = {
+			    factor = 0
+		     	NOT = { exists = BRZ }
+			}
+		}
+	}
+	rio_de_janeiro_nation = {
+		major = yes
+		potential = {
+			OR = {
+				is_former_colonial_nation = yes
+				is_colonial_nation = yes
+			}
+			NOT = {
+			    OR = {
+				    tag = BRZ
+					tag = BAI
+					tag = RGS
+					tag = MGR
+					tag = MLE
+					tag = SVC
+					tag = GRP
+					tag = PMB
+					tag = CEQ
+					tag = MLE
+					tag = RJN
+				}
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 3	
+				}
+			}
+			capital_scope = {
+			    area = rio_de_janeiro_area
+				is_core = ROOT
+			}
+			NOT = { exists = RJN }
+		}
+		allow = {
+			adm_tech = 10
+			is_former_colonial_nation = yes
+			owns_core_province = 763
+			is_subject = no
+			is_at_war = no
+		}
+		effect = {
+			change_tag = RJN
+			if = {
+				limit = {
+					is_part_of_hre = yes
+					is_elector = no
+					is_emperor = no
+				}
+				every_owned_province = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					set_in_empire = no
+				}
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			if = {
+			    limit = {
+				    NOT = { government_rank = 2 }
+				}
+				set_government_rank = 2
+			}
+			add_prestige = 25
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+			set_country_flag = changed_from_colonial_nation
+		}
+		ai_will_do = {
+			factor = 1
+			
+			modifier = {
+			    factor = 0
+		     	NOT = { exists = BRZ }
+			}
+		}
+	}
+	form_confederation_of_equator = {
+		major = yes
+		potential = {
+			OR = {
+				is_former_colonial_nation = yes
+				is_colonial_nation = yes
+				tag = PMB
+				tag = BAI
+			}
+			NOT = {
+			    OR = {
+				    tag = BRZ
+					tag = RGS
+					tag = MGR
+					tag = SVC
+					tag = GRP
+					tag = CEQ
+					tag = MLE
+					tag = RJN
+				}
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 3	
+				}
+			}
+			capital_scope = {
+			    OR = {
+				    area = pernambuco_area
+					area = ceara_area
+					area = bahia_area
+					area = sao_francisco_area
+					area = piaui_area
+					}
+					is_core = ROOT
+			}
+			NOT = { exists = CEQ }
+		}
+		allow = {
+			adm_tech = 10
+			is_former_colonial_nation = yes
+			owns_core_province = 754
+		    owns_core_province = 755
+		    owns_core_province = 753
+            owns_core_province = 2812
+            owns_core_province = 2813
+            owns_core_province = 751
+            owns_core_province = 2810
+            owns_core_province = 2809
+            owns_core_province = 2808
+            owns_core_province = 2811
+            owns_core_province = 2814
+            owns_core_province = 752
+            owns_core_province = 2807
+            owns_core_province = 756
+            owns_core_province = 2806
+            owns_core_province = 2805
+            owns_core_province = 2799
+            owns_core_province = 2803			
+			is_subject = no
+			is_at_war = no
+		}
+		effect = {
+			change_tag = CEQ
+			if = {
+				limit = {
+					is_part_of_hre = yes
+					is_elector = no
+					is_emperor = no
+				}
+				every_owned_province = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					set_in_empire = no
+				}
+			}
+			if = {
+			    limit = {
+				    NOT = { government_rank = 3 }
+					government = monarchy
+				}
+				set_government_rank = 3
+			}
+			if = {
+			    limit = {
+				    NOT = { government_rank = 2 }
+					NOT = { government = monarchy }
+				}
+				set_government_rank = 2
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			add_prestige = 25
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+			set_country_flag = changed_from_colonial_nation
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}

@@ -1,0 +1,500 @@
+Brazil_1_Fleed = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		tag = BRZ
+		has_country_flag = Brazil_Family_Fled
+	}
+	has_country_shield  = yes
+	
+	Brazil_Fled = {
+		icon = mission_establish_high_seas_navy
+		required_missions = { }
+		position = 1
+		trigger = {
+			legitimacy = 80
+		}
+		effect = {
+			add_country_modifier = {
+				name = brazil_legitimate_reign
+				duration = -1
+			}
+			banda_oriental_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	Brazil_Cisplatina = {
+		icon = mission_unite_home_region
+		required_missions = { Brazil_Fled }
+		position = 3
+		provinces_to_highlight = {
+			area = banda_oriental_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			banda_oriental_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = brazil_expansionist_policy
+				duration = 7300
+			}
+			buenos_aires_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			misiones_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+}
+Brazil_1_Independencia = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		tag = BRZ
+		NOT = { has_country_flag = Brazil_Family_Fled }
+	}
+	has_country_shield  = yes
+	
+	Brazil_Indepedencia = {
+		icon = mission_assemble_an_army
+		required_missions = { }
+		position = 1
+		trigger = {
+			is_subject = no
+		}
+		effect = {
+			add_country_modifier = {
+				name = brazil_Indepedencia_modifier
+				duration = 9125
+			}
+			banda_oriental_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	Brazil_Cisplatina1 = {
+		icon = mission_unite_home_region
+		required_missions = { Brazil_Indepedencia }
+		position = 3
+		provinces_to_highlight = {
+			area = banda_oriental_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			banda_oriental_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = brazil_expansionist_policy
+				duration = 7300
+			}
+			buenos_aires_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			misiones_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+}
+Brazil_1 = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		tag = BRZ
+	}
+	has_country_shield  = yes
+		
+	Brazil_Push_Into_La_Plata = {
+		icon = mission_cannons_firing
+		required_missions = { Brazil_Cisplatina1 }
+		position = 5
+		provinces_to_highlight = {
+			OR = {
+				area = buenos_aires_area
+				area = misiones_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			buenos_aires_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			misiones_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = brazil_glorious_conquest
+				duration = 7300
+			}
+			paraguay_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	Brazil_Fight_for_Freedom = {
+		icon = mission_conquer_50_development
+		required_missions = { Brazil_Push_Into_La_Plata }
+		position = 7
+		trigger = {
+			OR = {
+				exists = CHL
+				exists = COL
+				exists = LAP
+				exists = MEX
+				exists = HAT
+				exists = PEU
+				exists = PRG
+				exists = VNZ
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = brazil_liberator
+				duration = 7300
+			}
+		}
+	}
+	Brazil_Empire = {
+		icon = mission_empire
+		required_missions = { Brazil_Fight_for_Freedom Brazil_Upper_Peru }
+		position = 8
+		trigger = {
+			legitimacy = 100
+			brazil_colonial_region = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			set_government_rank = 3
+			add_country_modifier = {
+				name = brazil_empire
+				duration = 7300
+			}
+		}
+	}
+}
+Brazil_2_fled = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		tag = BRZ
+		has_country_flag = Brazil_Family_Fled
+	}
+	has_country_shield  = yes
+	
+	Brazil_Fortify = {
+		icon = mission_conquer_50_development
+		required_missions = { Brazil_Fled }
+		position = 2
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = brasil_3
+				232 = {
+					country_or_non_sovereign_subject_holds = ROOT
+					is_fort = yes
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = brasil_4
+				4150 = 4
+					country_or_non_sovereign_subject_holds = ROOT
+					is_fort = yes
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = brazil_morale
+				duration = 7300
+			}
+		}
+	}
+	Brazil_Order = {
+		icon = mission_have_two_subjects
+		required_missions = { Brazil_Fortify }
+		position = 3
+		trigger = {
+			army_size_percentage = 0.5
+			legitimacy = 75
+		}
+		effect = {
+			add_country_modifier = {
+				name = brazil_order
+				duration = -1
+			}
+		}
+	}
+Brazil_2_fled_2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		tag = BRZ
+		has_country_flag = Brazil_Family_Fled
+		has_country_flag = portugal_in_vain
+	}
+	has_country_shield  = yes
+	
+	Brazil_Reclaim_Portugal = {
+		icon = mission_cannons_firing
+		required_missions = { Brazil_Order }
+		position = 5
+		trigger = {
+			beieras_area = {
+				type = all
+				OR = {
+					owned_by = POR
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+			}
+			alentejo_area = {
+				type = all
+				OR = {
+					owned_by = POR
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = brazil_reclaimed_portugal
+				duration = -1
+			}
+		}
+	}
+}
+Brazil_2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		tag = BRZ
+	}
+	has_country_shield  = yes
+	Brazil_Paraguay = {
+		icon = mission_colonial
+		required_missions = { Brazil_Push_Into_La_Plata }
+		position = 6
+		provinces_to_highlight = {
+			OR = {
+				area = paraguay_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			paraguay_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = brazil_western_flank_safe
+				duration = 7300
+			}
+			moxos_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			beni_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	Brazil_Upper_Peru = {
+		icon = mission_build_up_to_force_limit
+		required_missions = { Brazil_Paraguay }
+		position = 7
+		provinces_to_highlight = {
+			OR = {
+				area = beni_area
+				area = moxos_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			moxos_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			beni_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = brazil_upper_peru_subjugated
+				duration = 7300
+			}
+		}
+	}
+}
+Brazil_5 = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		tag = BRZ
+	}
+	has_country_shield  = yes
+	
+	Brazil_Minas_Gerais = {
+		icon = mission_high_income
+		required_missions = { }
+		position = 1
+		trigger = {
+			minas_gerais_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			diamantina_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			country_event = { id = brazil_flavor.1 }
+		}
+	}
+	Brazil_Gold_Rush = {
+		icon = mission_high_income
+		required_missions = { Brazil_Minas_Gerais }
+		position = 2
+		trigger = {
+			gold = 5
+		}
+		effect = {
+			add_country_modifier = {
+				name = brazil_inflation
+				duration = -1
+			}
+		}
+	}
+	Brazil_Amazon = {
+		icon = mission_galleys_in_port
+		required_missions = { }
+		position = 3
+		trigger = {
+			amazon_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			amazon_area = {
+				add_province_modifier = {
+					name = brazil_amazon_river
+					duration = 3650
+				}
+			}
+		}
+	}
+	Brazil_Amazon_Cities = {
+		icon = mission_colonial
+		required_missions = { Brazil_Amazon }
+		position = 4
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = brasil_2
+				amazon_area = {
+					type = all
+					OR = {
+						has_building = weapons  
+						has_building = textile  
+						has_building = farm_estate   
+						has_building = mills   
+						has_building = furnace   
+						has_building = plantations  
+						has_building = tradecompany 
+						has_building = wharf  
+					}
+				}
+			}
+		}
+		effect = {
+			amazon_area = {
+				add_province_modifier = {
+					name = brazil_amazon_river_cities
+					duration = -1
+				}
+			}
+		}
+	}
+	Brazil_Coffee_plantations = {
+		icon = mission_have_manufactories
+		required_missions = { }
+		position = 5
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = brasil_1
+				num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+					value = 10
+					trade_goods = coffee
+					has_building = plantations
+					is_city = yes
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = brazil_coffee
+				duration = 7300
+			}
+		}
+	}
+}

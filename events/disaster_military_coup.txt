@@ -1,0 +1,87 @@
+namespace = dis_mil_coup
+
+# Coup
+country_event = {
+	id = dis_mil_coup.1
+	title = "MILITARYCOUP1NAME"
+	desc = "MILITARYCOUP1DESC"
+	picture = REVOLUTION_eventPicture
+	
+	major = yes
+	is_triggered_only = yes
+
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = "MILITARYCOUP1OPT1"			# Dire times are ahead of us
+		add_prestige = -10
+		custom_tooltip = a_military_will_assume
+		hidden_effect = {
+	     	if = {
+    		    limit = {
+			        has_country_flag = coup_succeded
+		    	}
+	    		define_ruler = {
+    			    age = 67
+				    adm = 1
+			    	dip = 1
+		    		mil = 4
+	    	 	}
+		        # Chance to be great/good/bad administrator
+    			 random_list = {
+	     		    10 = { change_adm = -1 }
+				    30 = { change_adm = 0 }
+			   	    30 = { change_adm = 1 }
+		     		20 = { change_adm = 2 }
+	    			10 = { change_adm = 3 }
+     			}
+	    		# Chance to be a great military
+     			random_list = {
+			        30 = { change_mil = 0 }
+		     		50 = { change_mil = 1 }
+	    			20 = { change_mil = 2 }
+    			} 
+		     	# Chance to be a great/good/bad diplomat
+	    		random_list = {
+    			    10 = { change_mil = -1 }
+				    30 = { change_mil = 0 }
+			    	30 = { change_mil = 1 }
+		    		20 = { change_mil = 2 }
+	    			10 = { change_mil = 3 }
+     			}
+    		}
+			if = {
+			    limit = {
+				    NOT = { has_country_flag = coup_succeded }
+				}
+				define_ruler = {
+				    name = "Castelo Branco"
+					age = 67
+					adm = 4
+             		mil = 5
+             		dip = 4
+				}
+				set_country_flag = coup_succeded
+			}
+			set_ruler_flag = military_president
+			country_event = { id = dis_mil_coup.2 }
+		}
+	}
+}
+
+country_event = {
+	id = dis_mil_coup.2
+	title = revolution.20.t
+	desc = revolution.20.d
+	picture = REVOLUTION_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = revolution.20.a
+		end_disaster = military_coup_disaster
+	}
+}
+

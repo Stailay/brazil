@@ -1,0 +1,865 @@
+government = despotic_monarchy 
+mercantilism = 0.1
+technology_group = western
+religion = catholic
+primary_culture = iberian_brazilian
+add_accepted_culture = iberian_north_brazilian
+add_accepted_culture = iberian_northeast_brazilian
+add_accepted_culture = iberian_south_brazilian
+historical_rival = LAP
+capital = 756	# S�o Salvador
+
+1750.1.1 = { government = constitutional_monarchy }
+1763.1.1 = { capital = 763 }	# Rio de Janeiro
+
+1822.9.7 = {
+    set_country_flag = grito_do_ipiranga
+	set_country_flag = dia_do_fico
+    government_rank = 3
+	primary_culture = iberian_brazilian
+	monarch = {
+	    name = "Pedro I"
+		dynasty = "de Bragan�a"
+		birth_date = 1798.10.12
+		adm = 4
+		mil = 9
+		dip = 4
+	}
+	queen = {
+	    country_of_origin = HAB
+		name = "Maria Leopoldina"
+		dynasty = "von Habsburg"
+		birth_date = 1797.1.22
+		death_date = 1826.12.11
+		female = yes
+		adm = 4
+		dip = 4
+		mil = 2
+	}
+	leader = {	name = "Luis Alves de Lima e Silva"	type = general	rank = 1	fire = 8	shock = 8	manuever = 8	siege = 8	death_date = 1880.3.7 }
+}
+
+1824.3.25 = {
+    set_country_flag = 1824constitutionevent
+    government = constitutional_monarchy
+}
+
+1824.7.2 = {
+    set_country_flag = had_the_confederate_revolt
+	set_country_flag = confederates_declared_independence
+}
+
+1825.5.13 = {
+    set_country_flag = pierre_labatut
+	set_country_flag = thomas_cochrane
+	set_country_flag = maria_quiteria
+}
+
+1825.12.2 = {
+	heir = {
+		name = "Pedro"
+		monarch_name = "Pedro II"
+		dynasty = "de Bragan�a"
+		birth_date = 1825.12.2
+		death_date = 1891.12.5
+		claim = 95
+		adm = 3
+		mil = 4
+		dip = 3
+	}
+}
+
+1826.1.1 = {
+    set_country_flag = treatyofrj
+}
+
+1831.4.7 = {
+    monarch = {
+		name = "(regency council)"
+		regent = yes
+		adm = 3
+		dip = 3
+		mil = 4
+	}
+	heir = {
+		name = "Pedro"
+		monarch_name = "Pedro II"
+		dynasty = "de Bragan�a"
+		birth_date = 1825.12.2
+		death_date = 1891.12.5
+		claim = 95
+		adm = 3
+		mil = 4
+		dip = 3
+	}
+}
+
+1835.1.24 = { set_country_flag = had_the_male_revolt }
+
+1835.1.6 = { set_country_flag = clementemalcher }
+
+1835.8.14 = { set_country_flag = cabanagem_started }
+
+1835.8.23 = { set_country_flag = cabanos_independent }
+
+1835.9.20 = { set_country_flag = farrapos_started }
+
+1835.10.12 = {
+    monarch = {
+		name = "Regente Feij�"
+		regent = yes
+		adm = 2
+		dip = 2
+		mil = 3
+	}
+	heir = {
+		name = "Pedro"
+		monarch_name = "Pedro II"
+		dynasty = "de Bragan�a"
+		birth_date = 1825.12.2
+		death_date = 1891.12.5
+		claim = 95
+		adm = 3
+		mil = 4
+		dip = 3
+	}
+}
+
+1837.9.19 = {
+    monarch = {
+		name = "Pedro de Ara�jo Lima"
+		regent = yes
+		adm = 3
+		dip = 3
+		mil = 4
+	}
+	heir = {
+		name = "Pedro"
+		monarch_name = "Pedro II"
+		dynasty = "de Bragan�a"
+		birth_date = 1825.12.2
+		death_date = 1891.12.5
+		claim = 95
+		adm = 3
+		mil = 4
+		dip = 3
+	}
+}
+
+1837.11.6 = { set_country_flag = sabinada_started }
+
+1839.6.24 = { set_country_flag = julianaexisted }
+
+1840.7.23 = {
+    monarch = {
+	    name = "Pedro II"
+		dynasty = "de Bragan�a"
+		birth_date = 1825.12.2
+		adm = 3
+		mil = 4
+		dip = 3
+	}
+}
+
+1843.5.30 = {
+    queen = {
+	    country_of_origin = NAP
+		name = "Teresa Cristina"
+		dynasty = "de Bourbon"
+		female = yes
+		birth_date = 1822.3.14
+		death_date = 1889.12.28
+		adm = 2
+		mil = 1
+		dip = 3
+	}
+}
+
+1838.12.13 = { set_country_flag = balaiada_started }
+
+1845.2.23 = {
+    heir = {
+		name = "Afonso"
+		monarch_name = "Afonso I"
+		dynasty = "de Bragan�a"
+		birth_date = 1845.12.2
+		death_date = 1847.6.11
+		claim = 95
+		adm = 1
+		mil = 2
+		dip = 1
+	}
+}
+
+1847.6.12 = {
+    heir = {
+		name = "Isabel"
+		female = yes
+		monarch_name = "Isabel I"
+		dynasty = "de Bragan�a"
+		birth_date = 1846.7.29
+		death_date = 1921.11.14
+		claim = 95
+		adm = 5
+		mil = 4
+		dip = 5
+	}
+}
+
+1848.7.19 = {
+    heir = {
+		name = "Pedro Afonso"
+		monarch_name = "Pedro Afonso I"
+		dynasty = "de Bragan�a"
+		birth_date = 1848.7.19
+		death_date = 1850.1.10
+		claim = 95
+		adm = 2
+		mil = 4
+		dip = 3
+	}
+}
+
+1850.1.11 = {
+    heir = {
+		name = "Isabel"
+		female = yes
+		monarch_name = "Isabel I"
+		dynasty = "de Bragan�a"
+		birth_date = 1846.7.29
+		death_date = 1921.11.14
+		claim = 95
+		adm = 5
+		mil = 4
+		dip = 5
+	}
+}
+
+1850.9.4 = { set_country_flag = lei_eusebio_de_queiros }
+
+1871.9.28 = { set_country_flag = lei_do_ventre_livre }
+
+1874.4.28 = { set_country_flag = church_displeased }
+
+1885.9.28 = { set_country_flag = lei_dos_sexagenarios }
+
+1888.5.13 = { set_country_flag = lei_aurea }
+
+1885.8.1 = { set_country_flag = militaryupsetbyemperor }
+
+1888.5.13 = { decision = abolish_slavery_act }
+
+1889.11.15 = { 
+    government = coronelist_republic
+	government_rank = 2
+	set_country_flag = deposed_imperial_family
+}
+
+1889.11.15 = {
+	monarch = {
+		name = "Manuel Deodoro da Fonseca"
+		birth_date = 1827.8.5
+		adm = 3
+		dip = 3
+		mil = 5
+	}
+}
+
+1891.11.23 = {
+	monarch = {
+		name = "Floriano Peixoto"
+		birth_date = 1839.4.30
+		adm = 3
+		dip = 1
+		mil = 3
+	}
+}
+
+1894.11.15 = {
+    set_ruler_flag = republican_president_flag
+	monarch = {
+		name = "Prudente de Morais"
+		birth_date = 1841.10.4
+		adm = 1
+		mil = 3
+		dip = 5
+	}
+}
+
+1897.6.20 = { set_country_flag = academia_de_letras_happened }
+
+1898.11.15 = {
+    set_ruler_flag = paulista_president_flag
+	monarch = {
+		name = "Manuel de Campos Sales"
+		birth_date = 1841.2.15
+		adm = 3
+		dip = 1
+		mil = 3
+	}
+}
+
+1902.11.15 = {
+    set_ruler_flag = paulista_president_flag
+	monarch = {
+		name = "Francisco Rodrigues Alves"
+		birth_date = 1848.7.7
+		adm = 4
+		mil = 2
+		dip = 4
+	}
+}
+
+1906.11.15 = {
+    set_ruler_flag = mineiro_president_flag
+	monarch = {
+		name = "Afonso Pena"
+		birth_date = 1847.11.30
+		adm = 2
+		mil = 3
+		dip = 2
+	}
+}
+
+1909.6.14 = {
+    set_ruler_flag = fluminense_president_flag 
+	monarch = {
+		name = "Nilo Pe�anha"
+		birth_date = 1867.10.2
+		adm = 3
+		mil = 3
+		dip = 5
+	}
+}
+
+1910.1.1 = { religion = secularism }
+
+1910.11.15 = {
+    set_ruler_flag = republican_president_flag
+	monarch = {
+		name = "Hermes da Fonseca"
+		birth_date = 1855.5.12
+		adm = 2
+		mil = 3
+		dip = 3
+	}
+}
+
+1914.11.15 = {
+    set_ruler_flag = mineiro_president_flag
+	monarch = {
+		name = "Venceslau Br�s"
+		birth_date = 1868.2.26
+		adm = 3
+		dip = 1
+		mil = 3
+	}
+}
+
+1918.11.15 = {
+    set_ruler_flag = mineiro_president_flag
+	monarch = {
+		name = "Delfim Moreira"
+		birth_date = 1868.11.7
+		adm = 2
+		mil = 3
+		dip = 2
+	}
+}
+
+1919.7.28 = {
+    set_ruler_flag = mineiro_president_flag
+	monarch = {
+		name = "Epit�cio Pessoa"
+		birth_date = 1865.5.23
+		adm = 2
+		dip = 5
+		mil = 1
+	}
+}
+
+1922.3.25 = { decision = create_pcb }
+
+1922.6.1 = { decision = ban_the_pcb }
+
+1922.2.11 = { set_country_flag = semana_de_arte_moderna_happened }
+
+1922.11.15 = {
+    set_ruler_flag = mineiro_president_flag
+	monarch = {
+		name = "Artur Bernandes"
+		birth_date = 1875.8.8
+		adm = 4
+		dip = 2
+		mil = 3
+	}
+}
+
+1924.12.30 = { decision = DOPS }
+
+1926.1.1 = { decision = create_udn }
+
+1926.11.15 = {
+    set_ruler_flag = paulista_president_flag
+	monarch = {
+		name = "Washington Lu�s"
+		birth_date = 1869.10.26
+		adm = 1
+		mil = 3
+		dip = 5
+	}
+}
+
+1930.10.24 = {
+	monarch = {
+		name = "(provisional military junta)"
+		regent = yes
+		adm = 3
+		mil = 3
+		dip = 3
+	}
+}
+
+1930.11.3 = {
+    set_country_flag = 1930_provisory_government
+	set_ruler_flag = vargas
+	monarch = {
+		name = "Get�lio Vargas"
+		birth_date = 1882.4.19
+		adm = 4
+		mil = 5
+		dip = 3
+	}
+	leader = {	name = "Ernesto Beckmann Geisel"	type = general	rank = 2	fire = 2	shock = 3	manuever = 2	siege = 2	death_date = 1969.1.1 }
+	leader = {	name = "Em�lio Garrastazu M�dici"	type = general	rank = 2	fire = 3	shock = 3	manuever = 2	siege = 1	death_date = 1969.10.30 }
+	leader = {	name = "Castelo Branco"	type = general	rank = 2	fire = 2	shock = 2	manuever = 2	siege = 2	death_date = 1964.4.15 }
+	leader = {	name = "Costa e Silva"	type = general	rank = 3	fire = 3	shock = 3	manuever = 4	siege = 2	death_date = 1967.3.15 }	
+}
+
+1932.7.9 = { set_country_flag = revolution_of_1932 }
+
+1932.10.7 = { decision = create_integralism }
+
+1934.1.25 = { set_country_flag = USP }
+
+1934.7.16 = { 
+    government = constitutional_republic
+	set_country_flag = vargas_constitutional_mandate
+}
+
+1935.1.25 = { set_country_flag = had_intentona_comunista }
+
+1937.11.10 = { 
+	government = estado_novo
+}
+
+1939.1.1 = { decision = grande_sao_paulo }
+
+1943.5.1 = { decision = CLT }
+
+1941.4.9 = { decision = CSN }
+
+1942.1.1 = { decision = vale_do_rio_doce }
+
+1945.10.29 = {
+    government = constitutional_republic
+	decision = legalize_pcb
+	monarch = {
+		name = "Jos� Linhares"
+		birth_date = 1886.1.28
+		adm = 4
+		mil = 2
+		dip = 2
+	}
+}
+
+1946.1.31 = {
+    government = populist_republic
+	decision = ban_the_pcb
+    set_ruler_flag = social_democratic_president
+	set_ruler_flag = centrist_populism
+	monarch = {
+		name = "Eurico Gaspar Dutra"
+		birth_date = 1883.5.18
+		adm = 2
+		mil = 4
+		dip = 4
+	}
+}
+
+1947.10.2 = {
+    set_country_flag = MASP    
+}
+
+1951.1.31 = {
+    set_ruler_flag = ptb_president
+	set_ruler_flag = centrist_populism
+	monarch = {
+		name = "Get�lio Vargas"
+		birth_date = 1882.4.19
+		adm = 4
+		mil = 5
+		dip = 3
+	}
+}
+
+1953.10.3 = { decision = petrobras }
+
+1954.8.24 = {
+    set_ruler_flag = centrist_populism
+	monarch = {
+		name = "Caf� Filho"
+		birth_date = 1899.2.3
+		adm = 3
+		dip = 4
+		mil = 3
+	}
+}
+
+1955.11.11 = {
+    set_ruler_flag = centrist_populism
+	monarch = {
+		name = "Nereu Ramos"
+		birth_date = 1888.9.3
+		adm = 2
+		dip = 3
+		mil = 2
+	}
+}
+
+1956.1.31 = {
+    set_ruler_flag = social_democratic_president
+    set_ruler_flag = right_wing_populism
+	monarch = {
+		name = "Juscelino Kubitschek"
+		birth_date = 1902.9.12
+		adm = 5
+		dip = 3
+		mil = 4
+	}
+}
+
+1960.4.22 = { capital = 2801 } # Brasilia
+
+1961.1.31 = {
+    set_ruler_flag = ptb_president
+    set_ruler_flag = left_wing_populism
+	monarch = {
+		name = "Janio Quadros"
+		birth_date = 1917.1.25
+		adm = 3
+		mil = 3
+		dip = 2
+	}
+}
+
+1961.8.25 = {
+	monarch = {
+		name = "Ranieri Mazzilli"
+		birth_date = 1910.4.27
+		adm = 2
+		mil = 2
+		dip = 4
+	}
+}
+
+1961.9.7 = {
+    set_ruler_flag = ptb_president
+    set_ruler_flag = left_wing_populism
+	set_country_flag = jango_in_china
+	monarch = {
+		name = "Jo�o Goulart"
+		birth_date = 1918.3.1
+		adm = 4
+		mil = 3
+		dip = 2
+	}
+}
+
+1961.9.8 = {
+    government = parliamentary_republic
+	set_ruler_flag = limited_president_power
+	monarch = {
+	    name = "Tancredo Neves"
+		birth_date = 1910.3.4
+		adm = 2
+		mil = 3
+		dip = 4
+	}
+}
+
+1962.6.12 = {
+    set_ruler_flag = limited_president_power
+    monarch = {
+	    name = "Francisco Brochado da Rocha"
+		birth_date = 1910.8.8
+		adm = 4
+		mil = 2
+		dip = 2
+	}
+}
+
+1962.9.18 = {
+    set_ruler_flag = limited_president_power
+    monarch = {
+	    name = "Hermes Lima"
+		birth_date = 1902.12.22
+		adm = 6
+		mil = 1
+		dip = 5
+	}
+}
+
+1963.1.24 = {
+    government = constitutional_republic
+	set_ruler_flag = ptb_president
+	set_ruler_flag = left_wing_populism
+	monarch = {
+		name = "Jo�o Goulart"
+		birth_date = 1963.1.24
+		adm = 4
+		mil = 3
+		dip = 2
+	}
+}
+
+1964.4.2 = {
+    set_ruler_flag = military_president
+	monarch = {
+		name = "Ranieri Mazzilli"
+		birth_date = 1910.4.27
+		adm = 2
+		mil = 2
+		dip = 4
+	}
+}
+
+1964.4.9 = {
+    decision = AI-1
+	set_country_flag = ai-1
+}
+
+
+1964.4.15 = {
+	set_ruler_flag = military_president
+	monarch = {
+		name = "Castelo Branco"
+		birth_date = 1897.9.20
+		adm = 4
+		mil = 5
+		dip = 4
+	}
+}
+
+1964.5.9 = { set_country_flag = marighella_caught }
+
+1965.10.27 = {
+    decision = AI-2
+	set_country_flag = ai-2
+}
+
+1966.2.5 = {
+    decision = AI-3
+	set_country_flag = ai-3
+}
+
+1966.12.7 = {
+    decision = AI-4
+	government = regime_militar
+	set_country_flag = ai-4
+}
+
+1967.2.9 = { decision = lei_de_imprensa }
+
+1967.3.15 = {
+    set_ruler_flag = military_president
+	monarch = {
+		name = "Artur da Costa e Silva"
+		birth_date = 1899.10.3
+		adm = 3
+		mil = 5
+		dip = 4
+	}
+}
+
+1968.12.13 = {
+    decision = AI-5
+	set_country_flag = ai-5 
+}
+
+1969.1.1 = { 
+    set_country_flag = brazilian_economic_miracle
+    decision = the_miracle_starts
+}
+
+1969.8.31 = {
+	monarch = {
+		name = "(military junta)"
+		regent = yes
+		adm = 2
+		mil = 4
+		dip = 2
+	}
+}
+
+1969.10.30 = {
+    set_ruler_flag = military_president
+	monarch = {
+		name = "Em�lio Garrastazu M�dici"
+		birth_date = 1905.12.4
+		adm = 3
+		mil = 5
+		dip = 5
+	}
+}
+
+1970.1.1 = { decision = encourage_patriotism }
+
+1974.3.15 = {
+    set_ruler_flag = military_president
+	decision = end_patriotism
+	monarch = {
+		name = "Ernesto Geisel"
+		birth_date = 1907.8.3
+		adm = 4
+		mil = 5
+		dip = 2
+	}
+}
+
+1978.12.1 = { decision = revoke_ais }
+
+1979.3.15 = {
+    decision = the_lost_decade
+	set_country_flag = had_lost_decade
+    set_ruler_flag = military_president
+	monarch = {
+		name = "Jo�o Figueiredo"
+		birth_date = 1918.1.15
+		adm = 3
+		mil = 5
+		dip = 4
+	}
+}
+
+1979.11.20 = { decision = abolish_bipartidarism }
+
+1979.11.20 = { decision = create_pds }
+
+1979.11.20 = { decision = create_pmdb }
+
+1979.11.20 = { decision = remove_arena }
+
+1979.11.20 = { decision = remove_mdb }
+
+1980.2.10 = { decision = create_pt }
+
+1981.11.3 = { decision = recreate_ptb }
+
+1981.11.10 = { decision = create_pdt }
+
+1982.1.1 = { decision = create_monarchy }
+
+1985.3.15 = {
+    set_country_flag = republicanova
+	monarch = {
+		name = "Jos� Sarney"
+		birth_date = 1930.4.24
+		adm = 2
+		dip = 4
+		mil = 3
+	}
+}
+
+1986.9.11 = { decision = create_dem }
+
+1988.8.25 = { decision = create_psdb }
+
+1989.1.1 = { decision = create_prona }
+
+1989.3.15 = { decision = the_lost_decade_end }
+
+1990.2.22 = { decision = create_psc }
+
+1990.3.15 = {
+    government = constitutional_republic
+	monarch = {
+		name = "Fernando Collor"
+		birth_date = 1949.8.12
+		adm = 4
+		dip = 2
+		mil = 3
+	}
+}
+
+1992.6.19 = { set_country_flag = sul_meu_pais }
+
+1992.12.29 = {
+	monarch = {
+		name = "Itamar Franco"
+		birth_date = 1930.6.28
+		adm = 2
+		mil = 3
+		dip = 5
+	}
+}
+
+1993.9.30 = { decision = create_verde }
+
+1995.1.1 = {
+	monarch = {
+		name = "Fernando Henrique Cardoso"
+		birth_date = 1931.6.18
+		adm = 3
+		mil = 5
+		dip = 2
+	}
+}
+
+1995.3.28 = { decision = create_prtb }
+
+1996.3.9 = {
+    decision = create_pcb
+	decision = legalize_pcb
+}
+
+1997.1.28 = { decision = allow_reelection }
+
+2003.1.1 = {
+	monarch = {
+		name = "Luiz In�cio Lula da Silva"
+		birth_date = 1945.10.27
+		adm = 5
+		mil = 1
+		dip = 4
+	}
+}
+
+2005.9.15 = { decision = create_psol }
+
+2006.12.19 = { decision = create_pr }
+
+2011.1.1 = {
+	monarch = {
+		name = "Dilma Rousseff"
+		birth_date = 1947.12.14
+		adm = 4
+		mil = 1
+		dip = 4
+		female = yes
+	}
+}
+
+2011.3.11 = { decision = recreate_psd }
+
+2015.9.22 = { decision = create_rede }
+
+2016.5.12 = {
+	monarch = {
+		name = "Michel Temer"
+		birth_date = 1940.9.23
+		adm = 3
+		mil = 1
+		dip = 3
+	}
+}

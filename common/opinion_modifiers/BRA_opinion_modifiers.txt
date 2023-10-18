@@ -1,0 +1,11 @@
+defended_our_interests = {
+    opinion = 25
+	yearly_decay = 1
+	max = 25
+}
+
+displeased = {
+    opinion = -25
+	min = -100
+	yearly_decay = 1
+}

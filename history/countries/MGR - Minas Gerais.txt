@@ -1,0 +1,9 @@
+government = oligarchic_republic 
+mercantilism = 0.1
+technology_group = western
+religion = catholic
+primary_culture = iberian_brazilian
+capital = 765	# Minas Gerais
+ 
+
+

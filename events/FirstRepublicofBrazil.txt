@@ -1,0 +1,531 @@
+namespace = republicavelha
+
+# Partido Paulista is created
+country_event = {
+    id = republicavelha.1
+	title = "VELHA1NAME"
+	desc = "VELHA1DESC"
+	picture = DEBATE_REPUBLICAN_eventPicture
+	
+	trigger = {
+	    tag = BRZ
+		government = coronelist_republic
+		NOT = { has_faction = partido_paulista }
+		OR = {
+			owns = 766
+			owns = 2782
+			owns = 2783
+		}
+	}
+	
+	mean_time_to_happen = {
+	    days = 1
+	}	
+		
+	option = {
+	    name = "VELHA1OPT1"
+	    custom_tooltip = "partido_paulista_created"
+		hidden_effect = {
+			add_faction = partido_paulista
+		}
+	}
+}
+
+# Partido Mineiro is created
+country_event = {
+    id = republicavelha.2
+	title = "VELHA2NAME"
+	desc = "VELHA2DESC"
+	picture = DEBATE_REPUBLICAN_eventPicture
+	
+	trigger = {
+	    tag = BRZ
+		government = coronelist_republic
+		NOT = { has_faction = partido_mineiro }
+		OR = {
+			owns = 765
+			owns = 2795
+			owns = 2794
+			owns = 2793
+			owns = 2796
+			owns = 759
+			owns = 2800
+		}
+	}
+	
+	mean_time_to_happen = {
+	    days = 1
+	}	
+		
+	option = {
+	    name = "VELHA2OPT1"
+	    custom_tooltip = "partido_mineiro_created"
+		hidden_effect = {
+			add_faction = partido_mineiro
+		}
+	}
+}
+
+# Partido Fluminense is created
+country_event = {
+    id = republicavelha.3
+	title = "VELHA3NAME"
+	desc = "VELHA3DESC"
+	picture = DEBATE_REPUBLICAN_eventPicture
+	
+	trigger = {
+	    tag = BRZ
+		government = coronelist_republic
+		NOT = { has_faction = partido_fluminense }
+		NOT = { has_country_flag = reformed_parties }
+		OR = {
+			owns = 762
+			owns = 763
+			owns = 764
+		}
+	}
+	
+	mean_time_to_happen = {
+	    days = 1
+	}	
+		
+	option = {
+	    name = "VELHA3OPT1"
+	    custom_tooltip = "partido_fluminense_created"
+		hidden_effect = {
+			add_faction = partido_fluminense
+		}
+	}
+}
+
+# Partido Paulista dissolved
+country_event = {
+    id = republicavelha.4
+	title = "VELHA4NAME"
+	desc = "VELHA4DESC"
+	picture = DEBATE_REPUBLICAN_eventPicture
+	
+	trigger = {
+	    tag = BRZ
+		government = coronelist_republic
+		has_faction = partido_paulista
+		NOT = {
+		    owns = 766
+			owns = 2782
+			owns = 2783
+		}
+	}
+	
+	mean_time_to_happen = {
+	    days = 1
+	}
+	
+	option = {
+	    name = "VELHA4OPT1"
+		custom_tooltip = "partido_paulista_dissolved"
+		hidden_effect = {
+		    remove_faction = partido_paulista
+		}
+	}
+}
+
+# Partido Mineiro dissolved
+country_event = {
+    id = republicavelha.5
+	title = "VELHA5NAME"
+	desc = "VELHA5DESC"
+	picture = DEBATE_REPUBLICAN_eventPicture
+	
+	trigger = {
+	    tag = BRZ
+		government = coronelist_republic
+		has_faction = partido_mineiro
+		NOT = {
+		    owns = 765
+			owns = 2795
+			owns = 2794
+			owns = 2793
+			owns = 2796
+			owns = 759
+			owns = 2800
+		}
+	}
+	
+	mean_time_to_happen = {
+	    days = 1
+	}
+	
+	option = {
+	    name = "VELHA5OPT1"
+		custom_tooltip = "partido_mineiro_dissolved"
+		hidden_effect = {
+		    remove_faction = partido_mineiro
+		}
+	}
+}
+
+# Partido Fluminense dissolved
+country_event = {
+    id = republicavelha.6
+	title = "VELHA6NAME"
+	desc = "VELHA6DESC"
+	picture = DEBATE_REPUBLICAN_eventPicture
+	
+	trigger = {
+	    tag = BRZ
+		government = coronelist_republic
+		has_faction = partido_fluminense
+		NOT = {
+		    owns = 762
+			owns = 763
+			owns = 764
+		}
+	}
+	
+	mean_time_to_happen = {
+	    days = 1
+	}
+	
+	option = {
+	    name = "VELHA6OPT1"
+		custom_tooltip = "partido_fluminense_dissolved"
+		hidden_effect = {
+		    remove_faction = partido_fluminense
+		}
+	}
+}
+
+# Restoration of the Monarchy
+country_event = {
+    id = republicavelha.7
+	title = "VELHA7NAME"
+	desc = "VELHA7DESC"
+	picture = GOOD_WITH_MONARCH_eventPicture
+	
+	is_triggered_only = yes
+	
+	immediate = {
+	    set_country_flag = decided_to_restore_monarchy
+	}
+	
+	option = {
+	    name = "VELHA7OPT1"
+		trigger = {
+		    has_country_flag = deposed_imperial_family
+		}
+		custom_tooltip = "orleans_e_braganza_voltarao"
+		hidden_effect = {
+			change_government = constitutional_monarchy
+			set_government_rank = 3
+		    if = {
+			    limit = {
+				    is_year = 1889
+					NOT = { is_year = 1891 }   
+				}
+				set_ruler = "Pedro II"
+				set_heir = "Isabel"
+			}
+			if = {
+			    limit = {
+				    is_year = 1891
+					NOT = { is_year = 1921 }
+				}
+				kill_ruler = yes
+				set_heir = "Isabel"
+			}
+			if = {
+			    limit = {
+				    is_year = 1921
+					NOT = { is_year = 1981 }
+				}
+				define_ruler = {
+				    name = "Pedro III"
+					dynasty = "de Orleans-Braganza"
+					birth_date = 1909.9.13
+					claim = 75
+					regency = no
+					female = no
+					adm = 5
+					dip = 4
+					mil = 4
+				}
+			}
+			if = {
+			    limit = {
+				    is_year = 1981
+				}
+				define_ruler = {
+				    name = "Luiz I"
+					dynasty = "de Orleans-Braganza"
+					birth_date = 1938.6.6
+					claim = 75
+					regency = no
+					female = no
+					adm = 4
+					dip = 2
+					mil = 4
+				}
+			}
+		}
+	}
+	
+	option = {
+	    name = "VELHA7OPT1"
+		trigger = {
+		    NOT = { has_country_flag = deposed_imperial_family }
+		}
+		custom_tooltip = "orleans_e_braganza_assumirao"
+		hidden_effect = {
+			change_government = constitutional_monarchy
+			set_government_rank = 3
+		    if = {
+			    limit = {
+				    is_year = 1889
+					NOT = { is_year = 1921 }
+				}
+				define_ruler = {
+				    name = "Isabel I"
+					dynasty = "de Orleans-Braganza"
+					birth_date = 1847.6.12
+					claim = 75
+					regency = no
+					female = yes
+					adm = 5
+					dip = 5
+					mil = 4
+				}
+			}
+			if = {
+			    limit = {
+				    is_year = 1921
+					NOT = { is_year = 1981 }
+				}
+				define_ruler = {
+				    name = "Pedro III"
+					dynasty = "de Orleans-Braganza"
+					birth_date = 1909.9.13
+					claim = 75
+					regency = no
+					female = no
+					adm = 5
+					dip = 4
+					mil = 4
+				}
+			}
+			if = {
+			    limit = {
+				    is_year = 1981
+				}
+				define_ruler = {
+				    name = "Luiz I"
+					dyansty = "de Orleans-Braganza"
+					birth_date = 1938.6.6
+					claim = 75
+					regency = no
+					female = no
+					adm = 4
+					dip = 2
+					mil = 4
+				}
+			}
+		}
+	}
+	
+	option = {
+	    name = "VELHA7OPT2"
+		hidden_effect = {
+	    	change_government = constitutional_monarchy
+    		set_government_rank = 3
+		}
+	}
+	
+	option = {
+	    name = "VELHA7OPT3"
+		clr_country_flag = decided_to_restore_monarchy
+		if = {
+		    limit = {
+			    has_country_flag = monarquianova
+			}
+			clr_country_flag = monarquianova
+			country_event = { id = militarybrazil.24 }
+		}
+	}
+}
+
+# Partido Comunista Brasileiro is created
+country_event = {
+    id = republicavelha.8
+	title = "VELHA8NAME"
+	desc = "VELHA8DESC"
+	picture = COMMUNISM_eventPicture
+	
+	trigger = {
+	    tag = BRZ
+		NOT = { has_faction = partido_comunista_brasileiro }
+		is_year = 1922
+		NOT = { is_year = 1930 }
+		adm_tech = 83
+		government = coronelist_republic
+	}
+	
+	mean_time_to_happen = {
+	    months = 1
+	}
+	
+	option = {
+	    name = "VELHA8OPT1"
+	    custom_tooltip = "partido_comunista_created"
+		hidden_effect = {
+			add_faction = partido_comunista_brasileiro
+		}
+	}
+}
+
+# Semana de Arte Moderna
+country_event = {
+    id = republicavelha.9
+	title = "VELHA9NAME"
+	desc = "VELHA9DESC"
+	picture = SEMANA_DE_ARTE_eventPicture
+	
+	trigger = {
+	    tag = BRZ
+		is_year = 1922
+		NOT = { is_year = 1930 }
+		NOT = { has_country_modifier = semana_de_arte_moderna }
+		NOT = { has_country_flag = semana_de_arte_moderna_happened }
+	}
+	
+	mean_time_to_happen = {
+	    months = 2
+	}
+	
+	option = {
+	    name = "VELHA9OPT1"
+		add_country_modifier = {
+		    name = "semana_de_arte_moderna"
+			duration = 3650
+		}
+	}
+}
+
+# Academia de Letras
+country_event = {
+    id = republicavelha.10
+	title = "VELHA10NAME"
+	desc = "VELHA10DESC"
+	picture = AD_IMMORTALITATEM_eventPicture
+	
+	trigger = {
+	    tag = BRZ
+		is_year = 1896
+		NOT = { is_year = 1910 }
+		NOT = { has_country_modifier = academia_de_letras }
+		NOT = { has_country_flag = academia_de_letras_happened }
+	}
+	
+	mean_time_to_happen = {
+	    months = 6
+	}
+	
+	option = {
+	    name = "VELHA10OPT1"
+		add_country_modifier = {
+		    name = "academia_de_letras"
+			duration = 3650
+		}
+	}
+}
+
+# Partido Riograndense is created
+country_event = {
+    id = republicavelha.11
+	title = "VELHA11NAME"
+	desc = "VELHA11DESC"
+	picture = DEBATE_REPUBLICAN_eventPicture
+	
+	trigger = {
+	    tag = BRZ
+		government = coronelist_republic
+		NOT = { has_faction = partido_riograndense }
+		OR = {
+			owns = 770
+			owns = 771
+			owns = 2779
+		}
+		NOT = {
+		    has_country_flag = reformed_parties
+		}
+	}
+	
+	mean_time_to_happen = {
+	    days = 1
+	}	
+		
+	option = {
+	    name = "VELHA3OPT1"
+	    custom_tooltip = "partido_riograndense_created"
+		hidden_effect = {
+			add_faction = partido_riograndense
+		}
+	}
+}
+
+# Partido Riograndense dissolved
+country_event = {
+    id = republicavelha.12
+	title = "VELHA12NAME"
+	desc = "VELHA12DESC"
+	picture = DEBATE_REPUBLICAN_eventPicture
+	
+	trigger = {
+	    tag = BRZ
+		government = coronelist_republic
+		has_faction = partido_riograndense
+		NOT = {
+		    owns = 770
+			owns = 771
+			owns = 2779
+		}
+	}
+	
+	mean_time_to_happen = {
+	    days = 1
+	}
+	
+	option = {
+	    name = "VELHA6OPT1"
+		custom_tooltip = "partido_riograndense_dissolved"
+		hidden_effect = {
+		    remove_faction = partido_riograndense
+		}
+	}
+}
+
+# PDN is created
+country_event = {
+    id = republicavelha.13
+	title = "VELHA13NAME"
+	desc = "VELHA13DESC"
+	picture = DEBATE_REPUBLICAN_eventPicture
+	
+	trigger = {
+	    tag = BRZ
+		is_year = 1926
+		NOT = { is_year = 1930 }
+		government = coronelist_republic
+		NOT = { has_faction = partido_democratico_nacional }
+	}
+	
+	mean_time_to_happen = {
+	    months = 1
+	}
+	
+	option = {
+	    name = "VELHA13OPT1"
+	    custom_tooltip = "partido_democratico_nacional_created"
+		hidden_effect = {
+			add_faction = partido_democratico_nacional
+		}
+	}
+}
